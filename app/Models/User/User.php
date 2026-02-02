@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
@@ -45,5 +46,29 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    //Properties for roles
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Roles::class, 'user_roles');
+    }
+
+    public function hasRole(string $role): bool
+    {
+        return $this->roles()->where('role_name', $role)->exists();
+    }
+
+    // Properties for user images
+    public function userImg()
+    {
+        return $this->hasOne(User_img::class);
+    }
+    public function getProfileImageAttribute()  // In blade file function is called profile_image
+    {
+        if ($this->userImg != null) {
+            return asset('storage/' . $this->userImg->img);
+        }
+        return asset('img/profile-picture.png');
     }
 }

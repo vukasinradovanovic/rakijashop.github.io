@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <x-validation.pop-up-window msg="{{ session ('success') }}" type="success"/>
     @include('components.header.nav')
     <main>
         @yield('main')
