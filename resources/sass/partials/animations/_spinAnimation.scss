@@ -1,0 +1,56 @@
+// Custom property definition
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin {
+    0% {
+      --angle: 0deg;
+      background-image: conic-gradient(
+        from var(--angle),
+        transparent,
+        transparent,
+        transparent,
+        $primary-color-lighter
+      );
+    }
+    25% {
+        --angle: 60deg;
+      background-image: conic-gradient(
+        from var(--angle),
+        transparent,
+        transparent,
+        transparent,
+        $primary-color-lighter
+      );
+    }
+    50% {
+        --angle: 180deg;
+        background-image: conic-gradient(
+          from var(--angle),
+          transparent,
+          $primary-color-lighter
+        );
+      }
+    75% {
+        --angle: 240deg;
+        background-image: conic-gradient(
+          from var(--angle),
+          transparent,
+          transparent,
+          $primary-color-lighter,
+          $primary-color-lighter,
+          $primary-color-lighter
+        );
+      }
+    100% {
+      --angle: 360deg;
+      background-image: conic-gradient(
+        from var(--angle),
+        $primary-color-lighter,
+        $primary-color-lighter
+      );
+    }
+  }

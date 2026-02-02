@@ -1,0 +1,5 @@
+.userHeader{
+    &_img {
+        @include circleImg(40);
+    }
+}

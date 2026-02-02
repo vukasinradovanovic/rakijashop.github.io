@@ -1,0 +1,19 @@
+.shop {
+    &_hero {
+            height: rem(300);
+            border-radius: $border-radius-normal $border-radius-normal 0 0;
+            &_user {
+                position: absolute;
+                bottom: -100px;
+                width: rem(100);
+                &_img {
+                    background-position: center;
+                    background-size: cover;
+                    @include circleImg(100)
+                }
+            }
+        }
+    &_info {
+            border-radius:0 0 $border-radius-normal $border-radius-normal ;
+        }
+}

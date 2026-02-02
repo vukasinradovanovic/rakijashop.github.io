@@ -1,0 +1,27 @@
+$breakpoints: (
+    "min-screen": 0,
+    "s-screen": 480px,
+    "m-screen": 860px,
+    "l-screen": 1200px,
+);
+
+@mixin xs{
+    @media (min-width: map-get($breakpoints, "min-screen")){
+        @content;
+    }
+}
+@mixin s{
+    @media (min-width: map-get($breakpoints, "s-screen")){
+        @content;
+    }
+}
+@mixin m{
+    @media (min-width: map-get($breakpoints, "m-screen")){
+        @content;
+    }
+}
+@mixin l{
+    @media (min-width: map-get($breakpoints, "l-screen")){
+        @content;
+    }
+}

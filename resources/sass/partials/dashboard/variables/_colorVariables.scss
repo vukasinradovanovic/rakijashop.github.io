@@ -1,0 +1,21 @@
+$dash-primary-color: #818181;
+$dash-secondary-color:#f1f1f1;
+$dash-dark-color: #000;
+$dash-light-color: $dash-secondary-color;
+
+$dash-primary-color-lighter:lighten($dash-primary-color,15%);
+$dash-primary-color-lighter-5:lighten($dash-primary-color,5%);
+$dash-dash-primary-color-lighter-20:lighten($dash-primary-color,20%);
+$dash-dash-primary-color-darken:darken($dash-primary-color,10%);
+
+$dash-secondary-color-lighter:lighten($dash-secondary-color,15%);
+$dash-secondary-color-lighter-5:lighten($dash-secondary-color,5%);
+$dash-secondary-color-lighter-20:lighten($dash-secondary-color,20%);
+$dash-secondary-color-darken:darken($dash-secondary-color,5%);
+
+$dash-bg-color: $dash-primary-color;
+
+$dash-text-primary: $dash-dark-color;
+$dash-text-light: $dash-light-color;    
+
+$dash-border-color-primary : lighten($dash-dark-color, 80%);

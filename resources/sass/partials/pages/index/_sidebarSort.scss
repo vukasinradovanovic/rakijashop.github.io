@@ -1,0 +1,27 @@
+.sidebar{
+    border-radius: $border-radius-sidebar;
+    height: 100%;
+   &_filter{
+    &_item{
+        border-bottom: 1px solid rgb(210, 210, 210);
+
+        p{
+            line-height: rem(50);
+            font-size: 1.2rem;
+            i{
+                transition: 0.15s;
+            }
+        }
+        &_checkboxes{
+            max-height: 300px;
+            overflow-y: auto; 
+            li{
+                line-height: rem(40);
+            }
+        }
+    }
+} 
+#filter-form{
+    
+}
+}

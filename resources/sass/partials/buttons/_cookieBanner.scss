@@ -1,0 +1,30 @@
+.cookie_banner {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #222;
+    color: $white-text;
+    padding: rem(25);
+    z-index: 9999;
+    &_text{
+      max-height: rem(150);
+      overflow-y: auto;
+      @media (max-width:500px) {
+        max-height: rem(250);
+    }
+    }
+  }
+  
+  .cookie_banner button {
+    margin: rem(10);
+    width: rem(200);
+    padding: rem(12) 0;
+    border: none;
+    color: $white-text;
+    cursor: pointer;
+    &:last-of-type {
+      background-color: rgb(122, 0, 0); // Odbij
+    }
+    
+  }

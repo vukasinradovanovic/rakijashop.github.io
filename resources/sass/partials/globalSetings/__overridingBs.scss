@@ -1,0 +1,38 @@
+.form-control{
+    &:focus{
+        border-color:$primary-color-lighter-20;
+        box-shadow: 0 0 0 0.25rem rgba($primary-color-lighter-20,0.25);
+    }
+}
+.form-select{
+    &:focus{
+        border-color:$primary-color-lighter-20;
+        box-shadow: 0 0 0 0.25rem rgba($primary-color-lighter-20,0.25);
+    }
+}
+.form-check-input:checked {
+    background-color: $primary-color-lighter-20;  /* Zeleni pozadinski color */
+    border-color: $primary-color-lighter-20;      /* Zeleni border */
+}
+.form-check-input:focus {
+    box-shadow: none;
+    border-color: $primary-color-lighter-20;
+}
+
+.pagination{
+    --bs-pagination-color: black !important;
+    --bs-pagination-active-bg:#4c952a;
+    --bs-pagination-hover-color: black !important;
+    --bs-pagination-focus-box-shadow:none !important;
+    --bs-pagination-active-border-color: #4c952a;
+    --bs-pagination-focus-color: black !important;
+    .page-item{
+        .page-link{
+        .active{
+            border: none;
+        }
+    }
+    }
+    
+
+}

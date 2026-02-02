@@ -1,0 +1,7 @@
+.contactForm{
+    max-width: rem(500);
+    width: 100%;
+    input, textarea, select{
+        background-color: rgba($primary-color-lighter-20,0.1);
+    }
+}

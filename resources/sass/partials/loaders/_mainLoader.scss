@@ -1,0 +1,27 @@
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease-in-out;
+  
+  .spinner {
+    border: rem(5) solid $primary-bg;
+    border-top: rem(5) solid $primary-color-lighter; 
+    border-radius: 50%;
+    width: rem(50);
+    height: rem(50);
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

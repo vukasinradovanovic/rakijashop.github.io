@@ -1,0 +1,16 @@
+.dashboard {
+    background-color: $dash-bg-color;
+    color: $dash-text-primary;
+    min-height: 100vh;
+    padding-left: rem(250);
+    
+    h1, h2 ,h3, h4 {
+        color: $dash-text-light;
+    }
+
+    &_pagination {
+        display: flex;
+        justify-content: center;
+        font-size: larger !important;
+    }
+}

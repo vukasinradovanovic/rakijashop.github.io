@@ -1,0 +1,6 @@
+@mixin hoverText($color: $primary-bg, $trans: $transition){
+    transition: color $trans ease-in-out;
+    &:hover {
+        color: $color;
+    }
+}

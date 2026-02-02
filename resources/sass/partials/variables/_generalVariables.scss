@@ -1,0 +1,17 @@
+$transition : 0.5s;
+$opacity: 0.2;
+
+$border-radius-sidebar:rem(10);
+$border-radius-normal: rem(10);
+$border-radius-btn: rem(4);
+
+$shadow: 0 0 rem(10) rem(-5);
+$shadow-2: 0 rem(2) rem(5) rgba(0, 0, 0, 0.2);
+
+$shadow-blue: 0 0 rem(10) rem(-5) $blue-color;
+$shadow-yellow: 0 0 rem(10) rem(-5) $yellow-color;
+$shadow-special: 0 0 rem(20) rem(5) $yellow-color;
+
+$font-size-general: rem(12);
+$font-size-bigger: rem(16);
+$font-size-biggest: rem(24);

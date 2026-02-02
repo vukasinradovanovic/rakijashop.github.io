@@ -1,0 +1,17 @@
+.imageInputGroup {
+
+    &_item {
+        position: relative;
+        display: inline-block;
+    }
+
+    &_previewImage{
+        width: rem(150);
+        margin: rem(5);
+    
+        &--ghost{
+            opacity: 0.4;
+            border: rem(2) dashed #999;
+        }
+    }
+}

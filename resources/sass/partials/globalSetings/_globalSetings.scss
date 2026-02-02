@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: "Mukta", serif;
+}
+h1,h2,h3,h4,h5{
+    font-family: "Poppins", serif;
+}
+.min-height-100{
+    min-height: 100vh;
+}
+body {
+    background-color: $primary-bg;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+button {
+    border: none;
+}
+.bg-white-color {
+    background-color: white;
+}
+.bg-primary-color {
+    background-color: $primary-color;
+}
+.bg-primary-color-lighter {
+    background-color: $primary-color-lighter-20;
+}
+.bg-primary-color-lighter-5 {
+    background-color: $primary-color-lighter-5;
+}
+.primary-color {
+    color: $primary-color;
+}
+.secondary-color {
+    color: $secondary-color;
+}
+.bg-secondary-color {
+    background-color: $secondary-color;
+}
+.okvir{
+    border: 1px solid black; //samo za testiranje organizacije blokova
+    
+}
+.border-radius-normal {
+    border-radius: $border-radius-normal !important;
+}
+.border-primary-color {
+    border: rem(1) solid $primary-color;
+}
+.error{
+    color: red;
+}
+.ring-red {
+    border: 1px solid red;
+    background-color: rgba(255, 0, 0, 0.05);
+}
+.rotate180 {
+    transform: rotate(180deg);
+}
+.color-blue { //for crown on premium posts cards
+    color: $blue-color;
+}
+.color-yellow { //for star on paid posts cards
+    color: $yellow-color;
+}
+
+.shadow-blue{
+    box-shadow: $shadow-blue !important;
+}
+.shadow-yellow{
+    box-shadow: $shadow-yellow !important;
+}
+.activePage{
+    background-color: rgba($primary-color-lighter-20, 0.4);
+    color: $primary-color-darken;
+    padding: 0 rem(5);
+}

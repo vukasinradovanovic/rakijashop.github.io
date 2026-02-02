@@ -1,0 +1,17 @@
+.hero_serviceCard {
+    height: rem(244);
+    width: 100%;
+    position: relative;
+    border-radius: $border-radius-normal;
+    overflow: hidden;
+    &_priceAndButton{
+        position: absolute;
+        bottom:rem(2);
+        box-sizing: border-box;
+        width: 100%;
+        padding-right:1.5rem  ;
+        p{
+          margin: 0;
+        }
+    }
+}

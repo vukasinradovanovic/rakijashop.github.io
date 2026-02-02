@@ -1,0 +1,10 @@
+@mixin absolute($top,$right){  //right
+    position: absolute;
+    top: $top;
+    right: $right;
+}
+@mixin fixed($top,$left){  //left
+    position: fixed;
+    top: $top;
+    left: $left;
+}

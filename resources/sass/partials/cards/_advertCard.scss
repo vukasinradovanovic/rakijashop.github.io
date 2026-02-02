@@ -1,0 +1,90 @@
+ .postCard {  //common atributes for both type of card
+    position: relative;
+    border-radius: $border-radius-card;
+    box-shadow: $shadow;
+    &_img {
+        position: relative;
+        background-position:center;
+        background-size: cover;
+        overflow: hidden;
+        &_views{
+            position: relative;
+            z-index: 30;
+        }
+    }
+    &_body {
+        overflow: visible;
+        &_desc {
+            font-size: 0.8rem;
+        }
+        &_cityAndPrice {
+            font-size: 1rem;
+            @media (max-width:400px) {
+                font-size: 0.8rem;
+            }
+        }
+        &_price{
+            padding: rem(3) rem(8) 0 rem(8);
+            border-radius:$border-radius-card 0 $border-radius-card 0;
+            background-color: $primary-color;
+            color: white;
+
+        }
+    }
+      
+    .overlay{
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    &:hover .overlay{
+        transition: 0.3s ease;
+        background-color: rgba(0, 0, 0, 0.1)
+    }
+ }
+
+  .postCard--square { // modifier for square type of card
+    aspect-ratio: 1/1.1;
+    .postCard_img {
+        height: 55%;
+        border-radius: $border-radius-card $border-radius-card 0 0;
+    }
+    .postCard_body {
+        border-radius:0 0 $border-radius-card $border-radius-card;
+        height: 45%;
+        min-height: rem(120);
+        
+    }
+    .overlay{
+        border-radius: $border-radius-card $border-radius-card 0 0;
+    }
+  
+}
+
+
+.postCard--inline { //modifier for inline type of card
+    height: rem(150);
+    .postCard_img {
+        height: 100%;
+        border-radius: $border-radius-card 0 0 $border-radius-card;
+    }
+    .postCard_body {
+        border-radius:0 0 $border-radius-card $border-radius-card;
+    }
+    .overlay{
+        border-radius: $border-radius-card 0 0 $border-radius-card;
+    }
+   
+  
+}
+
+
+
+//for showing 3 rows of description on postcard inline
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

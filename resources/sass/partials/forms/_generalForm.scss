@@ -1,0 +1,41 @@
+.formGeneral{
+    max-width: rem(800);
+    margin: auto;
+    width: 100%;
+    box-shadow: 0 0 rem(20) -15px;
+
+    background-color: $secondary-bg;
+
+    
+    &_Password{                                   //pseduo class for page EditPasswort just for height
+        max-width: rem(800);
+        height: rem(656);
+        margin: auto;
+        width: 100%;
+        box-shadow: 0 0 rem(20) -15px;
+    
+        background-color: $secondary-bg;
+    }
+
+
+}
+.wellcomeHeader1{
+    margin-top: rem(40);
+    margin-bottom: rem(40);
+}
+.user-Edit-Ul{
+    margin-top: rem(40);
+}
+.disabledField{
+    background-color:#e9ecef;
+}
+.customFileLabel{
+    padding: rem(10) rem(30);
+    border-radius: rem(10);
+    border: 2px dashed $primary-color;
+    &:hover{
+        background-color: rgba($primary-color, 0.1);
+        transition: 0.2s ease;
+    }
+    
+}

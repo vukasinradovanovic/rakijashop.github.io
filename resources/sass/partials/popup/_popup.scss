@@ -1,0 +1,54 @@
+.popup {
+    position: fixed;
+    right: rem(5);
+    top: rem(100);
+    width: 18%;
+    z-index: 10;
+    opacity: 1;
+    transition: all 0.3s ease;
+
+    &-item {
+        font-size: rem(16);
+        word-break: break-word;
+    }
+
+    &.show {
+        animation: fadeSlideUp 0.5s 4s forwards;
+    }
+    
+    @include xs {
+        width: 95%;
+        font-size: rem(16);
+    }
+
+    @include s {
+        width: 50%;
+     }
+
+    @include m {
+        width: 25%;
+    }
+
+    @include l {
+        width: 18%;
+    }
+    &.popup--error {
+        background-color: rgba(255, 0, 0, 0.45); // crvena za greške
+        color: white;
+        border-right: 5px solid red;
+    }
+
+    &.popup--success {
+        background-color: rgba($primary-color-lighter-20, 0.45); 
+        color: rgb(0, 82, 0);// zelena za uspeh
+        border-right: 5px solid green;
+    }
+}
+
+@keyframes fadeSlideUp {
+    to {
+        opacity: 0;
+        transform: translateX(rem(50));
+        visibility: hidden;
+    }
+}

@@ -1,0 +1,41 @@
+$primary-color: #4e763b;
+$secondary-color:#ffce4d; //#c2b52a d4c731 f2e231
+
+$primary-color-lighter:lighten($primary-color,15%);
+$primary-color-lighter-5:lighten($primary-color,5%);
+$primary-color-lighter-20:lighten($primary-color,20%);
+$primary-color-darken:darken($primary-color,10%);
+
+$secondary-color-lighter:lighten($secondary-color,15%);
+$secondary-color-lighter-5:lighten($secondary-color,5%);
+$secondary-color-lighter-20:lighten($secondary-color,20%);
+$secondary-color-darken:darken($secondary-color,10%);
+
+$warning-color: red;
+$warning-color-lighter:lighten($warning-color,15%);
+
+$premium-content: $primary-color-lighter-20;              //rgba(#8ec3ff, 0.712);
+$paid-content: #ffee8e;
+
+$primary-bg: #f1f1f1;
+$secondary-bg: #fff;
+
+$primary-bg-lighter: lighten($primary-bg,15%);
+$secondary-bg-lighter: lighten($secondary-bg,15%);
+
+$Black-Collor-For-Text:#000;
+$primary-text: #0B1215;
+$secondary-text:$primary-color;
+$white-text: #f1f1f1;
+$red-text: #c80815; //color for premium ribbon
+
+$border-color-primary: $primary-color;
+$border-color-button: $primary-color;
+
+// DOTS COLORS
+
+$slick-dot-color: gray;
+$slick-dot-active-color: $primary-color-lighter-20;
+
+$blue-color: rgb(67, 10, 222);
+$yellow-color: rgb(241, 181, 0);

@@ -1,0 +1,53 @@
+.pricingTable {
+    &_card {
+        border: rem(2) solid $primary-color;
+        border-radius: $border-radius-normal;
+
+        &Top {
+            min-height: rem(120);
+
+            &Header {
+                h3 {
+                    font-size: 2.2rem;
+                }
+            }
+
+            &Button {
+                a {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        &Price {
+            p {
+                color: $primary-color;
+                font-size: 1.3rem;
+                font-weight: bold;
+                border: rem(2) dashed $primary-color;
+                width: fit-content;
+                padding: 0 rem(10);
+                border-radius: $border-radius-normal;
+            }
+
+            span {
+                font-size: 1.8rem;
+            }
+        }
+
+        &Desc {
+            min-height: rem(300);
+            p {
+                font-size: 1.3rem;
+                i {
+                    color: $primary-color;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        &--special {
+            box-shadow: $shadow-special;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+.footer_mainIcons {
+    &Holder {
+        &Item {
+            position: relative;
+            padding:0 rem(50);
+            &Link {
+                @each $name, $unicode in $icons_social_media {
+                &--#{$name}::before {
+                    @include icon($unicode);          //Mixin for generating icons
+                    }
+                    color: $primary-color-lighter-20;
+                    @include hoverText;
+                    font-size: rem(15);
+                    padding: rem(10);
+                    transition: all $transition ease;
+                    &Text {
+                        display: none;
+                        padding: 0 rem(5);
+                    }
+                }
+            }
+        }
+    }
+}

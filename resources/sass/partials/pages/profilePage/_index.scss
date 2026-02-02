@@ -1,0 +1,21 @@
+@import './profilInfromation'; //Nemamo index.scss pa pomeri negde drugde Vukasin.Radovanovic
+@import './shop';
+@import './userheader';
+.profile{
+    max-width: rem(800);
+    margin: auto;
+    width: 100%;
+    box-shadow: 0 0 20px -15px;
+
+    background-color: $secondary-bg;
+
+    &_wellcome{
+        margin: rem(25) 0;
+        text-align: center;
+    }
+
+    &_setings{
+        //
+    }
+
+}

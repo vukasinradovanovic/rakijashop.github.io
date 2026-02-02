@@ -1,0 +1,35 @@
+.table_dashboardGeneral {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: rem(1) solid $dash-border-color-primary; // Outer table border (black)
+    
+    thead {
+        background-color: $dash-secondary-color-darken;
+        color: $dash-text-primary;
+        font-weight: bold;
+
+        td, th {
+            padding: rem(12);
+            text-align: left;
+            border-top: rem(1) solid $dash-border-color-primary;
+            border-bottom: rem(1) solid $dash-border-color-primary;
+        }
+    }
+
+    tbody {
+        tr {
+            background-color: $dash-secondary-color-lighter;
+            color: $dash-text-primary;
+            &:nth-child(even) {
+                background-color: $dash-secondary-color-lighter-20;
+            }
+        }
+        td {
+            padding: rem(12);
+            border-top: rem(1) solid $dash-border-color-primary;
+            border-bottom: rem(1) solid $dash-border-color-primary;
+        }
+    }
+}

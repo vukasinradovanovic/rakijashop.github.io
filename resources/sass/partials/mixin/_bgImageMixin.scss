@@ -1,0 +1,17 @@
+@mixin bgImg($modifier: "index") {                    // Mixin for backgraound placing and coverage 
+    background-image: map-get($background-images, $modifier);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    &::after{
+        @include bgFilter($primary-color-darken,0.7);
+    }
+}
+@mixin circleImg($size){
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    width: rem($size);
+    height: rem($size);
+}

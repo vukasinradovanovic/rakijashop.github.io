@@ -1,0 +1,48 @@
+.landing-blocks {
+    margin-top: rem(32);
+    margin-bottom: rem(32);
+    
+    .landing-box {
+        flex: 1 1 30%;
+        min-height: rem(300);
+        background-color: $primary-color-lighter-20;
+        border-radius: $border-radius-normal;
+        transition: transform 0.3s ease;
+        box-shadow: 0 rem(4) rem(10) rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;         
+        justify-content: center;     
+        text-align: center;          
+        padding: rem(24);
+
+        h3 {
+            color: $white-text;
+            margin-bottom: 1rem;
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+            background-color: $primary-color-lighter;
+        }
+    }
+    .landing-intro {
+    background-color: $secondary-bg;
+    color: $primary-text;
+
+    &__title {
+        font-size: rem(32);
+        font-weight: bold;
+        color: $secondary-text;
+        margin-bottom: rem(16);
+    }
+
+    &__subtitle {
+        font-size: rem(17);
+        max-width: rem(800);
+        margin: 0 auto;
+        color: $primary-text;
+        line-height: 1.6;
+    }
+}
+}

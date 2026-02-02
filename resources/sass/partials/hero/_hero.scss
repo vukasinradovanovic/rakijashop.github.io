@@ -1,0 +1,51 @@
+.hero {
+    &_search {
+        &Form {
+            position: relative;
+            z-index: 1 !important;
+            background-color: $secondary-bg;
+            border-radius: $border-radius-normal;
+            box-shadow: $shadow;
+            select {
+                height: rem(50);
+            }
+        }
+    }
+    &_content {
+        position: relative;
+        &Title {
+            height: rem(500);
+            background-color: $primary-color-lighter;
+            border-radius: $border-radius-normal;
+            box-shadow: $shadow;
+            &Main {
+                font-weight: 600;
+                color: $white-text;
+            }
+            &Text {
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: $white-text;
+            }
+        }
+        //for old version premium ads
+        &Premium {
+            position: relative;
+            &Ads{
+                position: relative;
+                top:rem(-7);
+                height: 100%;
+                max-width: 100%;
+            }
+        }
+        //for services card on hero slider section
+        &Services {
+            position: relative;
+            &Card{
+                position: relative;
+                height: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+}

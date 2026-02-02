@@ -1,0 +1,25 @@
+.customFileLabel{
+    padding: rem(10) rem(30);
+    border-radius: rem(10);
+    border: 2px dashed $primary-color;
+    &:hover{
+        background-color: rgba($primary-color, 0.1);
+        transition: 0.2s ease;
+    }
+    
+}
+//Group of img and button on prewiew images
+.preview-wrapper {
+    position: relative;
+    display: inline-block;
+}
+.remove-btn {
+   background-color: $warning-color;
+   width: rem(20);
+   height: rem(20);
+   @include absolute( rem(-5), rem(-5));
+   @include flex();
+   border-radius: 50%;
+   color: $white-text;
+   font-size: 1.6rem;
+}

@@ -1,0 +1,38 @@
+.sidebarNav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: rem(250);
+    padding: 1rem;
+
+    .sidebarNav_header{
+        padding-top: rem(40);
+        font-size: rem(30);
+        color: $dash-text-primary;
+        text-align: center;
+    }
+
+    .sidebarNav_holder{
+        padding-top: rem(100);
+        .nav-item{
+            position: relative;
+            height: rem(50);
+            &::after{
+                display: block;
+                position: absolute;
+                content: "";
+    
+                width:0%;
+                height: rem(3);
+                background-color:$dash-text-primary;
+                bottom: rem(20);
+                left:0%;
+                transition: 0.2s;
+            }
+            &:hover::after{
+                width:100%;
+            }
+        }
+    }
+}

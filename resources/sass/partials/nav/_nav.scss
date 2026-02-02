@@ -1,0 +1,86 @@
+.navbarMain {
+    width: 100%;
+    background-color: $secondary-bg;
+    box-shadow: 0 rem(2) rem(10) rgba(0, 0, 0, 0.2);
+    z-index: 1050;
+    &_logo {
+        width: rem(190);
+
+        img {
+            width: 100%;
+        }
+
+        @media (max-width:500px) {
+            width: rem(140);
+        }
+    }
+
+    .nav-item {
+        position: relative;
+        margin-left: rem(10);
+        &::after {
+            display: block;
+            position: absolute;
+            content: "";
+            width: 0%;
+            height: rem(3);
+            background-color: $primary-color-lighter;
+            top: 114%;
+            left: 0%;
+            transition: 0.2s;
+        }
+
+        &:hover::after {
+            width: 100%;
+
+        }
+
+        .pawicon {
+            transition: color 0.3s ease, transform 0.3s ease;
+            color: $white-text;
+            font-size: 0.9rem;
+        }
+
+        &:hover {
+            .pawicon {
+                color: $primary-color; // promeni boju ikone
+                transform: scale(1.1); // uvećaj je blago
+            }
+        }
+
+    }
+
+    .active {
+        &::after {
+            display: block;
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: rem(3);
+            background-color: $primary-color-lighter;
+            top: 114%;
+            left: 0%;
+            transition: 0.2s;
+        }
+         .pawicon{
+                color: $primary-color-lighter-20;
+                transform: scale(1.1);
+
+            }
+    }
+}
+
+.topNavbar {
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $primary-color-lighter-5;
+    z-index: 1060;
+    font-size: 0.93rem;
+
+    .nav-link {
+        position: relative;
+        color: $white-text;
+        padding: 0 rem(10);
+    }
+}
