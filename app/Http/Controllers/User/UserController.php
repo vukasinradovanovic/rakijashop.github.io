@@ -63,4 +63,12 @@ class UserController
     {
         //
     }
+
+    /** 
+     * Display the user's profile page. 
+    */
+    public function profilePage()
+    {
+        return view('pages.profile');
+    }
 }

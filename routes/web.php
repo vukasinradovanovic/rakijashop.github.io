@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Pages\PagesController;
+use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PagesController::class, 'index'])->name('index');
+
+Route::get('/profile', [UserController::class, 'profilePage'])->name('profile');
 
 Route::get('/login', [PagesController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
