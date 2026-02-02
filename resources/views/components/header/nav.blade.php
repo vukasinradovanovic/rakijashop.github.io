@@ -36,7 +36,7 @@
 
     {{-- Logo --}}
     <a class="navbarMain_logo me-2" href="{{route('index')}}">
-      <img src="{{ asset('img/logo.png') }}" alt="Logo">
+      <span>Rakija Shop</span>
     </a>
 
     {{-- toggler button --}}

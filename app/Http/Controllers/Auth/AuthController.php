@@ -30,7 +30,7 @@ class AuthController
         Auth::login($user);
 
         //Redirect
-        return redirect(route('index', ['locale' => app()->getLocale()]))->with('success', 'Uspešno ste se registrovali!');
+        return redirect(route('index'))->with('success', 'Uspešno ste se registrovali!');
     }
 
     //Login user

@@ -10,6 +10,12 @@
             width: 100%;
         }
 
+        span {
+            font-size: rem(24);
+            font-weight: bold;
+            color: $primary-color;
+        }
+
         @media (max-width:500px) {
             width: rem(140);
         }
