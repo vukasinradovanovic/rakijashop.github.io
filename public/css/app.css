@@ -11867,23 +11867,23 @@ textarea.form-control-lg {
 @keyframes spin {
   0% {
     --angle: 0deg;
-    background-image: conic-gradient(from var(--angle), transparent, transparent, transparent, rgb(111.7118644068, 169, 84.5));
+    background-image: conic-gradient(from var(--angle), transparent, transparent, transparent, rgb(138.632, 88.66, 62.868));
   }
   25% {
     --angle: 60deg;
-    background-image: conic-gradient(from var(--angle), transparent, transparent, transparent, rgb(111.7118644068, 169, 84.5));
+    background-image: conic-gradient(from var(--angle), transparent, transparent, transparent, rgb(138.632, 88.66, 62.868));
   }
   50% {
     --angle: 180deg;
-    background-image: conic-gradient(from var(--angle), transparent, rgb(111.7118644068, 169, 84.5));
+    background-image: conic-gradient(from var(--angle), transparent, rgb(138.632, 88.66, 62.868));
   }
   75% {
     --angle: 240deg;
-    background-image: conic-gradient(from var(--angle), transparent, transparent, rgb(111.7118644068, 169, 84.5), rgb(111.7118644068, 169, 84.5), rgb(111.7118644068, 169, 84.5));
+    background-image: conic-gradient(from var(--angle), transparent, transparent, rgb(138.632, 88.66, 62.868), rgb(138.632, 88.66, 62.868), rgb(138.632, 88.66, 62.868));
   }
   100% {
     --angle: 360deg;
-    background-image: conic-gradient(from var(--angle), rgb(111.7118644068, 169, 84.5), rgb(111.7118644068, 169, 84.5));
+    background-image: conic-gradient(from var(--angle), rgb(138.632, 88.66, 62.868), rgb(138.632, 88.66, 62.868));
   }
 }
 /* Local font integration */
@@ -12156,27 +12156,27 @@ button {
 }
 
 .bg-primary-color {
-  background-color: #4e763b;
+  background-color: #563727;
 }
 
 .bg-primary-color-lighter {
-  background-color: rgb(125.7966101695, 178, 101);
+  background-color: rgb(156.176, 99.88, 70.824);
 }
 
 .bg-primary-color-lighter-5 {
-  background-color: rgb(89.2372881356, 135, 67.5);
+  background-color: rgb(103.544, 66.22, 46.956);
 }
 
 .primary-color {
-  color: #4e763b;
+  color: #563727;
 }
 
 .secondary-color {
-  color: #ffce4d;
+  color: #372c2e;
 }
 
 .bg-secondary-color {
-  background-color: #ffce4d;
+  background-color: #372c2e;
 }
 
 .okvir {
@@ -12188,7 +12188,7 @@ button {
 }
 
 .border-primary-color {
-  border: 0.0625rem solid #4e763b;
+  border: 0.0625rem solid #563727;
 }
 
 .error {
@@ -12221,29 +12221,29 @@ button {
 }
 
 .activePage {
-  background-color: rgba(125.7966101695, 178, 101, 0.4);
-  color: rgb(55.5254237288, 84, 42);
+  background-color: rgba(156.176, 99.88, 70.824, 0.4);
+  color: rgb(50.912, 32.56, 23.088);
   padding: 0 0.3125rem;
 }
 
 .form-control:focus {
-  border-color: rgb(125.7966101695, 178, 101);
-  box-shadow: 0 0 0 0.25rem rgba(125.7966101695, 178, 101, 0.25);
+  border-color: rgb(156.176, 99.88, 70.824);
+  box-shadow: 0 0 0 0.25rem rgba(156.176, 99.88, 70.824, 0.25);
 }
 
 .form-select:focus {
-  border-color: rgb(125.7966101695, 178, 101);
-  box-shadow: 0 0 0 0.25rem rgba(125.7966101695, 178, 101, 0.25);
+  border-color: rgb(156.176, 99.88, 70.824);
+  box-shadow: 0 0 0 0.25rem rgba(156.176, 99.88, 70.824, 0.25);
 }
 
 .form-check-input:checked {
-  background-color: rgb(125.7966101695, 178, 101); /* Zeleni pozadinski color */
-  border-color: rgb(125.7966101695, 178, 101); /* Zeleni border */
+  background-color: rgb(156.176, 99.88, 70.824); /* Zeleni pozadinski color */
+  border-color: rgb(156.176, 99.88, 70.824); /* Zeleni border */
 }
 
 .form-check-input:focus {
   box-shadow: none;
-  border-color: rgb(125.7966101695, 178, 101);
+  border-color: rgb(156.176, 99.88, 70.824);
 }
 
 .pagination {
@@ -12273,7 +12273,7 @@ button {
 }
 #loading-overlay .spinner {
   border: 0.3125rem solid #f1f1f1;
-  border-top: 0.3125rem solid rgb(111.7118644068, 169, 84.5);
+  border-top: 0.3125rem solid rgb(138.632, 88.66, 62.868);
   border-radius: 50%;
   width: 3.125rem;
   height: 3.125rem;
@@ -12289,7 +12289,7 @@ button {
   }
 }
 .main-title {
-  color: #4e763b;
+  color: #563727;
   margin-top: 3.125rem;
 }
 
@@ -12299,7 +12299,7 @@ button {
 }
 
 .main-subtitle {
-  color: #4e763b;
+  color: #563727;
 }
 
 .main-lead {
@@ -12307,20 +12307,20 @@ button {
 }
 
 .btnPrimary {
-  background-color: rgb(111.7118644068, 169, 84.5);
+  background-color: rgb(138.632, 88.66, 62.868);
   color: white;
 }
 .btnPrimary:hover {
-  background-color: rgb(125.7966101695, 178, 101);
+  background-color: rgb(156.176, 99.88, 70.824);
   color: white;
 }
 
 .btnSecondary {
-  background-color: #ffce4d;
+  background-color: #372c2e;
   color: rgba(0, 0, 0, 0.656) !important;
 }
 .btnSecondary:hover {
-  background-color: rgb(255, 213.0196629213, 102.5);
+  background-color: rgb(69.1666666667, 55.3333333333, 57.8484848485);
 }
 
 .btnWhite {
@@ -12350,12 +12350,12 @@ button {
 .nav_btn--profile {
   width: 40px;
   height: 40px;
-  background-color: #4e763b;
+  background-color: #563727;
   border-radius: 50%;
 }
 
 #hero__create-post__btn {
-  background-color: #ffce4d !important;
+  background-color: #372c2e !important;
 }
 
 #btnShowNumber {
@@ -12383,7 +12383,7 @@ button {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-image: conic-gradient(from var(--angle), primary-color-lighter, rgb(111.7118644068, 169, 84.5));
+  background-image: conic-gradient(from var(--angle), primary-color-lighter, rgb(138.632, 88.66, 62.868));
   top: 50%;
   left: 50%;
   translate: -50% -50%;
@@ -12430,7 +12430,7 @@ button {
   text-decoration: none;
 }
 .btn_editAdDropDownLink:hover {
-  background-color: rgba(111.7118644068, 169, 84.5, 0.08);
+  background-color: rgba(138.632, 88.66, 62.868, 0.08);
 }
 .btn_editAdDropDown.show {
   display: block;
@@ -12484,7 +12484,7 @@ button {
   right: -1.875rem;
   top: 3.125rem;
   background-color: white;
-  border: 1px solid #4e763b;
+  border: 1px solid #563727;
   border-radius: 5px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   width: 12.5rem;
@@ -12496,7 +12496,7 @@ button {
   text-decoration: none;
 }
 .profile-container .dropdown-menuLink:hover {
-  background-color: rgba(111.7118644068, 169, 84.5, 0.08);
+  background-color: rgba(138.632, 88.66, 62.868, 0.08);
 }
 .profile-container .dropdown-menuText {
   display: block;
@@ -12535,7 +12535,7 @@ button {
   opacity: 0.5 !important;
 }
 .slick-dots li.slick-active button::before {
-  color: rgb(89.2372881356, 135, 67.5) !important;
+  color: rgb(103.544, 66.22, 46.956) !important;
   opacity: 1 !important;
 }
 
@@ -12605,6 +12605,11 @@ button {
 .navbarMain_logo img {
   width: 100%;
 }
+.navbarMain_logo span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #563727;
+}
 @media (max-width: 500px) {
   .navbarMain_logo {
     width: 8.75rem;
@@ -12620,7 +12625,7 @@ button {
   content: "";
   width: 0%;
   height: 0.1875rem;
-  background-color: rgb(111.7118644068, 169, 84.5);
+  background-color: rgb(138.632, 88.66, 62.868);
   top: 114%;
   left: 0%;
   transition: 0.2s;
@@ -12634,7 +12639,7 @@ button {
   font-size: 0.9rem;
 }
 .navbarMain .nav-item:hover .pawicon {
-  color: #4e763b;
+  color: #563727;
   transform: scale(1.1);
 }
 .navbarMain .active::after {
@@ -12643,13 +12648,13 @@ button {
   content: "";
   width: 100%;
   height: 0.1875rem;
-  background-color: rgb(111.7118644068, 169, 84.5);
+  background-color: rgb(138.632, 88.66, 62.868);
   top: 114%;
   left: 0%;
   transition: 0.2s;
 }
 .navbarMain .active .pawicon {
-  color: rgb(125.7966101695, 178, 101);
+  color: rgb(156.176, 99.88, 70.824);
   transform: scale(1.1);
 }
 
@@ -12657,7 +12662,7 @@ button {
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgb(89.2372881356, 135, 67.5);
+  background-color: rgb(103.544, 66.22, 46.956);
   z-index: 1060;
   font-size: 0.93rem;
 }
@@ -12699,20 +12704,20 @@ button {
 .customFileLabel {
   padding: 0.625rem 1.875rem;
   border-radius: 0.625rem;
-  border: 2px dashed #4e763b;
+  border: 2px dashed #563727;
 }
 .customFileLabel:hover {
-  background-color: rgba(78, 118, 59, 0.1);
+  background-color: rgba(86, 55, 39, 0.1);
   transition: 0.2s ease;
 }
 
 .customFileLabel {
   padding: 0.625rem 1.875rem;
   border-radius: 0.625rem;
-  border: 2px dashed #4e763b;
+  border: 2px dashed #563727;
 }
 .customFileLabel:hover {
-  background-color: rgba(78, 118, 59, 0.1);
+  background-color: rgba(86, 55, 39, 0.1);
   transition: 0.2s ease;
 }
 
@@ -12742,7 +12747,7 @@ button {
   width: 100%;
 }
 .contactForm input, .contactForm textarea, .contactForm select {
-  background-color: rgba(125.7966101695, 178, 101, 0.1);
+  background-color: rgba(156.176, 99.88, 70.824, 0.1);
 }
 
 .postCard {
@@ -12777,7 +12782,7 @@ button {
 .postCard_body_price {
   padding: 0.1875rem 0.5rem 0 0.5rem;
   border-radius: 0.9375rem 0 0.9375rem 0;
-  background-color: #4e763b;
+  background-color: #563727;
   color: white;
 }
 .postCard .overlay {
@@ -12849,7 +12854,7 @@ button {
   width: fit-content;
   max-width: 60%;
   height: 2.5rem;
-  background: rgba(78, 118, 59, 0.6);
+  background: rgba(86, 55, 39, 0.6);
   backdrop-filter: blur(0.125rem);
   border-radius: 0.625rem;
   z-index: 4;
@@ -13003,17 +13008,17 @@ footer a {
   padding: 0 3.125rem;
 }
 .footer_mainIconsHolderItemLink {
-  color: rgb(125.7966101695, 178, 101);
+  color: rgb(156.176, 99.88, 70.824);
   transition: color 0.5s ease-in-out;
   font-size: 0.9375rem;
   padding: 0.625rem;
   transition: all 0.5s ease;
-  color: rgb(125.7966101695, 178, 101);
+  color: rgb(156.176, 99.88, 70.824);
   transition: color 0.5s ease-in-out;
   font-size: 0.9375rem;
   padding: 0.625rem;
   transition: all 0.5s ease;
-  color: rgb(125.7966101695, 178, 101);
+  color: rgb(156.176, 99.88, 70.824);
   transition: color 0.5s ease-in-out;
   font-size: 0.9375rem;
   padding: 0.625rem;
@@ -13128,7 +13133,7 @@ footer a {
 }
 .hero_contentTitle {
   height: 31.25rem;
-  background-color: rgb(111.7118644068, 169, 84.5);
+  background-color: rgb(138.632, 88.66, 62.868);
   border-radius: 0.625rem;
   box-shadow: 0 0 0.625rem -0.3125rem;
 }
@@ -13199,7 +13204,7 @@ footer a {
   color: #000;
 }
 .highlightAds_window_mail_icon {
-  background-color: #ffce4d;
+  background-color: #372c2e;
   width: 2.5rem;
   height: 2.5rem;
 }
@@ -13226,7 +13231,7 @@ footer a {
 }
 .profileInformation_profileImg i {
   font-size: 5rem;
-  color: #4e763b;
+  color: #563727;
 }
 .profileInformation_name {
   font-size: 2rem;
@@ -13331,10 +13336,10 @@ footer a {
   font-size: 1.2rem;
 }
 .ad_info_price {
-  color: #4e763b;
+  color: #563727;
   font-size: 1.3rem;
   font-weight: bold;
-  border: 0.125rem dashed #4e763b;
+  border: 0.125rem dashed #563727;
   width: auto;
   padding: 0 0.625rem;
   border-radius: 0.625rem;
@@ -13362,9 +13367,9 @@ footer a {
   z-index: 200;
   left: 0%;
   transition: 0.2s;
-  background-color: rgb(89.2372881356, 135, 67.5);
+  background-color: rgb(103.544, 66.22, 46.956);
   color: white;
-  border-right: 0.125rem solid #4e763b;
+  border-right: 0.125rem solid #563727;
 }
 .settings_sideBar a {
   color: white;
@@ -13372,7 +13377,7 @@ footer a {
 .settings_sideBar_header {
   width: 100%;
   height: 100px;
-  border-bottom: 0.125rem solid #4e763b;
+  border-bottom: 0.125rem solid #563727;
 }
 .settings_sideBar_header_name {
   padding: 0.9375rem;
@@ -13401,8 +13406,8 @@ footer a {
   top: 50%;
   left: 0.1875rem;
   background-color: white;
-  color: #4e763b;
-  border: 0.125rem solid #4e763b;
+  color: #563727;
+  border: 0.125rem solid #563727;
   z-index: 300;
   width: 1.875rem;
   height: 1.875rem;
@@ -13448,7 +13453,7 @@ footer a {
 .landing-blocks .landing-box {
   flex: 1 1 30%;
   min-height: 18.75rem;
-  background-color: rgb(125.7966101695, 178, 101);
+  background-color: rgb(156.176, 99.88, 70.824);
   border-radius: 0.625rem;
   transition: transform 0.3s ease;
   box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
@@ -13465,7 +13470,7 @@ footer a {
 }
 .landing-blocks .landing-box:hover {
   transform: translateY(-5px);
-  background-color: rgb(111.7118644068, 169, 84.5);
+  background-color: rgb(138.632, 88.66, 62.868);
 }
 .landing-blocks .landing-intro {
   background-color: #fff;
@@ -13474,7 +13479,7 @@ footer a {
 .landing-blocks .landing-intro__title {
   font-size: 2rem;
   font-weight: bold;
-  color: #4e763b;
+  color: #563727;
   margin-bottom: 1rem;
 }
 .landing-blocks .landing-intro__subtitle {
@@ -13486,7 +13491,7 @@ footer a {
 }
 
 .pricingTable_card {
-  border: 0.125rem solid #4e763b;
+  border: 0.125rem solid #563727;
   border-radius: 0.625rem;
 }
 .pricingTable_cardTop {
@@ -13499,10 +13504,10 @@ footer a {
   font-size: 1.5rem;
 }
 .pricingTable_cardPrice p {
-  color: #4e763b;
+  color: #563727;
   font-size: 1.3rem;
   font-weight: bold;
-  border: 0.125rem dashed #4e763b;
+  border: 0.125rem dashed #563727;
   width: fit-content;
   padding: 0 0.625rem;
   border-radius: 0.625rem;
@@ -13517,7 +13522,7 @@ footer a {
   font-size: 1.3rem;
 }
 .pricingTable_cardDesc p i {
-  color: #4e763b;
+  color: #563727;
   font-weight: bold;
 }
 .pricingTable_card--special {
@@ -13592,7 +13597,7 @@ footer a {
   border-right: 5px solid red;
 }
 .popup.popup--success {
-  background-color: rgba(125.7966101695, 178, 101, 0.45);
+  background-color: rgba(156.176, 99.88, 70.824, 0.45);
   color: rgb(0, 82, 0);
   border-right: 5px solid green;
 }
@@ -13644,7 +13649,7 @@ footer a {
   color: #000;
 }
 .highlightAds_window_mail_icon {
-  background-color: #ffce4d;
+  background-color: #372c2e;
   width: 2.5rem;
   height: 2.5rem;
 }
@@ -13671,7 +13676,7 @@ footer a {
 }
 .profileInformation_profileImg i {
   font-size: 5rem;
-  color: #4e763b;
+  color: #563727;
 }
 .profileInformation_name {
   font-size: 2rem;
@@ -13776,10 +13781,10 @@ footer a {
   font-size: 1.2rem;
 }
 .ad_info_price {
-  color: #4e763b;
+  color: #563727;
   font-size: 1.3rem;
   font-weight: bold;
-  border: 0.125rem dashed #4e763b;
+  border: 0.125rem dashed #563727;
   width: auto;
   padding: 0 0.625rem;
   border-radius: 0.625rem;
@@ -13807,9 +13812,9 @@ footer a {
   z-index: 200;
   left: 0%;
   transition: 0.2s;
-  background-color: rgb(89.2372881356, 135, 67.5);
+  background-color: rgb(103.544, 66.22, 46.956);
   color: white;
-  border-right: 0.125rem solid #4e763b;
+  border-right: 0.125rem solid #563727;
 }
 .settings_sideBar a {
   color: white;
@@ -13817,7 +13822,7 @@ footer a {
 .settings_sideBar_header {
   width: 100%;
   height: 100px;
-  border-bottom: 0.125rem solid #4e763b;
+  border-bottom: 0.125rem solid #563727;
 }
 .settings_sideBar_header_name {
   padding: 0.9375rem;
@@ -13846,8 +13851,8 @@ footer a {
   top: 50%;
   left: 0.1875rem;
   background-color: white;
-  color: #4e763b;
-  border: 0.125rem solid #4e763b;
+  color: #563727;
+  border: 0.125rem solid #563727;
   z-index: 300;
   width: 1.875rem;
   height: 1.875rem;
@@ -13893,7 +13898,7 @@ footer a {
 .landing-blocks .landing-box {
   flex: 1 1 30%;
   min-height: 18.75rem;
-  background-color: rgb(125.7966101695, 178, 101);
+  background-color: rgb(156.176, 99.88, 70.824);
   border-radius: 0.625rem;
   transition: transform 0.3s ease;
   box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
@@ -13910,7 +13915,7 @@ footer a {
 }
 .landing-blocks .landing-box:hover {
   transform: translateY(-5px);
-  background-color: rgb(111.7118644068, 169, 84.5);
+  background-color: rgb(138.632, 88.66, 62.868);
 }
 .landing-blocks .landing-intro {
   background-color: #fff;
@@ -13919,7 +13924,7 @@ footer a {
 .landing-blocks .landing-intro__title {
   font-size: 2rem;
   font-weight: bold;
-  color: #4e763b;
+  color: #563727;
   margin-bottom: 1rem;
 }
 .landing-blocks .landing-intro__subtitle {
@@ -13931,7 +13936,7 @@ footer a {
 }
 
 .pricingTable_card {
-  border: 0.125rem solid #4e763b;
+  border: 0.125rem solid #563727;
   border-radius: 0.625rem;
 }
 .pricingTable_cardTop {
@@ -13944,10 +13949,10 @@ footer a {
   font-size: 1.5rem;
 }
 .pricingTable_cardPrice p {
-  color: #4e763b;
+  color: #563727;
   font-size: 1.3rem;
   font-weight: bold;
-  border: 0.125rem dashed #4e763b;
+  border: 0.125rem dashed #563727;
   width: fit-content;
   padding: 0 0.625rem;
   border-radius: 0.625rem;
@@ -13962,7 +13967,7 @@ footer a {
   font-size: 1.3rem;
 }
 .pricingTable_cardDesc p i {
-  color: #4e763b;
+  color: #563727;
   font-weight: bold;
 }
 .pricingTable_card--special {
