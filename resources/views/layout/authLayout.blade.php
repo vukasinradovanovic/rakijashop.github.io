@@ -17,6 +17,8 @@
     @yield('main')
 
     @vite(['resources/js/app.js'])
+    {{-- @vite('resources/js/jQuery.js') --}}
+    @vite('resources/js/script.js')
 </body>
 
 </html>

@@ -47,13 +47,5 @@ class UserSeeder extends Seeder
 
         // Perform bulk insert; ensure timestamps/passwords provided
         User::query()->insert($users);
-
-        foreach (range(1, 10) as $i) {
-            User::create([
-                'name' => "Demo User {$i}",
-                'email' => "demo{$i}@example.com",
-                'password' => 'password',
-            ]);
-        }
     }
 }
