@@ -8,6 +8,14 @@ return [
             'slug' => route('index'),
             'name' => 'Home',
         ],
+        [
+            'slug' => route('gallery'),
+            'name' => 'Gallery',
+        ],
+        [
+            'slug' => route('contact'),
+            'name' => 'Contact',
+        ],
     ],
 
     'dropdown-user' => [
@@ -15,10 +23,10 @@ return [
             'slug' => Auth::check() ? route('user.show', (Auth::user()->name)) : route('index'),
             'name' => '<i class="fa fa-user"></i>  My profile',
         ],
-        [
-            'slug' => route('profile'),
-            'name' => '<i class="fa fa-cog"></i> Profile settings',
-        ],
+        // [
+        //     'slug' => route('profile'),
+        //     'name' => '<i class="fa fa-cog"></i> Profile settings',
+        // ],
     ],
     
     'languages' => [

@@ -48,6 +48,17 @@ class User extends Authenticatable
         ];
     }
 
+    // Getter for username
+    public function getUserName(): string
+    {
+        return $this->name;
+    }
+    
+    public function scopeFindByUserName($query, string $username)
+    {
+        return $query->where('name', $username);
+    }
+
     //Properties for roles
     public function roles(): BelongsToMany
     {

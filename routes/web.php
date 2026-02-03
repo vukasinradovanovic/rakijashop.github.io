@@ -5,7 +5,7 @@ use App\Http\Controllers\Pages\PagesController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
-route::resource('user', UserController::class);
+Route::resource('user', UserController::class);
 
 Route::get('/', [PagesController::class, 'index'])->name('index');
 
@@ -18,3 +18,6 @@ Route::get('/register', [PagesController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/gallery', [PagesController::class, 'gallery'])->name('gallery');
+Route::get('/contact', [PagesController::class, 'contact'])->name('contact');

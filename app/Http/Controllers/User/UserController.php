@@ -35,9 +35,10 @@ class UserController
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show($username)
     {
-        return view('user.usersPage', compact('user'));
+        $user = User::findByUserName($username)->firstOrFail();
+        return view('user.showUserPage', compact('user'));
     }
 
     /**

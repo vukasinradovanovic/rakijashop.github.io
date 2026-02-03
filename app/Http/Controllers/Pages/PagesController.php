@@ -20,4 +20,14 @@ class PagesController
     {
         return view('auth.register');
     }
+
+    public function gallery()
+    {
+        return view('pages.galleryPage');
+    }
+
+    public function contact()
+    {
+        return view('pages.contactPage');
+    }
 }

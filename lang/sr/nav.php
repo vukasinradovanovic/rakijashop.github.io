@@ -8,6 +8,14 @@ return [
             'slug' => route('index'),
             'name' => 'Početna',
         ],
+        [
+            'slug' => route('gallery'),
+            'name' => 'Galerija',
+        ],
+        [
+            'slug' => route('contact'),
+            'name' => 'Kontakt',
+        ],
         
     ],
 
@@ -16,10 +24,10 @@ return [
             'slug' => Auth::check() ? route('user.show', (Auth::user()->name)) : route('index'),
             'name' => '<i class="fa fa-user"></i>  Moj profil',
         ],
-        [
-            'slug' => route('profile'),
-            'name' => '<i class="fa fa-cog"></i> Podešavanje profila',
-        ],
+        // [
+        //     'slug' => route('profile'),
+        //     'name' => '<i class="fa fa-cog"></i> Podešavanje profila',
+        // ],
 
     ],
 
