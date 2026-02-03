@@ -3,6 +3,8 @@
 namespace App\Models\User;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Models\Product\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -81,5 +83,13 @@ class User extends Authenticatable
             return asset('storage/' . $this->userImg->img);
         }
         return asset('img/profile-picture.png');
+    }
+
+    // Relationship with Product model (many-to-many)
+    public function products() {
+        return $this->belongsToMany(Product::class, 'user_products', 'user_id', 'product_id');
+    }
+    public function hasProduct(int $productId): bool{
+        return $this->products()->where('product_id', $productId)->exists();
     }
 }
