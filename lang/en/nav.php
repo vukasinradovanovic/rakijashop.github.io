@@ -12,7 +12,7 @@ return [
 
     'dropdown-user' => [
         [
-            'slug' => Auth::check() ? route('user.show', (Auth::user()->edited_username ?? Auth::user()->default_username)) : route('index'),
+            'slug' => Auth::check() ? route('user.show', (Auth::user()->name)) : route('index'),
             'name' => '<i class="fa fa-user"></i>  My profile',
         ],
         [

@@ -37,7 +37,7 @@ class UserController
      */
     public function show(User $user)
     {
-        //
+        return view('user.usersPage', compact('user'));
     }
 
     /**

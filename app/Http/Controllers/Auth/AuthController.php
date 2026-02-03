@@ -16,7 +16,6 @@ class AuthController
             'name' => ['required', 'max:255', 'regex:/^([A-ZČĆŽŠĐ][a-zčćžšđ]+)( [A-ZČĆŽŠĐ][a-zčćžšđ]+){0,2}$/u'],
             'email' => ['required', 'max:255', 'email', 'unique:users', 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'],
             'password' => ['required', 'min:5', 'confirmed'],
-            'terms' => 'required',
         ]);
 
         // Registracija korisnika sa generisanim username-om
@@ -38,11 +37,21 @@ class AuthController
     {
         $fields = $request->validate([
             'email' => ['required', 'max:255', 'email'],
-            'password' => ['required']
+            'password' => ['required'],
+            'remember' => ['nullable']
         ]);
 
-        return redirect($request->input('intended', route('index')))
-            ->with('success', 'Uspešno ste se prijavili!');
+        $remember = (bool) $request->boolean('remember');
+
+        if (Auth::attempt(['email' => $fields['email'], 'password' => $fields['password']], $remember)) {
+            $request->session()->regenerate();
+            return redirect($request->input('intended', route('index')))
+                ->with('success', 'Uspešno ste se prijavili!');
+        }
+
+        return back()->withErrors([
+            'email' => __('auth.failed'),
+        ])->onlyInput('email');
     }
     //Logout
     public function logout(Request $request)

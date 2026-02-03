@@ -5,6 +5,8 @@ use App\Http\Controllers\Pages\PagesController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
+route::resource('user', UserController::class);
+
 Route::get('/', [PagesController::class, 'index'])->name('index');
 
 Route::get('/profile', [UserController::class, 'profilePage'])->name('profile');

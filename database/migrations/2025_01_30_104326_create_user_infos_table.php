@@ -18,10 +18,6 @@ return new class extends Migration
             $table->unsignedBigInteger('city_id')->nullable();
             $table->foreign('city_id')->references('id')->on('cities');
             $table->string('zip')->nullable();
-            $table->string('pib')->nullable();
-            $table->string('mb')->nullable();
-            $table->string('theme_color')->nullable();
-            $table->string('banner_img')->nullable();
             $table->longText('description')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
