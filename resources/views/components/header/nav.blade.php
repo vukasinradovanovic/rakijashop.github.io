@@ -97,6 +97,9 @@
               @foreach (__('nav.dropdown-user') as $item)
               <a class="dropdown-menuLink" href=" {{ $item['slug'] }} ">{!! $item['name'] !!}</a>
               @endforeach
+              @if (Auth::user()->hasRole('admin'))
+                <a class="dropdown-menuLink" href=" {{ route('dashboard.index') }} ">{!! __('dashboard.dashboard-page') !!}</a>
+              @endif
             </div>
           </div>
 

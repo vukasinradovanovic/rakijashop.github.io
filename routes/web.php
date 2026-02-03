@@ -1,15 +1,27 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\DashboardQuestionsController;
+use App\Http\Controllers\Dashboard\DashboardSearchStatsController;
+use App\Http\Controllers\Dashboard\DashboardUsersController;
 use App\Http\Controllers\Pages\PagesController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
+//Middleware for admin users domain
+Route::middleware('isAdmin')->group(function () {
+    Route::resource('dashboard', DashboardController::class);
+    Route::resource('dashboard-questions', DashboardQuestionsController::class);
+    Route::resource('dashboard-users', DashboardUsersController::class);
+    Route::resource('dashboard-search-stats', DashboardSearchStatsController::class);
+    Route::get('/dashboardUsers/search', [DashboardUsersController::class, 'search']);
+    Route::post('/dashboardQuestions/{question}/mark-as-read', [DashboardQuestionsController::class, 'markAsRead'])->name('dashboard-questions.mark-as-read');
+});
+
 Route::resource('user', UserController::class);
 
 Route::get('/', [PagesController::class, 'index'])->name('index');
-
-Route::get('/profile', [UserController::class, 'profilePage'])->name('profile');
 
 Route::get('/login', [PagesController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
