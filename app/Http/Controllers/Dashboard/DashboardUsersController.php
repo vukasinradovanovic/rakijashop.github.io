@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\Auth\Role;
+use App\Models\User\Roles;
 use App\Models\User\User;
 use App\Models\User\UserStatus;
 
-class DashboardUsersController extends Controller
+class DashboardUsersController 
 {
     /**
      * Display a listing of the resource.
@@ -58,10 +58,6 @@ class DashboardUsersController extends Controller
     {
         $fields = $request->validate([
             'role_id' => ['nullable', 'exists:roles,id'],
-            'edited_username' => [
-                'nullable',
-                Rule::unique('users', 'edited_username')->ignore($id),
-            ],
             'email' => [
                 'nullable',
                 'email',
@@ -77,9 +73,6 @@ class DashboardUsersController extends Controller
         }
 
         $update = [];
-        if ($request->has('edited_username')) {
-            $update['edited_username'] = $request->edited_username;
-        }
         if ($request->has('email')) {
             $update['email'] = $request->email;
         }
@@ -113,13 +106,12 @@ class DashboardUsersController extends Controller
         $searchQuery = $request->input('query');
 
         $users = User::where('default_username', 'LIKE', "%{$searchQuery}%")
-            ->orWhere('edited_username', 'LIKE', "%{$searchQuery}%")
             ->with('statuses', 'roles')
             ->get();
 
         return response()->json([
             'users' => $users,
-            'roles' => Role::all(),
+            'roles' => Roles::all(),
             'statuses' => UserStatus::all()
         ]);
     }
