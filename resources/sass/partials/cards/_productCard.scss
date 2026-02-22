@@ -1,0 +1,68 @@
+.productCard {
+    position: relative;
+    border-radius: $border-radius-card;
+    box-shadow: $shadow;
+    overflow: hidden;
+
+    &_img {
+        position: relative;
+        height: rem(200);
+        background-position: center;
+        background-size: cover;
+
+        &Overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0);
+            transition: background-color 0.3s ease;
+        }
+    }
+
+    &_body {
+        &_Title {
+            font-size: rem(16);
+            font-weight: 600;
+        }
+
+        &_Desc {
+            font-size: rem(13);
+        }
+
+        &_Footer {
+            font-size: rem(13);
+        }
+
+        &_Price {
+            padding: rem(3) rem(8) 0 rem(8);
+            border-radius: $border-radius-card 0 $border-radius-card 0;
+            background-color: $primary-color;
+            color: $white-text;
+        }
+
+        &_Stock {
+            font-size: rem(12);
+        }
+    }
+
+    &_actions {
+        &_Btn {
+            font-size: rem(12);
+        }
+    }
+
+    &--grid {
+        .productCard_img {
+            border-radius: $border-radius-card $border-radius-card 0 0;
+        }
+
+        .productCard_body {
+            border-radius: 0 0 $border-radius-card $border-radius-card;
+        }
+    }
+
+    &:hover {
+        .productCard_imgOverlay {
+            background-color: rgba(0, 0, 0, 0.08);
+        }
+    }
+}

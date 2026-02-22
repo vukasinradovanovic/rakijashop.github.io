@@ -9,6 +9,10 @@ return [
             'name' => 'Home',
         ],
         [
+            'slug' => route('product.index'),
+            'name' => 'Products',
+        ],
+        [
             'slug' => route('gallery'),
             'name' => 'Gallery',
         ],

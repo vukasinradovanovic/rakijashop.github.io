@@ -9,6 +9,10 @@ return [
             'name' => 'Početna',
         ],
         [
+            'slug' => route('product.index'),
+            'name' => 'Proizvodi',
+        ],
+        [
             'slug' => route('gallery'),
             'name' => 'Galerija',
         ],

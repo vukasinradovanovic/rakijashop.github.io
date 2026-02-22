@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
 use App\Models\SearchData\SearchData;
 use Illuminate\Http\Request;
 
-class DashboardSearchStatsController extends Controller
+class DashboardSearchStatsController
 {
     /**
      * Display a listing of the resource.
