@@ -38,7 +38,8 @@ class UserController
     public function show($username)
     {
         $user = User::findByUserName($username)->firstOrFail();
-        return view('user.showUserPage', compact('user'));
+        $products = $user->products()->latest()->get();
+        return view('user.showUserPage', compact('user', 'products'));
     }
 
     /**
