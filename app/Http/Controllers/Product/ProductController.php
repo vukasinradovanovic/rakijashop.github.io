@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Product;
 
 use App\Models\Product\Product;
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
+use App\Http\Requests\Product\StoreProductRequest;
+use App\Http\Requests\Product\UpdateProductRequest;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
@@ -55,7 +55,8 @@ class ProductController
             ? $request->boolean('is_active')
             : true;
 
-        Product::create($data);
+        $product = Product::create($data);
+        $product->users()->syncWithoutDetaching([Auth::id()]);
 
         return redirect()
             ->route('product.index')

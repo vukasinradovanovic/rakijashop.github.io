@@ -20,7 +20,11 @@ Route::middleware('isAdmin')->group(function () {
     Route::post('/dashboardQuestions/{question}/mark-as-read', [DashboardQuestionsController::class, 'markAsRead'])->name('dashboard-questions.mark-as-read');
 });
 
-Route::resource('user', UserController::class);
+// Middleware for authenticated users domain
+Route::middleware('auth')->group(function () {
+    Route::resource('user', UserController::class);
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
 Route::resource('product', ProductController::class);
 
 Route::get('/', [PagesController::class, 'index'])->name('index');
@@ -30,8 +34,6 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/register', [PagesController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/gallery', [PagesController::class, 'gallery'])->name('gallery');
 Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
