@@ -1,23 +1,31 @@
 .siteHero {
     position: relative;
-    padding: rem(70) 0 rem(90);
-    background: linear-gradient(135deg, rgba($brand-900, 0.92), rgba($plum-700, 0.9)),
-                url('https://images.unsplash.com/photo-1597075687490-8f673c6c17f6?auto=format&fit=crop&q=80&w=2000') center/cover;
+    @include bgImg("hero-rakija");
+    @include flex(flex-start, flex-start, column);
     color: $white-text;
     overflow: hidden;
+
+    // Soften the mixin overlay for this hero
+    &::after {
+        opacity: 0.58;
+        background-color: $brand-900;
+    }
 
     &__overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(180deg, rgba($brand-900, 0.7), rgba($brand-900, 0.35));
+        background: linear-gradient(
+            180deg,
+            rgba($brand-900, 0.7),
+            rgba($brand-900, 0.35)
+        );
     }
 
     &__content {
+        padding: rem(180) rem(90);
         position: relative;
         max-width: 780px;
-        display: flex;
-        flex-direction: column;
-        gap: rem(16);
+        font-weight: 700;
         z-index: 1;
     }
 
@@ -37,8 +45,9 @@
 
     &__title {
         color: $white-text;
-        font-family: 'Playfair Display', serif;
+        font-family: "Playfair Display", serif;
         font-size: clamp(2.4rem, 3.8vw, 3.8rem);
+        font-weight: 800;
         line-height: 1.15;
         margin: 0;
 
@@ -51,12 +60,11 @@
         font-size: rem(18);
         color: rgba($white-text, 0.86);
         max-width: 640px;
-        margin-bottom: rem(8);
+        margin-bottom: rem(12);
     }
 
     &__actions {
-        display: flex;
-        align-items: center;
+        margin: auto;
         gap: rem(12);
     }
 

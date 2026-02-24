@@ -13364,10 +13364,34 @@ button {
 
 .siteHero {
   position: relative;
-  padding: 4.375rem 0 5.625rem;
-  background: linear-gradient(135deg, rgba(58, 33, 24, 0.92), rgba(74, 37, 60, 0.9)), url("https://images.unsplash.com/photo-1597075687490-8f673c6c17f6?auto=format&fit=crop&q=80&w=2000") center/cover;
+  background-image: url("https://images.unsplash.com/photo-1597075687490-8f673c6c17f6?auto=format&fit=crop&q=80&w=2000");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.siteHero::after {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: rgb(78.97, 40.23, 65.56);
+  opacity: 0.7;
+}
+.siteHero {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
   color: #f7f4f2;
   overflow: hidden;
+}
+.siteHero::after {
+  opacity: 0.58;
+  background-color: #3a2118;
 }
 .siteHero__overlay {
   position: absolute;
@@ -13375,11 +13399,10 @@ button {
   background: linear-gradient(180deg, rgba(58, 33, 24, 0.7), rgba(58, 33, 24, 0.35));
 }
 .siteHero__content {
+  padding: 11.25rem 5.625rem;
   position: relative;
   max-width: 780px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  font-weight: 700;
   z-index: 1;
 }
 .siteHero__badge {
@@ -13399,6 +13422,7 @@ button {
   color: #f7f4f2;
   font-family: "Playfair Display", serif;
   font-size: clamp(2.4rem, 3.8vw, 3.8rem);
+  font-weight: 800;
   line-height: 1.15;
   margin: 0;
 }
@@ -13409,11 +13433,10 @@ button {
   font-size: 1.125rem;
   color: rgba(247, 244, 242, 0.86);
   max-width: 640px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 .siteHero__actions {
-  display: flex;
-  align-items: center;
+  margin: auto;
   gap: 0.75rem;
 }
 .siteHero__ghost {

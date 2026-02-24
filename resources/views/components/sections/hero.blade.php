@@ -1,6 +1,6 @@
 <section class="siteHero">
     <div class="siteHero__overlay"></div>
-    <div class="container siteHero__content">
+    <div class="container siteHero__content text-center">
         <span class="siteHero__badge">Premium Balkan Spirits</span>
         <h1 class="siteHero__title">Duša voća, uhvaćena u boci.</h1>
         <p class="siteHero__text">
