@@ -4,19 +4,16 @@
     <div class="container">
         <div class="row g-4 siteFooter__content">
             <div class="col-md-5">
-                <div class="siteFooter__brand">
-                    <div class="siteFooter__logoMark">R</div>
-                    <div>
-                        <p class="siteFooter__brandTitle">Rakija &amp; Co.</p>
-                        <p class="siteFooter__brandText">{{ __('footer.aboutTitle') }}</p>
-                    </div>
-                </div>
+                {{-- Logo section --}}
+                <x-sections.logo whiteText="true"/>
+
+                <p class="siteFooter__brandText">{{ __('footer.aboutTitle') }}</p>
                 <p class="siteFooter__lede">
                     Curating the finest Balkan spirits. Authentic, premium, and delivered to your doorstep.
                 </p>
             </div>
 
-            <div class="col-6 col-md-4 col-lg-3">
+            <div class="col-12 col-md-4 col-lg-3">
                 <p class="siteFooter__heading">{{ __('footer.linkTitle') }}</p>
                 <ul class="siteFooter__list">
                     @foreach (__('nav.nav') as $item)
@@ -27,7 +24,7 @@
                 </ul>
             </div>
 
-            <div class="col-6 col-md-3 col-lg-2">
+            <div class="col-12 col-md-3 col-lg-2">
                 <p class="siteFooter__heading">{{ __('footer.contactTitle') }}</p>
                 <ul class="siteFooter__list">
                     <li class="siteFooter__item"><i class="fa fa-home me-2"></i>Beograd, Srbija</li>

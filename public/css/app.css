@@ -12609,6 +12609,40 @@ button {
   border: 0.125rem dashed #999;
 }
 
+.brandLogo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+}
+.brandLogo_mark {
+  width: 2.625rem;
+  height: 2.625rem;
+  border-radius: 50%;
+  background: #4a253c;
+  color: #f7f4f2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+  transition: background-color 0.3s ease;
+}
+.brandLogo_textPrimary {
+  font-family: "Playfair Display", serif;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #3a2118;
+  letter-spacing: -0.3px;
+}
+.brandLogo_textSecondary {
+  font-family: "Playfair Display", serif;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #f7f4f2;
+  letter-spacing: -0.3px;
+}
+
 .siteNav__top {
   background: #4a253c;
   color: #f7f4f2;
@@ -12634,32 +12668,6 @@ button {
 .siteNav__container {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
-}
-.siteNav__brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  text-decoration: none;
-}
-.siteNav__brandMark {
-  width: 2.625rem;
-  height: 2.625rem;
-  border-radius: 50%;
-  background: #4a253c;
-  color: #f7f4f2;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.125rem;
-  transition: background-color 0.3s ease;
-}
-.siteNav__brandText {
-  font-family: "Playfair Display", serif;
-  font-size: 1.375rem;
-  font-weight: 700;
-  color: #3a2118;
-  letter-spacing: -0.3px;
 }
 .siteNav__toggler {
   border: 1px solid #e0cec7;

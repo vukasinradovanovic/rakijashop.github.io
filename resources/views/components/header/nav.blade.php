@@ -14,14 +14,12 @@
 
 <nav class="navbar navbar-expand-lg sticky-top siteNav">
   <div class="container siteNav__container">
-    <a class="siteNav__brand" href="{{ route('index') }}">
-      <span class="siteNav__brandMark">R</span>
-      <span class="siteNav__brandText">Rakija &amp; Co.</span>
-    </a>
+    {{-- Logo section --}}
+    <x-sections.logo />
 
     <div class="d-flex align-items-center gap-2 order-lg-3">
-      <button class="navbar-toggler siteNav__toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu"
-        aria-controls="siteNavMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler siteNav__toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#siteNavMenu" aria-controls="siteNavMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
@@ -44,19 +42,24 @@
         @auth
         <a href="{{ route('product.create') }}" class="btn btnPrimary siteNav__cta d-md-none">Dodaj proizvod</a>
         <div class="dropdown siteNav__profile">
-          <button class="btn dropdown-toggle siteNav__profileBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <span class="siteNav__profileAvatar" style="background-image: url('{{ Auth::user()->profile_image }}');"></span>
+          <button class="btn dropdown-toggle siteNav__profileBtn" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <span class="siteNav__profileAvatar"
+              style="background-image: url('{{ Auth::user()->profile_image }}');"></span>
             <span class="siteNav__profileName">{{ Auth::user()->name }}</span>
           </button>
           <ul class="dropdown-menu dropdown-menu-end siteNav__profileMenu">
             <li class="siteNav__profileGreeting">{{ Auth::user()->name }}</li>
             @foreach (__('nav.dropdown-user') as $item)
-              <li><a class="dropdown-item" href="{{ $item['slug'] }}">{!! $item['name'] !!}</a></li>
+            <li><a class="dropdown-item" href="{{ $item['slug'] }}">{!! $item['name'] !!}</a></li>
             @endforeach
             @if (Auth::user()->hasRole('admin'))
-              <li><a class="dropdown-item" href="{{ route('dashboard.index') }}">{!! __('dashboard.dashboard-page') !!}</a></li>
+            <li><a class="dropdown-item" href="{{ route('dashboard.index') }}">{!! __('dashboard.dashboard-page')
+                !!}</a></li>
             @endif
-            <li><hr class="dropdown-divider"></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
             <li>
               <form action="{{ route('logout') }}" method="POST">
                 @csrf

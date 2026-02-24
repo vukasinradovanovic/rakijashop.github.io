@@ -25,35 +25,6 @@
         padding-bottom: rem(10);
     }
 
-    &__brand {
-        display: inline-flex;
-        align-items: center;
-        gap: rem(10);
-        text-decoration: none;
-    }
-
-    &__brandMark {
-        width: rem(42);
-        height: rem(42);
-        border-radius: 50%;
-        background: $plum-700;
-        color: $white-text;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        font-size: rem(18);
-        transition: background-color 0.3s ease;
-    }
-
-    &__brandText {
-        font-family: 'Playfair Display', serif;
-        font-size: rem(22);
-        font-weight: 700;
-        color: $brand-900;
-        letter-spacing: -0.3px;
-    }
-
     &__toggler {
         border: 1px solid $brand-300;
         border-radius: rem(10);
