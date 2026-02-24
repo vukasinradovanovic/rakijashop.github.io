@@ -1,0 +1,43 @@
+.authPage {
+    min-height: 90vh;
+    display: grid;
+    place-items: center;
+    padding: rem(30) rem(16);
+
+    &__card {
+        width: min(rem(420), 100%);
+        background: $secondary-bg;
+        border: 1px solid $brand-200;
+        border-radius: rem(18);
+        padding: rem(28);
+        box-shadow: 0 rem(22) rem(44) rgba($brand-900, 0.12);
+    }
+
+    &__title {
+        font-family: 'Playfair Display', serif;
+        color: $brand-900;
+        margin-bottom: rem(6);
+    }
+
+    &__subtitle { color: $brand-700; }
+
+    &__form { margin-top: rem(12); }
+
+    &__password .btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    &__switch {
+        margin-top: rem(14);
+        color: $brand-700;
+    }
+
+    &__link {
+        color: $plum-700;
+        font-weight: 700;
+        text-decoration: none;
+
+        &:hover { text-decoration: underline; }
+    }
+}

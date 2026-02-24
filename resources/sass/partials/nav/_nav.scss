@@ -60,7 +60,7 @@
     }
 
     &__ghost {
-        color: $brand-700;
+        color: $brand-900;
         font-weight: 600;
         text-decoration: none;
         padding: rem(8) rem(12);
@@ -84,12 +84,16 @@
         display: inline-flex;
         align-items: center;
         gap: rem(10);
-        background: $secondary-bg;
-        border: 1px solid $brand-200;
+        background: transparent;
+        border: rem(1) solid transparent;
         border-radius: rem(12);
         padding: rem(8) rem(12);
         font-weight: 600;
         color: $brand-800;
+
+        &:hover {
+            border: rem(1) solid $brand-200;
+        }
     }
 
     &__profileAvatar {

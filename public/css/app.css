@@ -12242,6 +12242,64 @@ button {
   background: radial-gradient(circle at 20% 20%, rgba(74, 37, 60, 0.06), transparent 32%), radial-gradient(circle at 80% 0%, rgba(93, 58, 46, 0.05), transparent 35%), #fdf8f6;
 }
 
+.sectionBlock {
+  padding: 4.375rem 0;
+}
+.sectionBlock--light {
+  background: #fdf8f6;
+}
+.sectionBlock--muted {
+  background: #f2e8e5;
+}
+.sectionBlock__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+.sectionBlock__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #4a253c;
+  margin-bottom: 0.375rem;
+}
+.sectionBlock__title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.9rem, 2.6vw, 2.4rem);
+  color: #3a2118;
+  margin: 0;
+}
+.sectionBlock__subtitle {
+  color: #5d3a2e;
+  margin: 0;
+}
+.sectionBlock__link {
+  color: #4a253c;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+.sectionBlock__link:hover {
+  text-decoration: underline;
+}
+
+.pageSection {
+  padding: 3.125rem 0;
+}
+.pageSection__title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.75rem;
+  color: #3a2118;
+}
+.pageSection__subtitle {
+  color: #5d3a2e;
+}
+
 .form-control:focus {
   border-color: rgb(171.3, 90.7, 143.4);
   box-shadow: 0 0 0 0.25rem rgba(171.3, 90.7, 143.4, 0.25);
@@ -12332,11 +12390,12 @@ button {
 }
 
 .btnSecondary {
-  background-color: #3a2118;
-  color: rgba(0, 0, 0, 0.656) !important;
+  color: #f7f4f2;
+  background-color: transparent;
+  border: 1px solid rgba(247, 244, 242, 0.4);
 }
 .btnSecondary:hover {
-  background-color: rgb(76.0365853659, 43.262195122, 31.4634146341);
+  background-color: rgb(130.1463414634, 74.0487804878, 53.8536585366);
 }
 
 .btnWhite {
@@ -12698,7 +12757,7 @@ button {
   background: rgba(74, 37, 60, 0.12);
 }
 .siteNav__ghost {
-  color: #5d3a2e;
+  color: #3a2118;
   font-weight: 600;
   text-decoration: none;
   padding: 0.5rem 0.75rem;
@@ -12719,12 +12778,15 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.625rem;
-  background: #ffffff;
-  border: 1px solid #eaddd7;
+  background: transparent;
+  border: 0.0625rem solid transparent;
   border-radius: 0.75rem;
   padding: 0.5rem 0.75rem;
   font-weight: 600;
   color: rgb(94.0731707317, 53.5243902439, 38.9268292683);
+}
+.siteNav__profileBtn:hover {
+  border: 0.0625rem solid #eaddd7;
 }
 .siteNav__profileAvatar {
   width: 2.125rem;
@@ -13129,58 +13191,88 @@ button {
   padding: 0 0.3125rem;
 }
 
-.LoginRegisterForm {
-  background-color: white;
-  max-width: 350px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 10px;
+.authPage {
+  min-height: 90vh;
+  display: grid;
+  place-items: center;
+  padding: 1.875rem 1rem;
 }
-.LoginRegisterForm input[type=text] {
-  width: 100%;
+.authPage__card {
+  width: min(26.25rem, 100%);
+  background: #ffffff;
+  border: 1px solid #eaddd7;
+  border-radius: 1.125rem;
+  padding: 1.75rem;
+  box-shadow: 0 1.375rem 2.75rem rgba(58, 33, 24, 0.12);
+}
+.authPage__title {
+  font-family: "Playfair Display", serif;
+  color: #3a2118;
+  margin-bottom: 0.375rem;
+}
+.authPage__subtitle {
+  color: #5d3a2e;
+}
+.authPage__form {
+  margin-top: 0.75rem;
+}
+.authPage__password .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.authPage__switch {
+  margin-top: 0.875rem;
+  color: #5d3a2e;
+}
+.authPage__link {
+  color: #4a253c;
+  font-weight: 700;
+  text-decoration: none;
+}
+.authPage__link:hover {
+  text-decoration: underline;
 }
 
-.box {
-  background-color: white;
-  max-width: 350px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
+.authPage {
+  min-height: 90vh;
+  display: grid;
+  place-items: center;
+  padding: 1.875rem 1rem;
 }
-.box a {
-  color: blue;
+.authPage__card {
+  width: min(26.25rem, 100%);
+  background: #ffffff;
+  border: 1px solid #eaddd7;
+  border-radius: 1.125rem;
+  padding: 1.75rem;
+  box-shadow: 0 1.375rem 2.75rem rgba(58, 33, 24, 0.12);
 }
-
-.LoginRegisterForm {
-  background-color: white;
-  max-width: 350px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 10px;
+.authPage__title {
+  font-family: "Playfair Display", serif;
+  color: #3a2118;
+  margin-bottom: 0.375rem;
 }
-.LoginRegisterForm input[type=text] {
-  width: 100%;
+.authPage__subtitle {
+  color: #5d3a2e;
 }
-
-.box {
-  background-color: white;
-  max-width: 350px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
+.authPage__form {
+  margin-top: 0.75rem;
 }
-.box a {
-  color: blue;
+.authPage__password .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.authPage__switch {
+  margin-top: 0.875rem;
+  color: #5d3a2e;
+}
+.authPage__link {
+  color: #4a253c;
+  font-weight: 700;
+  text-decoration: none;
+}
+.authPage__link:hover {
+  text-decoration: underline;
 }
 
 .siteHero {
@@ -13259,18 +13351,6 @@ button {
 .siteHero__actions {
   margin: auto;
   gap: 0.75rem;
-}
-.siteHero__ghost {
-  color: #f7f4f2;
-  border: 1px solid rgba(247, 244, 242, 0.4);
-  padding: 0.625rem 0.875rem;
-  border-radius: 0.75rem;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-.siteHero__ghost:hover {
-  background: rgba(247, 244, 242, 0.12);
 }
 
 .profileInformation {
@@ -13381,51 +13461,6 @@ button {
 .sidebar_filter_item_checkboxes li {
   line-height: 2.5rem;
 }
-.sectionBlock {
-  padding: 4.375rem 0;
-}
-.sectionBlock--light {
-  background: #fdf8f6;
-}
-.sectionBlock--muted {
-  background: #f2e8e5;
-}
-.sectionBlock__header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.75rem;
-  flex-wrap: wrap;
-}
-.sectionBlock__eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 700;
-  color: #4a253c;
-  margin-bottom: 0.375rem;
-}
-.sectionBlock__title {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(1.9rem, 2.6vw, 2.4rem);
-  color: #3a2118;
-  margin: 0;
-}
-.sectionBlock__subtitle {
-  color: #5d3a2e;
-  margin: 0;
-}
-.sectionBlock__link {
-  color: #4a253c;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-}
-.sectionBlock__link:hover {
-  text-decoration: underline;
-}
 
 .storyCard {
   padding: 1.5rem;
@@ -13526,60 +13561,6 @@ button {
 }
 .productPage__grid {
   margin-top: 0.625rem;
-}
-
-.pageSection {
-  padding: 3.125rem 0;
-}
-.pageSection__title {
-  font-family: "Playfair Display", serif;
-  font-size: 1.75rem;
-  color: #3a2118;
-}
-.pageSection__subtitle {
-  color: #5d3a2e;
-}
-
-.authPage {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 1.875rem 1rem;
-}
-.authPage__card {
-  width: min(420px, 100%);
-  background: #ffffff;
-  border: 1px solid #eaddd7;
-  border-radius: 1.125rem;
-  padding: 1.75rem;
-  box-shadow: 0 1.375rem 2.75rem rgba(58, 33, 24, 0.12);
-}
-.authPage__title {
-  font-family: "Playfair Display", serif;
-  color: #3a2118;
-  margin-bottom: 0.375rem;
-}
-.authPage__subtitle {
-  color: #5d3a2e;
-}
-.authPage__form {
-  margin-top: 0.75rem;
-}
-.authPage__password .btn {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.authPage__switch {
-  margin-top: 0.875rem;
-  color: #5d3a2e;
-}
-.authPage__link {
-  color: #4a253c;
-  font-weight: 700;
-  text-decoration: none;
-}
-.authPage__link:hover {
-  text-decoration: underline;
 }
 
 .popup {
@@ -13810,51 +13791,6 @@ button {
 .sidebar_filter_item_checkboxes li {
   line-height: 2.5rem;
 }
-.sectionBlock {
-  padding: 4.375rem 0;
-}
-.sectionBlock--light {
-  background: #fdf8f6;
-}
-.sectionBlock--muted {
-  background: #f2e8e5;
-}
-.sectionBlock__header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.75rem;
-  flex-wrap: wrap;
-}
-.sectionBlock__eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 700;
-  color: #4a253c;
-  margin-bottom: 0.375rem;
-}
-.sectionBlock__title {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(1.9rem, 2.6vw, 2.4rem);
-  color: #3a2118;
-  margin: 0;
-}
-.sectionBlock__subtitle {
-  color: #5d3a2e;
-  margin: 0;
-}
-.sectionBlock__link {
-  color: #4a253c;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-}
-.sectionBlock__link:hover {
-  text-decoration: underline;
-}
 
 .storyCard {
   padding: 1.5rem;
@@ -13955,60 +13891,6 @@ button {
 }
 .productPage__grid {
   margin-top: 0.625rem;
-}
-
-.pageSection {
-  padding: 3.125rem 0;
-}
-.pageSection__title {
-  font-family: "Playfair Display", serif;
-  font-size: 1.75rem;
-  color: #3a2118;
-}
-.pageSection__subtitle {
-  color: #5d3a2e;
-}
-
-.authPage {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 1.875rem 1rem;
-}
-.authPage__card {
-  width: min(420px, 100%);
-  background: #ffffff;
-  border: 1px solid #eaddd7;
-  border-radius: 1.125rem;
-  padding: 1.75rem;
-  box-shadow: 0 1.375rem 2.75rem rgba(58, 33, 24, 0.12);
-}
-.authPage__title {
-  font-family: "Playfair Display", serif;
-  color: #3a2118;
-  margin-bottom: 0.375rem;
-}
-.authPage__subtitle {
-  color: #5d3a2e;
-}
-.authPage__form {
-  margin-top: 0.75rem;
-}
-.authPage__password .btn {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.authPage__switch {
-  margin-top: 0.875rem;
-  color: #5d3a2e;
-}
-.authPage__link {
-  color: #4a253c;
-  font-weight: 700;
-  text-decoration: none;
-}
-.authPage__link:hover {
-  text-decoration: underline;
 }
 
 .sidebarNav {

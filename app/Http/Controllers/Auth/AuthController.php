@@ -21,7 +21,8 @@ class AuthController
         $user = User::create([
             'name' => $fields['name'],
             'email' => $fields['email'],
-            'password' => bcrypt($fields['password'])
+            'password' => bcrypt($fields['password']),
+            'created_at' => now(),
         ]);
 
         $defaultRole = Roles::firstOrCreate([

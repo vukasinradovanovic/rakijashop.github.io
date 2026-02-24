@@ -8,10 +8,11 @@
 }
 
 .btnSecondary {
-    background-color: $secondary-color;
-    color: rgba(0, 0, 0, 0.656) !important;
+    color: $white-text;
+    background-color: transparent;
+    border: 1px solid rgba($white-text, 0.4);
     &:hover{
-        background-color: $secondary-color-lighter-5 ;
+        background-color: $secondary-color-lighter-20;
     }
 }
 

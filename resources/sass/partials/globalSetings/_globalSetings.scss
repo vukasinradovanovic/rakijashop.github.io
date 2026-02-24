@@ -100,3 +100,65 @@ button {
                     $brand-50;
     }
 }
+
+
+.sectionBlock {
+    padding: rem(70) 0;
+
+    &--light { background: $brand-50; }
+    &--muted { background: $brand-100; }
+
+    &__header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: rem(16);
+        margin-bottom: rem(28);
+        flex-wrap: wrap;
+    }
+
+    &__eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        color: $plum-700;
+        margin-bottom: rem(6);
+    }
+
+    &__title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.9rem, 2.6vw, 2.4rem);
+        color: $brand-900;
+        margin: 0;
+    }
+
+    &__subtitle {
+        color: $brand-700;
+        margin: 0;
+    }
+
+    &__link {
+        color: $plum-700;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: rem(6);
+
+        &:hover { text-decoration: underline; }
+    }
+}
+
+.pageSection {
+    padding: rem(50) 0;
+
+    &__title {
+        font-family: 'Playfair Display', serif;
+        font-size: rem(28);
+        color: $brand-900;
+    }
+
+    &__subtitle {
+        color: $brand-700;
+    }
+}
