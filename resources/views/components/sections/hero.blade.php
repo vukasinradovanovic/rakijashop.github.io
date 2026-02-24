@@ -8,7 +8,7 @@
         </p>
         <div class="siteHero__actions">
             <a href="{{ route('product.index') }}" class="btn btnPrimary">Istaknuta kolekcija</a>
-            <a href="{{ route('contact') }}" class="siteHero__ghost">Kontaktiraj nas</a>
+            <a href="{{ route('contact') }}" class="btn btnSecondary">Kontaktiraj nas</a>
         </div>
     </div>
 </section>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Default product image</title>
+  <desc id="desc">Light gray background with a darker gray wine glass icon.</desc>
+
+  <rect width="1200" height="800" fill="#F2F2F2" />
+
+  <!-- Wine glass icon (monochrome) -->
+  <g fill="#B0B0B0">
+    <!-- Bowl -->
+    <path d="M450 150 C450 350 510 430 600 460 C690 430 750 350 750 150 Z" />
+    <!-- Stem -->
+    <path d="M575 460 C575 560 555 605 520 640 L680 640 C645 605 625 560 625 460 Z" />
+    <!-- Base -->
+    <path d="M420 670 C420 640 450 620 490 620 L710 620 C750 620 780 640 780 670 C780 700 750 720 710 720 L490 720 C450 720 420 700 420 670 Z" />
+  </g>
+
+  <!-- Subtle inner highlight to read better on the light background -->
+  <g fill="#C6C6C6" opacity="0.9">
+    <path d="M520 190 C520 310 560 370 600 395 C640 370 680 310 680 190 C680 190 680 190 680 190 C680 190 680 190 680 190 Z" />
+  </g>
+</svg>

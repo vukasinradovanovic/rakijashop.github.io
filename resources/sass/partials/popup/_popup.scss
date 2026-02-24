@@ -1,54 +1,134 @@
 .popup {
     position: fixed;
-    right: rem(5);
-    top: rem(100);
-    width: 18%;
-    z-index: 10;
-    opacity: 1;
-    transition: all 0.3s ease;
+    right: rem(16);
+    top: rem(96);
+    width: min(rem(380), calc(100% - #{rem(24)}));
+    z-index: 1100;
+    pointer-events: none;
 
     &-item {
-        font-size: rem(16);
+        pointer-events: auto;
+        font-size: rem(15);
         word-break: break-word;
+        background: $secondary-bg;
+        border: 1px solid $brand-200;
+        border-left: rem(4) solid $plum-700;
+        border-radius: rem(14);
+        box-shadow: 0 rem(18) rem(36) rgba($brand-900, 0.14);
+        overflow: hidden;
     }
 
     &.show {
-        animation: fadeSlideUp 0.5s 4s forwards;
+        animation: popupLifeCycle 4.8s ease forwards;
+    }
+
+    &__head {
+        display: flex;
+        align-items: center;
+        gap: rem(10);
+        padding: rem(12) rem(14) rem(10);
+        border-bottom: 1px solid rgba($brand-200, 0.8);
+        background: rgba($brand-50, 0.75);
+    }
+
+    &__icon {
+        font-size: rem(17);
+        color: $plum-700;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: rem(14);
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: $brand-900;
+    }
+
+    &__message {
+        margin: 0;
+        padding: rem(12) rem(14) rem(14);
+        color: $brand-800;
+        line-height: 1.45;
+        font-weight: 500;
     }
     
     @include xs {
-        width: 95%;
-        font-size: rem(16);
+        right: rem(12);
+        left: rem(12);
+        top: rem(86);
+        width: auto;
     }
 
     @include s {
-        width: 50%;
+        width: min(rem(420), calc(100% - #{rem(24)}));
      }
 
     @include m {
-        width: 25%;
+        right: rem(18);
+        left: auto;
+        width: min(rem(400), 42vw);
     }
 
     @include l {
-        width: 18%;
+        width: min(rem(380), 30vw);
     }
+
     &.popup--error {
-        background-color: rgba(255, 0, 0, 0.45); // crvena za greške
-        color: white;
-        border-right: 5px solid red;
+        .popup-item {
+            border-left-color: rgba($warning-color, 0.75);
+            border-color: rgba($warning-color, 0.25);
+            background: linear-gradient(180deg, rgba($warning-color, 0.1) 0%, rgba($secondary-bg, 0.98) 100%);
+        }
+
+        .popup__head {
+            background: rgba($warning-color, 0.08);
+            border-bottom-color: rgba($warning-color, 0.22);
+        }
+
+        .popup__icon,
+        .popup__title,
+        .popup__message {
+            color: $brand-900;
+        }
     }
 
     &.popup--success {
-        background-color: rgba($primary-color-lighter-20, 0.45); 
-        color: rgb(0, 82, 0);// zelena za uspeh
-        border-right: 5px solid green;
+        .popup-item {
+            border-left-color: rgba($plum-700, 0.85);
+            border-color: rgba($plum-700, 0.2);
+            background: linear-gradient(180deg, rgba($brand-100, 0.86) 0%, rgba($secondary-bg, 0.98) 100%);
+        }
+
+        .popup__head {
+            background: rgba($plum-500, 0.08);
+            border-bottom-color: rgba($plum-500, 0.18);
+        }
     }
 }
 
-@keyframes fadeSlideUp {
-    to {
+@keyframes popupLifeCycle {
+    0% {
         opacity: 0;
-        transform: translateX(rem(50));
+        transform: translate3d(rem(26), rem(-4), 0);
+        visibility: visible;
+    }
+
+    12% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+    }
+
+    84% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(rem(40), 0, 0);
         visibility: hidden;
     }
 }

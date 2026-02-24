@@ -3,27 +3,32 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User\User;
-use Illuminate\Http\Request;
+use App\Models\User\Roles;
+use App\Http\Requests\User\StoreUserRequest;
+use App\Http\Requests\User\UpdateUserRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class AuthController
 {
     //Register user
-    public function register(Request $request)
+    public function register(StoreUserRequest $request)
     {
         //Validate
-        $fields = $request->validate([
-            'name' => ['required', 'max:255', 'regex:/^([A-ZČĆŽŠĐ][a-zčćžšđ]+)( [A-ZČĆŽŠĐ][a-zčćžšđ]+){0,2}$/u'],
-            'email' => ['required', 'max:255', 'email', 'unique:users', 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/'],
-            'password' => ['required', 'min:5', 'confirmed'],
-        ]);
+        $fields = $request->validated();
 
         // Registracija korisnika sa generisanim username-om
         $user = User::create([
             'name' => $fields['name'],
             'email' => $fields['email'],
-            'password' => bcrypt($fields['password'])
+            'password' => bcrypt($fields['password']),
+            'created_at' => now(),
         ]);
+
+        $defaultRole = Roles::firstOrCreate([
+            'role_name' => 'korisnik',
+        ]);
+        $user->roles()->syncWithoutDetaching([$defaultRole->id]);
 
         //Login
         Auth::login($user);
@@ -33,13 +38,9 @@ class AuthController
     }
 
     //Login user
-    public function login(Request $request)
+    public function login(UpdateUserRequest $request)
     {
-        $fields = $request->validate([
-            'email' => ['required', 'max:255', 'email'],
-            'password' => ['required'],
-            'remember' => ['nullable']
-        ]);
+        $fields = $request->validated();
 
         $remember = (bool) $request->boolean('remember');
 

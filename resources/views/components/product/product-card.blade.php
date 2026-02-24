@@ -3,8 +3,9 @@
     'showActions' => true,
 ])
 
+{{-- Variables --}}
 @php
-    $productImage = asset('img/default-product.jpg');
+    $productImage = asset('img/default-product.svg');
 @endphp
 
 <article class="productCard {{ $attributes->get('class') }}">
@@ -25,9 +26,8 @@
             <span class="productCard__price">{{ number_format($product->price, 2, ',', '.') }} RSD</span>
         </div>
 
-        @if($showActions)
+        {{-- @if($showActions)
             <div class="productCard__actions">
-                <a href="{{ route('product.show', $product) }}" class="productCard__btn productCard__btn--ghost">Detalji</a>
                 <a href="{{ route('product.edit', $product) }}" class="productCard__btn">Izmeni</a>
                 <form action="{{ route('product.destroy', $product) }}" method="POST" class="productCard__delete">
                     @csrf
@@ -38,7 +38,7 @@
                     </button>
                 </form>
             </div>
-        @endif
+        @endif --}}
     </div>
 
     <a href="{{ route('product.show', $product) }}" class="stretched-link" aria-label="Prikaži proizvod {{ $product->name }}"></a>
