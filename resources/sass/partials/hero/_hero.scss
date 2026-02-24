@@ -1,51 +1,76 @@
-.hero {
-    &_search {
-        &Form {
-            position: relative;
-            z-index: 1 !important;
-            background-color: $secondary-bg;
-            border-radius: $border-radius-normal;
-            box-shadow: $shadow;
-            select {
-                height: rem(50);
-            }
+.siteHero {
+    position: relative;
+    padding: rem(70) 0 rem(90);
+    background: linear-gradient(135deg, rgba($brand-900, 0.92), rgba($plum-700, 0.9)),
+                url('https://images.unsplash.com/photo-1597075687490-8f673c6c17f6?auto=format&fit=crop&q=80&w=2000') center/cover;
+    color: $white-text;
+    overflow: hidden;
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba($brand-900, 0.7), rgba($brand-900, 0.35));
+    }
+
+    &__content {
+        position: relative;
+        max-width: 780px;
+        display: flex;
+        flex-direction: column;
+        gap: rem(16);
+        z-index: 1;
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: rem(8);
+        padding: rem(8) rem(14);
+        border-radius: rem(999);
+        background: rgba($brand-50, 0.16);
+        color: $white-text;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        width: fit-content;
+    }
+
+    &__title {
+        color: $white-text;
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2.4rem, 3.8vw, 3.8rem);
+        line-height: 1.15;
+        margin: 0;
+
+        &--accent {
+            color: lighten($accent-color, 8%);
         }
     }
-    &_content {
-        position: relative;
-        &Title {
-            height: rem(500);
-            background-color: $primary-color-lighter;
-            border-radius: $border-radius-normal;
-            box-shadow: $shadow;
-            &Main {
-                font-weight: 600;
-                color: $white-text;
-            }
-            &Text {
-                font-size: 1.2rem;
-                font-weight: 700;
-                color: $white-text;
-            }
-        }
-        //for old version premium ads
-        &Premium {
-            position: relative;
-            &Ads{
-                position: relative;
-                top:rem(-7);
-                height: 100%;
-                max-width: 100%;
-            }
-        }
-        //for services card on hero slider section
-        &Services {
-            position: relative;
-            &Card{
-                position: relative;
-                height: 100%;
-                max-width: 100%;
-            }
+
+    &__text {
+        font-size: rem(18);
+        color: rgba($white-text, 0.86);
+        max-width: 640px;
+        margin-bottom: rem(8);
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: rem(12);
+    }
+
+    &__ghost {
+        color: $white-text;
+        border: 1px solid rgba($white-text, 0.4);
+        padding: rem(10) rem(14);
+        border-radius: rem(12);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: rgba($white-text, 0.12);
         }
     }
 }

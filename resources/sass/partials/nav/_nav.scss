@@ -1,5 +1,5 @@
 .siteNav__top {
-    background: $brand-900;
+    background: $plum-700;
     color: $white-text;
     font-size: 0.9rem;
     padding: rem(6) 0;
@@ -101,12 +101,6 @@
             color: $plum-700;
             background: rgba($plum-700, 0.1);
         }
-    }
-
-    &__cta {
-        border-radius: rem(12);
-        padding: rem(10) rem(14);
-        font-weight: 700;
     }
 
     &__actions {

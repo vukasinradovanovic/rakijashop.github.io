@@ -20,7 +20,6 @@
     </a>
 
     <div class="d-flex align-items-center gap-2 order-lg-3">
-      <a href="{{ route('product.create') }}" class="btn btnPrimary siteNav__cta d-none d-md-inline-flex">Dodaj proizvod</a>
       <button class="navbar-toggler siteNav__toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu"
         aria-controls="siteNavMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -39,7 +38,7 @@
       <div class="siteNav__actions d-flex align-items-center gap-3">
         @guest
         <a href="{{ route('login') }}" class="siteNav__ghost">{{ __('auth.login') }}</a>
-        <a href="{{ route('register') }}" class="btn btnPrimary siteNav__cta">{{ __('auth.register') }}</a>
+        <a href="{{ route('register') }}" class="btn btnPrimary ">{{ __('auth.register') }}</a>
         @endguest
 
         @auth

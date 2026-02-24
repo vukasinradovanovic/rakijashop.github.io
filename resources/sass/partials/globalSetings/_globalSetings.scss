@@ -85,3 +85,18 @@ button {
     color: $primary-color-darken;
     padding: 0 rem(5);
 }
+
+.siteMain {
+    min-height: 100vh;
+}
+
+.siteBody {
+    background: $brand-50;
+    color: $primary-text;
+
+    &--auth {
+        background: radial-gradient(circle at 20% 20%, rgba($plum-700, 0.06), transparent 32%),
+                    radial-gradient(circle at 80% 0%, rgba($brand-700, 0.05), transparent 35%),
+                    $brand-50;
+    }
+}

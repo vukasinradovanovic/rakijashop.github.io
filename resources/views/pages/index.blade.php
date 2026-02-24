@@ -1,20 +1,8 @@
 @extends('layout.layout')
 
 @section('main')
-    <section class="siteHero">
-        <div class="siteHero__overlay"></div>
-        <div class="container siteHero__content">
-            <span class="siteHero__badge">Premium Balkan Spirits</span>
-            <h1 class="siteHero__title">Duša voća, <span class="siteHero__title--accent">uhvaćena u boci</span>.</h1>
-            <p class="siteHero__text">
-                Otkrij pažljivo kuriranu selekciju zanatske rakije iz najboljih destilerija Balkana.
-            </p>
-            <div class="siteHero__actions">
-                <a href="{{ route('product.index') }}" class="btn btnPrimary">Istaknuta kolekcija</a>
-                <a href="{{ route('contact') }}" class="siteHero__ghost">Kontaktiraj nas</a>
-            </div>
-        </div>
-    </section>
+    {{-- Hero section --}}
+    <x-sections.hero />
 
     <section class="sectionBlock sectionBlock--light">
         <div class="container">

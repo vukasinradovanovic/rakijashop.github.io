@@ -24,9 +24,9 @@
         @yield('main')
     </main>
     <x-footer.footer />
-    @vite(['resources/js/app.js'])
     {{-- @vite('resources/js/jQuery.js') --}}
     @vite('resources/js/script.js')
+    @vite(['resources/js/app.js'])
 </body>
 
 </html>
