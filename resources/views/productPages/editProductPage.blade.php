@@ -10,6 +10,7 @@
             @csrf
             @method('PUT')
 
+            {{-- Name of product --}}
             <div class="col-12 col-md-6">
                 <label for="name" class="form-label">Naziv</label>
                 <input type="text" name="name" id="name" value="{{ old('name', $product->name) }}"
@@ -19,6 +20,7 @@
                 @enderror
             </div>
 
+            {{-- Price of product --}}
             <div class="col-12 col-md-6">
                 <label for="price" class="form-label">Cena</label>
                 <input type="number" name="price" id="price" value="{{ old('price', $product->price) }}" step="0.01" min="0"
@@ -28,15 +30,7 @@
                 @enderror
             </div>
 
-            <div class="col-12 col-md-6">
-                <label for="stock" class="form-label">Stanje na lageru</label>
-                <input type="number" name="stock" id="stock" value="{{ old('stock', $product->stock) }}" min="0"
-                       class="form-control @error('stock') ring-red @enderror" required>
-                @error('stock')
-                    <p class="error mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
+            {{-- Description of product --}}
             <div class="col-12">
                 <label for="description" class="form-label">Opis</label>
                 <textarea name="description" id="description" rows="4"
@@ -46,11 +40,22 @@
                 @enderror
             </div>
 
-            <div class="col-12 d-flex align-items-center gap-2">
-                <input type="checkbox" name="is_active" id="is_active" value="1" {{ old('is_active', $product->is_active) ? 'checked' : '' }}>
-                <label for="is_active" class="form-label m-0">Aktivan proizvod</label>
+            {{-- Status of product --}}
+            <div class="col-12">
+                <label for="status_id" class="form-label">Status</label>
+                <select name="status_id" id="status_id" class="form-select @error('status_id') ring-red @enderror">
+                    @foreach($productStatuses as $status)
+                        <option value="{{ $status->id }}" {{ old('status_id', $product->status_id) == $status->id ? 'selected' : '' }}>
+                            {{ $status->name }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('status_id')
+                    <p class="error mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
+            {{-- Button for submitting form --}}
             <div class="col-12 d-flex gap-2 mt-3">
                 <button type="submit" class="btn btnPrimary">Sačuvaj izmene</button>
                 <a href="{{ route('product.index') }}" class="btn btn-outline-secondary">Nazad na listu</a>

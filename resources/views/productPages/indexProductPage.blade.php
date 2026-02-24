@@ -8,7 +8,6 @@
                 <p class="sectionBlock__eyebrow">Ponuda</p>
                 <h1 class="productPage__title">Naša kolekcija</h1>
             </div>
-            <a href="{{ route('product.create') }}" class="btn btnPrimary">Dodaj proizvod</a>
         </div>
 
         @if($products->count())

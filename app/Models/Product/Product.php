@@ -3,6 +3,7 @@
 namespace App\Models\Product;
 
 use App\Models\User\User;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,8 +17,7 @@ class Product extends Model
         'slug',
         'description',
         'price',
-        'stock',
-        'is_active',
+        'status_id',
     ];
 
     // Generator for slugs
@@ -45,5 +45,21 @@ class Product extends Model
         return $this->users()->where('user_id', $userId)->exists();
     }
 
+    // status relationship with ProductStatus model (many-to-one)
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(ProductStatus::class, 'status_id');
+    }
+    public function hasStatus(): bool
+    {
+        return $this->status()->exists();
+    }
+    public static function getStatusNameById(int $statusId): ?string
+    {
+        return ProductStatus::query()
+            ->whereKey($statusId)
+            ->value('name');
+    }
+    
 
 }
