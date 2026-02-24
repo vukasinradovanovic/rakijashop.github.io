@@ -4,7 +4,7 @@
 ])
 
 @php
-    $productImage = asset('img/default-product.jpg');
+    $productImage = asset('img/default-product.svg');
 @endphp
 
 <article class="productCard {{ $attributes->get('class') }}">
