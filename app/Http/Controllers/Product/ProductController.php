@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Product;
 
 use App\Models\Product\Product;
+use App\Models\Product\ProductStatus;
 use App\Http\Requests\Product\StoreProductRequest;
 use App\Http\Requests\Product\UpdateProductRequest;
 use Illuminate\Support\Str;
@@ -25,6 +26,8 @@ class ProductController
      */
     public function create()
     {
+        $productStatuses = ProductStatus::all();
+
         // Allow access to create form only for authenticated users
         if (!Auth::check()) {
             return redirect()
@@ -32,7 +35,7 @@ class ProductController
                 ->with('error', 'Morate biti ulogovani da biste dodali proizvod.');
         }
 
-        return view('productPages.createProductPage');
+        return view('productPages.createProductPage', compact('productStatuses'));
     }
 
     /**
@@ -50,10 +53,11 @@ class ProductController
         $data = $request->validated();
 
         $data['slug'] = Str::slug($data['name']);
-        // default value for is_active is true
-        $data['is_active'] = $request->has('is_active')
-            ? $request->boolean('is_active')
-            : true;
+
+        if (empty($data['status_id'])) {
+            $defaultStatus = ProductStatus::where('id', 1)->first();
+            $data['status_id'] = $defaultStatus->id;
+        }
 
         $product = Product::create($data);
         $product->users()->syncWithoutDetaching([Auth::id()]);
@@ -76,7 +80,8 @@ class ProductController
      */
     public function edit(Product $product)
     {
-        return view('productPages.editProductPage', compact('product'));
+        $productStatuses = ProductStatus::all();
+        return view('productPages.editProductPage', compact('product', 'productStatuses'));
     }
 
     /**
@@ -89,14 +94,10 @@ class ProductController
         // Ne diramo slug na update-u (onUpdate = false)
         unset($data['slug']);
 
-        if ($request->has('is_active')) {
-            $data['is_active'] = $request->boolean('is_active');
-        }
-
         $product->update($data);
 
         return redirect()
-            ->route('product.edit', $product)
+            ->route('product.show', $product)
             ->with('success', 'Proizvod je uspešno ažuriran.');
     }
 

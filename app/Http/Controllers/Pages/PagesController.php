@@ -10,7 +10,7 @@ class PagesController
     public function index()
     {
         $featuredProducts = Product::query()
-            ->where('is_active', true)
+            ->where('status_id', 1)
             ->latest()
             ->take(6)
             ->get();

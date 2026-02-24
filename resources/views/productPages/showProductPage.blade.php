@@ -13,14 +13,26 @@
             </div>
             <div class="col-12 col-md-6">
                 <h1 class="productPage__title">{{ $product->name }}</h1>
-                <p class="productPage__meta">Stanje: {{ $product->stock }} | Status: {{ $product->is_active ? 'Aktivan' : 'Neaktivan' }}</p>
+                <p class="productPage__meta">Status: {{ $product->getStatusNameById($product->status_id) }}</p>
                 <p class="productPage__price">{{ number_format($product->price, 2, ',', '.') }} RSD</p>
 
                 @if($product->description)
-                    <div class="mt-3">
-                        <h2 class="productPage__subtitle">Opis</h2>
-                        <p class="productPage__description">{{ $product->description }}</p>
-                    </div>
+                <div class="mt-3">
+                    <h2 class="productPage__subtitle">Opis</h2>
+                    <p class="productPage__description">{{ $product->description }}</p>
+                </div>
+                @endif
+                @if(Auth::user()->hasProduct($product->id))
+                <div class="productCard__actions">
+                    <a href="{{ route('product.edit', $product) }}" class="productCard__btn">Izmeni</a>
+                    <form action="{{ route('product.destroy', $product) }}" method="POST" class="productCard__delete">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="productCard__btn productCard__btn--danger">
+                            Obriši
+                        </button>
+                    </form>
+                </div>
                 @endif
             </div>
         </div>

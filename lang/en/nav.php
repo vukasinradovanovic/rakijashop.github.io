@@ -27,10 +27,10 @@ return [
             'slug' => Auth::check() ? route('user.show', (Auth::user()->name)) : route('index'),
             'name' => '<i class="fa fa-user"></i>  My profile',
         ],
-        // [
-        //     'slug' => route('profile'),
-        //     'name' => '<i class="fa fa-cog"></i> Profile settings',
-        // ],
+        [
+            'slug' => route('product.create'),
+            'name' => '<i class="fa-solid fa-wine-glass-empty"></i> Create product',
+        ],
     ],
     
     'languages' => [
