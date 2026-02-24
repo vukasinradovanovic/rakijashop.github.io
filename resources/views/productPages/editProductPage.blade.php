@@ -2,7 +2,7 @@
 
 @section('main')
 {{-- Main section: edit existing product page --}}
-<section class="container py-4 productPage productPage_edit">
+<section class="productPage productPage_edit">
     <h1 class="h3 mb-4">Izmeni proizvod</h1>
 
     {{-- Form: update product --}}

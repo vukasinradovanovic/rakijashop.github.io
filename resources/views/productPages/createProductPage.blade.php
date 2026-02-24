@@ -2,7 +2,7 @@
 
 @section('main')
 {{-- Main section: create new product page --}}
-<section class="container py-4 productPage productPage_create">
+<section class="productPage productPage_create">
     <h1 class="h3 mb-4">Kreiraj proizvod</h1>
 
     {{-- Form: create product --}}

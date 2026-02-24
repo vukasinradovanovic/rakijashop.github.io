@@ -1,7 +1,7 @@
 @extends('layout.layout')
 
 @section('main')
-<section class="container py-4 productPage productPage_show">
+<section class="productPage productPage_show">
     <div class="mb-3">
         <a href="{{ route('product.index') }}" class="btn btn-outline-secondary btn-sm">&larr; Nazad na listu</a>
     </div>

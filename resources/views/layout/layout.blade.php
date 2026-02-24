@@ -15,7 +15,7 @@
 <body>
     <x-validation.pop-up-window msg="{{ session ('success') }}" type="success"/>
     @include('components.header.nav')
-    <main>
+    <main class="container py-4">
         @yield('main')
     </main>
     <x-footer.footer />

@@ -6,6 +6,7 @@ use App\Models\Product\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController
 {
@@ -24,6 +25,13 @@ class ProductController
      */
     public function create()
     {
+        // Allow access to create form only for authenticated users
+        if (!Auth::check()) {
+            return redirect()
+                ->route('login')
+                ->with('error', 'Morate biti ulogovani da biste dodali proizvod.');
+        }
+
         return view('productPages.createProductPage');
     }
 
@@ -32,6 +40,13 @@ class ProductController
      */
     public function store(StoreProductRequest $request)
     {
+        // Allow storing product only for authenticated users
+        if (!Auth::check()) {
+            return redirect()
+                ->route('login')
+                ->with('error', 'Morate biti ulogovani da biste dodali proizvod.');
+        }
+
         $data = $request->validated();
 
         $data['slug'] = Str::slug($data['name']);

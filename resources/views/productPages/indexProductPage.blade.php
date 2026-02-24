@@ -1,10 +1,9 @@
 @extends('layout.layout')
 
 @section('main')
-<section class="container py-4 productPage productPage_index">
+<section class="productPage productPage_index">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3 m-0">Proizvodi</h1>
-        <a href="{{ route('product.create') }}" class="btn btnPrimary">Dodaj proizvod</a>
     </div>
 
     @if($products->count())

@@ -39,6 +39,9 @@
       <span>Rakija Shop</span>
     </a>
 
+    {{-- Button for create product --}}
+    <a href="{{ route('product.create') }}" class="btn btnPrimary">Dodaj proizvod</a>
+
     {{-- toggler button --}}
     <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
