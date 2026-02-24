@@ -2,23 +2,26 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    font-family: "Mukta", serif;
+    font-family: 'Inter', 'Mukta', system-ui, -apple-system, sans-serif;
 }
 h1,h2,h3,h4,h5{
-    font-family: "Poppins", serif;
+    font-family: 'Playfair Display', 'Poppins', serif;
+    color: $primary-text;
 }
 .min-height-100{
     min-height: 100vh;
 }
 body {
     background-color: $primary-bg;
-    font-family: Arial, sans-serif;
+    color: $primary-text;
+    font-family: 'Inter', 'Mukta', system-ui, -apple-system, sans-serif;
     margin: 0;
     padding: 0;
+    line-height: 1.6;
 }
 a {
     text-decoration: none;
-    color: black;
+    color: $primary-text;
 }
 button {
     border: none;
@@ -81,4 +84,19 @@ button {
     background-color: rgba($primary-color-lighter-20, 0.4);
     color: $primary-color-darken;
     padding: 0 rem(5);
+}
+
+.siteMain {
+    min-height: 100vh;
+}
+
+.siteBody {
+    background: $brand-50;
+    color: $primary-text;
+
+    &--auth {
+        background: radial-gradient(circle at 20% 20%, rgba($plum-700, 0.06), transparent 32%),
+                    radial-gradient(circle at 80% 0%, rgba($brand-700, 0.05), transparent 35%),
+                    $brand-50;
+    }
 }

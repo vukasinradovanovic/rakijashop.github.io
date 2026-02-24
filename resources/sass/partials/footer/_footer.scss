@@ -1,59 +1,100 @@
-footer{
-   position: relative;
-   z-index: 4;
-   .footer-link {
-      position: relative;
-      text-decoration: none; 
-      &::after {
-          content: "";
-          position: absolute;
-          left: 0;
-          bottom: -2px;
-          width: 0;
-          height: 2px;
-          background-color: white;
-          transition: width 0.3s ease-in-out;
-      }
-  
-      &:hover::after {
-          width: 100%;
-      }
+.siteFooter {
+  background: $brand-900;
+  color: $white-text;
+  padding: rem(40) 0 rem(24);
+  border-top-left-radius: rem(26);
+  border-top-right-radius: rem(26);
+  margin-top: rem(40);
+
+  &__content { align-items: flex-start; }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: rem(12);
+    margin-bottom: rem(12);
   }
-   .copyright{
-    background-color:rgba(0, 0, 0, 0.276);
-    bottom: 10px;
-}
- a{
-    color: white !important;
- }
 
-}
- @media screen and (max-width:767px){
-   footer{
-       z-index: 1;
-   }
-}
+  &__logoMark {
+    width: rem(44);
+    height: rem(44);
+    border-radius: 50%;
+    background: $plum-700;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: rem(18);
+    box-shadow: 0 rem(14) rem(28) rgba($plum-700, 0.3);
+  }
 
-.logoFooter{
-    padding: 0 rem(7);
-    background-color: $white-text;
-    border-radius: $border-radius-normal;
- }
+  &__brandTitle {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: rem(20);
+  }
 
- @media (max-width: 767px) {
-    .logoFooter { 
-      padding: 0;              
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;     
+  &__brandText {
+    margin: 0;
+    color: rgba($white-text, 0.8);
+  }
+
+  &__lede {
+    color: rgba($white-text, 0.78);
+    max-width: 340px;
+  }
+
+  &__heading {
+    font-weight: 800;
+    color: $white-text;
+    margin-bottom: rem(12);
+    letter-spacing: 0.02em;
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    margin-bottom: rem(8);
+    color: rgba($white-text, 0.82);
+    display: flex;
+    align-items: center;
+    gap: rem(8);
+  }
+
+  &__link {
+    color: rgba($white-text, 0.9);
+    text-decoration: none;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background-color: $white-text;
+      transition: width 0.2s ease;
     }
+
+    &:hover::after { width: 100%; }
   }
-  @media (max-width: 1024px){
-    .logoFooter { 
-        //width: 100%;
-        padding: 0;              
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;     
-      }
+
+  &__bottom {
+    margin-top: rem(22);
+    padding-top: rem(12);
+    border-top: 1px solid rgba($white-text, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: rem(10);
+    color: rgba($white-text, 0.8);
   }
+
+  &__note {
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,204 @@
+// Landing / home styles inspired by template
+
+.sectionBlock {
+    padding: rem(70) 0;
+
+    &--light { background: $brand-50; }
+    &--muted { background: $brand-100; }
+
+    &__header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: rem(16);
+        margin-bottom: rem(28);
+        flex-wrap: wrap;
+    }
+
+    &__eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        color: $plum-700;
+        margin-bottom: rem(6);
+    }
+
+    &__title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.9rem, 2.6vw, 2.4rem);
+        color: $brand-900;
+        margin: 0;
+    }
+
+    &__subtitle {
+        color: $brand-700;
+        margin: 0;
+    }
+
+    &__link {
+        color: $plum-700;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: rem(6);
+
+        &:hover { text-decoration: underline; }
+    }
+}
+
+.storyCard {
+    padding: rem(24);
+    background: $secondary-bg;
+    border: 1px solid $brand-200;
+    border-radius: rem(18);
+    box-shadow: 0 rem(18) rem(32) rgba($brand-900, 0.08);
+
+    &__eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: $plum-700;
+        font-weight: 700;
+    }
+
+    &__title {
+        font-family: 'Playfair Display', serif;
+        font-size: rem(26);
+        color: $brand-900;
+        margin: rem(8) 0;
+    }
+
+    &__text {
+        color: $brand-700;
+        margin-bottom: rem(14);
+    }
+
+    &__list {
+        padding: 0;
+        margin: 0;
+    }
+
+    &__listItem {
+        display: flex;
+        align-items: center;
+        gap: rem(10);
+        color: $brand-800;
+        font-weight: 600;
+        margin-bottom: rem(10);
+
+        i { color: $plum-700; }
+    }
+
+    &__media {
+        position: relative;
+        border-radius: rem(20);
+        overflow: hidden;
+        box-shadow: 0 rem(18) rem(32) rgba($brand-900, 0.1);
+    }
+
+    &__image {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        transform: scale(1.01);
+        transition: transform 0.5s ease;
+
+        &:hover { transform: scale(1.04); }
+    }
+
+    &__badge {
+        position: absolute;
+        bottom: rem(16);
+        left: rem(16);
+        background: rgba($plum-700, 0.9);
+        color: $white-text;
+        padding: rem(10) rem(14);
+        border-radius: rem(12);
+        font-weight: 700;
+        box-shadow: 0 rem(16) rem(30) rgba($plum-700, 0.25);
+    }
+}
+
+.productPage {
+    padding: rem(40) 0;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: rem(12);
+        margin-bottom: rem(18);
+        flex-wrap: wrap;
+    }
+
+    &__title {
+        font-family: 'Playfair Display', serif;
+        color: $brand-900;
+        margin: 0;
+    }
+
+    &__meta { color: $brand-700; }
+    &__price { font-size: rem(24); font-weight: 800; color: $brand-900; }
+    &__subtitle { font-size: rem(18); color: $brand-800; }
+    &__description { color: $brand-700; }
+
+    &__grid { margin-top: rem(10); }
+}
+
+.pageSection {
+    padding: rem(50) 0;
+
+    &__title {
+        font-family: 'Playfair Display', serif;
+        font-size: rem(28);
+        color: $brand-900;
+    }
+
+    &__subtitle {
+        color: $brand-700;
+    }
+}
+
+.authPage {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: rem(30) rem(16);
+
+    &__card {
+        width: min(420px, 100%);
+        background: $secondary-bg;
+        border: 1px solid $brand-200;
+        border-radius: rem(18);
+        padding: rem(28);
+        box-shadow: 0 rem(22) rem(44) rgba($brand-900, 0.12);
+    }
+
+    &__title {
+        font-family: 'Playfair Display', serif;
+        color: $brand-900;
+        margin-bottom: rem(6);
+    }
+
+    &__subtitle { color: $brand-700; }
+
+    &__form { margin-top: rem(12); }
+
+    &__password .btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    &__switch {
+        margin-top: rem(14);
+        color: $brand-700;
+    }
+
+    &__link {
+        color: $plum-700;
+        font-weight: 700;
+        text-decoration: none;
+
+        &:hover { text-decoration: underline; }
+    }
+}

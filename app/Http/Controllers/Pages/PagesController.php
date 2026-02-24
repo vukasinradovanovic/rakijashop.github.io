@@ -2,14 +2,22 @@
 
 namespace App\Http\Controllers\Pages;
 
+use App\Models\Product\Product;
 use Illuminate\Http\Request;
 
 class PagesController
 {
     public function index()
     {
-        
-        return view('pages.index');
+        $featuredProducts = Product::query()
+            ->where('is_active', true)
+            ->latest()
+            ->take(6)
+            ->get();
+
+        return view('pages.index', [
+            'featuredProducts' => $featuredProducts,
+        ]);
     }
 
     public function login()
