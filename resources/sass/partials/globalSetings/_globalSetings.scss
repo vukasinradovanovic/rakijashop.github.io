@@ -2,23 +2,26 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    font-family: "Mukta", serif;
+    font-family: 'Inter', 'Mukta', system-ui, -apple-system, sans-serif;
 }
 h1,h2,h3,h4,h5{
-    font-family: "Poppins", serif;
+    font-family: 'Playfair Display', 'Poppins', serif;
+    color: $primary-text;
 }
 .min-height-100{
     min-height: 100vh;
 }
 body {
     background-color: $primary-bg;
-    font-family: Arial, sans-serif;
+    color: $primary-text;
+    font-family: 'Inter', 'Mukta', system-ui, -apple-system, sans-serif;
     margin: 0;
     padding: 0;
+    line-height: 1.6;
 }
 a {
     text-decoration: none;
-    color: black;
+    color: $primary-text;
 }
 button {
     border: none;

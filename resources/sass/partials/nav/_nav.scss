@@ -1,92 +1,152 @@
-.navbarMain {
-    width: 100%;
-    background-color: $secondary-bg;
-    box-shadow: 0 rem(2) rem(10) rgba(0, 0, 0, 0.2);
-    z-index: 1050;
-    &_logo {
-        width: rem(190);
+.siteNav__top {
+    background: $brand-900;
+    color: $white-text;
+    font-size: 0.9rem;
+    padding: rem(6) 0;
 
-        img {
-            width: 100%;
-        }
+    .siteNav__topLink {
+        color: $white-text;
+        opacity: 0.8;
+        transition: opacity 0.2s ease;
 
-        span {
-            font-size: rem(24);
-            font-weight: bold;
-            color: $primary-color;
-        }
-
-        @media (max-width:500px) {
-            width: rem(140);
-        }
-    }
-
-    .nav-item {
-        position: relative;
-        margin-left: rem(10);
-        &::after {
-            display: block;
-            position: absolute;
-            content: "";
-            width: 0%;
-            height: rem(3);
-            background-color: $primary-color-lighter;
-            top: 114%;
-            left: 0%;
-            transition: 0.2s;
-        }
-
-        &:hover::after {
-            width: 100%;
-
-        }
-
-        .pawicon {
-            transition: color 0.3s ease, transform 0.3s ease;
-            color: $white-text;
-            font-size: 0.9rem;
-        }
-
-        &:hover {
-            .pawicon {
-                color: $primary-color; // promeni boju ikone
-                transform: scale(1.1); // uvećaj je blago
-            }
-        }
-
-    }
-
-    .active {
-        &::after {
-            display: block;
-            position: absolute;
-            content: "";
-            width: 100%;
-            height: rem(3);
-            background-color: $primary-color-lighter;
-            top: 114%;
-            left: 0%;
-            transition: 0.2s;
-        }
-         .pawicon{
-                color: $primary-color-lighter-20;
-                transform: scale(1.1);
-
-            }
+        &:hover { opacity: 1; }
     }
 }
 
-.topNavbar {
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: $primary-color-lighter-5;
+.siteNav {
+    width: 100%;
+    background: rgba($brand-50, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid $brand-200;
     z-index: 1060;
-    font-size: 0.93rem;
 
-    .nav-link {
-        position: relative;
+    &__container {
+        padding-top: rem(10);
+        padding-bottom: rem(10);
+    }
+
+    &__brand {
+        display: inline-flex;
+        align-items: center;
+        gap: rem(10);
+        text-decoration: none;
+    }
+
+    &__brandMark {
+        width: rem(42);
+        height: rem(42);
+        border-radius: 50%;
+        background: $plum-700;
         color: $white-text;
-        padding: 0 rem(10);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: rem(18);
+        transition: background-color 0.3s ease;
+    }
+
+    &__brandText {
+        font-family: 'Playfair Display', serif;
+        font-size: rem(22);
+        font-weight: 700;
+        color: $brand-900;
+        letter-spacing: -0.3px;
+    }
+
+    &__toggler {
+        border: 1px solid $brand-300;
+        border-radius: rem(10);
+        padding: rem(6) rem(10);
+    }
+
+    &__menu {
+        gap: rem(16);
+    }
+
+    &__links {
+        display: flex;
+        gap: rem(12);
+    }
+
+    &__link {
+        position: relative;
+        color: $brand-700;
+        font-weight: 600;
+        padding: rem(8) rem(10);
+        border-radius: rem(10);
+        transition: color 0.2s ease, background-color 0.2s ease;
+
+        &:hover {
+            color: $plum-700;
+            background: rgba($plum-700, 0.08);
+        }
+    }
+
+    .is-active .siteNav__link {
+        color: $plum-700;
+        background: rgba($plum-700, 0.12);
+    }
+
+    &__ghost {
+        color: $brand-700;
+        font-weight: 600;
+        text-decoration: none;
+        padding: rem(8) rem(12);
+        border-radius: rem(10);
+        background: rgba($brand-300, 0.3);
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: $plum-700;
+            background: rgba($plum-700, 0.1);
+        }
+    }
+
+    &__cta {
+        border-radius: rem(12);
+        padding: rem(10) rem(14);
+        font-weight: 700;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: rem(12);
+    }
+
+    &__profileBtn {
+        display: inline-flex;
+        align-items: center;
+        gap: rem(10);
+        background: $secondary-bg;
+        border: 1px solid $brand-200;
+        border-radius: rem(12);
+        padding: rem(8) rem(12);
+        font-weight: 600;
+        color: $brand-800;
+    }
+
+    &__profileAvatar {
+        width: rem(34);
+        height: rem(34);
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        background-color: $brand-300;
+        display: inline-block;
+    }
+
+    &__profileMenu {
+        min-width: rem(200);
+        border-radius: rem(12);
+        border: 1px solid $brand-200;
+        box-shadow: 0 rem(20) rem(50) rgba($brand-900, 0.08);
+    }
+
+    &__profileGreeting {
+        padding: rem(8) rem(12);
+        font-weight: 600;
+        color: $brand-700;
     }
 }

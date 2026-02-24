@@ -1,32 +1,49 @@
-$primary-color: #563727;
-$secondary-color:#372c2e; 
+$primary-color: #6a3658; // Plum tone from template
+$secondary-color: #3a2118; // Deep brand hue for backgrounds
+$accent-color: #8c5e4d; // Warm wood accent
 
-$primary-color-lighter:lighten($primary-color,15%);
-$primary-color-lighter-5:lighten($primary-color,5%);
-$primary-color-lighter-20:lighten($primary-color,20%);
-$primary-color-darken:darken($primary-color,10%);
+// Template palette
+$brand-50: #fdf8f6;
+$brand-100: #f2e8e5;
+$brand-200: #eaddd7;
+$brand-300: #e0cec7;
+$brand-500: #8c5e4d;
+$brand-700: #5d3a2e;
+$brand-900: #3a2118;
+$brand-800: lighten($brand-900, 10%);
 
-$secondary-color-lighter:lighten($secondary-color,15%);
-$secondary-color-lighter-5:lighten($secondary-color,5%);
-$secondary-color-lighter-20:lighten($secondary-color,20%);
-$secondary-color-darken:darken($secondary-color,10%);
+$plum-500: $primary-color;
+$plum-700: #4a253c;
+
+$primary-color-lighter: lighten($primary-color, 12%);
+$primary-color-lighter-5: lighten($primary-color, 6%);
+$primary-color-lighter-20: lighten($primary-color, 20%);
+$primary-color-darken: darken($primary-color, 8%);
+
+$secondary-color-lighter: lighten($secondary-color, 10%);
+$secondary-color-lighter-5: lighten($secondary-color, 5%);
+$secondary-color-lighter-20: lighten($secondary-color, 20%);
+$secondary-color-darken: darken($secondary-color, 10%);
+
+$highlight-color: #e0cec7; // Soft neutral for borders/panels
+$muted-rose: #f2e8e5; // Background wash
 
 $warning-color: red;
-$warning-color-lighter:lighten($warning-color,15%);
+$warning-color-lighter: lighten($warning-color, 15%);
 
-$premium-content: $primary-color-lighter-20;              //rgba(#8ec3ff, 0.712);
+$premium-content: $primary-color-lighter-20;
 $paid-content: #ffee8e;
 
-$primary-bg: #f1f1f1;
-$secondary-bg: #fff;
+$primary-bg: #fdf8f6;
+$secondary-bg: #ffffff;
 
-$primary-bg-lighter: lighten($primary-bg,15%);
-$secondary-bg-lighter: lighten($secondary-bg,15%);
+$primary-bg-lighter: lighten($primary-bg, 6%);
+$secondary-bg-lighter: lighten($secondary-bg, 6%);
 
-$Black-Collor-For-Text:#000;
-$primary-text: #0B1215;
-$secondary-text:$primary-color;
-$white-text: #f1f1f1;
+$Black-Collor-For-Text: #0f0a08;
+$primary-text: #2b1a14;
+$secondary-text: $primary-color;
+$white-text: #f7f4f2;
 $red-text: #c80815; //color for premium ribbon
 
 $border-color-primary: $primary-color;
@@ -34,7 +51,7 @@ $border-color-button: $primary-color;
 
 // DOTS COLORS
 
-$slick-dot-color: gray;
+$slick-dot-color: #cbbab3;
 $slick-dot-active-color: $primary-color-lighter-20;
 
 $blue-color: rgb(67, 10, 222);

@@ -1,5 +1,10 @@
 @extends('layout.layout')
 
 @section('main')
-    <h1>Welcome to gallery page</h1>
+    <section class="pageSection">
+        <div class="container">
+            <h1 class="pageSection__title">Galerija</h1>
+            <p class="pageSection__subtitle">Uskoro donosimo nove trenutke iz naših destilerija.</p>
+        </div>
+    </section>
 @endsection
