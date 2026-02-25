@@ -7,6 +7,7 @@ use App\Models\Product\Product;
 use App\Models\Product\ProductStatus;
 use App\Http\Requests\Product\StoreProductRequest;
 use App\Http\Requests\Product\UpdateProductRequest;
+use App\Models\Product\CategoryProducts;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -19,8 +20,9 @@ class ProductController
     public function index()
     {
         $products = Product::with('images')->orderByDesc('created_at')->paginate(12);
+        $categories = CategoryProducts::where('is_active', true)->get();
 
-        return view('productPages.indexProductPage', compact('products'));
+        return view('productPages.indexProductPage', compact('products', 'categories'));
     }
 
     /**
@@ -29,6 +31,8 @@ class ProductController
     public function create()
     {
         $productStatuses = ProductStatus::all();
+        $categories = CategoryProducts::where('is_active', true)->get();
+
 
         // Allow access to create form only for authenticated users
         if (!Auth::check()) {
@@ -37,7 +41,7 @@ class ProductController
                 ->with('error', 'Morate biti ulogovani da biste dodali proizvod.');
         }
 
-        return view('productPages.createProductPage', compact('productStatuses'));
+        return view('productPages.createProductPage', compact('productStatuses', 'categories'));
     }
 
     /**
@@ -53,6 +57,8 @@ class ProductController
         }
 
         $data = $request->validated();
+        $categoryId = $data['category_id'] ?? null;
+        unset($data['category_id']);
 
         $data['slug'] = Str::slug($data['name']);
 
@@ -63,7 +69,9 @@ class ProductController
 
         $product = Product::create($data);
         $product->users()->syncWithoutDetaching([Auth::id()]);
+        $product->categories()->sync($categoryId ? [$categoryId] : []);
 
+        // Handle image upload
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('products', 'public');
             $image = ImageProduct::create(['img' => $imagePath]);
@@ -82,8 +90,9 @@ class ProductController
     public function show(Product $product)
     {
         $product->load('images');
+        $categories = CategoryProducts::where('is_active', true)->get();
 
-        return view('productPages.showProductPage', compact('product'));
+        return view('productPages.showProductPage', compact('product', 'categories'));
     }
 
     /**
@@ -93,8 +102,9 @@ class ProductController
     {
         $productStatuses = ProductStatus::all();
         $product->load('images');
+        $categories = CategoryProducts::where('is_active', true)->get();
 
-        return view('productPages.editProductPage', compact('product', 'productStatuses'));
+        return view('productPages.editProductPage', compact('product', 'productStatuses', 'categories'));
     }
 
     /**
@@ -103,12 +113,15 @@ class ProductController
     public function update(UpdateProductRequest $request, Product $product)
     {
         $data = $request->validated();
+        $categoryId = $data['category_id'] ?? null;
+        unset($data['category_id']);
 
-        // Ne diramo slug na update-u (onUpdate = false)
         unset($data['slug']);
 
         $product->update($data);
+        $product->categories()->sync($categoryId ? [$categoryId] : []);
 
+        // Handle image update
         if ($request->hasFile('image')) {
             $oldImage = $product->images()->first();
 
@@ -134,6 +147,7 @@ class ProductController
     public function destroy(Product $product)
     {
         $images = $product->images()->get();
+        $product->categories()->detach();
 
         $product->delete();
 

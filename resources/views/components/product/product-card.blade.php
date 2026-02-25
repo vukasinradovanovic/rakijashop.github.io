@@ -12,7 +12,7 @@
     <div class="productCard__media">
         <img src="{{ $productImage }}" alt="{{ $product->name }}" class="productCard__image">
         {{-- Status of product --}}
-        <span class="productCard__badge">Status: {{ $product->getStatusNameById($product->status_id) }}</span>
+        <span class="productCard__badge">{{ $product->getCategoryNamesAttribute() }}</span>
     </div>
 
     <div class="productCard__body">

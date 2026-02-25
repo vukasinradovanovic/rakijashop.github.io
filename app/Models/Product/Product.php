@@ -42,6 +42,9 @@ class Product extends Model
     public function users() {
         return $this->belongsToMany(User::class, 'user_products', 'product_id', 'user_id');
     }
+    public function hasUser(int $userId): bool{
+        return $this->users()->where('user_id', $userId)->exists();
+    }
 
     // Categories relationship (many-to-many)
     public function categories(): BelongsToMany
@@ -51,9 +54,9 @@ class Product extends Model
     public function hasCategory(int $categoryId): bool{
         return $this->categories()->where('category_id', $categoryId)->exists();
     }
-
-    public function hasUser(int $userId): bool{
-        return $this->users()->where('user_id', $userId)->exists();
+    public function getCategoryNamesAttribute(): string
+    {
+        return $this->categories->pluck('name')->implode(', ');
     }
 
     // status relationship with ProductStatus model (many-to-one)

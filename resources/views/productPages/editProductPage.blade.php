@@ -6,6 +6,10 @@
     <div class="container">
         <h1 class="productPage__title mb-4">Izmeni proizvod</h1>
 
+        @php
+            $selectedCategoryId = old('category_id', optional($product->categories->first())->id);
+        @endphp
+
         <form action="{{ route('product.update', $product) }}" method="POST" enctype="multipart/form-data" class="productForm row g-3">
             @csrf
             @method('PUT')
@@ -36,6 +40,22 @@
                 <textarea name="description" id="description" rows="4"
                           class="form-control @error('description') ring-red @enderror">{{ old('description', $product->description) }}</textarea>
                 @error('description')
+                    <p class="error mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            {{-- Categories of product --}}
+            <div class="col-12">
+                <label for="category_id" class="form-label">Kategorija</label>
+                <select name="category_id" id="category_id" class="form-select @error('category_id') ring-red @enderror">
+                    <option value="">-- Izaberi kategoriju --</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ $selectedCategoryId == $category->id ? 'selected' : '' }}>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('category_id')
                     <p class="error mt-1">{{ $message }}</p>
                 @enderror
             </div>

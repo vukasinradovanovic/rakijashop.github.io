@@ -27,6 +27,7 @@ class UpdateProductRequest extends FormRequest
             'price' => ['sometimes', 'required', 'numeric', 'min:0'],
             'status_id' => ['sometimes', 'nullable', 'integer', 'exists:product_statuses,id'],
             'image' => ['sometimes', 'nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
+            'category_id' => ['sometimes', 'nullable', 'integer', 'exists:category_products,id'],
         ];
     }
 }

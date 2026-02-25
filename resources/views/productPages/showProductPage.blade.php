@@ -13,7 +13,7 @@
             </div>
             <div class="col-12 col-md-6">
                 <h1 class="productPage__title">{{ $product->name }}</h1>
-                <p class="productPage__meta">Status: {{ $product->getStatusNameById($product->status_id) }}</p>
+                <p class="productPage__meta">{{ $product->getCategoryNamesAttribute() }}</p>
                 <p class="productPage__price">{{ number_format($product->price, 2, ',', '.') }} RSD</p>
 
                 @if($product->description)

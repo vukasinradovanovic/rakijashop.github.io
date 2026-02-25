@@ -38,6 +38,22 @@
                 @enderror
             </div>
 
+            {{-- Categories of product --}}
+            <div class="col-12">
+                <label for="category_id" class="form-label">Kategorija</label>
+                <select name="category_id" id="category_id" class="form-select @error('category_id') ring-red @enderror">
+                    <option value="">-- Izaberi kategoriju --</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('category_id')
+                    <p class="error mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
             {{-- Product image --}}
             <div class="col-12">
                 <label for="image" class="form-label">Slika proizvoda</label>
