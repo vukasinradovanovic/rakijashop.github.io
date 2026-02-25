@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             CitiesSeeder::class,
             CompanyInfosSeeder::class,
             ProductStatusSeeder::class,
+            CategoryProductsSeeder::class,
         ]);
     }
 }

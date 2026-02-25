@@ -5,7 +5,7 @@
 
 {{-- Variables --}}
 @php
-    $productImage = asset('img/default-product.svg');
+    $productImage = $product->main_image;
 @endphp
 
 <article class="productCard {{ $attributes->get('class') }}">

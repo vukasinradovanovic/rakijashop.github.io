@@ -6,7 +6,7 @@
     <div class="container">
         <h1 class="productPage__title mb-4">Izmeni proizvod</h1>
 
-        <form action="{{ route('product.update', $product) }}" method="POST" class="productForm row g-3">
+        <form action="{{ route('product.update', $product) }}" method="POST" enctype="multipart/form-data" class="productForm row g-3">
             @csrf
             @method('PUT')
 
@@ -36,6 +36,19 @@
                 <textarea name="description" id="description" rows="4"
                           class="form-control @error('description') ring-red @enderror">{{ old('description', $product->description) }}</textarea>
                 @error('description')
+                    <p class="error mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            {{-- Product image --}}
+            <div class="col-12">
+                <label for="image" class="form-label">Slika proizvoda</label>
+                <div class="mb-2">
+                    <img src="{{ $product->main_image }}" alt="{{ $product->name }}" style="max-width: 220px; height: auto;">
+                </div>
+                <input type="file" name="image" id="image" accept="image/*"
+                       class="form-control @error('image') ring-red @enderror">
+                @error('image')
                     <p class="error mt-1">{{ $message }}</p>
                 @enderror
             </div>
