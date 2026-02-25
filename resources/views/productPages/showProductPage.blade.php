@@ -22,7 +22,9 @@
                     <p class="productPage__description">{{ $product->description }}</p>
                 </div>
                 @endif
-                @if(Auth::user()->hasProduct($product->id))
+
+                {{-- Buttons for product actions --}}
+                @if(Auth::user() && Auth::user()->hasProduct($product->id) != null)
                 <div class="productCard__actions">
                     <a href="{{ route('product.edit', $product) }}" class="productCard__btn">Izmeni</a>
                     <form action="{{ route('product.destroy', $product) }}" method="POST" class="productCard__delete">

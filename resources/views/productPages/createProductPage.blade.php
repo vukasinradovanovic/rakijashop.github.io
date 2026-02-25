@@ -6,7 +6,7 @@
     <div class="container">
         <h1 class="productPage__title mb-4">Kreiraj proizvod</h1>
 
-        <form action="{{ route('product.store') }}" method="POST" class="productForm row g-3">
+        <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data" class="productForm row g-3">
             @csrf
             {{-- Name of product --}}
             <div class="col-12 col-md-6">
@@ -34,6 +34,16 @@
                 <textarea name="description" id="description" rows="4"
                           class="form-control @error('description') ring-red @enderror">{{ old('description') }}</textarea>
                 @error('description')
+                    <p class="error mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            {{-- Product image --}}
+            <div class="col-12">
+                <label for="image" class="form-label">Slika proizvoda</label>
+                <input type="file" name="image" id="image" accept="image/*"
+                       class="form-control @error('image') ring-red @enderror">
+                @error('image')
                     <p class="error mt-1">{{ $message }}</p>
                 @enderror
             </div>

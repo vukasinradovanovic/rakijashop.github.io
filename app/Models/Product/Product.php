@@ -4,6 +4,7 @@ namespace App\Models\Product;
 
 use App\Models\User\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -41,6 +42,16 @@ class Product extends Model
     public function users() {
         return $this->belongsToMany(User::class, 'user_products', 'product_id', 'user_id');
     }
+
+    // Categories relationship (many-to-many)
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(CategoryProducts::class, 'product_category', 'product_id', 'category_id')->withTimestamps();
+    }
+    public function hasCategory(int $categoryId): bool{
+        return $this->categories()->where('category_id', $categoryId)->exists();
+    }
+
     public function hasUser(int $userId): bool{
         return $this->users()->where('user_id', $userId)->exists();
     }
@@ -54,6 +65,24 @@ class Product extends Model
     {
         return $this->status()->exists();
     }
+
+    // Images relationship (many-to-many)
+    public function images(): BelongsToMany
+    {
+        return $this->belongsToMany(ImageProduct::class, 'product_image', 'product_id', 'image_product_id')->withTimestamps();
+    }
+
+    public function getMainImageAttribute(): string
+    {
+        $image = $this->images->first();
+
+        if ($image?->img) {
+            return asset('storage/' . $image->img);
+        }
+
+        return asset('img/default-product.svg');
+    }
+
     public static function getStatusNameById(int $statusId): ?string
     {
         return ProductStatus::query()
