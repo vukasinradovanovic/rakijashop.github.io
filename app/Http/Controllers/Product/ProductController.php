@@ -38,7 +38,7 @@ class ProductController
         if (!Auth::check()) {
             return redirect()
                 ->route('login')
-                ->with('error', 'Morate biti ulogovani da biste dodali proizvod.');
+                ->with('error', __('product.flash.login_required'));
         }
 
         return view('productPages.createProductPage', compact('productStatuses', 'categories'));
@@ -53,7 +53,7 @@ class ProductController
         if (!Auth::check()) {
             return redirect()
                 ->route('login')
-                ->with('error', 'Morate biti ulogovani da biste dodali proizvod.');
+                ->with('error', __('product.flash.login_required'));
         }
 
         $data = $request->validated();
@@ -81,7 +81,7 @@ class ProductController
 
         return redirect()
             ->route('product.index')
-            ->with('success', 'Proizvod je uspešno kreiran.');
+            ->with('success', __('product.flash.created'));
     }
 
     /**
@@ -104,7 +104,7 @@ class ProductController
         if (!Auth::check()) {
             return redirect()
                 ->route('login')
-                ->with('error', 'Morate biti ulogovani da biste dodali proizvod.');
+                ->with('error', __('product.flash.login_required'));
         }
         
         $productStatuses = ProductStatus::all();
@@ -145,7 +145,7 @@ class ProductController
 
         return redirect()
             ->route('product.show', $product)
-            ->with('success', 'Proizvod je uspešno ažuriran.');
+            ->with('success', __('product.flash.updated'));
     }
 
     /**
@@ -170,6 +170,6 @@ class ProductController
 
         return redirect()
             ->route('product.index')
-            ->with('success', 'Proizvod je uspešno obrisan.');
+            ->with('success', __('product.flash.deleted'));
     }
 }

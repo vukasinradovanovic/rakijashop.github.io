@@ -16,7 +16,7 @@
     </div>
 
     <div class="productCard__body">
-        <p class="productCard__eyebrow">Izdvajamo</p>
+        <p class="productCard__eyebrow">{{ __('product.show.featured') }}</p>
         <h3 class="productCard__title">{{ $product->name }}</h3>
 
         @if($product->description)
@@ -24,9 +24,9 @@
         @endif
 
         <div class="productCard__footer">
-            <span class="productCard__price">{{ number_format($product->price, 2, ',', '.') }} RSD</span>
+            <span class="productCard__price">{{ number_format($product->price, 2, ',', '.') }} {{ __('product.currency') }}</span>
         </div>
     </div>
 
-    <a href="{{ route('product.show', $product) }}" class="stretched-link" aria-label="Prikaži proizvod {{ $product->name }}"></a>
+    <a href="{{ route('product.show', $product) }}" class="stretched-link" aria-label="{{ __('product.show.show_product', ['name' => $product->name]) }}"></a>
 </article>

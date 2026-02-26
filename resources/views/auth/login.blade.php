@@ -3,7 +3,7 @@
 <main class="authPage">
     <div class="authPage_card">
         <h2 class="authPage_title">{{ __('auth.login') }}</h2>
-        <p class="authPage_subtitle">Prijavi se i nastavi gde si stao.</p>
+        <p class="authPage_subtitle">{{ __('auth.login-subtitle') }}</p>
 
         <form action="{{ route('login') }}" method="POST" class="authPage_form">
             @csrf
@@ -23,7 +23,7 @@
                         class="form-control passwordInput @error('password') ring-red @enderror"
                         aria-label="{{ __('auth.pass') }}">
                     <button type="button" class="btn btn-outline-secondary passwordSeeButton" tabindex="-1"
-                        title="{{ __('Show password') }}">
+                        title="{{ __('auth.show-password') }}">
                         <i class="fa-solid fa-eye"></i>
                     </button>
                 </div>
@@ -35,7 +35,7 @@
             <input type="hidden" name="intended" value="{{ url()->previous() }}">
             <div class="form-check mb-3">
                 <input class="form-check-input" type="checkbox" name="remember" id="remember">
-                <label class="form-check-label" for="remember">Zapamti me</label>
+                <label class="form-check-label" for="remember">{{ __('auth.remember-me') }}</label>
             </div>
 
             <button class="btn btnPrimary w-100">{{ __('buttons.login') }}</button>

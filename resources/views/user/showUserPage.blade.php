@@ -9,7 +9,7 @@
                 <x-product.product-card :product="$product" class="productCard--accent" />
             </div>
             @empty
-            <p class="text-muted mb-0">Još uvek nema dostupnih proizvoda.</p>
+            <p class="text-muted mb-0">{{ __('pages.home.empty_products') }}</p>
             @endforelse
         </div>
     </div>

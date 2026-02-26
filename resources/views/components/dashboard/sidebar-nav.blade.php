@@ -1,6 +1,6 @@
 <nav class="sidebarNav bg-body-tertiary">
     <a href="{{ route('dashboard.index') }}">
-        <h1 class="sidebarNav_header">Dashboard</h1>
+        <h1 class="sidebarNav_header">{{ __('dashboard.dashboard-page') }}</h1>
     </a>
     <ul class="sidebarNav_holder">
         @foreach (__('dashboard.sidebar-nav') as $item)

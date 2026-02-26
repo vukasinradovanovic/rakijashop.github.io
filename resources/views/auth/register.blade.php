@@ -3,7 +3,7 @@
 <main class="authPage">
     <div class="authPage_card">
         <h2 class="authPage_title text-capitalize">{{ __('auth.register') }}</h2>
-        <p class="authPage_subtitle">Kreiraj nalog i istraži celu ponudu.</p>
+        <p class="authPage_subtitle">{{ __('auth.register-subtitle') }}</p>
 
         <form action="{{ route('register') }}" method="POST" class="authPage_form">
             @csrf
@@ -32,8 +32,8 @@
                     <input type="password" name="password" placeholder="{{ __('auth.pass') }}"
                         class="form-control passwordInput @error('password') ring-red @enderror"
                         aria-label="{{ __('auth.pass') }}">
-                    <button type="button" class="btn btn-outline-secondary passwordSeeButton" tabindex="-1"
-                        title="{{ __('Show password') }}">
+                        <button type="button" class="btn btn-outline-secondary passwordSeeButton" tabindex="-1"
+                            title="{{ __('auth.show-password') }}">
                         <i class="fa-solid fa-eye"></i>
                     </button>
                 </div>

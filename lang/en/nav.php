@@ -32,21 +32,9 @@ return [
             'name' => '<i class="fa-solid fa-wine-glass-empty"></i> Create product',
         ],
     ],
-    
-    'languages' => [
-        // Simple language switcher: always go to the index of the selected locale
-        // If you want to keep the current page, see the note in the README or ask to switch to the advanced variant.
-        [
-            'slug' => route('index', ['locale' => 'rs']),
-            'name' => 'RS',
-            'separator' => true,
-        ],
 
-        [
-            'slug' => route('index', ['locale' => 'en']),
-            'name' => 'EN',
-            'separator' => false,
-        ],
-
+    'language_labels' => [
+        'sr' => 'SR',
+        'en' => 'EN',
     ],
 ];

@@ -69,7 +69,7 @@ class DashboardUsersController
         $user = User::find($id);
 
         if (!$user) {
-            return response()->json(['message' => 'Korisnik nije pronađen'], 404);
+            return response()->json(['message' => __('dashboard.users.user_not_found')], 404);
         }
 
         $update = [];
@@ -88,7 +88,7 @@ class DashboardUsersController
             $user->roles()->sync([$request->role_id]);
         }
 
-        return response()->json(['message' => 'Status uspešno ažuriran']);
+        return response()->json(['message' => __('dashboard.users.update_success')]);
     }
 
 

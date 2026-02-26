@@ -10,22 +10,29 @@
  */
 
 export function initDashboardUser() {
+    const $usersTableBody = $('.table_dashboardGeneralTbody--users');
+    const resetLabel = $usersTableBody.data('resetLabel') || 'Reset';
+    const changeLabel = $usersTableBody.data('changeLabel') || 'Change';
+    const noDataLabel = $usersTableBody.data('noDataLabel') || 'No data to display';
+    const updateErrorLabel = $usersTableBody.data('updateError') || 'Error while updating user';
+    const localeSegment = window.location.pathname.split('/').filter(Boolean)[0] || 'en';
+    const localePrefix = `/${localeSegment}`;
 
     // User search 
     $('.dashboard_UserSearch').on('keyup', function() {
         let query = $(this).val();
         if (query.length > 2){
             $.ajax({
-                url:'/dashboardUsers/search',
+                url: `${localePrefix}/dashboardUsers/search`,
                 method: 'GET',
                 data: { query: query},
                 dataType: 'json',
                 success: function(response) {
-                    $('.table_dashboardGeneralTbody--users').empty();
+                    $usersTableBody.empty();
                 
                     if (response.users.length > 0) {
                         response.users.forEach(user => {
-                            $('.table_dashboardGeneralTbody--users').append(`
+                            $usersTableBody.append(`
                                 <tr>
                                     <td class="table_dashboardGeneralTbodyTdata--id">${user.id}</td>
                                     <td>${user.default_username}</td>
@@ -34,7 +41,7 @@ export function initDashboardUser() {
                                             value="${user.edited_username ?? ''}" 
                                             class="table_dashboardGeneralTbodyTdata--editedUsername form-control d-inline w-50" />
                                         <input type="checkbox"     class="table_dashboardGeneralTbodyTdata--editedUsernameCheckbox ms-1"/>
-                                            <label>Reset</label>
+                                            <label>${resetLabel}</label>
                                     </td>
                                     <td>${user.name}</td>
                                     <td>
@@ -58,20 +65,20 @@ export function initDashboardUser() {
                                                 </option>`).join('')}
                                         </select>
                                     </td>
-                                    <td><button type="submit" class="btn btn-secondary btn-apply-user">Promeni</button></td>
+                                    <td><button type="submit" class="btn btn-secondary btn-apply-user">${changeLabel}</button></td>
                                 </tr>
                             `);
                         });
                     } else {
-                        $('.table_dashboardGeneralTbody--users').html(
-                            `<tr><td colspan="8" class="text-center">Nema informacija za prikaz</td></tr>`
+                        $usersTableBody.html(
+                            `<tr><td colspan="8" class="text-center">${noDataLabel}</td></tr>`
                         );
                     }
                 }
             });
         }
         else {
-            $('.table_dashboardGeneralTbody--users').empty();
+            $usersTableBody.empty();
         }
     })    
 
@@ -90,7 +97,7 @@ export function initDashboardUser() {
         }
     
         $.ajax({
-            url: `/dashboard-users/${userId}`,
+            url: `${localePrefix}/dashboard-users/${userId}`,
             method: 'PUT',
             contentType: 'application/json',
             headers: {
@@ -107,7 +114,7 @@ export function initDashboardUser() {
                 $('.dashboard_UserSearch').trigger('keyup');
             },
             error: function(xhr) {
-                console.log('Greška prilikom ažuriranja korisnika', xhr.responseText);
+                console.log(updateErrorLabel, xhr.responseText);
             }
         });
     });

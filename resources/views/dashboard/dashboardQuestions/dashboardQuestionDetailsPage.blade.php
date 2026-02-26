@@ -3,10 +3,10 @@
 {{-- Variables section --}}
 @php
 $typeName = $question->type?->name;
-$senderName = $question->name ?? $question->email ?? 'Unknown';
-$senderEmail = $question->email ?? 'Unknown';
+$senderName = $question->name ?? $question->email ?? __('dashboard.unknown');
+$senderEmail = $question->email ?? __('dashboard.unknown');
 $senderDescription = $question->description ?? '';
-$statusName = $question->status?->name ?? 'No Status';
+$statusName = $question->status?->name ?? __('dashboard.no_status');
 $time = optional($question->created_at)->diffForHumans() ?? '';
 
 @endphp
@@ -15,7 +15,7 @@ $time = optional($question->created_at)->diffForHumans() ?? '';
 <div class="dashboard_questions container-fluid m-auto p-3">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <a href="{{ route('dashboard-questions.index') }}" class="btn btnWhite">
-      <i class="fa fa-chevron-left me-1"></i> Nazad na listu
+      <i class="fa fa-chevron-left me-1"></i> {{ __('dashboard.questionDetails.back_to_list') }}
     </a>
   </div>
 
@@ -47,7 +47,7 @@ $time = optional($question->created_at)->diffForHumans() ?? '';
 
   <div class="d-flex gap-2">
     <a href="{{ route('dashboard-questions.index') }}" class="btn btnWhite">
-      <i class="fa fa-inbox me-1"></i> Inbox
+      <i class="fa fa-inbox me-1"></i> {{ __('dashboard.questionDetails.inbox') }}
     </a>
   </div>
 </div>

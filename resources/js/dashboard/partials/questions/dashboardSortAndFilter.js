@@ -8,7 +8,7 @@ export function initDashboardSortAndFilter() {
     const $form = $('#filterForm');
     const url = $form.attr('action') || window.location.pathname;
     const $list = $('.dashboard_questionsList');
-    const emptyMsg = $list.data('emptyMsg') || 'Nema dostupnih pitanja.'; // Default message if none provided
+    const emptyMsg = $list.data('emptyMsg') || 'No questions found.'; // Default message if none provided
 
     $('#questionType, #questionSort').on('change', function () {
         const formData = {

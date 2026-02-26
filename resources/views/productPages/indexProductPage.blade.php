@@ -5,8 +5,8 @@
     <div class="container">
         <div class="productPage_header">
             <div>
-                <p class="sectionBlock_eyebrow">Ponuda</p>
-                <h1 class="productPage_title">Naša kolekcija</h1>
+                <p class="sectionBlock_eyebrow">{{ __('product.index.eyebrow') }}</p>
+                <h1 class="productPage_title">{{ __('product.index.title') }}</h1>
             </div>
         </div>
 
@@ -23,7 +23,7 @@
                 {{ $products->links() }}
             </div>
         @else
-            <p class="text-muted">Trenutno nema proizvoda.</p>
+            <p class="text-muted">{{ __('product.index.empty') }}</p>
         @endif
     </div>
 </section>

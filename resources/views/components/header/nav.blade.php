@@ -1,5 +1,7 @@
+{{-- Nav top section --}}
 <div class="siteNav_top">
   <div class="container d-flex justify-content-end align-items-center gap-3">
+    {{-- Socials section --}}
     <a class="siteNav_topLink" href="https://www.instagram.com" target="_blank" aria-label="Instagram">
       <i class="fab fa-instagram"></i>
     </a>
@@ -9,6 +11,12 @@
     <a class="siteNav_topLink" href="https://www.facebook.com" target="_blank" aria-label="Facebook">
       <i class="fab fa-facebook-f"></i>
     </a>
+
+    {{-- Localization section --}}
+    @foreach (($localization['language_switches'] ?? []) as $languageSwitch)
+    <a class="siteNav_topLink {{ $languageSwitch['is_current'] ? 'fw-bold text-decoration-underline' : '' }}"
+      href="{{ $languageSwitch['url'] }}">{{ $languageSwitch['label'] }}</a>
+    @endforeach
   </div>
 </div>
 
@@ -40,7 +48,8 @@
         @endguest
 
         @auth
-        <a href="{{ route('product.create') }}" class="btn btnPrimary siteNav_cta d-md-none">Dodaj proizvod</a>
+        <a href="{{ route('product.create') }}" class="btn btnPrimary siteNav_cta d-md-none">{{
+          __('product.form.create_title') }}</a>
         <div class="dropdown siteNav_profile">
           <button class="btn dropdown-toggle siteNav_profileBtn" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
