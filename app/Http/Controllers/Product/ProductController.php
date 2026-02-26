@@ -100,6 +100,13 @@ class ProductController
      */
     public function edit(Product $product)
     {
+        // Allow storing product only for authenticated users
+        if (!Auth::check()) {
+            return redirect()
+                ->route('login')
+                ->with('error', 'Morate biti ulogovani da biste dodali proizvod.');
+        }
+        
         $productStatuses = ProductStatus::all();
         $product->load('images');
         $categories = CategoryProducts::where('is_active', true)->get();
