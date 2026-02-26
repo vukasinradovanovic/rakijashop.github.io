@@ -7,31 +7,31 @@
     border-radius: rem(18);
     box-shadow: 0 rem(18) rem(32) rgba($brand-900, 0.08);
 
-    &__eyebrow {
+    &_eyebrow {
         text-transform: uppercase;
         letter-spacing: 0.08em;
         color: $plum-700;
         font-weight: 700;
     }
 
-    &__title {
+    &_title {
         font-family: 'Playfair Display', serif;
         font-size: rem(26);
         color: $brand-900;
         margin: rem(8) 0;
     }
 
-    &__text {
+    &_text {
         color: $brand-700;
         margin-bottom: rem(14);
     }
 
-    &__list {
+    &_list {
         padding: 0;
         margin: 0;
     }
 
-    &__listItem {
+    &_listItem {
         display: flex;
         align-items: center;
         gap: rem(10);
@@ -42,14 +42,14 @@
         i { color: $plum-700; }
     }
 
-    &__media {
+    &_media {
         position: relative;
         border-radius: rem(20);
         overflow: hidden;
         box-shadow: 0 rem(18) rem(32) rgba($brand-900, 0.1);
     }
 
-    &__image {
+    &_image {
         width: 100%;
         display: block;
         object-fit: cover;
@@ -59,7 +59,7 @@
         &:hover { transform: scale(1.04); }
     }
 
-    &__badge {
+    &_badge {
         position: absolute;
         bottom: rem(16);
         left: rem(16);
@@ -75,7 +75,7 @@
 .productPage {
     padding: rem(40) 0;
 
-    &__header {
+    &_header {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -84,16 +84,28 @@
         flex-wrap: wrap;
     }
 
-    &__title {
+    &_title {
         font-family: 'Playfair Display', serif;
         color: $brand-900;
         margin: 0;
     }
 
-    &__meta { color: $brand-700; }
-    &__price { font-size: rem(24); font-weight: 800; color: $brand-900; }
-    &__subtitle { font-size: rem(18); color: $brand-800; }
-    &__description { color: $brand-700; }
+    &_meta { color: $brand-700; }
+    &_price { font-size: rem(24); font-weight: 800; color: $brand-900; }
+    &_subtitle { font-size: rem(18); color: $brand-800; }
+    &_description { color: $brand-700; }
 
-    &__grid { margin-top: rem(10); }
+    &_grid { margin-top: rem(10); }
+
+    &_formActions {
+        .btn {
+            min-width: rem(140);
+        }
+    }
+
+    &_imagePreview {
+        max-width: rem(220);
+        height: auto;
+        display: block;
+    }
 }

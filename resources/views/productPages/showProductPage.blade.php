@@ -12,14 +12,14 @@
                 <x-product.product-card :product="$product" :showActions="false" class="productCard--wide" />
             </div>
             <div class="col-12 col-md-6">
-                <h1 class="productPage__title">{{ $product->name }}</h1>
-                <p class="productPage__meta">{{ $product->getCategoryNamesAttribute() }}</p>
-                <p class="productPage__price">{{ number_format($product->price, 2, ',', '.') }} RSD</p>
+                <h1 class="productPage_title">{{ $product->name }}</h1>
+                <p class="productPage_meta">{{ $product->getCategoryNamesAttribute() }}</p>
+                <p class="productPage_price">{{ number_format($product->price, 2, ',', '.') }} RSD</p>
 
                 @if($product->description)
                 <div class="mt-3">
-                    <h2 class="productPage__subtitle">Opis</h2>
-                    <p class="productPage__description">{{ $product->description }}</p>
+                    <h2 class="productPage_subtitle">Opis</h2>
+                    <p class="productPage_description">{{ $product->description }}</p>
                 </div>
                 @endif
 

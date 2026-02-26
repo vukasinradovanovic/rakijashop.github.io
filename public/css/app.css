@@ -12251,7 +12251,7 @@ button {
 .sectionBlock--muted {
   background: #f2e8e5;
 }
-.sectionBlock__header {
+.sectionBlock_header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -12259,24 +12259,24 @@ button {
   margin-bottom: 1.75rem;
   flex-wrap: wrap;
 }
-.sectionBlock__eyebrow {
+.sectionBlock_eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 700;
   color: #4a253c;
   margin-bottom: 0.375rem;
 }
-.sectionBlock__title {
+.sectionBlock_title {
   font-family: "Playfair Display", serif;
   font-size: clamp(1.9rem, 2.6vw, 2.4rem);
   color: #3a2118;
   margin: 0;
 }
-.sectionBlock__subtitle {
+.sectionBlock_subtitle {
   color: #5d3a2e;
   margin: 0;
 }
-.sectionBlock__link {
+.sectionBlock_link {
   color: #4a253c;
   font-weight: 700;
   text-decoration: none;
@@ -12284,19 +12284,19 @@ button {
   align-items: center;
   gap: 0.375rem;
 }
-.sectionBlock__link:hover {
+.sectionBlock_link:hover {
   text-decoration: underline;
 }
 
 .pageSection {
   padding: 3.125rem 0;
 }
-.pageSection__title {
+.pageSection_title {
   font-family: "Playfair Display", serif;
   font-size: 1.75rem;
   color: #3a2118;
 }
-.pageSection__subtitle {
+.pageSection_subtitle {
   color: #5d3a2e;
 }
 
@@ -12721,19 +12721,94 @@ button {
 }
 
 .formGeneral {
-  max-width: 50rem;
-  margin: auto;
-  width: 100%;
-  box-shadow: 0 0 1.25rem -15px;
-  background-color: #ffffff;
+  background: #ffffff;
+  border: 0.0625rem solid #eaddd7;
+  border-radius: 1rem;
+  box-shadow: 0 0.875rem 1.875rem rgba(58, 33, 24, 0.08);
+  padding: 1.375rem;
+  max-width: 61.25rem;
+  margin: 0 auto;
 }
-.formGeneral_Password {
-  max-width: 50rem;
-  height: 41rem;
-  margin: auto;
-  width: 100%;
-  box-shadow: 0 0 1.25rem -15px;
-  background-color: #ffffff;
+.formGeneral .form-label {
+  color: rgb(94.0731707317, 53.5243902439, 38.9268292683);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1px;
+}
+.formGeneral .form-control,
+.formGeneral .form-select {
+  border: 0.0625rem solid #e0cec7;
+  border-radius: 0.625rem;
+  background: #fdf8f6;
+  color: #2b1a14;
+  min-height: 2.75rem;
+  padding: 0.625rem 0.75rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.formGeneral .form-control::placeholder,
+.formGeneral .form-select::placeholder {
+  color: rgba(93, 58, 46, 0.8);
+}
+.formGeneral .form-control:hover,
+.formGeneral .form-select:hover {
+  border-color: #8c5e4d;
+  background: #ffffff;
+}
+.formGeneral .form-control:focus,
+.formGeneral .form-select:focus {
+  border-color: #4a253c;
+  box-shadow: 0 0 0 0.1875rem rgba(74, 37, 60, 0.16);
+  background: #ffffff;
+}
+.formGeneral textarea.form-control {
+  min-height: 7.5rem;
+  resize: vertical;
+}
+.formGeneral input[type=file].form-control {
+  background: rgba(242, 232, 229, 0.65);
+  border-style: dashed;
+  border-width: 0.125rem;
+  padding: 0.5rem 0.75rem;
+}
+.formGeneral input[type=file].form-control::file-selector-button {
+  border: 0;
+  background: #4a253c;
+  color: #f7f4f2;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  margin-right: 0.625rem;
+  transition: background-color 0.2s ease;
+}
+.formGeneral input[type=file].form-control:hover::file-selector-button {
+  background: #6a3658;
+}
+.formGeneral .error {
+  font-size: 0.8125rem;
+  margin-top: 0.375rem;
+}
+.formGeneral .btn,
+.formGeneral .btnPrimary {
+  min-height: 2.625rem;
+  border-radius: 0.625rem;
+  font-weight: 700;
+  padding-inline: 1rem;
+}
+.formGeneral .d-flex.gap-2 {
+  padding-top: 0.5rem;
+  border-top: 0.0625rem solid rgba(224, 206, 199, 0.7);
+  margin-top: 0.5rem;
+}
+.formGeneral img {
+  border-radius: 0.625rem;
+  border: 0.0625rem solid #eaddd7;
+  box-shadow: 0 0.375rem 1.125rem rgba(58, 33, 24, 0.08);
+}
+@media (max-width: 767.98px) {
+  .formGeneral {
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.625rem 1.25rem rgba(58, 33, 24, 0.08);
+  }
 }
 
 .wellcomeHeader1 {
@@ -12746,16 +12821,17 @@ button {
 }
 
 .disabledField {
-  background-color: #e9ecef;
+  background-color: rgba(234, 221, 215, 0.65) !important;
+  color: #5d3a2e;
 }
 
 .customFileLabel {
   padding: 0.625rem 1.875rem;
   border-radius: 0.625rem;
-  border: 2px dashed #6a3658;
+  border: 2px dashed #4a253c;
 }
 .customFileLabel:hover {
-  background-color: rgba(106, 54, 88, 0.1);
+  background-color: rgba(74, 37, 60, 0.08);
   transition: 0.2s ease;
 }
 
@@ -13037,7 +13113,7 @@ button {
   place-items: center;
   padding: 1.875rem 1rem;
 }
-.authPage__card {
+.authPage_card {
   width: min(26.25rem, 100%);
   background: #ffffff;
   border: 1px solid #eaddd7;
@@ -13045,31 +13121,31 @@ button {
   padding: 1.75rem;
   box-shadow: 0 1.375rem 2.75rem rgba(58, 33, 24, 0.12);
 }
-.authPage__title {
+.authPage_title {
   font-family: "Playfair Display", serif;
   color: #3a2118;
   margin-bottom: 0.375rem;
 }
-.authPage__subtitle {
+.authPage_subtitle {
   color: #5d3a2e;
 }
-.authPage__form {
+.authPage_form {
   margin-top: 0.75rem;
 }
-.authPage__password .btn {
+.authPage_password .btn {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.authPage__switch {
+.authPage_switch {
   margin-top: 0.875rem;
   color: #5d3a2e;
 }
-.authPage__link {
+.authPage_link {
   color: #4a253c;
   font-weight: 700;
   text-decoration: none;
 }
-.authPage__link:hover {
+.authPage_link:hover {
   text-decoration: underline;
 }
 
@@ -13079,7 +13155,7 @@ button {
   place-items: center;
   padding: 1.875rem 1rem;
 }
-.authPage__card {
+.authPage_card {
   width: min(26.25rem, 100%);
   background: #ffffff;
   border: 1px solid #eaddd7;
@@ -13087,31 +13163,31 @@ button {
   padding: 1.75rem;
   box-shadow: 0 1.375rem 2.75rem rgba(58, 33, 24, 0.12);
 }
-.authPage__title {
+.authPage_title {
   font-family: "Playfair Display", serif;
   color: #3a2118;
   margin-bottom: 0.375rem;
 }
-.authPage__subtitle {
+.authPage_subtitle {
   color: #5d3a2e;
 }
-.authPage__form {
+.authPage_form {
   margin-top: 0.75rem;
 }
-.authPage__password .btn {
+.authPage_password .btn {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.authPage__switch {
+.authPage_switch {
   margin-top: 0.875rem;
   color: #5d3a2e;
 }
-.authPage__link {
+.authPage_link {
   color: #4a253c;
   font-weight: 700;
   text-decoration: none;
 }
-.authPage__link:hover {
+.authPage_link:hover {
   text-decoration: underline;
 }
 
@@ -13242,27 +13318,27 @@ button {
   border-radius: 1.125rem;
   box-shadow: 0 1.125rem 2rem rgba(58, 33, 24, 0.08);
 }
-.storyCard__eyebrow {
+.storyCard_eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #4a253c;
   font-weight: 700;
 }
-.storyCard__title {
+.storyCard_title {
   font-family: "Playfair Display", serif;
   font-size: 1.625rem;
   color: #3a2118;
   margin: 0.5rem 0;
 }
-.storyCard__text {
+.storyCard_text {
   color: #5d3a2e;
   margin-bottom: 0.875rem;
 }
-.storyCard__list {
+.storyCard_list {
   padding: 0;
   margin: 0;
 }
-.storyCard__listItem {
+.storyCard_listItem {
   display: flex;
   align-items: center;
   gap: 0.625rem;
@@ -13270,26 +13346,26 @@ button {
   font-weight: 600;
   margin-bottom: 0.625rem;
 }
-.storyCard__listItem i {
+.storyCard_listItem i {
   color: #4a253c;
 }
-.storyCard__media {
+.storyCard_media {
   position: relative;
   border-radius: 1.25rem;
   overflow: hidden;
   box-shadow: 0 1.125rem 2rem rgba(58, 33, 24, 0.1);
 }
-.storyCard__image {
+.storyCard_image {
   width: 100%;
   display: block;
   object-fit: cover;
   transform: scale(1.01);
   transition: transform 0.5s ease;
 }
-.storyCard__image:hover {
+.storyCard_image:hover {
   transform: scale(1.04);
 }
-.storyCard__badge {
+.storyCard_badge {
   position: absolute;
   bottom: 1rem;
   left: 1rem;
@@ -13304,7 +13380,7 @@ button {
 .productPage {
   padding: 2.5rem 0;
 }
-.productPage__header {
+.productPage_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13312,28 +13388,36 @@ button {
   margin-bottom: 1.125rem;
   flex-wrap: wrap;
 }
-.productPage__title {
+.productPage_title {
   font-family: "Playfair Display", serif;
   color: #3a2118;
   margin: 0;
 }
-.productPage__meta {
+.productPage_meta {
   color: #5d3a2e;
 }
-.productPage__price {
+.productPage_price {
   font-size: 1.5rem;
   font-weight: 800;
   color: #3a2118;
 }
-.productPage__subtitle {
+.productPage_subtitle {
   font-size: 1.125rem;
   color: rgb(94.0731707317, 53.5243902439, 38.9268292683);
 }
-.productPage__description {
+.productPage_description {
   color: #5d3a2e;
 }
-.productPage__grid {
+.productPage_grid {
   margin-top: 0.625rem;
+}
+.productPage_formActions .btn {
+  min-width: 8.75rem;
+}
+.productPage_imagePreview {
+  max-width: 13.75rem;
+  height: auto;
+  display: block;
 }
 
 .popup {
@@ -13505,27 +13589,27 @@ button {
   border-radius: 1.125rem;
   box-shadow: 0 1.125rem 2rem rgba(58, 33, 24, 0.08);
 }
-.storyCard__eyebrow {
+.storyCard_eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #4a253c;
   font-weight: 700;
 }
-.storyCard__title {
+.storyCard_title {
   font-family: "Playfair Display", serif;
   font-size: 1.625rem;
   color: #3a2118;
   margin: 0.5rem 0;
 }
-.storyCard__text {
+.storyCard_text {
   color: #5d3a2e;
   margin-bottom: 0.875rem;
 }
-.storyCard__list {
+.storyCard_list {
   padding: 0;
   margin: 0;
 }
-.storyCard__listItem {
+.storyCard_listItem {
   display: flex;
   align-items: center;
   gap: 0.625rem;
@@ -13533,26 +13617,26 @@ button {
   font-weight: 600;
   margin-bottom: 0.625rem;
 }
-.storyCard__listItem i {
+.storyCard_listItem i {
   color: #4a253c;
 }
-.storyCard__media {
+.storyCard_media {
   position: relative;
   border-radius: 1.25rem;
   overflow: hidden;
   box-shadow: 0 1.125rem 2rem rgba(58, 33, 24, 0.1);
 }
-.storyCard__image {
+.storyCard_image {
   width: 100%;
   display: block;
   object-fit: cover;
   transform: scale(1.01);
   transition: transform 0.5s ease;
 }
-.storyCard__image:hover {
+.storyCard_image:hover {
   transform: scale(1.04);
 }
-.storyCard__badge {
+.storyCard_badge {
   position: absolute;
   bottom: 1rem;
   left: 1rem;
@@ -13567,7 +13651,7 @@ button {
 .productPage {
   padding: 2.5rem 0;
 }
-.productPage__header {
+.productPage_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13575,28 +13659,36 @@ button {
   margin-bottom: 1.125rem;
   flex-wrap: wrap;
 }
-.productPage__title {
+.productPage_title {
   font-family: "Playfair Display", serif;
   color: #3a2118;
   margin: 0;
 }
-.productPage__meta {
+.productPage_meta {
   color: #5d3a2e;
 }
-.productPage__price {
+.productPage_price {
   font-size: 1.5rem;
   font-weight: 800;
   color: #3a2118;
 }
-.productPage__subtitle {
+.productPage_subtitle {
   font-size: 1.125rem;
   color: rgb(94.0731707317, 53.5243902439, 38.9268292683);
 }
-.productPage__description {
+.productPage_description {
   color: #5d3a2e;
 }
-.productPage__grid {
+.productPage_grid {
   margin-top: 0.625rem;
+}
+.productPage_formActions .btn {
+  min-width: 8.75rem;
+}
+.productPage_imagePreview {
+  max-width: 13.75rem;
+  height: auto;
+  display: block;
 }
 
 .sidebarNav {

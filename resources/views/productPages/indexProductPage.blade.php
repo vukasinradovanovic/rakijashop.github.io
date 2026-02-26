@@ -3,15 +3,15 @@
 @section('main')
 <section class="productPage productPage--index">
     <div class="container">
-        <div class="productPage__header">
+        <div class="productPage_header">
             <div>
-                <p class="sectionBlock__eyebrow">Ponuda</p>
-                <h1 class="productPage__title">Naša kolekcija</h1>
+                <p class="sectionBlock_eyebrow">Ponuda</p>
+                <h1 class="productPage_title">Naša kolekcija</h1>
             </div>
         </div>
 
         @if($products->count())
-            <div class="row g-4 productPage__grid">
+            <div class="row g-4 productPage_grid">
                 @foreach($products as $product)
                     <div class="col-12 col-sm-6 col-lg-4">
                         <x-product.product-card :product="$product" />

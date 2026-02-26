@@ -108,7 +108,7 @@ button {
     &--light { background: $brand-50; }
     &--muted { background: $brand-100; }
 
-    &__header {
+    &_header {
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
@@ -117,7 +117,7 @@ button {
         flex-wrap: wrap;
     }
 
-    &__eyebrow {
+    &_eyebrow {
         text-transform: uppercase;
         letter-spacing: 0.08em;
         font-weight: 700;
@@ -125,19 +125,19 @@ button {
         margin-bottom: rem(6);
     }
 
-    &__title {
+    &_title {
         font-family: 'Playfair Display', serif;
         font-size: clamp(1.9rem, 2.6vw, 2.4rem);
         color: $brand-900;
         margin: 0;
     }
 
-    &__subtitle {
+    &_subtitle {
         color: $brand-700;
         margin: 0;
     }
 
-    &__link {
+    &_link {
         color: $plum-700;
         font-weight: 700;
         text-decoration: none;
@@ -152,13 +152,13 @@ button {
 .pageSection {
     padding: rem(50) 0;
 
-    &__title {
+    &_title {
         font-family: 'Playfair Display', serif;
         font-size: rem(28);
         color: $brand-900;
     }
 
-    &__subtitle {
+    &_subtitle {
         color: $brand-700;
     }
 }

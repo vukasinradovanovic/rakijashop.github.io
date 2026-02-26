@@ -4,7 +4,7 @@
     place-items: center;
     padding: rem(30) rem(16);
 
-    &__card {
+    &_card {
         width: min(rem(420), 100%);
         background: $secondary-bg;
         border: 1px solid $brand-200;
@@ -13,27 +13,27 @@
         box-shadow: 0 rem(22) rem(44) rgba($brand-900, 0.12);
     }
 
-    &__title {
+    &_title {
         font-family: 'Playfair Display', serif;
         color: $brand-900;
         margin-bottom: rem(6);
     }
 
-    &__subtitle { color: $brand-700; }
+    &_subtitle { color: $brand-700; }
 
-    &__form { margin-top: rem(12); }
+    &_form { margin-top: rem(12); }
 
-    &__password .btn {
+    &_password .btn {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
     }
 
-    &__switch {
+    &_switch {
         margin-top: rem(14);
         color: $brand-700;
     }
 
-    &__link {
+    &_link {
         color: $plum-700;
         font-weight: 700;
         text-decoration: none;

@@ -1,11 +1,11 @@
 @extends('layout.AuthLayout')
 @section('main')
 <main class="authPage">
-    <div class="authPage__card">
-        <h2 class="authPage__title text-capitalize">{{ __('auth.register') }}</h2>
-        <p class="authPage__subtitle">Kreiraj nalog i istraži celu ponudu.</p>
+    <div class="authPage_card">
+        <h2 class="authPage_title text-capitalize">{{ __('auth.register') }}</h2>
+        <p class="authPage_subtitle">Kreiraj nalog i istraži celu ponudu.</p>
 
-        <form action="{{ route('register') }}" method="POST" class="authPage__form">
+        <form action="{{ route('register') }}" method="POST" class="authPage_form">
             @csrf
             <div class="mb-3">
                 <label class="form-label">{{ __('auth.name') }}</label>
@@ -28,7 +28,7 @@
 
             <div class="mb-3">
                 <label class="form-label">{{ __('auth.pass') }}</label>
-                <div class="input-group flex-nowrap authPage__password">
+                <div class="input-group flex-nowrap authPage_password">
                     <input type="password" name="password" placeholder="{{ __('auth.pass') }}"
                         class="form-control passwordInput @error('password') ring-red @enderror"
                         aria-label="{{ __('auth.pass') }}">
@@ -48,7 +48,7 @@
             </div>
             <button class="btn btnPrimary w-100">{{ __('buttons.register') }}</button>
         </form>
-        <p class="authPage__switch">{{__('auth.haveAcc?')}}<a href="{{ route('login') }}" class="authPage__link">{{
+        <p class="authPage_switch">{{__('auth.haveAcc?')}}<a href="{{ route('login') }}" class="authPage_link">{{
                 __('buttons.login') }}</a></p>
     </div>
 </main>
