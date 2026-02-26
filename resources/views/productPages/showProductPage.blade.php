@@ -4,7 +4,7 @@
 <section class="productPage productPage--show">
     <div class="container">
         <div class="mb-3">
-            <a href="{{ route('product.index') }}" class="siteHero__ghost">&larr; Nazad na listu</a>
+            <a href="{{ route('product.index') }}" class="siteHero_ghost">&larr; Nazad na listu</a>
         </div>
 
         <div class="row g-4">

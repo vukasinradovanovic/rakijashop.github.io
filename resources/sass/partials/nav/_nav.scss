@@ -1,10 +1,10 @@
-.siteNav__top {
+.siteNav_top {
     background: $plum-700;
     color: $white-text;
     font-size: 0.9rem;
     padding: rem(6) 0;
 
-    .siteNav__topLink {
+    .siteNav_topLink {
         color: $white-text;
         opacity: 0.8;
         transition: opacity 0.2s ease;
@@ -20,27 +20,27 @@
     border-bottom: 1px solid $brand-200;
     z-index: 1060;
 
-    &__container {
+    &_container {
         padding-top: rem(10);
         padding-bottom: rem(10);
     }
 
-    &__toggler {
+    &_toggler {
         border: 1px solid $brand-300;
         border-radius: rem(10);
         padding: rem(6) rem(10);
     }
 
-    &__menu {
+    &_menu {
         gap: rem(16);
     }
 
-    &__links {
+    &_links {
         display: flex;
         gap: rem(12);
     }
 
-    &__link {
+    &_link {
         position: relative;
         color: $brand-700;
         font-weight: 600;
@@ -54,12 +54,12 @@
         }
     }
 
-    .is-active .siteNav__link {
+    .is-active .siteNav_link {
         color: $plum-700;
         background: rgba($plum-700, 0.12);
     }
 
-    &__ghost {
+    &_ghost {
         color: $brand-900;
         font-weight: 600;
         text-decoration: none;
@@ -74,13 +74,13 @@
         }
     }
 
-    &__actions {
+    &_actions {
         display: flex;
         align-items: center;
         gap: rem(12);
     }
 
-    &__profileBtn {
+    &_profileBtn {
         display: inline-flex;
         align-items: center;
         gap: rem(10);
@@ -96,7 +96,7 @@
         }
     }
 
-    &__profileAvatar {
+    &_profileAvatar {
         width: rem(34);
         height: rem(34);
         border-radius: 50%;
@@ -106,14 +106,14 @@
         display: inline-block;
     }
 
-    &__profileMenu {
+    &_profileMenu {
         min-width: rem(200);
         border-radius: rem(12);
         border: 1px solid $brand-200;
         box-shadow: 0 rem(20) rem(50) rgba($brand-900, 0.08);
     }
 
-    &__profileGreeting {
+    &_profileGreeting {
         padding: rem(8) rem(12);
         font-weight: 600;
         color: $brand-700;

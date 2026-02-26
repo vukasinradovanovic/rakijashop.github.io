@@ -3,12 +3,13 @@
     align-items: center;
     gap: rem(10);
     text-decoration: none;
+    transition: filter 0.3s ease;
 
     &_mark {
         width: rem(42);
         height: rem(42);
         border-radius: 50%;
-        background: $plum-700;
+        background: $plum-500;
         color: $white-text;
         display: inline-flex;
         align-items: center;
@@ -32,5 +33,9 @@
         font-weight: 700;
         color: $white-text;
         letter-spacing: -0.3px;
+    }
+
+    &:hover {
+        filter: brightness(0.9);
     }
 }

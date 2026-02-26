@@ -11,7 +11,7 @@
         background-color: $brand-900;
     }
 
-    &__overlay {
+    &_overlay {
         position: absolute;
         inset: 0;
         background: linear-gradient(
@@ -21,7 +21,7 @@
         );
     }
 
-    &__content {
+    &_content {
         padding: rem(180) rem(90);
         position: relative;
         max-width: 780px;
@@ -29,7 +29,7 @@
         z-index: 1;
     }
 
-    &__badge {
+    &_badge {
         display: inline-flex;
         align-items: center;
         gap: rem(8);
@@ -43,7 +43,7 @@
         width: fit-content;
     }
 
-    &__title {
+    &_title {
         color: $white-text;
         font-family: "Playfair Display", serif;
         font-size: clamp(2.4rem, 3.8vw, 3.8rem);
@@ -56,14 +56,14 @@
         }
     }
 
-    &__text {
+    &_text {
         font-size: rem(18);
         color: rgba($white-text, 0.86);
         max-width: 640px;
         margin-bottom: rem(12);
     }
 
-    &__actions {
+    &_actions {
         margin: auto;
         gap: rem(12);
     }

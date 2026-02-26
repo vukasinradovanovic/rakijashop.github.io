@@ -12584,12 +12584,13 @@ button {
   align-items: center;
   gap: 0.625rem;
   text-decoration: none;
+  transition: filter 0.3s ease;
 }
 .brandLogo_mark {
   width: 2.625rem;
   height: 2.625rem;
   border-radius: 50%;
-  background: #4a253c;
+  background: #6a3658;
   color: #f7f4f2;
   display: inline-flex;
   align-items: center;
@@ -12612,19 +12613,22 @@ button {
   color: #f7f4f2;
   letter-spacing: -0.3px;
 }
+.brandLogo:hover {
+  filter: brightness(0.9);
+}
 
-.siteNav__top {
+.siteNav_top {
   background: #4a253c;
   color: #f7f4f2;
   font-size: 0.9rem;
   padding: 0.375rem 0;
 }
-.siteNav__top .siteNav__topLink {
+.siteNav_top .siteNav_topLink {
   color: #f7f4f2;
   opacity: 0.8;
   transition: opacity 0.2s ease;
 }
-.siteNav__top .siteNav__topLink:hover {
+.siteNav_top .siteNav_topLink:hover {
   opacity: 1;
 }
 
@@ -12635,23 +12639,23 @@ button {
   border-bottom: 1px solid #eaddd7;
   z-index: 1060;
 }
-.siteNav__container {
+.siteNav_container {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
 }
-.siteNav__toggler {
+.siteNav_toggler {
   border: 1px solid #e0cec7;
   border-radius: 0.625rem;
   padding: 0.375rem 0.625rem;
 }
-.siteNav__menu {
+.siteNav_menu {
   gap: 1rem;
 }
-.siteNav__links {
+.siteNav_links {
   display: flex;
   gap: 0.75rem;
 }
-.siteNav__link {
+.siteNav_link {
   position: relative;
   color: #5d3a2e;
   font-weight: 600;
@@ -12659,15 +12663,15 @@ button {
   border-radius: 0.625rem;
   transition: color 0.2s ease, background-color 0.2s ease;
 }
-.siteNav__link:hover {
+.siteNav_link:hover {
   color: #4a253c;
   background: rgba(74, 37, 60, 0.08);
 }
-.siteNav .is-active .siteNav__link {
+.siteNav .is-active .siteNav_link {
   color: #4a253c;
   background: rgba(74, 37, 60, 0.12);
 }
-.siteNav__ghost {
+.siteNav_ghost {
   color: #3a2118;
   font-weight: 600;
   text-decoration: none;
@@ -12676,16 +12680,16 @@ button {
   background: rgba(224, 206, 199, 0.3);
   transition: all 0.2s ease;
 }
-.siteNav__ghost:hover {
+.siteNav_ghost:hover {
   color: #4a253c;
   background: rgba(74, 37, 60, 0.1);
 }
-.siteNav__actions {
+.siteNav_actions {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
-.siteNav__profileBtn {
+.siteNav_profileBtn {
   display: inline-flex;
   align-items: center;
   gap: 0.625rem;
@@ -12696,10 +12700,10 @@ button {
   font-weight: 600;
   color: rgb(94.0731707317, 53.5243902439, 38.9268292683);
 }
-.siteNav__profileBtn:hover {
+.siteNav_profileBtn:hover {
   border: 0.0625rem solid #eaddd7;
 }
-.siteNav__profileAvatar {
+.siteNav_profileAvatar {
   width: 2.125rem;
   height: 2.125rem;
   border-radius: 50%;
@@ -12708,13 +12712,13 @@ button {
   background-color: #e0cec7;
   display: inline-block;
 }
-.siteNav__profileMenu {
+.siteNav_profileMenu {
   min-width: 12.5rem;
   border-radius: 0.75rem;
   border: 1px solid #eaddd7;
   box-shadow: 0 1.25rem 3.125rem rgba(58, 33, 24, 0.08);
 }
-.siteNav__profileGreeting {
+.siteNav_profileGreeting {
   padding: 0.5rem 0.75rem;
   font-weight: 600;
   color: #5d3a2e;
@@ -13024,16 +13028,16 @@ button {
   border-top-right-radius: 1.625rem;
   margin-top: 2.5rem;
 }
-.siteFooter__content {
+.siteFooter_content {
   align-items: flex-start;
 }
-.siteFooter__brand {
+.siteFooter_brand {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 0.75rem;
 }
-.siteFooter__logoMark {
+.siteFooter_logoMark {
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 50%;
@@ -13044,42 +13048,42 @@ button {
   font-size: 1.125rem;
   box-shadow: 0 0.875rem 1.75rem rgba(74, 37, 60, 0.3);
 }
-.siteFooter__brandTitle {
+.siteFooter_brandTitle {
   margin: 0;
   font-family: "Playfair Display", serif;
   font-size: 1.25rem;
 }
-.siteFooter__brandText {
+.siteFooter_brandText {
   margin: 0;
   color: rgba(247, 244, 242, 0.8);
 }
-.siteFooter__lede {
+.siteFooter_lede {
   color: rgba(247, 244, 242, 0.78);
   max-width: 340px;
 }
-.siteFooter__heading {
+.siteFooter_heading {
   font-weight: 800;
   color: #f7f4f2;
   margin-bottom: 0.75rem;
   letter-spacing: 0.02em;
 }
-.siteFooter__list {
+.siteFooter_list {
   padding: 0;
   margin: 0;
 }
-.siteFooter__item {
+.siteFooter_item {
   margin-bottom: 0.5rem;
   color: rgba(247, 244, 242, 0.82);
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-.siteFooter__link {
+.siteFooter_link {
   color: rgba(247, 244, 242, 0.9);
   text-decoration: none;
   position: relative;
 }
-.siteFooter__link::after {
+.siteFooter_link::after {
   content: "";
   position: absolute;
   left: 0;
@@ -13089,21 +13093,19 @@ button {
   background-color: #f7f4f2;
   transition: width 0.2s ease;
 }
-.siteFooter__link:hover::after {
+.siteFooter_link:hover::after {
   width: 100%;
 }
-.siteFooter__bottom {
-  margin-top: 1.375rem;
-  padding-top: 0.75rem;
+.siteFooter_bottom {
   border-top: 1px solid rgba(247, 244, 242, 0.12);
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-direction: row;
   gap: 0.625rem;
   color: rgba(247, 244, 242, 0.8);
 }
-.siteFooter__note {
+.siteFooter_note {
   font-weight: 600;
 }
 
@@ -13222,19 +13224,19 @@ button {
   opacity: 0.58;
   background-color: #3a2118;
 }
-.siteHero__overlay {
+.siteHero_overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(58, 33, 24, 0.7), rgba(58, 33, 24, 0.35));
 }
-.siteHero__content {
+.siteHero_content {
   padding: 11.25rem 5.625rem;
   position: relative;
   max-width: 780px;
   font-weight: 700;
   z-index: 1;
 }
-.siteHero__badge {
+.siteHero_badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -13247,7 +13249,7 @@ button {
   text-transform: uppercase;
   width: fit-content;
 }
-.siteHero__title {
+.siteHero_title {
   color: #f7f4f2;
   font-family: "Playfair Display", serif;
   font-size: clamp(2.4rem, 3.8vw, 3.8rem);
@@ -13255,16 +13257,16 @@ button {
   line-height: 1.15;
   margin: 0;
 }
-.siteHero__title--accent {
+.siteHero_title--accent {
   color: rgb(165.5096774194, 112.0479262673, 92.2903225806);
 }
-.siteHero__text {
+.siteHero_text {
   font-size: 1.125rem;
   color: rgba(247, 244, 242, 0.86);
   max-width: 640px;
   margin-bottom: 0.75rem;
 }
-.siteHero__actions {
+.siteHero_actions {
   margin: auto;
   gap: 0.75rem;
 }

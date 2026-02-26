@@ -14,9 +14,9 @@ class CompanyInfosSeeder extends Seeder
     public function run(): void
     {
         CompanyInfo::create([
-            'name' => 'rakijashop',
+            'name' => 'Rakija & Co.',
             'company' => NULL,
-            'email_1' => 'rakijashop@example.com',
+            'email_1' => 'rakija&coexample.com',
             'email_2' => NULL,
             'phone_1' => '+381600000000',
             'phone_2' => '+381600000001',
