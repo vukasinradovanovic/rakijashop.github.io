@@ -1,55 +1,64 @@
-<div class="siteNav__top">
+{{-- Nav top section --}}
+<div class="siteNav_top">
   <div class="container d-flex justify-content-end align-items-center gap-3">
-    <a class="siteNav__topLink" href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+    {{-- Socials section --}}
+    <a class="siteNav_topLink" href="https://www.instagram.com" target="_blank" aria-label="Instagram">
       <i class="fab fa-instagram"></i>
     </a>
-    <a class="siteNav__topLink" href="https://www.tiktok.com" target="_blank" aria-label="TikTok">
+    <a class="siteNav_topLink" href="https://www.tiktok.com" target="_blank" aria-label="TikTok">
       <i class="fab fa-tiktok"></i>
     </a>
-    <a class="siteNav__topLink" href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+    <a class="siteNav_topLink" href="https://www.facebook.com" target="_blank" aria-label="Facebook">
       <i class="fab fa-facebook-f"></i>
     </a>
+
+    {{-- Localization section --}}
+    @foreach (($localization['language_switches'] ?? []) as $languageSwitch)
+    <a class="siteNav_topLink {{ $languageSwitch['is_current'] ? 'fw-bold text-decoration-underline' : '' }}"
+      href="{{ $languageSwitch['url'] }}">{{ $languageSwitch['label'] }}</a>
+    @endforeach
   </div>
 </div>
 
 <nav class="navbar navbar-expand-lg sticky-top siteNav">
-  <div class="container siteNav__container">
+  <div class="container siteNav_container">
     {{-- Logo section --}}
     <x-sections.logo />
 
     <div class="d-flex align-items-center gap-2 order-lg-3">
-      <button class="navbar-toggler siteNav__toggler" type="button" data-bs-toggle="collapse"
+      <button class="navbar-toggler siteNav_toggler" type="button" data-bs-toggle="collapse"
         data-bs-target="#siteNavMenu" aria-controls="siteNavMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
 
-    <div class="collapse navbar-collapse siteNav__menu" id="siteNavMenu">
-      <ul class="navbar-nav siteNav__links ms-lg-auto mb-3 mb-lg-0">
+    <div class="collapse navbar-collapse siteNav_menu" id="siteNavMenu">
+      <ul class="navbar-nav siteNav_links ms-lg-auto mb-3 mb-lg-0">
         @foreach (__('nav.nav') as $item)
-        <li class="nav-item siteNav__item {{ request()->url() == $item['slug'] ? 'is-active' : '' }}">
-          <a class="nav-link siteNav__link" href="{{ $item['slug'] }}">{{ $item['name'] }}</a>
+        <li class="nav-item siteNav_item {{ request()->url() == $item['slug'] ? 'is-active' : '' }}">
+          <a class="nav-link siteNav_link" href="{{ $item['slug'] }}">{{ $item['name'] }}</a>
         </li>
         @endforeach
       </ul>
 
-      <div class="siteNav__actions d-flex align-items-center gap-3">
+      <div class="siteNav_actions d-flex align-items-center gap-3">
         @guest
-        <a href="{{ route('login') }}" class="siteNav__ghost">{{ __('auth.login') }}</a>
+        <a href="{{ route('login') }}" class="siteNav_ghost">{{ __('auth.login') }}</a>
         <a href="{{ route('register') }}" class="btn btnPrimary ">{{ __('auth.register') }}</a>
         @endguest
 
         @auth
-        <a href="{{ route('product.create') }}" class="btn btnPrimary siteNav__cta d-md-none">Dodaj proizvod</a>
-        <div class="dropdown siteNav__profile">
-          <button class="btn dropdown-toggle siteNav__profileBtn" type="button" data-bs-toggle="dropdown"
+        <a href="{{ route('product.create') }}" class="btn btnPrimary siteNav_cta d-md-none">{{
+          __('product.form.create_title') }}</a>
+        <div class="dropdown siteNav_profile">
+          <button class="btn dropdown-toggle siteNav_profileBtn" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            <span class="siteNav__profileAvatar"
+            <span class="siteNav_profileAvatar"
               style="background-image: url('{{ Auth::user()->profile_image }}');"></span>
-            <span class="siteNav__profileName">{{ Auth::user()->name }}</span>
+            <span class="siteNav_profileName">{{ Auth::user()->name }}</span>
           </button>
-          <ul class="dropdown-menu dropdown-menu-end siteNav__profileMenu">
-            <li class="siteNav__profileGreeting">{{ Auth::user()->name }}</li>
+          <ul class="dropdown-menu dropdown-menu-end siteNav_profileMenu">
+            <li class="siteNav_profileGreeting">{{ Auth::user()->name }}</li>
             @foreach (__('nav.dropdown-user') as $item)
             <li><a class="dropdown-item" href="{{ $item['slug'] }}">{!! $item['name'] !!}</a></li>
             @endforeach

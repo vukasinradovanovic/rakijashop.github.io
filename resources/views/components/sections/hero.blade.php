@@ -1,14 +1,14 @@
 <section class="siteHero">
-    <div class="siteHero__overlay"></div>
-    <div class="container siteHero__content text-center">
-        <span class="siteHero__badge">Premium Balkan Spirits</span>
-        <h1 class="siteHero__title">Duša voća, uhvaćena u boci.</h1>
-        <p class="siteHero__text">
-            Otkrij pažljivo kuriranu selekciju zanatske rakije iz najboljih destilerija Balkana.
+    <div class="siteHero_overlay"></div>
+    <div class="container siteHero_content text-center">
+        <span class="siteHero_badge">{{ __('pages.hero.badge') }}</span>
+        <h1 class="siteHero_title">{{ __('pages.hero.title') }}</h1>
+        <p class="siteHero_text">
+            {{ __('pages.hero.text') }}
         </p>
-        <div class="siteHero__actions">
-            <a href="{{ route('product.index') }}" class="btn btnPrimary">Istaknuta kolekcija</a>
-            <a href="{{ route('contact') }}" class="btn btnSecondary">Kontaktiraj nas</a>
+        <div class="siteHero_actions">
+            <a href="{{ route('product.index') }}" class="btn btnPrimary">{{ __('pages.hero.featured_collection') }}</a>
+            <a href="{{ route('contact') }}" class="btn btnSecondary">{{ __('pages.hero.contact_us') }}</a>
         </div>
     </div>
 </section>

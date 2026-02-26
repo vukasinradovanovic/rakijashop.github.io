@@ -2,8 +2,8 @@
 {{-- Variables section --}}
 @php
 $statusId = $question->status?->id;
-$statusName = $question->status?->name ?? 'No Status';
-$sender = $question->name ?? $question->email ?? 'Unknown';
+$statusName = $question->status?->name ?? __('dashboard.no_status');
+$sender = $question->name ?? $question->email ?? __('dashboard.unknown');
 $snippet = \Illuminate\Support\Str::limit(strip_tags($question->description ?? ''), 120);
 $time = optional($question->created_at)->diffForHumans() ?? '';
 $typeName = $question->type?->name;

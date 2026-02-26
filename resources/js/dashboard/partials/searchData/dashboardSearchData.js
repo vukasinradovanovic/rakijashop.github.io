@@ -10,22 +10,26 @@
 
 
 export function initDashboardsearchData() {
+    const $tableBody = $('.table_dashboardGeneralTbody--searchData');
+    const loadError = $tableBody.data('loadError') || 'Error loading data.';
+    const localeSegment = window.location.pathname.split('/').filter(Boolean)[0] || 'en';
+    const localePrefix = `/${localeSegment}`;
+
     $('#searchDataSort').on('change', function () {
             let formData = {
-                searchDataSort: $('#searchDataSort').val(),
-                _token: '{{ csrf_token() }}'
+                searchDataSort: $('#searchDataSort').val()
             };
 
             $.ajax({
-                url: "/dashboard-search-stats",
+                url: `${localePrefix}/dashboard-search-stats`,
                 method: 'GET',
                 data: formData,
                 success: function (response) {
-                    $('.table_dashboardGeneralTbody--searchData').html(response);
+                    $tableBody.html(response);
                 },
                 error: function (xhr) {
                     console.error(xhr.responseText);
-                    $('.table_dashboardGeneralTbody--searchData').html('<p>Greška pri učitavanju podataka.</p>');
+                    $tableBody.html(`<p>${loadError}</p>`);
                 }
             });
         });

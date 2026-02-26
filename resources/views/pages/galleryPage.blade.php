@@ -3,8 +3,8 @@
 @section('main')
     <section class="pageSection">
         <div class="container">
-            <h1 class="pageSection__title">Galerija</h1>
-            <p class="pageSection__subtitle">Uskoro donosimo nove trenutke iz naših destilerija.</p>
+            <h1 class="pageSection_title">{{ __('pages.gallery.title') }}</h1>
+            <p class="pageSection_subtitle">{{ __('pages.gallery.subtitle') }}</p>
         </div>
     </section>
 @endsection

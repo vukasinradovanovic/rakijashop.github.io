@@ -4,7 +4,7 @@
 <section class="productPage productPage--show">
     <div class="container">
         <div class="mb-3">
-            <a href="{{ route('product.index') }}" class="siteHero__ghost">&larr; Nazad na listu</a>
+            <a href="{{ route('product.index') }}" class="siteHero_ghost">&larr; {{ __('product.show.back_to_list') }}</a>
         </div>
 
         <div class="row g-4">
@@ -12,26 +12,26 @@
                 <x-product.product-card :product="$product" :showActions="false" class="productCard--wide" />
             </div>
             <div class="col-12 col-md-6">
-                <h1 class="productPage__title">{{ $product->name }}</h1>
-                <p class="productPage__meta">Status: {{ $product->getStatusNameById($product->status_id) }}</p>
-                <p class="productPage__price">{{ number_format($product->price, 2, ',', '.') }} RSD</p>
+                <h1 class="productPage_title">{{ $product->name }}</h1>
+                <p class="productPage_meta">{{ $product->getCategoryNamesAttribute() }}</p>
+                <p class="productPage_price">{{ number_format($product->price, 2, ',', '.') }} {{ __('product.currency') }}</p>
 
                 @if($product->description)
                 <div class="mt-3">
-                    <h2 class="productPage__subtitle">Opis</h2>
-                    <p class="productPage__description">{{ $product->description }}</p>
+                    <h2 class="productPage_subtitle">{{ __('product.show.description') }}</h2>
+                    <p class="productPage_description">{{ $product->description }}</p>
                 </div>
                 @endif
 
                 {{-- Buttons for product actions --}}
                 @if(Auth::user() && Auth::user()->hasProduct($product->id) != null)
                 <div class="productCard__actions">
-                    <a href="{{ route('product.edit', $product) }}" class="productCard__btn">Izmeni</a>
+                    <a href="{{ route('product.edit', $product) }}" class="productCard__btn">{{ __('product.show.edit') }}</a>
                     <form action="{{ route('product.destroy', $product) }}" method="POST" class="productCard__delete">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="productCard__btn productCard__btn--danger">
-                            Obriši
+                            {{ __('product.show.delete') }}
                         </button>
                     </form>
                 </div>

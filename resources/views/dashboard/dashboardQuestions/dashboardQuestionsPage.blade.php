@@ -1,7 +1,7 @@
 @extends('dashboard.layout.layout')
 
 @section('main')
-<h2 class="text-center">Pitanja</h2>
+<h2 class="text-center">{{ __('dashboard.questionsPage.title') }}</h2>
 <hr class="border border-gray border-2">
 
 <div class="dashboard_questions container-fluid m-auto p-3">
@@ -13,9 +13,9 @@
         <div class="input-group">
           <span class="input-group-text"><i class="fa fa-search"></i></span>
           <input id="questionSearch" name="q" type="search" class="form-control"
-                 placeholder="Search messages" value="{{ request('q') }}">
+                 placeholder="{{ __('dashboard.questionsPage.search_messages') }}" value="{{ request('q') }}">
           <button id="questionSearchBtn" class="btn btnWhite" type="submit">
-            {{ __('Search') }}
+            {{ __('dashboard.questionsPage.search') }}
           </button>
         </div>
       </div>
@@ -24,7 +24,7 @@
            Names are aligned with JS payload keys (questionType, questionSort). -->
       <div class="col-6 col-md-3">
         <select id="questionType" class="form-select" name="questionType">
-          <option value="">{{ __('Svi tipovi') }}</option>
+          <option value="">{{ __('dashboard.questionsPage.all_types') }}</option>
           @foreach ($types as $type)
             <option value="{{ $type->id }}" {{ (string)request('questionType') === (string)$type->id ? 'selected' : '' }}>
               {{ $type->name }}
@@ -36,10 +36,10 @@
       <div class="col-6 col-md-3">
         <select id="questionSort" class="form-select" name="questionSort">
           <option value="new" {{ request('questionSort','new') === 'new' ? 'selected' : '' }}>
-            {{ __('sidebar.new') }}
+            {{ __('dashboard.questionsPage.newestFirst') }}
           </option>
           <option value="old" {{ request('questionSort') === 'old' ? 'selected' : '' }}>
-            {{ __('sidebar.old') }}
+            {{ __('dashboard.questionsPage.oldestFirst') }}
           </option>
         </select>
       </div>
@@ -49,7 +49,7 @@
   <hr class="border border-gray border-2">
 
   <!-- Gmail-like summary list (AJAX will replace this inner HTML) -->
-  <div class="dashboard_questionsList list-group list-group-flush">
+  <div class="dashboard_questionsList list-group list-group-flush" data-empty-msg="{{ __('dashboard.questionsPage.noQuestions') }}">
     @include('dashboard.dashboardQuestions.partials.questionList', ['questions' => $questions])
   </div>
 </div>

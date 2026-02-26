@@ -34,7 +34,7 @@ class AuthController
         Auth::login($user);
 
         //Redirect
-        return redirect(route('index'))->with('success', 'Uspešno ste se registrovali!');
+        return redirect(route('index'))->with('success', __('messages.registered_success'));
     }
 
     //Login user
@@ -47,7 +47,7 @@ class AuthController
         if (Auth::attempt(['email' => $fields['email'], 'password' => $fields['password']], $remember)) {
             $request->session()->regenerate();
             return redirect($request->input('intended', route('index')))
-                ->with('success', 'Uspešno ste se prijavili!');
+                ->with('success', __('messages.logged_in_success'));
         }
 
         return back()->withErrors([
@@ -67,6 +67,6 @@ class AuthController
         $request->session()->regenerateToken();
 
         //Redirection to index
-        return redirect()->back()->with('success', 'Uspešno ste se odjavili!');
+        return redirect()->back()->with('success', __('messages.logged_out_success'));
     }
 }
