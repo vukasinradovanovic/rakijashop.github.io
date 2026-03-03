@@ -17,7 +17,7 @@ class ProductController
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($locale)
     {
         $products = Product::with('images')->orderByDesc('created_at')->paginate(12);
         $categories = CategoryProducts::where('is_active', true)->get();
@@ -28,7 +28,7 @@ class ProductController
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($locale)
     {
         $productStatuses = ProductStatus::all();
         $categories = CategoryProducts::where('is_active', true)->get();
@@ -87,7 +87,7 @@ class ProductController
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show($locale, Product $product)
     {
         $product->load('images');
         $categories = CategoryProducts::where('is_active', true)->get();
@@ -98,7 +98,7 @@ class ProductController
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit($locale, Product $product)
     {
         // Allow storing product only for authenticated users
         if (!Auth::check()) {
