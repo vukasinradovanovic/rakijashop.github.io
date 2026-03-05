@@ -9,6 +9,18 @@ return [
         'empty' => 'Trenutno nema proizvoda.',
     ],
 
+    'filter' => [
+        'search' => 'Pretraga',
+        'search_placeholder' => 'Pretražite proizvode...',
+        'category' => 'Kategorija',
+        'all_categories' => 'Sve kategorije',
+        'price_min' => 'Min cena',
+        'price_max' => 'Maks cena',
+        'price_max_placeholder' => 'Maks',
+        'apply' => 'Filtriraj',
+        'reset' => 'Poništi filtere',
+    ],
+
     'show' => [
         'back_to_list' => 'Nazad na listu',
         'description' => 'Opis',

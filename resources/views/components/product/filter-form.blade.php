@@ -1,113 +1,71 @@
-@props([
-    'categories'         => collect(),
-    'selectedCategory'   => '',
-    'selectedSort'       => 'newest',
-    'searchQuery'        => '',
-])
+@props(['categories' => []])
 
-@php
-    $activeCount = 0;
-    if ($searchQuery)                                    $activeCount++;
-    if ($selectedCategory)                               $activeCount++;
-    if ($selectedSort && $selectedSort !== 'newest')     $activeCount++;
-@endphp
-
-<div class="filterForm {{ $activeCount > 0 ? 'filterForm--hasFilters' : '' }}">
-
-    {{-- Mobile toggle --}}
-    <button type="button" class="filterForm_toggleBtn" aria-expanded="false" aria-controls="filterFormBody">
-        <i class="fa-solid fa-sliders filterForm_toggleBtnIcon"></i>
-        <span class="filterForm_toggleBtnLabel">{{ __('product.filter.toggle') }}</span>
-        @if ($activeCount > 0)
-            <span class="filterForm_toggleBtnCount">{{ $activeCount }}</span>
-        @endif
-        <i class="fa-solid fa-chevron-down filterForm_toggleBtnChevron"></i>
-    </button>
-
-    {{-- Filter body (visible always on desktop, toggled on mobile) --}}
-    <form
-        id="filterFormBody"
-        class="filterForm_body"
-        method="GET"
-        action="{{ route('product.index') }}"
-    >
-        <div class="filterForm_groups">
-
-            {{-- Search --}}
-            <div class="filterForm_group filterForm_group--search">
-                <label for="filterSearch" class="filterForm_groupLabel">
-                    {{ __('product.filter.search') }}
-                </label>
-                <div class="filterForm_groupInputWrapper">
-                    <i class="fa-solid fa-magnifying-glass filterForm_groupInputIcon"></i>
-                    <input
-                        id="filterSearch"
-                        type="text"
-                        name="search"
-                        class="form-control filterForm_groupInput"
-                        placeholder="{{ __('product.filter.searchPlaceholder') }}"
-                        value="{{ $searchQuery }}"
-                        autocomplete="off"
-                    >
-                </div>
-            </div>
-
-            {{-- Category --}}
-            @if ($categories->count())
-                <div class="filterForm_group filterForm_group--category">
-                    <label for="filterCategory" class="filterForm_groupLabel">
-                        {{ __('product.filter.category') }}
-                    </label>
-                    <select
-                        id="filterCategory"
-                        name="category"
-                        class="form-select filterForm_groupInput"
-                    >
-                        <option value="">{{ __('product.filter.categoryAll') }}</option>
-                        @foreach ($categories as $category)
-                            <option
-                                value="{{ $category->id }}"
-                                {{ (string) $selectedCategory === (string) $category->id ? 'selected' : '' }}
-                            >
-                                {{ $category->name }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-            @endif
-
-            {{-- Sort --}}
-            <div class="filterForm_group filterForm_group--sort">
-                <label for="filterSort" class="filterForm_groupLabel">
-                    {{ __('product.filter.sort') }}
-                </label>
-                <select
-                    id="filterSort"
-                    name="sort"
-                    class="form-select filterForm_groupInput"
-                >
-                    <option value="newest"     {{ $selectedSort === 'newest'     ? 'selected' : '' }}>{{ __('product.filter.sortNewest') }}</option>
-                    <option value="price_asc"  {{ $selectedSort === 'price_asc'  ? 'selected' : '' }}>{{ __('product.filter.sortPriceAsc') }}</option>
-                    <option value="price_desc" {{ $selectedSort === 'price_desc' ? 'selected' : '' }}>{{ __('product.filter.sortPriceDesc') }}</option>
-                </select>
-            </div>
-
+<form action="{{ route('product.index') }}" method="GET" class="filterForm">
+    <div class="row g-3 align-items-end">
+        {{-- Search by name --}}
+        <div class="col-12 col-md-6 col-lg-3">
+            <label for="filterSearch" class="form-label">{{ __('product.filter.search') }}</label>
+            <input
+                type="text"
+                name="search"
+                id="filterSearch"
+                value="{{ request('search') }}"
+                class="form-control filterForm__input"
+                placeholder="{{ __('product.filter.search_placeholder') }}"
+            >
         </div>
 
-        {{-- Actions --}}
-        <div class="filterForm_actions">
-            <button type="submit" class="btn btnPrimary filterForm_submitBtn">
-                <i class="fa-solid fa-check me-1"></i>
-                {{ __('product.filter.apply') }}
-            </button>
-            <a
-                href="{{ route('product.index') }}"
-                class="btn filterForm_resetBtn {{ $activeCount > 0 ? '' : 'filterForm_resetBtn--hidden' }}"
+        {{-- Filter by category --}}
+        <div class="col-12 col-md-6 col-lg-3">
+            <label for="filterCategory" class="form-label">{{ __('product.filter.category') }}</label>
+            <select name="category" id="filterCategory" class="form-select filterForm__select">
+                <option value="">{{ __('product.filter.all_categories') }}</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>
+                        {{ $category->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        {{-- Filter by minimum price --}}
+        <div class="col-6 col-md-4 col-lg-2">
+            <label for="filterPriceMin" class="form-label">{{ __('product.filter.price_min') }}</label>
+            <input
+                type="number"
+                name="price_min"
+                id="filterPriceMin"
+                value="{{ request('price_min') }}"
+                min="0"
+                step="0.01"
+                class="form-control filterForm__input"
+                placeholder="0"
             >
-                <i class="fa-solid fa-xmark me-1"></i>
-                {{ __('product.filter.reset') }}
+        </div>
+
+        {{-- Filter by maximum price --}}
+        <div class="col-6 col-md-4 col-lg-2">
+            <label for="filterPriceMax" class="form-label">{{ __('product.filter.price_max') }}</label>
+            <input
+                type="number"
+                name="price_max"
+                id="filterPriceMax"
+                value="{{ request('price_max') }}"
+                min="0"
+                step="0.01"
+                class="form-control filterForm__input"
+                placeholder="{{ __('product.filter.price_max_placeholder') }}"
+            >
+        </div>
+
+        {{-- Submit and reset buttons --}}
+        <div class="col-12 col-md-4 col-lg-2 d-flex gap-2">
+            <button type="submit" class="btn filterForm__btn filterForm__btn--submit w-100">
+                <i class="fa fa-search" aria-hidden="true"></i> {{ __('product.filter.apply') }}
+            </button>
+            <a href="{{ route('product.index') }}" class="btn filterForm__btn filterForm__btn--reset" aria-label="{{ __('product.filter.reset') }}">
+                <i class="fa fa-times" aria-hidden="true"></i>
             </a>
         </div>
-
-    </form>
-</div>
+    </div>
+</form>

@@ -10,6 +10,7 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <div class="productPage_layout">
 
             <aside class="productPage_sidebar">
@@ -29,6 +30,17 @@
                                 <x-product.product-card :product="$product" />
                             </div>
                         @endforeach
+=======
+        <div class="mb-4">
+            <x-product.filter-form :categories="$categories" />
+        </div>
+
+        @if($products->count())
+            <div class="row g-4 productPage_grid">
+                @foreach($products as $product)
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <x-product.product-card :product="$product" />
+>>>>>>> copilot/remove-responsive-sass-section
                     </div>
 
                     <div class="mt-4">

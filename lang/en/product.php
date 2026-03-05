@@ -9,6 +9,18 @@ return [
         'empty' => 'No products available at the moment.',
     ],
 
+    'filter' => [
+        'search' => 'Search',
+        'search_placeholder' => 'Search products...',
+        'category' => 'Category',
+        'all_categories' => 'All categories',
+        'price_min' => 'Min price',
+        'price_max' => 'Max price',
+        'price_max_placeholder' => 'Max',
+        'apply' => 'Filter',
+        'reset' => 'Clear filters',
+    ],
+
     'show' => [
         'back_to_list' => 'Back to list',
         'description' => 'Description',
