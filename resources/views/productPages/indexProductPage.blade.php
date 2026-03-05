@@ -10,6 +10,10 @@
             </div>
         </div>
 
+        <div class="mb-4">
+            <x-product.filter-form :categories="$categories" />
+        </div>
+
         @if($products->count())
             <div class="row g-4 productPage_grid">
                 @foreach($products as $product)
