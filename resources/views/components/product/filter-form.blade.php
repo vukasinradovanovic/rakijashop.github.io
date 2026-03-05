@@ -12,14 +12,14 @@
     if ($selectedSort && $selectedSort !== 'newest')     $activeCount++;
 @endphp
 
-<div class="filterForm {{ $activeCount > 0 ? 'filterForm--hasFilters' : '' }}">
+<div class="filterForm mb-lg-0 {{ $activeCount > 0 ? 'filterForm--hasFilters' : '' }}">
 
     {{-- Mobile toggle --}}
-    <button type="button" class="filterForm_toggleBtn" aria-expanded="false" aria-controls="filterFormBody">
+    <button type="button" class="filterForm_toggleBtn d-flex d-lg-none align-items-center gap-2" aria-expanded="false" aria-controls="filterFormBody">
         <i class="fa-solid fa-sliders filterForm_toggleBtnIcon"></i>
-        <span class="filterForm_toggleBtnLabel">{{ __('product.filter.toggle') }}</span>
+        <span class="filterForm_toggleBtnLabel flex-grow-1 text-start">{{ __('product.filter.toggle') }}</span>
         @if ($activeCount > 0)
-            <span class="filterForm_toggleBtnCount">{{ $activeCount }}</span>
+            <span class="filterForm_toggleBtnCount d-inline-flex align-items-center justify-content-center">{{ $activeCount }}</span>
         @endif
         <i class="fa-solid fa-chevron-down filterForm_toggleBtnChevron"></i>
     </button>
@@ -27,14 +27,14 @@
     {{-- Filter body (visible always on desktop, toggled on mobile) --}}
     <form
         id="filterFormBody"
-        class="filterForm_body"
+        class="filterForm_body d-lg-flex flex-lg-column"
         method="GET"
         action="{{ route('product.index') }}"
     >
-        <div class="filterForm_groups">
+        <div class="filterForm_groups d-flex flex-wrap flex-lg-column">
 
             {{-- Search --}}
-            <div class="filterForm_group filterForm_group--search">
+            <div class="filterForm_group filterForm_group--search d-flex flex-column">
                 <label for="filterSearch" class="filterForm_groupLabel">
                     {{ __('product.filter.search') }}
                 </label>
@@ -54,7 +54,7 @@
 
             {{-- Category --}}
             @if ($categories->count())
-                <div class="filterForm_group filterForm_group--category">
+                <div class="filterForm_group filterForm_group--category d-flex flex-column">
                     <label for="filterCategory" class="filterForm_groupLabel">
                         {{ __('product.filter.category') }}
                     </label>
@@ -77,7 +77,7 @@
             @endif
 
             {{-- Sort --}}
-            <div class="filterForm_group filterForm_group--sort">
+            <div class="filterForm_group filterForm_group--sort d-flex flex-column">
                 <label for="filterSort" class="filterForm_groupLabel">
                     {{ __('product.filter.sort') }}
                 </label>
@@ -95,14 +95,14 @@
         </div>
 
         {{-- Actions --}}
-        <div class="filterForm_actions">
-            <button type="submit" class="btn btnPrimary filterForm_submitBtn">
+        <div class="filterForm_actions d-flex align-items-end flex-lg-column">
+            <button type="submit" class="btn btnPrimary filterForm_submitBtn text-nowrap">
                 <i class="fa-solid fa-check me-1"></i>
                 {{ __('product.filter.apply') }}
             </button>
             <a
                 href="{{ route('product.index') }}"
-                class="btn filterForm_resetBtn {{ $activeCount > 0 ? '' : 'filterForm_resetBtn--hidden' }}"
+                class="btn filterForm_resetBtn text-nowrap {{ $activeCount > 0 ? '' : 'filterForm_resetBtn--hidden' }}"
             >
                 <i class="fa-solid fa-xmark me-1"></i>
                 {{ __('product.filter.reset') }}

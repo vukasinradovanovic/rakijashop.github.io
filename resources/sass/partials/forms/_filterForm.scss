@@ -58,9 +58,6 @@ $filter-form-reset-color-hover: $plum-700;
 
     // ----- Toggle button (mobile only) -----
     &_toggleBtn {
-        display: flex;
-        align-items: center;
-        gap: rem(8);
         width: 100%;
         padding: $filter-form-toggle-padding;
         background: $filter-form-toggle-bg;
@@ -77,15 +74,7 @@ $filter-form-reset-color-hover: $plum-700;
         }
     }
 
-    &_toggleBtnLabel {
-        flex: 1;
-        text-align: left;
-    }
-
     &_toggleBtnCount {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
         background: $filter-form-count-bg;
         color: $filter-form-count-color;
         font-size: $filter-form-count-size;
@@ -112,16 +101,12 @@ $filter-form-reset-color-hover: $plum-700;
 
     // ----- Groups row -----
     &_groups {
-        display: flex;
-        flex-wrap: wrap;
         gap: $filter-form-gap;
         flex: 1;
     }
 
     // ----- Individual group -----
     &_group {
-        display: flex;
-        flex-direction: column;
         gap: rem(5);
         flex: 1 1 $filter-form-input-min-width;
         max-width: $filter-form-input-max-width;
@@ -193,8 +178,6 @@ $filter-form-reset-color-hover: $plum-700;
 
     // ----- Action buttons -----
     &_actions {
-        display: flex;
-        align-items: flex-end;
         gap: rem(8);
         padding-top: rem(4);
         flex-shrink: 0;
@@ -206,7 +189,6 @@ $filter-form-reset-color-hover: $plum-700;
         font-size: rem(14);
         font-weight: 700;
         border-radius: rem(8);
-        white-space: nowrap;
     }
 
     &_resetBtn {
@@ -218,7 +200,6 @@ $filter-form-reset-color-hover: $plum-700;
         color: $filter-form-reset-color;
         border: rem(1) solid $filter-form-border;
         background: transparent;
-        white-space: nowrap;
         transition:
             color $filter-form-transition,
             border-color $filter-form-transition,
@@ -241,23 +222,13 @@ $filter-form-reset-color-hover: $plum-700;
     // Sidebar orientation: all groups stack vertically, full width
     // =========================================================================
     @include m {
-        margin-bottom: 0;
-
-        // Always show form body on desktop — override any jQuery inline style
-        &_toggleBtn {
-            display: none !important;
-        }
 
         &_body {
-            display: flex !important;
-            flex-direction: column;
             gap: rem(16);
             padding: rem(20);
         }
 
         &_groups {
-            flex-direction: column;
-            flex-wrap: nowrap;
             gap: rem(14);
         }
 
@@ -273,16 +244,12 @@ $filter-form-reset-color-hover: $plum-700;
         }
 
         &_actions {
-            flex-direction: column;
             padding-top: rem(6);
-            gap: rem(8);
         }
 
         &_submitBtn,
         &_resetBtn {
             width: 100%;
-            text-align: center;
-            justify-content: center;
         }
     }
 }
