@@ -40,4 +40,18 @@ return [
         'updated' => 'Product has been updated successfully.',
         'deleted' => 'Product has been deleted successfully.',
     ],
+
+    'filter' => [
+        'toggle'           => 'Filters',
+        'search'           => 'Search',
+        'searchPlaceholder'=> 'Search products...',
+        'category'         => 'Category',
+        'categoryAll'      => 'All categories',
+        'sort'             => 'Sort by',
+        'sortNewest'       => 'Newest',
+        'sortPriceAsc'     => 'Price: Low to High',
+        'sortPriceDesc'    => 'Price: High to Low',
+        'apply'            => 'Apply',
+        'reset'            => 'Reset',
+    ],
 ];

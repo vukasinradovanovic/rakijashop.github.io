@@ -1,0 +1,288 @@
+// =============================================================================
+// filterForm — Design Tokens
+// Change these variables to restyle the entire filter form.
+// =============================================================================
+
+$filter-form-bg: $brand-50;
+$filter-form-bg-open: $secondary-bg;
+$filter-form-border: $brand-200;
+$filter-form-border-active: $plum-700;
+$filter-form-radius: $border-radius-sidebar;
+$filter-form-shadow: 0 rem(4) rem(16) rgba($brand-900, 0.06);
+$filter-form-shadow-active: 0 rem(8) rem(24) rgba($plum-700, 0.1);
+$filter-form-padding: rem(14) rem(20);
+$filter-form-padding-mobile: rem(14) rem(16);
+$filter-form-gap: rem(12);
+$filter-form-transition: 0.2s ease;
+
+$filter-form-label-color: $brand-700;
+$filter-form-label-size: rem(11);
+
+$filter-form-input-height: rem(40);
+$filter-form-input-min-width: rem(160);
+$filter-form-input-max-width: rem(240);
+
+$filter-form-toggle-color: $plum-700;
+$filter-form-toggle-bg: rgba($plum-700, 0.06);
+$filter-form-toggle-bg-hover: rgba($plum-700, 0.12);
+$filter-form-toggle-radius: $border-radius-btn;
+$filter-form-toggle-padding: rem(10) rem(16);
+
+$filter-form-count-bg: $plum-700;
+$filter-form-count-color: $white-text;
+$filter-form-count-size: rem(11);
+$filter-form-count-radius: rem(999);
+$filter-form-count-padding: rem(2) rem(7);
+
+$filter-form-reset-color: $brand-700;
+$filter-form-reset-color-hover: $plum-700;
+
+// =============================================================================
+// filterForm — Component
+// =============================================================================
+
+.filterForm {
+    background: $filter-form-bg;
+    border: rem(1) solid $filter-form-border;
+    border-radius: $filter-form-radius;
+    box-shadow: $filter-form-shadow;
+    margin-bottom: rem(28);
+    transition:
+        border-color $filter-form-transition,
+        box-shadow $filter-form-transition;
+
+    &--hasFilters {
+        border-color: rgba($filter-form-border-active, 0.4);
+        box-shadow: $filter-form-shadow-active;
+    }
+
+    // ----- Toggle button (mobile only) -----
+    &_toggleBtn {
+        display: flex;
+        align-items: center;
+        gap: rem(8);
+        width: 100%;
+        padding: $filter-form-toggle-padding;
+        background: $filter-form-toggle-bg;
+        border: none;
+        border-radius: $filter-form-radius;
+        color: $filter-form-toggle-color;
+        font-weight: 700;
+        font-size: rem(14);
+        cursor: pointer;
+        transition: background-color $filter-form-transition;
+
+        &:hover {
+            background: $filter-form-toggle-bg-hover;
+        }
+    }
+
+    &_toggleBtnLabel {
+        flex: 1;
+        text-align: left;
+    }
+
+    &_toggleBtnCount {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: $filter-form-count-bg;
+        color: $filter-form-count-color;
+        font-size: $filter-form-count-size;
+        font-weight: 700;
+        padding: $filter-form-count-padding;
+        border-radius: $filter-form-count-radius;
+        min-width: rem(20);
+    }
+
+    &_toggleBtnChevron {
+        font-size: rem(12);
+        transition: transform $filter-form-transition;
+
+        .filterForm--open & {
+            transform: rotate(-180deg);
+        }
+    }
+
+    // ----- Form body (hidden on mobile by default; JS toggles) -----
+    &_body {
+        display: none;
+        padding: $filter-form-padding-mobile;
+    }
+
+    // ----- Groups row -----
+    &_groups {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $filter-form-gap;
+        flex: 1;
+    }
+
+    // ----- Individual group -----
+    &_group {
+        display: flex;
+        flex-direction: column;
+        gap: rem(5);
+        flex: 1 1 $filter-form-input-min-width;
+        max-width: $filter-form-input-max-width;
+
+        &--search {
+            flex: 2 1 rem(200);
+            max-width: rem(340);
+        }
+    }
+
+    &_groupLabel {
+        color: $filter-form-label-color;
+        font-size: $filter-form-label-size;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        margin-bottom: 0;
+    }
+
+    &_groupInputWrapper {
+        position: relative;
+    }
+
+    &_groupInputIcon {
+        position: absolute;
+        top: 50%;
+        left: rem(12);
+        transform: translateY(-50%);
+        color: rgba($brand-700, 0.6);
+        font-size: rem(13);
+        pointer-events: none;
+    }
+
+    // Style overrides for inputs/selects inside the filter form
+    &_groupInput {
+        &.form-control,
+        &.form-select {
+            background: $secondary-bg;
+            border: rem(1) solid $filter-form-border;
+            border-radius: rem(8);
+            height: $filter-form-input-height;
+            min-height: $filter-form-input-height;
+            padding: rem(8) rem(12);
+            font-size: rem(14);
+            color: $primary-text;
+            transition:
+                border-color $filter-form-transition,
+                box-shadow $filter-form-transition;
+
+            &::placeholder {
+                color: rgba($brand-700, 0.5);
+            }
+
+            &:hover {
+                border-color: rgba($filter-form-border-active, 0.4);
+            }
+
+            &:focus {
+                border-color: $filter-form-border-active;
+                box-shadow: 0 0 0 rem(3) rgba($plum-700, 0.12);
+            }
+        }
+
+        // Indent text when search icon is present
+        .filterForm_groupInputWrapper & {
+            padding-left: rem(34);
+        }
+    }
+
+    // ----- Action buttons -----
+    &_actions {
+        display: flex;
+        align-items: flex-end;
+        gap: rem(8);
+        padding-top: rem(4);
+        flex-shrink: 0;
+    }
+
+    &_submitBtn {
+        height: $filter-form-input-height;
+        padding: rem(8) rem(20);
+        font-size: rem(14);
+        font-weight: 700;
+        border-radius: rem(8);
+        white-space: nowrap;
+    }
+
+    &_resetBtn {
+        height: $filter-form-input-height;
+        padding: rem(8) rem(16);
+        font-size: rem(14);
+        font-weight: 600;
+        border-radius: rem(8);
+        color: $filter-form-reset-color;
+        border: rem(1) solid $filter-form-border;
+        background: transparent;
+        white-space: nowrap;
+        transition:
+            color $filter-form-transition,
+            border-color $filter-form-transition,
+            background-color $filter-form-transition;
+
+        &:hover {
+            color: $filter-form-reset-color-hover;
+            border-color: rgba($filter-form-border-active, 0.4);
+            background: rgba($plum-700, 0.04);
+        }
+
+        &--hidden {
+            visibility: hidden;
+            pointer-events: none;
+        }
+    }
+
+    // =========================================================================
+    // Desktop layout — breakpoint: m-screen (860px)
+    // Sidebar orientation: all groups stack vertically, full width
+    // =========================================================================
+    @include m {
+        margin-bottom: 0;
+
+        // Always show form body on desktop — override any jQuery inline style
+        &_toggleBtn {
+            display: none !important;
+        }
+
+        &_body {
+            display: flex !important;
+            flex-direction: column;
+            gap: rem(16);
+            padding: rem(20);
+        }
+
+        &_groups {
+            flex-direction: column;
+            flex-wrap: nowrap;
+            gap: rem(14);
+        }
+
+        &_group {
+            flex: 0 0 auto;
+            max-width: none;
+            width: 100%;
+
+            &--search {
+                flex: 0 0 auto;
+                max-width: none;
+            }
+        }
+
+        &_actions {
+            flex-direction: column;
+            padding-top: rem(6);
+            gap: rem(8);
+        }
+
+        &_submitBtn,
+        &_resetBtn {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
+    }
+}

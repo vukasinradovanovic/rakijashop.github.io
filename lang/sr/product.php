@@ -40,4 +40,18 @@ return [
         'updated' => 'Proizvod je uspešno ažuriran.',
         'deleted' => 'Proizvod je uspešno obrisan.',
     ],
+
+    'filter' => [
+        'toggle'           => 'Filteri',
+        'search'           => 'Pretraga',
+        'searchPlaceholder'=> 'Pretražite proizvode...',
+        'category'         => 'Kategorija',
+        'categoryAll'      => 'Sve kategorije',
+        'sort'             => 'Sortiraj po',
+        'sortNewest'       => 'Najnoviji',
+        'sortPriceAsc'     => 'Cena: rastuće',
+        'sortPriceDesc'    => 'Cena: opadajuće',
+        'apply'            => 'Primeni',
+        'reset'            => 'Poništi',
+    ],
 ];
