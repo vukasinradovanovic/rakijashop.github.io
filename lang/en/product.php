@@ -9,6 +9,25 @@ return [
         'empty' => 'No products available at the moment.',
     ],
 
+    'filter' => [
+        'toggle' => 'Filters',
+        'search' => 'Search',
+        'search_placeholder' => 'Search products...',
+        'searchPlaceholder' => 'Search products...',
+        'category' => 'Category',
+        'all_categories' => 'All categories',
+        'categoryAll' => 'All categories',
+        'price_min' => 'Min price',
+        'price_max' => 'Max price',
+        'price_max_placeholder' => 'Max',
+        'sort' => 'Sort by',
+        'sortNewest' => 'Newest',
+        'sortPriceAsc' => 'Price: Low to High',
+        'sortPriceDesc' => 'Price: High to Low',
+        'apply' => 'Filter',
+        'reset' => 'Clear filters',
+    ],
+
     'show' => [
         'back_to_list' => 'Back to list',
         'description' => 'Description',
@@ -40,4 +59,5 @@ return [
         'updated' => 'Product has been updated successfully.',
         'deleted' => 'Product has been deleted successfully.',
     ],
+
 ];

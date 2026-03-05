@@ -19,7 +19,32 @@ class ProductController
      */
     public function index($locale)
     {
-        $products = Product::with('images')->orderByDesc('created_at')->paginate(12);
+        $search     = request()->input('search', '');
+        $categoryId = request()->input('category', '');
+        $sort       = request()->input('sort', 'newest');
+
+        $query = Product::with('images');
+
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('description', 'like', "%{$search}%");
+            });
+        }
+
+        if ($categoryId) {
+            $query->whereHas('categories', function ($q) use ($categoryId) {
+                $q->where('category_products.id', $categoryId);
+            });
+        }
+
+        match ($sort) {
+            'price_asc'  => $query->orderBy('price', 'asc'),
+            'price_desc' => $query->orderBy('price', 'desc'),
+            default      => $query->orderByDesc('created_at'),
+        };
+
+        $products   = $query->paginate(12);
         $categories = CategoryProducts::where('is_active', true)->get();
 
         return view('productPages.indexProductPage', compact('products', 'categories'));

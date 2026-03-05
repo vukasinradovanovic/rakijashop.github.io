@@ -97,6 +97,34 @@
 
     &_grid { margin-top: rem(10); }
 
+    &_layout {
+        display:        flex;
+        flex-direction: column;
+        gap:            rem(16);
+
+        @include m {
+            flex-direction: row;
+            align-items:    flex-start;
+            gap:            rem(28);
+        }
+    }
+
+    &_sidebar {
+        width: 100%;
+
+        @include m {
+            width:       $sideBar-width;
+            flex-shrink: 0;
+            position:    sticky;
+            top:         rem(20);
+        }
+    }
+
+    &_content {
+        flex:      1;
+        min-width: 0;
+    }
+
     &_formActions {
         .btn {
             min-width: rem(140);
