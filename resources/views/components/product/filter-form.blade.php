@@ -1,9 +1,9 @@
 @props(['categories' => []])
 
 <form action="{{ route('product.index') }}" method="GET" class="filterForm">
-    <div class="row g-3 align-items-end">
+    <div class="row g-3">
         {{-- Search by name --}}
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12">
             <label for="filterSearch" class="form-label">{{ __('product.filter.search') }}</label>
             <input
                 type="text"
@@ -16,7 +16,7 @@
         </div>
 
         {{-- Filter by category --}}
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col-12">
             <label for="filterCategory" class="form-label">{{ __('product.filter.category') }}</label>
             <select name="category" id="filterCategory" class="form-select filterForm__select">
                 <option value="">{{ __('product.filter.all_categories') }}</option>
@@ -29,7 +29,7 @@
         </div>
 
         {{-- Filter by minimum price --}}
-        <div class="col-6 col-md-4 col-lg-2">
+        <div class="col-12">
             <label for="filterPriceMin" class="form-label">{{ __('product.filter.price_min') }}</label>
             <input
                 type="number"
@@ -44,7 +44,7 @@
         </div>
 
         {{-- Filter by maximum price --}}
-        <div class="col-6 col-md-4 col-lg-2">
+        <div class="col-12">
             <label for="filterPriceMax" class="form-label">{{ __('product.filter.price_max') }}</label>
             <input
                 type="number"
@@ -59,11 +59,11 @@
         </div>
 
         {{-- Submit and reset buttons --}}
-        <div class="col-12 col-md-4 col-lg-2 d-flex gap-2">
+        <div class="col-12 d-grid gap-2">
             <button type="submit" class="btn filterForm__btn filterForm__btn--submit w-100">
                 <i class="fa fa-search" aria-hidden="true"></i> {{ __('product.filter.apply') }}
             </button>
-            <a href="{{ route('product.index') }}" class="btn filterForm__btn filterForm__btn--reset" aria-label="{{ __('product.filter.reset') }}">
+            <a href="{{ route('product.index') }}" class="btn filterForm__btn filterForm__btn--reset w-100" aria-label="{{ __('product.filter.reset') }}">
                 <i class="fa fa-times" aria-hidden="true"></i>
             </a>
         </div>

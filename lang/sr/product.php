@@ -10,13 +10,20 @@ return [
     ],
 
     'filter' => [
+        'toggle' => 'Filteri',
         'search' => 'Pretraga',
         'search_placeholder' => 'Pretražite proizvode...',
+        'searchPlaceholder' => 'Pretražite proizvode...',
         'category' => 'Kategorija',
         'all_categories' => 'Sve kategorije',
+        'categoryAll' => 'Sve kategorije',
         'price_min' => 'Min cena',
         'price_max' => 'Maks cena',
         'price_max_placeholder' => 'Maks',
+        'sort' => 'Sortiraj po',
+        'sortNewest' => 'Najnoviji',
+        'sortPriceAsc' => 'Cena: rastuće',
+        'sortPriceDesc' => 'Cena: opadajuće',
         'apply' => 'Filtriraj',
         'reset' => 'Poništi filtere',
     ],
@@ -53,17 +60,4 @@ return [
         'deleted' => 'Proizvod je uspešno obrisan.',
     ],
 
-    'filter' => [
-        'toggle'           => 'Filteri',
-        'search'           => 'Pretraga',
-        'searchPlaceholder'=> 'Pretražite proizvode...',
-        'category'         => 'Kategorija',
-        'categoryAll'      => 'Sve kategorije',
-        'sort'             => 'Sortiraj po',
-        'sortNewest'       => 'Najnoviji',
-        'sortPriceAsc'     => 'Cena: rastuće',
-        'sortPriceDesc'    => 'Cena: opadajuće',
-        'apply'            => 'Primeni',
-        'reset'            => 'Poništi',
-    ],
 ];
