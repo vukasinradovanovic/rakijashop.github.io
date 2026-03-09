@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { initUserNavButton } from "./partisals/userNavButton";
 import { initFilterForm }    from "./partisals/filterForm";
 
