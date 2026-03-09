@@ -1,3 +1,3 @@
-@import './fonts';
-@import './globalSetings';
-@import './_overridingBs';
+@forward './fonts';
+@forward './globalSetings';
+@forward './_overridingBs';

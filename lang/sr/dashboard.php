@@ -11,7 +11,7 @@ return [
             'name'=>'Korisnici',
         ],
         [
-            'slug'=> route('index'),
+            'slug'=> route('index', ['locale' => app()->getLocale()]),
             'name'=>'Nazad na sajt',
         ],
     ],

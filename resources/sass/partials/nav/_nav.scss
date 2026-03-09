@@ -1,3 +1,6 @@
+@use '../functions/index' as *;
+@use '../variables/index' as *;
+@use '../mixin/index' as *;
 .siteNav_top {
     background: $plum-700;
     color: $white-text;

@@ -1,3 +1,6 @@
+@use '../functions/index' as *;
+@use '../variables/index' as *;
+@use '../mixin/index' as *;
 .form-control{
     &:focus{
         border-color:$primary-color-lighter-20;

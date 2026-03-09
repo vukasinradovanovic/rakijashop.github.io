@@ -1,4 +1,4 @@
-@import './variables/index';
-@import './nav/index';
-@import './tabels/index';
-@import './pages/index';
+@forward './variables/index';
+@forward './nav/index';
+@forward './tabels/index';
+@forward './pages/index';

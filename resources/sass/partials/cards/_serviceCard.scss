@@ -1,3 +1,6 @@
+@use '../functions/index' as *;
+@use '../variables/index' as *;
+@use '../mixin/index' as *;
 .hero_serviceCard {
     height: rem(244);
     width: 100%;

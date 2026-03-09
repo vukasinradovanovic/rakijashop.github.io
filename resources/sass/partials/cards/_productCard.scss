@@ -1,3 +1,6 @@
+@use '../functions/index' as *;
+@use '../variables/index' as *;
+@use '../mixin/index' as *;
 .productCard {
     position: relative;
     border: 1px solid $brand-200;

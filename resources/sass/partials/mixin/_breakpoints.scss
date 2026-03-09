@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 $breakpoints: (
     "min-screen": 0,
     "s-screen": 480px,
@@ -6,22 +8,22 @@ $breakpoints: (
 );
 
 @mixin xs{
-    @media (min-width: map-get($breakpoints, "min-screen")){
+    @media (min-width: map.get($breakpoints, "min-screen")){
         @content;
     }
 }
 @mixin s{
-    @media (min-width: map-get($breakpoints, "s-screen")){
+    @media (min-width: map.get($breakpoints, "s-screen")){
         @content;
     }
 }
 @mixin m{
-    @media (min-width: map-get($breakpoints, "m-screen")){
+    @media (min-width: map.get($breakpoints, "m-screen")){
         @content;
     }
 }
 @mixin l{
-    @media (min-width: map-get($breakpoints, "l-screen")){
+    @media (min-width: map.get($breakpoints, "l-screen")){
         @content;
     }
 }

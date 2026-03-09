@@ -1,7 +1,7 @@
-@import './breakpoints';
-@import './bgMixins';
-@import './icon';
-@import './hoverText';
-@import './generalMixins';
-@import './position';
-@import './bgImageMixin';
+@forward './breakpoints';
+@forward './bgMixins';
+@forward './icon';
+@forward './hoverText';
+@forward './generalMixins';
+@forward './position';
+@forward './bgImageMixin';
