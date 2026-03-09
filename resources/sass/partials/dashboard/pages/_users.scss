@@ -1,3 +1,22 @@
-.dashboard_User{
-    
+.dashboard_user {
+	.dashboard_userControlsElement {
+		.form-label {
+			font-weight: 600;
+			margin-bottom: 0.25rem;
+		}
+	}
+
+	.dashboard_userInput,
+	.dashboard_userSelect {
+		min-width: 120px;
+	}
+
+	.table_dashboardGeneralTbodyTdata--username,
+	.table_dashboardGeneralTbodyTdata--email {
+		min-width: 220px;
+	}
+
+	.dashboard_userPaginationInfo {
+		font-weight: 500;
+	}
 }

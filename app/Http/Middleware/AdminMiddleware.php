@@ -17,13 +17,18 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if (!Auth::check()) {
+            return redirect()->route('home');
+        }
+
+        /** @var User|null $user */
         $user = Auth::user();
 
         //Checking if user is signed in and if user has role admin
-        if (Auth::check() && $user->hasRole('admin')) {
+        if ($user && $user->hasRole('admin')) {
             return $next($request);
         }
-        abort(404);
-        return $next($request);
+
+        abort(403);
     }
 }

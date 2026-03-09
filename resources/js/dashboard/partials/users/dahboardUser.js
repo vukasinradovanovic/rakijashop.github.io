@@ -10,39 +10,26 @@
  */
 
 export function initDashboardUser() {
-    const $usersTableBody = $('.table_dashboardGeneralTbody--users');
-    const resetLabel = $usersTableBody.data('resetLabel') || 'Reset';
-    const changeLabel = $usersTableBody.data('changeLabel') || 'Change';
-    const noDataLabel = $usersTableBody.data('noDataLabel') || 'No data to display';
-    const updateErrorLabel = $usersTableBody.data('updateError') || 'Error while updating user';
-    const localeSegment = window.location.pathname.split('/').filter(Boolean)[0] || 'en';
-    const localePrefix = `/${localeSegment}`;
 
     // User search 
     $('.dashboard_UserSearch').on('keyup', function() {
         let query = $(this).val();
         if (query.length > 2){
             $.ajax({
-                url: `${localePrefix}/dashboardUsers/search`,
+                url:'/dashboard-users/search',
                 method: 'GET',
                 data: { query: query},
                 dataType: 'json',
                 success: function(response) {
-                    $usersTableBody.empty();
+                    console.log(response);
+                    $('.table_dashboardGeneralTbody--users').empty();
                 
                     if (response.users.length > 0) {
                         response.users.forEach(user => {
-                            $usersTableBody.append(`
+                            $('.table_dashboardGeneralTbody--users').append(`
                                 <tr>
                                     <td class="table_dashboardGeneralTbodyTdata--id">${user.id}</td>
-                                    <td>${user.default_username}</td>
-                                    <td>
-                                        <input type="text" 
-                                            value="${user.edited_username ?? ''}" 
-                                            class="table_dashboardGeneralTbodyTdata--editedUsername form-control d-inline w-50" />
-                                        <input type="checkbox"     class="table_dashboardGeneralTbodyTdata--editedUsernameCheckbox ms-1"/>
-                                            <label>${resetLabel}</label>
-                                    </td>
+                                    <td>${user.username}</td>
                                     <td>${user.name}</td>
                                     <td>
                                         <input type="text" 
@@ -65,57 +52,57 @@ export function initDashboardUser() {
                                                 </option>`).join('')}
                                         </select>
                                     </td>
-                                    <td><button type="submit" class="btn btn-secondary btn-apply-user">${changeLabel}</button></td>
+                                    <td><button type="submit" class="btn btn-secondary btn-apply-user">Promeni</button></td>
                                 </tr>
                             `);
                         });
                     } else {
-                        $usersTableBody.html(
-                            `<tr><td colspan="8" class="text-center">${noDataLabel}</td></tr>`
+                        $('.table_dashboardGeneralTbody--users').html(
+                            `<tr><td colspan="8" class="text-center">Nema informacija za prikaz</td></tr>`
                         );
                     }
                 }
             });
         }
         else {
-            $usersTableBody.empty();
+            $('.table_dashboardGeneralTbody--users').empty();
         }
     })    
 
-    // Apply all changes when clicking button
-    $(document).on('click', '.btn-apply-user', function() {
-        let row = $(this).closest('tr');
-        let userId = row.find('.table_dashboardGeneralTbodyTdata--id').html();
-        let roleId = row.find('.table_dashboardGeneralTbodyTdata--role').val();
-        let editedUsernameVal = row.find('.table_dashboardGeneralTbodyTdata--editedUsername').val();
-        let emailVal = row.find('.table_dashboardGeneralTbodyTdata--email').val();
-        let statusId = row.find('.table_dashboardGeneralTbodyTdata--status').val();
-        let resetUsername = row.find('.table_dashboardGeneralTbodyTdata--editedUsernameCheckbox').is(':checked');
+    // // Apply all changes when clicking button
+    // $(document).on('click', '.btn-apply-user', function() {
+    //     let row = $(this).closest('tr');
+    //     let userId = row.find('.table_dashboardGeneralTbodyTdata--id').html();
+    //     let roleId = row.find('.table_dashboardGeneralTbodyTdata--role').val();
+    //     let editedUsernameVal = row.find('.table_dashboardGeneralTbodyTdata--editedUsername').val();
+    //     let emailVal = row.find('.table_dashboardGeneralTbodyTdata--email').val();
+    //     let statusId = row.find('.table_dashboardGeneralTbodyTdata--status').val();
+    //     let resetUsername = row.find('.table_dashboardGeneralTbodyTdata--editedUsernameCheckbox').is(':checked');
 
-        if (resetUsername) {
-            editedUsernameVal = null;
-        }
+    //     if (resetUsername) {
+    //         editedUsernameVal = null;
+    //     }
     
-        $.ajax({
-            url: `${localePrefix}/dashboard-users/${userId}`,
-            method: 'PUT',
-            contentType: 'application/json',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            data: JSON.stringify({ 
-                role_id: roleId,
-                edited_username: editedUsernameVal,
-                email: emailVal,
-                status_id: statusId, 
-            }),
-            success: function(response) {
-                console.log(response.message);
-                $('.dashboard_UserSearch').trigger('keyup');
-            },
-            error: function(xhr) {
-                console.log(updateErrorLabel, xhr.responseText);
-            }
-        });
-    });
+    //     $.ajax({
+    //         url: `/dashboard-users/${userId}`,
+    //         method: 'PUT',
+    //         contentType: 'application/json',
+    //         headers: {
+    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //         },
+    //         data: JSON.stringify({ 
+    //             role_id: roleId,
+    //             edited_username: editedUsernameVal,
+    //             email: emailVal,
+    //             status_id: statusId, 
+    //         }),
+    //         success: function(response) {
+    //             console.log(response.message);
+    //             $('.dashboard_UserSearch').trigger('keyup');
+    //         },
+    //         error: function(xhr) {
+    //             console.log('Greška prilikom ažuriranja korisnika', xhr.responseText);
+    //         }
+    //     });
+    // });
 }

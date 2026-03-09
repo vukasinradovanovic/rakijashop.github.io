@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Dashboard\DashboardSearchStatsController;
 use App\Http\Controllers\Dashboard\DashboardUsersController;
 use App\Http\Controllers\Pages\PagesController;
 use App\Http\Controllers\Product\ProductController;
@@ -19,8 +18,20 @@ Route::get('/', function (Request $request) {
 // Middleware for admin users domain
 Route::middleware('isAdmin')->group(function () {
     Route::resource('dashboard', DashboardController::class);
-    Route::resource('dashboard-users', DashboardUsersController::class);
-    Route::get('/dashboardUsers/search', [DashboardUsersController::class, 'search']);
+
+    // Dashboard users routes (explicit instead of resource)
+    Route::get('/dashboard-users', [DashboardUsersController::class, 'index'])->name('dashboard-users.index');
+    Route::get('/dashboard-users/create', [DashboardUsersController::class, 'create'])->name('dashboard-users.create');
+    Route::post('/dashboard-users', [DashboardUsersController::class, 'store'])->name('dashboard-users.store');
+
+    Route::get('/dashboard-users/data', [DashboardUsersController::class, 'data'])->name('dashboard-users.data');
+    Route::get('/dashboard-users/search', [DashboardUsersController::class, 'search'])->name('dashboard-users.search');
+
+    Route::get('/dashboard-users/{dashboard_user}', [DashboardUsersController::class, 'show'])->name('dashboard-users.show');
+    Route::get('/dashboard-users/{dashboard_user}/edit', [DashboardUsersController::class, 'edit'])->name('dashboard-users.edit');
+    Route::put('/dashboard-users/{dashboard_user}', [DashboardUsersController::class, 'update'])->name('dashboard-users.update');
+    Route::patch('/dashboard-users/{dashboard_user}', [DashboardUsersController::class, 'update']);
+    Route::delete('/dashboard-users/{dashboard_user}', [DashboardUsersController::class, 'destroy'])->name('dashboard-users.destroy');
 });
 
 // Localized routes group

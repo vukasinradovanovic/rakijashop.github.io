@@ -8,8 +8,9 @@ use App\Models\Product\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable
 {
@@ -23,7 +24,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
+        'user_status_id',
         'password',
     ];
 
@@ -53,12 +56,12 @@ class User extends Authenticatable
     // Getter for username
     public function getUserName(): string
     {
-        return $this->name;
+        return $this->username;
     }
     
     public function scopeFindByUserName($query, string $username)
     {
-        return $query->where('name', $username);
+        return $query->where('username', $username);
     }
 
     //Properties for roles
@@ -73,9 +76,25 @@ class User extends Authenticatable
     }
 
     // Properties for user images
-    public function userImg()
+    public function userImg(): HasOne
     {
         return $this->hasOne(User_img::class);
+    }
+
+    public function userInfo(): HasOne
+    {
+        return $this->hasOne(UserInfo::class);
+    }
+
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(UserStatus::class, 'user_status_id');
+    }
+
+    public function statuses(): BelongsTo
+    {
+        // Alias kept for backward compatibility with existing dashboard code.
+        return $this->status();
     }
     public function getProfileImageAttribute()  // In blade file function is called profile_image
     {
@@ -86,7 +105,7 @@ class User extends Authenticatable
     }
 
     // Relationship with Product model (many-to-many)
-    public function products() {
+    public function products(): BelongsToMany {
         return $this->belongsToMany(Product::class, 'user_products', 'user_id', 'product_id');
     }
     public function hasProduct(int $productId): bool{
