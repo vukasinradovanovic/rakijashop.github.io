@@ -8,6 +8,7 @@ use App\Models\Product\ProductStatus;
 use App\Http\Requests\Product\StoreProductRequest;
 use App\Http\Requests\Product\UpdateProductRequest;
 use App\Models\Product\CategoryProducts;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -17,18 +18,18 @@ class ProductController
     /**
      * Display a listing of the resource.
      */
-    public function index($locale)
+    public function index($locale, Request $request)
     {
-        $search     = request()->input('search', '');
-        $categoryId = request()->input('category', '');
-        $sort       = request()->input('sort', 'newest');
+        $search     = $request->input('search', '');
+        $categoryId = $request->input('category', '');
+        $sort       = $request->input('sort', 'newest');
 
         $query = Product::with('images');
 
         if ($search) {
             $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('description', 'like', "%{$search}%");
+                    ->orWhere('description', 'like', "%{$search}%");
             });
         }
 
@@ -131,7 +132,7 @@ class ProductController
                 ->route('login')
                 ->with('error', __('product.flash.login_required'));
         }
-        
+
         $productStatuses = ProductStatus::all();
         $product->load('images');
         $categories = CategoryProducts::where('is_active', true)->get();

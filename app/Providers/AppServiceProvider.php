@@ -7,6 +7,7 @@ use App\Models\Company\CompanyInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Throwable;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,7 +24,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::share('companyInfo', CompanyInfo::first());
+        
+        try {
+            $companyInfo = CompanyInfo::first();
+        } catch (Throwable) {
+            $companyInfo = null;
+        }
+
+        View::share('companyInfo', $companyInfo);
 
         View::composer('components.header.nav', function ($view): void {
             $localizationController = app(LocalizationController::class);

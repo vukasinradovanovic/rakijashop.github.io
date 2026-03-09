@@ -11,7 +11,7 @@ return [
             'name'=>'Users',
         ],
         [
-            'slug'=> route('index'),
+            'slug'=> route('index', ['locale' => app()->getLocale()]),
             'name'=>'Back to site',
         ],
     ],
