@@ -1,3 +1,5 @@
+@use '../functions/index' as *;
+@use './colorVariables' as *;
 $sideBar-width: rem(330);
 $sideBar-borderColor:$primary-color;   //rgba(128, 128, 128, 0.466)
 $sideBar-toggleBtn-size:rem(30);                        //krug dugme koji je vidjen samo u sideBaru kad je manja rezojucija

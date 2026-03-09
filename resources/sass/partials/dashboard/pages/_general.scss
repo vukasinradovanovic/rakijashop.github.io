@@ -1,3 +1,7 @@
+@use '../../functions/index' as *;
+@use '../../variables/index' as *;
+@use '../../mixin/index' as *;
+@use '../variables/index' as *;
 .dashboard {
     background-color: $dash-bg-color;
     color: $dash-text-primary;

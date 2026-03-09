@@ -1,3 +1,6 @@
+@use '../functions/index' as *;
+@use '../variables/index' as *;
+@use '../mixin/index' as *;
 // Custom property definition
 @property --angle {
   syntax: "<angle>";

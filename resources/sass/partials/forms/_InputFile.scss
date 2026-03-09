@@ -1,3 +1,6 @@
+@use '../functions/index' as *;
+@use '../variables/index' as *;
+@use '../mixin/index' as *;
 .customFileLabel{
     padding: rem(10) rem(30);
     border-radius: rem(10);

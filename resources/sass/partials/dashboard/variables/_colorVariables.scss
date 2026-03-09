@@ -1,3 +1,6 @@
+@use '../../functions/index' as *;
+@use '../../variables/index' as *;
+@use '../../mixin/index' as *;
 $dash-primary-color: #818181;
 $dash-secondary-color:#f1f1f1;
 $dash-dark-color: #000;

@@ -1,3 +1,6 @@
+@use '../functions/index' as *;
+@use '../variables/index' as *;
+@use '../mixin/index' as *;
 .filterForm {
     background: $secondary-bg;
     border: rem(1) solid $brand-200;

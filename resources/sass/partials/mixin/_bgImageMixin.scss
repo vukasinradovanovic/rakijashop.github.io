@@ -1,5 +1,9 @@
+@use 'sass:map';
+@use '../functions/index' as *;
+@use '../variables/index' as *;
+@use './bgMixins' as *;
 @mixin bgImg($modifier: "index") {                    // Mixin for backgraound placing and coverage 
-    background-image: map-get($background-images, $modifier);
+    background-image: map.get($background-images, $modifier);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

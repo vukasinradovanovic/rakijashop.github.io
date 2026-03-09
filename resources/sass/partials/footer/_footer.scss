@@ -1,3 +1,6 @@
+@use '../functions/index' as *;
+@use '../variables/index' as *;
+@use '../mixin/index' as *;
 .siteFooter {
     background: $brand-900;
     color: $white-text;

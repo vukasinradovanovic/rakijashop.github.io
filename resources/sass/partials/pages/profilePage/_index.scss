@@ -1,4 +1,6 @@
-@import './userheader';
+@use '../../functions/index' as *;
+@use '../../variables/index' as *;
+@forward './userheader';
 .profile{
     max-width: rem(800);
     margin: auto;

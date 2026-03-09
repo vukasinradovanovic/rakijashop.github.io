@@ -1,3 +1,6 @@
+@use '../../functions/index' as *;
+@use '../../variables/index' as *;
+@use '../../mixin/index' as *;
 .sidebar {
     border-radius: $border-radius-sidebar;
     height: 100%;

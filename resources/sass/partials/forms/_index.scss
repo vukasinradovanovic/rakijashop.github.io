@@ -1,4 +1,4 @@
-@import './generalForm';
-@import './InputFile';
-@import './contactForm';
-@import './filterForm';
+@forward './generalForm';
+@forward './InputFile';
+@forward './contactForm';
+@forward './filterForm';

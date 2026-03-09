@@ -1,3 +1,6 @@
+@use '../functions/index' as *;
+@use '../variables/index' as *;
+@use '../mixin/index' as *;
 .siteHero {
     position: relative;
     @include bgImg("hero-rakija");
