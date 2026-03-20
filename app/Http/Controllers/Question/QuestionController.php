@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Question;
 
+use App\Http\Requests\Question\StoreQuestionRequest;
 use App\Models\Question\Question;
+use App\Models\Question\QuestionStatus;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class QuestionController
@@ -26,9 +29,18 @@ class QuestionController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store($locale, StoreQuestionRequest $request): RedirectResponse
     {
-        //
+        $fields = $request->validated();
+
+        $status = QuestionStatus::query()->firstOrCreate(['name' => 'new']);
+
+        Question::query()->create(array_merge(
+            $fields,
+            ['status_id' => $status->id]
+        ));
+
+        return redirect()->back()->with('success', __('messages.question_sent_success'));
     }
 
     /**

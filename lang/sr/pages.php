@@ -33,5 +33,16 @@ return [
     'contact' => [
         'title' => 'Kontakt',
         'subtitle' => 'Pišite nam za saradnju, porudžbine ili degustacije.',
+        'form' => [
+            'name' => 'Ime i prezime',
+            'name_placeholder' => 'Unesite vaše ime i prezime',
+            'email' => 'E-mail adresa',
+            'email_placeholder' => 'Unesite vašu e-mail adresu',
+            'type' => 'Tema poruke',
+            'type_placeholder' => 'Izaberite temu',
+            'description' => 'Poruka',
+            'description_placeholder' => 'Napišite vašu poruku',
+            'submit' => 'Pošalji poruku',
+        ],
     ],
 ];

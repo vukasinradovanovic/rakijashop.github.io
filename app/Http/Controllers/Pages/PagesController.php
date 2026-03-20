@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Models\Product\Product;
-use Illuminate\Http\Request;
+use App\Models\Question\QuestionType;
 
 class PagesController
 {
@@ -37,6 +37,13 @@ class PagesController
 
     public function contact()
     {
-        return view('pages.contactPage');
+        $questionTypes = QuestionType::query()
+            ->where('is_active', true)
+            ->orderBy('name')
+            ->get();
+
+        return view('pages.contactPage', [
+            'questionTypes' => $questionTypes,
+        ]);
     }
 }

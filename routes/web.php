@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\DashboardUsersController;
 use App\Http\Controllers\Pages\PagesController;
 use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\Question\QuestionController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -52,6 +53,7 @@ Route::prefix('{locale}')
         // Other pages section
         Route::get('/gallery', [PagesController::class, 'gallery'])->name('gallery');
         Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
+        Route::post('/contact', [QuestionController::class, 'store'])->name('contact.store');
 
         // Authentication routes for guests
         Route::middleware('guest')->group(function () {

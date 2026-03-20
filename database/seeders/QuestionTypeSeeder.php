@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Question\QuestionType;
 use Illuminate\Database\Seeder;
 
 class QuestionTypeSeeder extends Seeder
@@ -12,6 +12,19 @@ class QuestionTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $types = [
+            'Opste pitanje',
+            'Porudzbina',
+            'Saradnja',
+            'Reklamacija',
+            'Dostava',
+        ];
+
+        foreach ($types as $type) {
+            QuestionType::query()->firstOrCreate(
+                ['name' => $type],
+                ['is_active' => true]
+            );
+        }
     }
 }
