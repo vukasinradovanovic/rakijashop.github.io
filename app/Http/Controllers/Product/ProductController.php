@@ -20,13 +20,13 @@ class ProductController
      */
     public function index($locale, Request $request)
     {
-        $search     = $request->input('search', '');
+        $search = trim((string) $request->input('search', ''));
         $categoryId = $request->input('category', '');
-        $sort       = $request->input('sort', 'newest');
+        $sort = $request->input('sort', 'newest');
 
         $query = Product::with('images');
 
-        if ($search) {
+        if ($search !== '') {
             $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
                     ->orWhere('description', 'like', "%{$search}%");
@@ -45,7 +45,7 @@ class ProductController
             default      => $query->orderByDesc('created_at'),
         };
 
-        $products   = $query->paginate(12);
+        $products   = $query->paginate(12)->withQueryString();
         $categories = CategoryProducts::where('is_active', true)->get();
 
         return view('productPages.indexProductPage', compact('products', 'categories'));

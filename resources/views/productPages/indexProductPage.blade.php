@@ -3,6 +3,9 @@
 @section('main')
 <section class="productPage productPage--index">
     <div class="container">
+        {{-- Search bar --}}
+        <x-search.search-bar action="product.index" />
+
         <div class="productPage_header">
             <div>
                 <p class="sectionBlock_eyebrow">{{ __('product.index.eyebrow') }}</p>
@@ -17,19 +20,19 @@
 
             <div class="col-12 col-lg-9">
                 @if($products->count())
-                    <div class="row g-4 productPage_grid">
-                        @foreach($products as $product)
-                            <div class="col-12 col-sm-6 col-xl-4">
-                                <x-product.product-card :product="$product" />
-                            </div>
-                        @endforeach
+                <div class="row g-4 productPage_grid">
+                    @foreach($products as $product)
+                    <div class="col-12 col-sm-6 col-xl-4">
+                        <x-product.product-card :product="$product" />
                     </div>
+                    @endforeach
+                </div>
 
-                    <div class="mt-4">
-                        {{ $products->links() }}
-                    </div>
+                <div class="mt-4">
+                    {{ $products->links() }}
+                </div>
                 @else
-                    <p class="text-muted">{{ __('product.index.empty') }}</p>
+                <p class="text-muted">{{ __('product.index.empty') }}</p>
                 @endif
             </div>
         </div>

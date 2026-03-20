@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User\User;
@@ -18,6 +17,7 @@ class UserSeeder extends Seeder
         $users = [
             [
                 'name' => 'Admin User',
+                'username' => 'admin_user',
                 'email' => 'admin@example.com',
                 'password' => Hash::make('admin123'),
                 'email_verified_at' => now(),
@@ -27,6 +27,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'name' => 'Manager User',
+                'username' => 'manager_user',
                 'email' => 'manager@example.com',
                 'password' => Hash::make('manager123'),
                 'email_verified_at' => now(),
@@ -36,6 +37,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'name' => 'Basic User',
+                'username' => 'basic_user',
                 'email' => 'user@example.com',
                 'password' => Hash::make('user12345'),
                 'email_verified_at' => null,
@@ -45,7 +47,11 @@ class UserSeeder extends Seeder
             ],
         ];
 
-        // Perform bulk insert; ensure timestamps/passwords provided
-        User::query()->insert($users);
+        // Upsert keeps the seeder rerunnable without duplicate key failures.
+        User::query()->upsert(
+            $users,
+            ['email'],
+            ['name', 'username', 'password', 'email_verified_at', 'remember_token', 'updated_at']
+        );
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AuthController
 {
@@ -17,9 +18,12 @@ class AuthController
         //Validate
         $fields = $request->validated();
 
+        $username = $this->generateUniqueUsername();
+
         // Registracija korisnika sa generisanim username-om
         $user = User::create([
             'name' => $fields['name'],
+            'username' => $username,
             'email' => $fields['email'],
             'password' => bcrypt($fields['password']),
             'created_at' => now(),
@@ -68,5 +72,14 @@ class AuthController
 
         //Redirection to index
         return redirect()->back()->with('success', __('messages.logged_out_success'));
+    }
+
+    private function generateUniqueUsername(): string
+    {
+        do {
+            $candidate = 'user_' . Str::lower(Str::random(10));
+        } while (User::query()->where('username', $candidate)->exists());
+
+        return $candidate;
     }
 }

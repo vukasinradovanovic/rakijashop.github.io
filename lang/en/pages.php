@@ -33,5 +33,16 @@ return [
     'contact' => [
         'title' => 'Contact',
         'subtitle' => 'Write to us for partnerships, orders, or tastings.',
+        'form' => [
+            'name' => 'Full name',
+            'name_placeholder' => 'Enter your full name',
+            'email' => 'Email address',
+            'email_placeholder' => 'Enter your email address',
+            'type' => 'Message topic',
+            'type_placeholder' => 'Select a topic',
+            'description' => 'Message',
+            'description_placeholder' => 'Write your message',
+            'submit' => 'Send message',
+        ],
     ],
 ];
