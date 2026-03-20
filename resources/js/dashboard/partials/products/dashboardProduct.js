@@ -1,8 +1,12 @@
 /**
- * Initializes dashboard product management features:
- * - Product search with AJAX
- * - Product table rendering
- * - Price, category, and status updates
+ * Initializes the dashboard product management functionality.
+ *
+ * This function:
+ * 1. Listens for input on the product search field and sends AJAX GET requests after a typing delay when the query length is greater than 2.
+ * 2. Dynamically renders the search results in a table with editable fields including price, category, and status.
+ * 3. Keeps search behavior responsive by clearing previous delayed calls while the user is still typing.
+ * 4. Sends AJAX PUT requests to update product details on the server when the "Change" button is clicked, including CSRF token for security.
+ * 5. Refreshes the product list after successful updates so the table always shows current values.
  */
 export function initDashboardProduct() {
     const searchDelayMs = 1000;

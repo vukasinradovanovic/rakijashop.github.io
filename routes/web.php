@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\DashboardProductsController;
+use App\Http\Controllers\Dashboard\DashboardQuestionsController;
 use App\Http\Controllers\Dashboard\DashboardUsersController;
 use App\Http\Controllers\Pages\PagesController;
 use App\Http\Controllers\Product\ProductController;
@@ -40,6 +41,10 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/dashboard-products/search', [DashboardProductsController::class, 'search'])->name('dashboard-products.search');
     Route::put('/dashboard-products/{dashboard_product}', [DashboardProductsController::class, 'update'])->name('dashboard-products.update');
     Route::patch('/dashboard-products/{dashboard_product}', [DashboardProductsController::class, 'update']);
+
+    // Dashboard questions/contact routes
+    Route::resource('dashboard-questions', DashboardQuestionsController::class);
+    Route::post('/dashboardQuestions/{question}/mark-as-read', [DashboardQuestionsController::class, 'markAsRead'])->name('dashboard-questions.mark-as-read');
 });
 
 // Localized routes group

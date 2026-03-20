@@ -7,6 +7,10 @@ return [
 
     'sidebar-nav' => [
         [
+            'slug'=> route('dashboard-questions.index'),
+            'name'=>'Pitanja',
+        ],
+        [
             'slug'=> route('dashboard-users.index'),
             'name'=>'Korisnici',
         ],
