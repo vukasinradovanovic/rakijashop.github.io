@@ -1,4 +1,5 @@
 import { initDashboardUser } from "./partials/users/dahboardUser";
+import { initDashboardProduct } from "./partials/products/dashboardProduct";
 import { initDashboardSortAndFilter } from "./partials/questions/dashboardSortAndFilter";
 import { initDashboardsearchData } from "./partials/searchData/dashboardSearchData";
 import { initDashboardReadTrigger } from "./partials/questions/dashboardReadTrigger";
@@ -10,6 +11,9 @@ $(document).ready(function () {
 
     // Users search and update 
     initDashboardUser();
+
+    // Products search and update
+    initDashboardProduct();
 
     // Search data
     initDashboardsearchData();
