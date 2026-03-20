@@ -11,6 +11,10 @@ return [
             'name'=>'Korisnici',
         ],
         [
+            'slug'=> route('dashboard-products.index'),
+            'name'=>'Proizvodi',
+        ],
+        [
             'slug'=> route('index', ['locale' => app()->getLocale()]),
             'name'=>'Nazad na sajt',
         ],
@@ -57,6 +61,21 @@ return [
         'validation_error' => 'Neuspešna validacija podataka.',
         'user_not_found' => 'Korisnik nije pronađen.',
         'update_success' => 'Korisnik je uspešno ažuriran.',
+    ],
+
+    'products' => [
+        'title' => 'Proizvodi',
+        'search_placeholder' => 'Pretražite proizvode...',
+        'name' => 'Naziv',
+        'slug' => 'Slug',
+        'price' => 'Cena',
+        'category' => 'Kategorija',
+        'status' => 'Status',
+        'change' => 'Promeni',
+        'no_data' => 'Nema informacija za prikaz',
+        'update_error' => 'Greška prilikom ažuriranja proizvoda',
+        'product_not_found' => 'Proizvod nije pronađen.',
+        'update_success' => 'Proizvod je uspešno ažuriran.',
     ],
 
     'search' => [

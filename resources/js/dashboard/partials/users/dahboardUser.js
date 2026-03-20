@@ -10,11 +10,24 @@
  */
 
 export function initDashboardUser() {
+    const searchDelayMs = 1000;
+    const letters = 2;
+    let searchTimeoutId = null;
 
     // User search 
     $('.dashboard_UserSearch').on('keyup', function() {
-        let query = $(this).val();
-        if (query.length > 2){
+        const query = $(this).val();
+
+        if (searchTimeoutId) {
+            clearTimeout(searchTimeoutId);
+        }
+
+        if (query.length <= letters) {
+            $('.table_dashboardGeneralTbody--users').empty();
+            return;
+        }
+
+        searchTimeoutId = setTimeout(function () {
             $.ajax({
                 url:'/dashboard-users/search',
                 method: 'GET',
@@ -63,10 +76,7 @@ export function initDashboardUser() {
                     }
                 }
             });
-        }
-        else {
-            $('.table_dashboardGeneralTbody--users').empty();
-        }
+        }, searchDelayMs);
     })    
 
     // // Apply all changes when clicking button

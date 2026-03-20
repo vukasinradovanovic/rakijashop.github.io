@@ -1,0 +1,17 @@
+.dashboard_Product {
+	.dashboard_ProductControlsElement {
+		.form-label {
+			font-weight: 600;
+			margin-bottom: 0.25rem;
+		}
+	}
+
+	.dashboard_ProductInput,
+	.dashboard_ProductSelect {
+		min-width: 120px;
+	}
+
+	.table_dashboardGeneralTbodyTdata--price {
+		min-width: 140px;
+	}
+}

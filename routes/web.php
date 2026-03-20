@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\DashboardProductsController;
 use App\Http\Controllers\Dashboard\DashboardUsersController;
 use App\Http\Controllers\Pages\PagesController;
 use App\Http\Controllers\Product\ProductController;
@@ -33,6 +34,12 @@ Route::middleware('isAdmin')->group(function () {
     Route::put('/dashboard-users/{dashboard_user}', [DashboardUsersController::class, 'update'])->name('dashboard-users.update');
     Route::patch('/dashboard-users/{dashboard_user}', [DashboardUsersController::class, 'update']);
     Route::delete('/dashboard-users/{dashboard_user}', [DashboardUsersController::class, 'destroy'])->name('dashboard-users.destroy');
+
+    // Dashboard products routes (explicit instead of resource)
+    Route::get('/dashboard-products', [DashboardProductsController::class, 'index'])->name('dashboard-products.index');
+    Route::get('/dashboard-products/search', [DashboardProductsController::class, 'search'])->name('dashboard-products.search');
+    Route::put('/dashboard-products/{dashboard_product}', [DashboardProductsController::class, 'update'])->name('dashboard-products.update');
+    Route::patch('/dashboard-products/{dashboard_product}', [DashboardProductsController::class, 'update']);
 });
 
 // Localized routes group

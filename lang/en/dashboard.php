@@ -11,6 +11,10 @@ return [
             'name'=>'Users',
         ],
         [
+            'slug'=> route('dashboard-products.index'),
+            'name'=>'Products',
+        ],
+        [
             'slug'=> route('index', ['locale' => app()->getLocale()]),
             'name'=>'Back to site',
         ],
@@ -57,6 +61,21 @@ return [
         'validation_error' => 'Validation failed.',
         'user_not_found' => 'User was not found.',
         'update_success' => 'User has been updated successfully.',
+    ],
+
+    'products' => [
+        'title' => 'Products',
+        'search_placeholder' => 'Search products...',
+        'name' => 'Name',
+        'slug' => 'Slug',
+        'price' => 'Price',
+        'category' => 'Category',
+        'status' => 'Status',
+        'change' => 'Change',
+        'no_data' => 'No data to display',
+        'update_error' => 'Error while updating product',
+        'product_not_found' => 'Product was not found.',
+        'update_success' => 'Product has been updated successfully.',
     ],
 
     'search' => [
