@@ -14,8 +14,8 @@
     }
 }
 .form-check-input:checked {
-    background-color: $primary-color-lighter-20;  /* Zeleni pozadinski color */
-    border-color: $primary-color-lighter-20;      /* Zeleni border */
+    background-color: $primary-color-lighter-20;  
+    border-color: $primary-color-lighter-20;      
 }
 .form-check-input:focus {
     box-shadow: none;
@@ -23,19 +23,31 @@
 }
 
 .pagination{
-    --bs-pagination-color: black !important;
-    --bs-pagination-active-bg:#4c952a;
-    --bs-pagination-hover-color: black !important;
+    --bs-pagination-color: #{$plum-700} !important;
+    --bs-pagination-bg: #{$secondary-bg};
+    --bs-pagination-border-color: #{rgba($plum-700, 0.25)};
+    --bs-pagination-active-bg: #{$plum-700} !important;
+    --bs-pagination-active-color: #{$white-text} !important;
+    --bs-pagination-hover-color: #{$plum-700} !important;
+    --bs-pagination-hover-bg: #{rgba($plum-700, 0.12)};
+    --bs-pagination-hover-border-color: #{$plum-700};
     --bs-pagination-focus-box-shadow:none !important;
-    --bs-pagination-active-border-color: #4c952a;
-    --bs-pagination-focus-color: black !important;
-    .page-item{
-        .page-link{
-        .active{
-            border: none;
+    --bs-pagination-active-border-color: #{$plum-700} !important;
+    --bs-pagination-focus-color: #{$plum-700} !important;
+
+    .page-item {
+        .page-link {
+            color: $plum-700;
+            border-color: rgba($plum-700, 0.25);
+        }
+
+        &.active .page-link {
+            border-color: $plum-700;
+            color: $white-text;
+        }
+
+        &.disabled .page-link {
+            color: rgba($plum-700, 0.45);
         }
     }
-    }
-    
-
 }
