@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             CompanyInfosSeeder::class,
             ProductStatusSeeder::class,
             CategoryProductsSeeder::class,
+            ProductSeeder::class,
             QuestionTypeSeeder::class,
             QuestionStatusSeeder::class,
         ]);
