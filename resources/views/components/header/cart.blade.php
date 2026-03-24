@@ -1,6 +1,4 @@
-@php
-    $cartQuantity = \App\Http\Controllers\Product\CartController::getCartQuantity();
-@endphp
+@props(['cartQuantity' => 0])
 
 <a href="{{ route('cart.index') }}"
     class="siteNav_cart {{ request()->routeIs('cart.*') ? 'siteNav_cart--active' : '' }}"
