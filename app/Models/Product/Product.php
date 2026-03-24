@@ -3,8 +3,10 @@
 namespace App\Models\Product;
 
 use App\Models\User\User;
+use App\Models\Product\CartItem;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -91,6 +93,11 @@ class Product extends Model
         return ProductStatus::query()
             ->whereKey($statusId)
             ->value('name');
+    }
+
+    public function cartItems(): HasMany
+    {
+        return $this->hasMany(CartItem::class);
     }
     
 

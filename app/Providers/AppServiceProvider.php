@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\Product\CartController;
 use App\Http\Controllers\Localization\LocalizationController;
 use App\Models\Company\CompanyInfo;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -24,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Paginator::useBootstrapFive();
+
         
         try {
             $companyInfo = CompanyInfo::first();
@@ -36,8 +40,10 @@ class AppServiceProvider extends ServiceProvider
         View::composer('components.header.nav', function ($view): void {
             $localizationController = app(LocalizationController::class);
             $request = app(Request::class);
+            $cartQuantity = CartController::getCartQuantity();
 
             $view->with('localization', $localizationController->buildNavigationLocalization($request));
+            $view->with('cartQuantity', $cartQuantity);
         });
     }
 }

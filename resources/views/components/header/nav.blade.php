@@ -42,6 +42,8 @@
       </ul>
 
       <div class="siteNav_actions d-flex align-items-center gap-3">
+        <x-header.cart :cart-quantity="$cartQuantity" />
+
         @guest
         <a href="{{ route('login') }}" class="siteNav_ghost">{{ __('auth.login') }}</a>
         <a href="{{ route('register') }}" class="btn btnPrimary ">{{ __('auth.register') }}</a>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\DashboardProductsController;
 use App\Http\Controllers\Dashboard\DashboardQuestionsController;
 use App\Http\Controllers\Dashboard\DashboardUsersController;
 use App\Http\Controllers\Pages\PagesController;
+use App\Http\Controllers\Product\CartController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Question\QuestionController;
 use App\Http\Controllers\User\UserController;
@@ -59,6 +60,11 @@ Route::prefix('{locale}')
         });
 
         Route::resource('product', ProductController::class);
+
+        Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+        Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
+        Route::patch('/cart/{product}', [CartController::class, 'update'])->name('cart.update');
+        Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
 
         Route::get('/', [PagesController::class, 'index'])->name('index');
 

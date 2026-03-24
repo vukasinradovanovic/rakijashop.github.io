@@ -1,0 +1,50 @@
+@use '../../functions/index' as *;
+@use '../../variables/index' as *;
+
+.cartPage {
+    &_title {
+        font-family: 'Playfair Display', serif;
+        color: $brand-900;
+    }
+
+    &_summaryBadge {
+        border: rem(1) solid rgba($plum-700, 0.25);
+        background: rgba($plum-700, 0.08);
+        color: $plum-700;
+        padding: rem(8) rem(12);
+        border-radius: rem(999);
+        font-weight: 700;
+    }
+
+    &_empty {
+        border-radius: rem(12);
+    }
+}
+
+.cartItem {
+    border-radius: rem(14);
+
+    &_image {
+        width: rem(120);
+        height: rem(120);
+        object-fit: cover;
+    }
+
+    &_meta {
+        color: $brand-700;
+        font-size: rem(14);
+    }
+
+    &_price {
+        color: $brand-900;
+        font-weight: 700;
+    }
+
+    &_quantityInput {
+        width: rem(90);
+    }
+}
+
+.cartTotal {
+    border-radius: rem(14);
+}
