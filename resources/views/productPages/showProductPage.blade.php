@@ -16,6 +16,13 @@
                 <p class="productPage_meta">{{ $product->getCategoryNamesAttribute() }}</p>
                 <p class="productPage_price">{{ number_format($product->price, 2, ',', '.') }} {{ __('product.currency') }}</p>
 
+                <form action="{{ route('cart.store', $product) }}" method="POST" class="mb-3">
+                    @csrf
+                    <button type="submit" class="btn btnPrimary productPage_addToCart">
+                        <i class="fa-solid fa-cart-plus me-2"></i>{{ __('cart.actions.add') }}
+                    </button>
+                </form>
+
                 @if($product->description)
                 <div class="mt-3">
                     <h2 class="productPage_subtitle">{{ __('product.show.description') }}</h2>

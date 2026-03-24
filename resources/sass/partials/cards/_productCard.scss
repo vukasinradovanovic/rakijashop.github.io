@@ -129,6 +129,10 @@
             color: #d9534f;
             background: rgba(#d9534f, 0.08);
         }
+
+        &--cart {
+            border: 0;
+        }
     }
 
     &__delete {

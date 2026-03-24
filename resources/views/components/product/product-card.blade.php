@@ -26,6 +26,17 @@
         <div class="productCard__footer">
             <span class="productCard__price">{{ number_format($product->price, 2, ',', '.') }} {{ __('product.currency') }}</span>
         </div>
+
+        @if($showActions)
+            <div class="productCard__actions position-relative z-2">
+                <form action="{{ route('cart.store', $product) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btnPrimary productCard__btn productCard__btn--cart">
+                        <i class="fa-solid fa-cart-plus me-2"></i>{{ __('cart.actions.add') }}
+                    </button>
+                </form>
+            </div>
+        @endif
     </div>
 
     <a href="{{ route('product.show', $product) }}" class="stretched-link" aria-label="{{ __('product.show.show_product', ['name' => $product->name]) }}"></a>
