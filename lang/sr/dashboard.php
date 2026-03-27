@@ -19,6 +19,10 @@ return [
             'name'=>'Proizvodi',
         ],
         [
+            'slug'=> route('dashboard-category-products.index'),
+            'name'=>'Kategorije proizvoda',
+        ],
+        [
             'slug'=> route('index', ['locale' => app()->getLocale()]),
             'name'=>'Nazad na sajt',
         ],
@@ -80,6 +84,29 @@ return [
         'update_error' => 'Greška prilikom ažuriranja proizvoda',
         'product_not_found' => 'Proizvod nije pronađen.',
         'update_success' => 'Proizvod je uspešno ažuriran.',
+    ],
+
+    'category_products' => [
+        'title' => 'Kategorije proizvoda',
+        'search_placeholder' => 'Pretražite kategorije po nazivu ili slugu...',
+        'create_title' => 'Kreiranje kategorije',
+        'name' => 'Naziv',
+        'slug' => 'Slug',
+        'status' => 'Status',
+        'products_count' => 'Broj proizvoda',
+        'active' => 'Aktivna',
+        'inactive' => 'Neaktivna',
+        'save' => 'Sačuvaj',
+        'delete' => 'Obriši',
+        'create' => 'Kreiraj',
+        'no_data' => 'Nema kategorija za prikaz',
+        'create_success' => 'Kategorija je uspešno kreirana.',
+        'update_success' => 'Kategorija je uspešno ažurirana.',
+        'delete_success' => 'Kategorija je uspešno obrisana.',
+        'category_not_found' => 'Kategorija nije pronađena.',
+        'delete_error' => 'Greška prilikom brisanja kategorije.',
+        'save_error' => 'Greška prilikom čuvanja promena kategorije.',
+        'create_error' => 'Greška prilikom kreiranja kategorije.',
     ],
 
     'search' => [
