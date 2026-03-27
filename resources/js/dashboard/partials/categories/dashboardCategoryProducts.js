@@ -1,5 +1,13 @@
 /**
- * Initializes CRUD actions for dashboard product categories page.
+ * Initializes the dashboard category management functionality.
+ *
+ * This function:
+ * 1. Listens for input on the category search field and sends AJAX GET requests after a typing delay.
+ * 2. Dynamically renders category rows in a table with editable fields including name, slug, and status.
+ * 3. Sends AJAX POST requests to create new categories from the create form, including CSRF token for security.
+ * 4. Sends AJAX PUT requests to update existing categories when the "Save" button is clicked.
+ * 5. Sends AJAX DELETE requests to remove selected categories after confirmation.
+ * 6. Refreshes the category list after create, update, or delete actions so the table always shows current values.
  */
 export function initDashboardCategoryProducts() {
     const root = $('.dashboardCategoryProducts');
