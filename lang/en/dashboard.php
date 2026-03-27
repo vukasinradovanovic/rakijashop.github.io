@@ -19,6 +19,10 @@ return [
             'name'=>'Products',
         ],
         [
+            'slug'=> route('dashboard-category-products.index'),
+            'name'=>'Product categories',
+        ],
+        [
             'slug'=> route('index', ['locale' => app()->getLocale()]),
             'name'=>'Back to site',
         ],
@@ -80,6 +84,29 @@ return [
         'update_error' => 'Error while updating product',
         'product_not_found' => 'Product was not found.',
         'update_success' => 'Product has been updated successfully.',
+    ],
+
+    'category_products' => [
+        'title' => 'Product categories',
+        'search_placeholder' => 'Search categories by name or slug...',
+        'create_title' => 'Create category',
+        'name' => 'Name',
+        'slug' => 'Slug',
+        'status' => 'Status',
+        'products_count' => 'Products count',
+        'active' => 'Active',
+        'inactive' => 'Inactive',
+        'save' => 'Save',
+        'delete' => 'Delete',
+        'create' => 'Create',
+        'no_data' => 'No categories to display',
+        'create_success' => 'Category has been created successfully.',
+        'update_success' => 'Category has been updated successfully.',
+        'delete_success' => 'Category has been deleted successfully.',
+        'category_not_found' => 'Category was not found.',
+        'delete_error' => 'Error while deleting category.',
+        'save_error' => 'Error while saving category changes.',
+        'create_error' => 'Error while creating category.',
     ],
 
     'search' => [

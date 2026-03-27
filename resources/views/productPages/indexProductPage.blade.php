@@ -13,12 +13,15 @@
             </div>
         </div>
 
+        {{-- Product Grid --}}
         <div class="row g-4 align-items-start">
-            <div class="col-12 col-lg-3">
+            {{-- Filter Form --}}
+            <div class="col-12 col-md-4 col-lg-3 productPage_sidebar">
                 <x-product.filter-form :categories="$categories" />
             </div>
 
-            <div class="col-12 col-lg-9">
+            {{-- Product List --}}
+            <div class="col-12 col-md-8 col-lg-9 productPage_content">
                 @if($products->count())
                 <div class="row g-4 productPage_grid">
                     @foreach($products as $product)

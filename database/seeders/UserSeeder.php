@@ -13,7 +13,6 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        // Section 1: add users via an array (bulk insert)
         $users = [
             [
                 'name' => 'Admin User',
@@ -47,7 +46,6 @@ class UserSeeder extends Seeder
             ],
         ];
 
-        // Upsert keeps the seeder rerunnable without duplicate key failures.
         User::query()->upsert(
             $users,
             ['email'],

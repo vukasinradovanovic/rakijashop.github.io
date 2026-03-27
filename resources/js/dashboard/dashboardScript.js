@@ -3,6 +3,7 @@ import { initDashboardProduct } from "./partials/products/dashboardProduct";
 import { initDashboardSortAndFilter } from "./partials/questions/dashboardSortAndFilter";
 import { initDashboardsearchData } from "./partials/searchData/dashboardSearchData";
 import { initDashboardReadTrigger } from "./partials/questions/dashboardReadTrigger";
+import { initDashboardCategoryProducts } from "./partials/categories/dashboardCategoryProducts";
 
 $(document).ready(function () {
 
@@ -14,6 +15,9 @@ $(document).ready(function () {
 
     // Products search and update
     initDashboardProduct();
+
+    // Product categories CRUD
+    initDashboardCategoryProducts();
 
     // Search data
     initDashboardsearchData();

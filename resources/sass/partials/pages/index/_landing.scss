@@ -114,12 +114,14 @@
 
     &_sidebar {
         width: 100%;
+        margin-top: rem(24);
 
         @include m {
             width:       $sideBar-width;
             flex-shrink: 0;
             position:    sticky;
-            top:         rem(20);
+            top:         rem(100);
+            margin-top:  rem(32);
         }
     }
 

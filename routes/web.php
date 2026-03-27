@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\DashboardCategoryProductsController;
 use App\Http\Controllers\Dashboard\DashboardProductsController;
 use App\Http\Controllers\Dashboard\DashboardQuestionsController;
 use App\Http\Controllers\Dashboard\DashboardUsersController;
@@ -42,6 +43,14 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/dashboard-products/search', [DashboardProductsController::class, 'search'])->name('dashboard-products.search');
     Route::put('/dashboard-products/{dashboard_product}', [DashboardProductsController::class, 'update'])->name('dashboard-products.update');
     Route::patch('/dashboard-products/{dashboard_product}', [DashboardProductsController::class, 'update']);
+
+    // Dashboard product categories routes
+    Route::get('/dashboard-category-products', [DashboardCategoryProductsController::class, 'index'])->name('dashboard-category-products.index');
+    Route::get('/dashboard-category-products/search', [DashboardCategoryProductsController::class, 'search'])->name('dashboard-category-products.search');
+    Route::post('/dashboard-category-products', [DashboardCategoryProductsController::class, 'store'])->name('dashboard-category-products.store');
+    Route::put('/dashboard-category-products/{dashboard_category_product}', [DashboardCategoryProductsController::class, 'update'])->name('dashboard-category-products.update');
+    Route::patch('/dashboard-category-products/{dashboard_category_product}', [DashboardCategoryProductsController::class, 'update']);
+    Route::delete('/dashboard-category-products/{dashboard_category_product}', [DashboardCategoryProductsController::class, 'destroy'])->name('dashboard-category-products.destroy');
 
     // Dashboard questions/contact routes
     Route::resource('dashboard-questions', DashboardQuestionsController::class);

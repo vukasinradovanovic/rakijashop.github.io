@@ -1,0 +1,28 @@
+.dashboardCategoryProducts {
+	.dashboardCategoryProducts_controls {
+		.form-label {
+			font-weight: 600;
+			margin-bottom: 0.25rem;
+		}
+	}
+
+	.dashboardCategoryProducts_createInput--name,
+	.dashboardCategoryProducts_createInput--slug,
+	.dashboardCategoryProducts_tableInput--name,
+	.dashboardCategoryProducts_tableInput--slug {
+		min-width: 170px;
+	}
+
+	.dashboardCategoryProducts_tableSelect--status,
+	.dashboardCategoryProducts_createInput--status {
+		min-width: 120px;
+	}
+
+	.dashboardCategoryProducts_tableCell--count {
+		font-weight: 600;
+	}
+
+	.dashboardCategoryProducts_tableCell--actions {
+		white-space: nowrap;
+	}
+}
