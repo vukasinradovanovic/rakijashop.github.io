@@ -14,8 +14,16 @@
             <div class="col-12 col-md-6">
                 <h1 class="productPage_title">{{ $product->name }}</h1>
                 <p class="productPage_meta">{{ $product->getCategoryNamesAttribute() }}</p>
-                <p class="productPage_price">{{ number_format($product->price, 2, ',', '.') }} {{ __('product.currency') }}</p>
 
+                {{-- Description --}}
+                @if($product->description)
+                <div class="mt-3">
+                    <h2 class="productPage_subtitle">{{ __('product.show.description') }}</h2>
+                    <p class="productPage_description">{{ $product->description }}</p>
+                </div>
+                @endif
+
+                {{-- Add to Cart Form --}}
                 <form action="{{ route('cart.store', $product) }}" method="POST" class="mb-3">
                     @csrf
                     <button type="submit" class="btn btnPrimary productPage_addToCart">
@@ -23,12 +31,7 @@
                     </button>
                 </form>
 
-                @if($product->description)
-                <div class="mt-3">
-                    <h2 class="productPage_subtitle">{{ __('product.show.description') }}</h2>
-                    <p class="productPage_description">{{ $product->description }}</p>
-                </div>
-                @endif
+                <p class="productPage_price">{{ number_format($product->price, 2, ',', '.') }} {{ __('product.currency') }}</p>
 
                 {{-- Buttons for product actions --}}
                 @if(Auth::user() && Auth::user()->hasProduct($product->id) != null)
