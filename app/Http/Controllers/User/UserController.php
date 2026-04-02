@@ -52,27 +52,31 @@ class UserController
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit($locale, $username)
     {
-        //
+        $user = User::findByUsername($username)->firstOrFail();
+
+        return view('user.editUserPage', [
+            'user' => $user,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUserRequest $request, $user): RedirectResponse
+    public function update(UpdateUserRequest $request, $locale, $username): RedirectResponse
     {
-        $profileUser = $this->resolveUserFromRouteValue((string) $user);
+        $user = User::findByUsername($username)->firstOrFail();
 
-        if ((int) Auth::id() !== (int) $profileUser->id) {
+        if ((int) Auth::id() !== (int) $user->id) {
             abort(403);
         }
 
-        $profileUser->update($request->validated());
+        $user->update($request->validated());
 
         return redirect()->route('user.show', [
             'locale' => app()->getLocale(),
-            'user' => $this->routeUserKey($profileUser),
+            'user' => $this->routeUserKey($user),
         ])->with('status', __('pages.user_profile.form.saved'));
     }
 

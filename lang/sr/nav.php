@@ -32,6 +32,17 @@ return [
             'name' => '<i class="fa fa-user"></i>  Moj profil',
         ],
         [
+            'slug' => Auth::check()
+                ? route('user.edit', [
+                    'locale' => app()->getLocale(),
+                    'user' => filled(Auth::user()->username ?? null)
+                        ? Auth::user()->username
+                        : (string) Auth::id(),
+                ])
+                : route('index', ['locale' => app()->getLocale()]),
+            'name' => '<i class="fa fa-user"></i>  Izmeni profil',
+        ],
+        [
             'slug' => route('product.create', ['locale' => app()->getLocale()]),
             'name' => '<i class="fa-solid fa-wine-glass-empty"></i> Kreiranje proizvoda',
         ],
