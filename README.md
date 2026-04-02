@@ -93,9 +93,9 @@ Ako zelis sve iz pocetka (oprez, brise podatke):
 php artisan migrate:fresh --seed
 ```
 
-## 8. Storage link (po potrebi)
+## 8. Storage link
 
-Ako se koriste fajlovi iz `storage/app/public`, napravi simbolicki link:
+Pošto se fajlovi smeštaju u `storage/app/public`, napravi simbolicki link:
 
 ```bash
 php artisan storage:link
