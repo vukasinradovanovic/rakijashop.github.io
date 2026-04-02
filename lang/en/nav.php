@@ -21,7 +21,12 @@ return [
     'dropdown-user' => [
         [
             'slug' => Auth::check()
-                ? route('user.show', ['locale' => app()->getLocale(), 'user' => Auth::user()->name])
+                ? route('user.show', [
+                    'locale' => app()->getLocale(),
+                    'user' => filled(Auth::user()->username ?? null)
+                        ? Auth::user()->username
+                        : (string) Auth::id(),
+                ])
                 : route('index', ['locale' => app()->getLocale()]),
             'name' => '<i class="fa fa-user"></i>  My profile',
         ],

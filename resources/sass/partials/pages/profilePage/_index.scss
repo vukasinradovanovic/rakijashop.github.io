@@ -1,17 +1,33 @@
 @use '../../functions/index' as *;
 @use '../../variables/index' as *;
 @forward './userheader';
-.profile{
-    max-width: rem(800);
-    margin: auto;
-    width: 100%;
-    box-shadow: 0 0 20px -15px;
 
-    background-color: $secondary-bg;
-
-    &_wellcome{
-        margin: rem(25) 0;
-        text-align: center;
+.userProfilePage {
+    &_header {
+        padding: rem(16);
+        border: rem(1) solid $brand-200;
+        border-radius: rem(14);
+        background: $secondary-bg;
     }
 
+    &_section--form,
+    &_section--products {
+        margin-top: rem(20);
+    }
+
+    &_editFormTitle,
+    &_productsTitle {
+        font-size: rem(24);
+        color: $brand-900;
+        margin-bottom: rem(10);
+    }
+
+    &_alert--success {
+        border-radius: rem(10);
+        margin-bottom: rem(20);
+    }
+
+    &_productsGrid {
+        align-items: stretch;
+    }
 }

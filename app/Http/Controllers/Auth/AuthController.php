@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User\User;
 use App\Models\User\Roles;
 use App\Http\Requests\User\StoreUserRequest;
-use App\Http\Requests\User\UpdateUserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -42,9 +41,13 @@ class AuthController
     }
 
     //Login user
-    public function login(UpdateUserRequest $request)
+    public function login(Request $request)
     {
-        $fields = $request->validated();
+        $fields = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required', 'string'],
+            'remember' => ['nullable', 'boolean'],
+        ]);
 
         $remember = (bool) $request->boolean('remember');
 

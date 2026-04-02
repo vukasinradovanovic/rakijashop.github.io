@@ -62,7 +62,21 @@
           <ul class="dropdown-menu dropdown-menu-end siteNav_profileMenu">
             <li class="siteNav_profileGreeting">{{ Auth::user()->name }}</li>
             @foreach (__('nav.dropdown-user') as $item)
-            <li><a class="dropdown-item" href="{{ $item['slug'] }}">{!! $item['name'] !!}</a></li>
+            @php
+            $itemHref = $item['slug'] ?? '#';
+
+            if (($item['route_name'] ?? null) === 'user.show') {
+            $itemHref = route('user.show', [
+            'locale' => app()->getLocale(),
+            'user' => filled(Auth::user()->username ?? null)
+            ? Auth::user()->username
+            : (string) Auth::id(),
+            ]);
+            } elseif (!empty($item['route_name'])) {
+            $itemHref = route($item['route_name'], ['locale' => app()->getLocale()]);
+            }
+            @endphp
+            <li><a class="dropdown-item" href="{{ $itemHref }}">{!! $item['name'] !!}</a></li>
             @endforeach
             @if (Auth::user()->hasRole('admin'))
             <li><a class="dropdown-item" href="{{ route('dashboard.index') }}">{!! __('dashboard.dashboard-page')

@@ -45,4 +45,18 @@ return [
             'submit' => 'Send message',
         ],
     ],
+
+    'user_profile' => [
+        'products_title' => 'User products',
+        'empty_products' => 'This user has no published products yet.',
+        'form' => [
+            'title' => 'Edit information',
+            'name' => 'Full name',
+            'name_placeholder' => 'Enter your new full name',
+            'email' => 'Email address',
+            'email_placeholder' => 'Enter your new email address',
+            'submit' => 'Save changes',
+            'saved' => 'Your profile information has been updated successfully.',
+        ],
+    ],
 ];
