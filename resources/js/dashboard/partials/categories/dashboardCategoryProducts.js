@@ -16,6 +16,7 @@ export function initDashboardCategoryProducts() {
         return;
     }
 
+    // Configuration and state variables
     const searchDelayMs = 450;
     let searchTimeoutId = null;
 

@@ -78,7 +78,6 @@ Route::prefix('{locale}')
         Route::get('/', [PagesController::class, 'index'])->name('index');
 
         // Other pages section
-        Route::get('/gallery', [PagesController::class, 'gallery'])->name('gallery');
         Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
         Route::post('/contact', [QuestionController::class, 'store'])->name('contact.store');
 

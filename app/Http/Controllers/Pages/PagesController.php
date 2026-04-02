@@ -16,7 +16,7 @@ class PagesController
             ->get();
 
         return view('pages.index', [
-            'featuredProducts' => $featuredProducts,
+            'featuredProducts' => $featuredProducts
         ]);
     }
 
@@ -30,11 +30,6 @@ class PagesController
         return view('auth.register');
     }
 
-    public function gallery()
-    {
-        return view('pages.galleryPage');
-    }
-
     public function contact()
     {
         $questionTypes = QuestionType::query()
@@ -42,8 +37,18 @@ class PagesController
             ->orderBy('name')
             ->get();
 
+        $userInfo = null;
+        if (auth()->check()) {
+            $user = auth()->user();
+            $userInfo = [
+                'name' => $user->name,
+                'email' => $user->email,
+            ];
+        }
+
         return view('pages.contactPage', [
             'questionTypes' => $questionTypes,
+            'userInfo' => $userInfo,
         ]);
     }
 }

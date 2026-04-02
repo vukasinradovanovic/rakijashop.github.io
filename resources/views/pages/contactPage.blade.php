@@ -12,7 +12,8 @@
 
             <div class="mb-3">
                 <label class="form-label" for="contact-name">{{ __('pages.contact.form.name') }}</label>
-                <input id="contact-name" type="text" name="name" value="{{ old('name') }}"
+                <input id="contact-name" type="text" name="name"
+                    value="{{ old('name', $userInfo['name'] ?? '') }}"
                     placeholder="{{ __('pages.contact.form.name_placeholder') }}"
                     class="form-control @error('name') ring-red @enderror">
                 @error('name')
@@ -22,7 +23,8 @@
 
             <div class="mb-3">
                 <label class="form-label" for="contact-email">{{ __('pages.contact.form.email') }}</label>
-                <input id="contact-email" type="email" name="email" value="{{ old('email') }}"
+                <input id="contact-email" type="email" name="email"
+                    value="{{ old('email', $userInfo['email'] ?? '') }}"
                     placeholder="{{ __('pages.contact.form.email_placeholder') }}"
                     class="form-control @error('email') ring-red @enderror">
                 @error('email')
