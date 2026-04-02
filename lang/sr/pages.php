@@ -45,4 +45,18 @@ return [
             'submit' => 'Pošalji poruku',
         ],
     ],
+
+    'user_profile' => [
+        'products_title' => 'Proizvodi korisnika',
+        'empty_products' => 'Korisnik još nema objavljenih proizvoda.',
+        'form' => [
+            'title' => 'Izmena podataka',
+            'name' => 'Ime i prezime',
+            'name_placeholder' => 'Unesite novo ime i prezime',
+            'email' => 'E-mail adresa',
+            'email_placeholder' => 'Unesite novu e-mail adresu',
+            'submit' => 'Sačuvaj izmene',
+            'saved' => 'Podaci su uspešno ažurirani.',
+        ],
+    ],
 ];

@@ -64,7 +64,10 @@ Route::prefix('{locale}')
     ->group(function () {
         // Middleware for authenticated users domain
         Route::middleware('auth')->group(function () {
-            Route::resource('user', UserController::class);
+            Route::get('/user/{user}', [UserController::class, 'show'])->name('user.show');
+            Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+            Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
+            Route::patch('/user/{user}', [UserController::class, 'update']);
             Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
         });
 
