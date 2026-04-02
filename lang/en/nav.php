@@ -13,10 +13,6 @@ return [
             'name' => 'Products',
         ],
         [
-            'slug' => route('gallery', ['locale' => app()->getLocale()]),
-            'name' => 'Gallery',
-        ],
-        [
             'slug' => route('contact', ['locale' => app()->getLocale()]),
             'name' => 'Contact',
         ],
