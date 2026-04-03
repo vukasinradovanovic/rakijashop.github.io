@@ -11,12 +11,6 @@
             </div>
         </div>
 
-        @if (session('status'))
-        <div class="alert alert-success userProfilePage_alert userProfilePage_alert--success" role="status">
-            {{ session('status') }}
-        </div>
-        @endif
-
         <div class="userProfilePage_section userProfilePage_section--products">
             <h2 class="userProfilePage_productsTitle">{{ __('pages.user_profile.products_title') }}</h2>
 

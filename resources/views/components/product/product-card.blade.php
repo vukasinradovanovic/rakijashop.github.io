@@ -31,7 +31,6 @@
     </div>
 
     <div class="productCard_body">
-        <p class="productCard_eyebrow">{{ __('product.show.featured') }}</p>
         <h3 class="productCard_title">{{ $product->name }}</h3>
 
         <div class="productCard_author">
