@@ -1,4 +1,4 @@
-@use '../functions/index' as *;
+﻿@use '../functions/index' as *;
 @use '../variables/index' as *;
 @use '../mixin/index' as *;
 .filterForm {
@@ -15,8 +15,8 @@
         font-size: rem(13);
     }
 
-    &__input,
-    &__select {
+    &_input,
+    &_select {
         border: rem(1) solid $brand-300;
         border-radius: rem(8);
         background: $brand-50;
@@ -35,7 +35,7 @@
         }
     }
 
-    &__btn {
+    &_btn {
         min-height: rem(40);
         border-radius: rem(8);
         font-weight: 600;

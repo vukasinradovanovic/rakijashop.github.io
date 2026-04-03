@@ -23,6 +23,10 @@ return [
             'name'=>'Kategorije proizvoda',
         ],
         [
+            'slug'=> route('dashboard-errors.index'),
+            'name'=>'Logovi grešaka',
+        ],
+        [
             'slug'=> route('index', ['locale' => app()->getLocale()]),
             'name'=>'Nazad na sajt',
         ],
@@ -38,6 +42,18 @@ return [
         'active_users' => 'Aktivni korisnici',
         'role' => 'Rola',
         'full_name' => 'Ime i prezime',
+    ],
+
+    'errors' => [
+        'title' => 'Logovi grešaka',
+        'search_placeholder' => 'Pretraži po šifri, email-u korisnika, ruti ili putanji...',
+        'error_code' => 'Šifra greške',
+        'user' => 'Korisnik',
+        'route' => 'Ruta',
+        'path' => 'Putanja',
+        'time' => 'Vreme',
+        'guest' => 'Gost',
+        'no_data' => 'Nema zabeleženih grešaka za ovu pretragu',
     ],
 
     'users' => [
@@ -79,6 +95,7 @@ return [
         'price' => 'Cena',
         'category' => 'Kategorija',
         'status' => 'Status',
+        'position' => 'Pozicija',
         'change' => 'Promeni',
         'no_data' => 'Nema informacija za prikaz',
         'update_error' => 'Greška prilikom ažuriranja proizvoda',

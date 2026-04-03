@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\DashboardCategoryProductsController;
+use App\Http\Controllers\Dashboard\DashboardErrorLogsController;
 use App\Http\Controllers\Dashboard\DashboardProductsController;
 use App\Http\Controllers\Dashboard\DashboardQuestionsController;
 use App\Http\Controllers\Dashboard\DashboardUsersController;
@@ -52,6 +53,10 @@ Route::middleware('isAdmin')->group(function () {
     Route::patch('/dashboard-category-products/{dashboard_category_product}', [DashboardCategoryProductsController::class, 'update']);
     Route::delete('/dashboard-category-products/{dashboard_category_product}', [DashboardCategoryProductsController::class, 'destroy'])->name('dashboard-category-products.destroy');
 
+    // Dashboard error logs routes
+    Route::get('/dashboard-errors', [DashboardErrorLogsController::class, 'index'])->name('dashboard-errors.index');
+    Route::get('/dashboard-errors/search', [DashboardErrorLogsController::class, 'search'])->name('dashboard-errors.search');
+
     // Dashboard questions/contact routes
     Route::resource('dashboard-questions', DashboardQuestionsController::class);
     Route::post('/dashboardQuestions/{question}/mark-as-read', [DashboardQuestionsController::class, 'markAsRead'])->name('dashboard-questions.mark-as-read');
@@ -62,6 +67,13 @@ Route::prefix('{locale}')
     ->whereIn('locale', ['en', 'sr'])
     ->middleware('setLocale')
     ->group(function () {
+        // Cart routes
+        Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+        Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
+        Route::patch('/cart/{product}', [CartController::class, 'update'])->name('cart.update');
+        Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
+
+
         // Middleware for authenticated users domain
         Route::middleware('auth')->group(function () {
             Route::get('/user/{user}', [UserController::class, 'show'])->name('user.show');
@@ -73,10 +85,6 @@ Route::prefix('{locale}')
 
         Route::resource('product', ProductController::class);
 
-        Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-        Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
-        Route::patch('/cart/{product}', [CartController::class, 'update'])->name('cart.update');
-        Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
 
         Route::get('/', [PagesController::class, 'index'])->name('index');
 

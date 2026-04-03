@@ -1,4 +1,4 @@
-@use '../functions/index' as *;
+﻿@use '../functions/index' as *;
 @use '../variables/index' as *;
 @use '../mixin/index' as *;
 .popup {
@@ -25,7 +25,7 @@
         animation: popupLifeCycle 4.8s ease forwards;
     }
 
-    &__head {
+    &_head {
         display: flex;
         align-items: center;
         gap: rem(10);
@@ -34,12 +34,12 @@
         background: rgba($brand-50, 0.75);
     }
 
-    &__icon {
+    &_icon {
         font-size: rem(17);
         color: $plum-700;
     }
 
-    &__title {
+    &_title {
         margin: 0;
         font-size: rem(14);
         font-weight: 700;
@@ -48,7 +48,7 @@
         color: $brand-900;
     }
 
-    &__message {
+    &_message {
         margin: 0;
         padding: rem(12) rem(14) rem(14);
         color: $brand-800;
@@ -84,14 +84,14 @@
             background: linear-gradient(180deg, rgba($warning-color, 0.1) 0%, rgba($secondary-bg, 0.98) 100%);
         }
 
-        .popup__head {
+        .popup_head {
             background: rgba($warning-color, 0.08);
             border-bottom-color: rgba($warning-color, 0.22);
         }
 
-        .popup__icon,
-        .popup__title,
-        .popup__message {
+        .popup_icon,
+        .popup_title,
+        .popup_message {
             color: $brand-900;
         }
     }
@@ -103,7 +103,7 @@
             background: linear-gradient(180deg, rgba($brand-100, 0.86) 0%, rgba($secondary-bg, 0.98) 100%);
         }
 
-        .popup__head {
+        .popup_head {
             background: rgba($plum-500, 0.08);
             border-bottom-color: rgba($plum-500, 0.18);
         }

@@ -22,6 +22,7 @@
                 <td>{{ __('dashboard.products.price') }}</td>
                 <td>{{ __('dashboard.products.category') }}</td>
                 <td>{{ __('dashboard.products.status') }}</td>
+                <td>{{ __('dashboard.products.position') }}</td>
                 <td></td>
             </thead>
             <tbody class="table_dashboardGeneralTbody table_dashboardGeneralTbody--products"

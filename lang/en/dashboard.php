@@ -23,6 +23,10 @@ return [
             'name'=>'Product categories',
         ],
         [
+            'slug'=> route('dashboard-errors.index'),
+            'name'=>'Error logs',
+        ],
+        [
             'slug'=> route('index', ['locale' => app()->getLocale()]),
             'name'=>'Back to site',
         ],
@@ -38,6 +42,18 @@ return [
         'active_users' => 'Active users',
         'role' => 'Role',
         'full_name' => 'Full name',
+    ],
+
+    'errors' => [
+        'title' => 'Error logs',
+        'search_placeholder' => 'Search by code, user email, route, or path...',
+        'error_code' => 'Error code',
+        'user' => 'User',
+        'route' => 'Route',
+        'path' => 'Path',
+        'time' => 'Time',
+        'guest' => 'Guest',
+        'no_data' => 'There are no logged errors for this search',
     ],
 
     'users' => [
@@ -79,6 +95,7 @@ return [
         'price' => 'Price',
         'category' => 'Category',
         'status' => 'Status',
+        'position' => 'Position',
         'change' => 'Change',
         'no_data' => 'No data to display',
         'update_error' => 'Error while updating product',

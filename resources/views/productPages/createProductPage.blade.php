@@ -4,7 +4,7 @@
 {{-- Main section: create new product page --}}
 <section class="productPage productPage--create">
     <div class="container">
-        <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data"
+        <form action="{{ route('product.store', ['locale' => app()->getLocale()]) }}" method="POST" enctype="multipart/form-data"
             class="formGeneral row g-3">
             @csrf
             <h1 class="productPage_title mb-5">{{ __('product.form.create_title') }}</h1>
@@ -56,6 +56,22 @@
                 @enderror
             </div>
 
+            {{-- Status of product --}}
+            <div class="col-12">
+                <label for="status_id" class="form-label">{{ __('product.form.status') }}</label>
+                <select name="status_id" id="status_id" class="form-select @error('status_id') ring-red @enderror">
+                    <option value="">{{ __('product.form.choose_status') }}</option>
+                    @foreach($productStatuses as $status)
+                    <option value="{{ $status->id }}" {{ (string) old('status_id') === (string) $status->id ? 'selected' : '' }}>
+                        {{ $status->name }}
+                    </option>
+                    @endforeach
+                </select>
+                @error('status_id')
+                <p class="error mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
             {{-- Product image --}}
             <div class="col-12">
                 <label for="image" class="form-label">{{ __('product.form.image') }}</label>
@@ -69,7 +85,7 @@
             {{-- Button for submitting form --}}
             <div class="col-12 d-flex gap-2 mt-3 productPage_formActions">
                 <button type="submit" class="btn btnPrimary">{{ __('product.form.save') }}</button>
-                <a href="{{ route('product.index') }}" class="btn btn-outline-secondary">{{ __('product.form.cancel') }}</a>
+                <a href="{{ route('product.index', ['locale' => app()->getLocale()]) }}" class="btn btn-outline-secondary">{{ __('product.form.cancel') }}</a>
             </div>
         </form>
     </div>

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Product\Product;
+use App\Models\Product\ProductPosition;
 use App\Models\Product\ProductStatus;
 use App\Models\Product\CategoryProducts;
 use App\Models\User\User;
@@ -70,6 +71,10 @@ class ProductSeeder extends Seeder
             ->whereIn('name', $categoryNames->all())
             ->pluck('id', 'name');
 
+        $featuredPositionId = ProductPosition::query()
+            ->where('name', ProductPosition::NAME_FEATURED)
+            ->value('id');
+
         foreach ($products as $product) {
             $model = Product::updateOrCreate(
                 ['slug' => Str::slug($product['name'])],
@@ -78,6 +83,16 @@ class ProductSeeder extends Seeder
                     'description' => $product['description'],
                     'price' => $product['price'],
                     'status_id' => $statusId,
+                    'position_id' => in_array($product['name'], [
+                        'Šljivovica Klasik',
+                        'Kajsijeva Rakija Premium',
+                        'Dunjevača Zlatna',
+                        'Viljamovka Reserve',
+                        'Šljivovica Barrique',
+                        'Kajsija Reserve',
+                    ], true)
+                        ? $featuredPositionId
+                        : null,
                 ]
             );
 

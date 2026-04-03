@@ -6,9 +6,10 @@
     <div class="container">
         @php
         $selectedCategoryId = old('category_id', optional($product->categories->first())->id);
+        $selectedPositionId = old('position_id', $product->position_id);
         @endphp
 
-        <form action="{{ route('product.update', $product) }}" method="POST" enctype="multipart/form-data"
+        <form action="{{ route('product.update', ['locale' => app()->getLocale(), 'product' => $product]) }}" method="POST" enctype="multipart/form-data"
             class="formGeneral row g-3">
             @csrf
             @method('PUT')
@@ -92,10 +93,34 @@
                 @enderror
             </div>
 
+            @if($canManagePosition)
+                {{-- Position of product --}}
+                <div class="col-12">
+                    <label for="position_id" class="form-label">{{ __('product.form.position') }}</label>
+                    <select name="position_id" id="position_id" class="form-select @error('position_id') ring-red @enderror">
+                        <option value="">{{ __('product.form.choose_position') }}</option>
+                        @foreach($productPositions as $positionId => $positionName)
+                        <option value="{{ $positionId }}" {{ (string) $selectedPositionId === (string) $positionId ?
+                            'selected' : '' }}>
+                            {{ $positionName }}
+                        </option>
+                        @endforeach
+                    </select>
+                    @error('position_id')
+                    <p class="error mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+            @else
+                <div class="col-12">
+                    <label class="form-label">{{ __('product.form.position') }}</label>
+                    <input type="text" class="form-control" value="{{ $product->position_name ?? '-' }}" disabled>
+                </div>
+            @endif
+
             {{-- Button for submitting form --}}
             <div class="col-12 d-flex gap-2 mt-3 productPage_formActions">
                 <button type="submit" class="btn btnPrimary">{{ __('product.form.save_changes') }}</button>
-                <a href="{{ route('product.index') }}" class="btn btn-outline-secondary">{{ __('product.form.back_to_list') }}</a>
+                <a href="{{ route('product.index', ['locale' => app()->getLocale()]) }}" class="btn btn-outline-secondary">{{ __('product.form.back_to_list') }}</a>
             </div>
         </form>
     </div>

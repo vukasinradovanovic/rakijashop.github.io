@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Product\CategoryProducts;
 use App\Models\Product\Product;
+use App\Models\Product\ProductPosition;
 use App\Models\Product\ProductStatus;
 use Illuminate\Http\Request;
 
@@ -33,6 +34,7 @@ class DashboardProductsController
                 'products' => [],
                 'statuses' => ProductStatus::query()->orderBy('name')->get(['id', 'name']),
                 'categories' => CategoryProducts::query()->where('is_active', true)->orderBy('name')->get(['id', 'name']),
+                'positions' => ProductPosition::query()->orderBy('sort_order')->orderBy('name')->get(['id', 'name']),
             ]);
         }
 
@@ -46,6 +48,7 @@ class DashboardProductsController
             'products' => $products,
             'statuses' => ProductStatus::query()->orderBy('name')->get(['id', 'name']),
             'categories' => CategoryProducts::query()->where('is_active', true)->orderBy('name')->get(['id', 'name']),
+            'positions' => ProductPosition::query()->orderBy('sort_order')->orderBy('name')->get(['id', 'name']),
         ]);
     }
 
@@ -58,6 +61,7 @@ class DashboardProductsController
             'price' => ['nullable', 'numeric', 'min:0'],
             'status_id' => ['nullable', 'integer', 'exists:product_statuses,id'],
             'category_id' => ['nullable', 'integer', 'exists:category_products,id'],
+            'position_id' => ['nullable', 'integer', 'exists:product_positions,id'],
         ]);
 
         $product = Product::query()->with('categories')->find($id);
@@ -74,6 +78,10 @@ class DashboardProductsController
 
         if (array_key_exists('status_id', $fields)) {
             $update['status_id'] = $fields['status_id'];
+        }
+
+        if (array_key_exists('position_id', $fields)) {
+            $update['position_id'] = $fields['position_id'];
         }
 
         if (!empty($update)) {

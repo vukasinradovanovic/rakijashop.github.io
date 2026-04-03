@@ -4,6 +4,7 @@ import { initDashboardSortAndFilter } from "./partials/questions/dashboardSortAn
 import { initDashboardsearchData } from "./partials/searchData/dashboardSearchData";
 import { initDashboardReadTrigger } from "./partials/questions/dashboardReadTrigger";
 import { initDashboardCategoryProducts } from "./partials/categories/dashboardCategoryProducts";
+import { initDashboardLogs } from "./partials/logs/dashboardLogs";
 
 $(document).ready(function () {
 
@@ -24,4 +25,7 @@ $(document).ready(function () {
 
     // Questions read trigger
     initDashboardReadTrigger();
+
+    // Error logs search
+    initDashboardLogs();
 });

@@ -41,7 +41,7 @@ class UserController
     public function show($locale, $username)
     {
         $user = User::findByUsername($username)->firstOrFail();
-        $products = $user->products()->latest()->get();
+        $products = $user->products()->with(['images', 'users.userImg'])->latest()->get();
 
         return view('user.showUserPage', [
             'user' => $user,

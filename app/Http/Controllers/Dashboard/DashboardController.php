@@ -15,6 +15,7 @@ class DashboardController
      */
     public function index()
     {
+        /** @var \App\Models\User\User $user */
         $user = Auth::user();
         $role = $user->roles()->pluck('role_name')->first();         //Returns role of user
         $usersCount = User::count();

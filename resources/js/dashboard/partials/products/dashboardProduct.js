@@ -82,6 +82,15 @@ export function initDashboardProduct() {
                                                 </option>`).join('')}
                                         </select>
                                     </td>
+                                    <td>
+                                        <select class="table_dashboardGeneralTbodyTdata--position form-select" data-product-id="${product.id}">
+                                            <option value="">-</option>
+                                            ${response.positions.map(position => `
+                                                <option value="${position.id}" ${product.position_id == position.id ? 'selected' : ''}>
+                                                    ${position.name}
+                                                </option>`).join('')}
+                                        </select>
+                                    </td>
                                     <td><button type="button" class="btn btn-secondary btn-apply-product">${changeLabel}</button></td>
                                 </tr>
                             `);
@@ -100,6 +109,7 @@ export function initDashboardProduct() {
         const price = row.find('.table_dashboardGeneralTbodyTdata--price').val();
         const categoryId = row.find('.table_dashboardGeneralTbodyTdata--category').val();
         const statusId = row.find('.table_dashboardGeneralTbodyTdata--status').val();
+        const positionId = row.find('.table_dashboardGeneralTbodyTdata--position').val();
 
         const updateUrl = updateUrlTemplate.replace('__PRODUCT_ID__', productId);
 
@@ -114,6 +124,7 @@ export function initDashboardProduct() {
                 price: price,
                 category_id: categoryId || null,
                 status_id: statusId || null,
+                position_id: positionId || null,
             }),
             success: function () {
                 $('.dashboard_ProductSearch').trigger('keyup');
