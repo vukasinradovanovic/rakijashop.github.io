@@ -35,12 +35,12 @@
 
                 {{-- Buttons for product actions --}}
                 @if(Auth::user() && Auth::user()->hasProduct($product->id) != null)
-                <div class="productCard__actions">
-                    <a href="{{ route('product.edit', ['locale' => app()->getLocale(), 'product' => $product]) }}" class="productCard__btn">{{ __('product.show.edit') }}</a>
-                    <form action="{{ route('product.destroy', ['locale' => app()->getLocale(), 'product' => $product]) }}" method="POST" class="productCard__delete">
+                <div class="productCard_actions">
+                    <a href="{{ route('product.edit', ['locale' => app()->getLocale(), 'product' => $product]) }}" class="productCard_btn">{{ __('product.show.edit') }}</a>
+                    <form action="{{ route('product.destroy', ['locale' => app()->getLocale(), 'product' => $product]) }}" method="POST" class="productCard_delete">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="productCard__btn productCard__btn--danger">
+                        <button type="submit" class="productCard_btn productCard_btn--danger">
                             {{ __('product.show.delete') }}
                         </button>
                     </form>

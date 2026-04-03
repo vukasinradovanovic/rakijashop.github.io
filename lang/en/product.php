@@ -37,6 +37,11 @@ return [
         'featured' => 'Featured',
     ],
 
+    'card' => [
+        'published_by' => 'Published by',
+        'unknown_user' => 'Unknown user',
+    ],
+
     'form' => [
         'create_title' => 'Create product',
         'edit_title' => 'Edit product',

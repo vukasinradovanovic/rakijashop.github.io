@@ -37,6 +37,11 @@ return [
         'featured' => 'Izdvajamo',
     ],
 
+    'card' => [
+        'published_by' => 'Objavio',
+        'unknown_user' => 'Nepoznat korisnik',
+    ],
+
     'form' => [
         'create_title' => 'Kreiraj proizvod',
         'edit_title' => 'Izmeni proizvod',

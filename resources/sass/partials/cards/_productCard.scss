@@ -122,6 +122,52 @@
         overflow: hidden;
     }
 
+    &__author {
+        display: inline-flex;
+        align-items: center;
+        gap: rem(10);
+        margin-bottom: rem(12);
+        padding: rem(8) rem(10);
+        border-radius: rem(10);
+        background: rgba($brand-200, 0.35);
+        border: rem(1) solid rgba($brand-200, 0.85);
+        min-width: 0;
+    }
+
+    &__authorAvatar {
+        width: rem(34);
+        height: rem(34);
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        background-color: $brand-300;
+        flex-shrink: 0;
+    }
+
+    &__authorMeta {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    &__authorLabel {
+        font-size: rem(11);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: $brand-700;
+        line-height: 1.1;
+    }
+
+    &__authorName {
+        font-size: rem(13);
+        color: $brand-900;
+        font-weight: 700;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.2;
+    }
+
     &__footer {
         display: flex;
         justify-content: space-between;
@@ -187,6 +233,6 @@
     }
 
     &--wide {
-        .productCard__media { aspect-ratio: 16 / 9; }
+        .productCard_media { aspect-ratio: 16 / 9; }
     }
 }

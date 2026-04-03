@@ -84,14 +84,14 @@
             background: linear-gradient(180deg, rgba($warning-color, 0.1) 0%, rgba($secondary-bg, 0.98) 100%);
         }
 
-        .popup__head {
+        .popup_head {
             background: rgba($warning-color, 0.08);
             border-bottom-color: rgba($warning-color, 0.22);
         }
 
-        .popup__icon,
-        .popup__title,
-        .popup__message {
+        .popup_icon,
+        .popup_title,
+        .popup_message {
             color: $brand-900;
         }
     }
@@ -103,7 +103,7 @@
             background: linear-gradient(180deg, rgba($brand-100, 0.86) 0%, rgba($secondary-bg, 0.98) 100%);
         }
 
-        .popup__head {
+        .popup_head {
             background: rgba($plum-500, 0.08);
             border-bottom-color: rgba($plum-500, 0.18);
         }

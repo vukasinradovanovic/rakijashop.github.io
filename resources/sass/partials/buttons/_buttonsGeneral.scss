@@ -1,4 +1,4 @@
-@use '../functions/index' as *;
+﻿@use '../functions/index' as *;
 @use '../variables/index' as *;
 @use '../mixin/index' as *;
 .btnPrimary {
@@ -49,7 +49,7 @@
     border-radius: 50%;
 }
 
-#hero__create-post__btn{
+#hero_create-post_btn{
     background-color: $secondary-color !important;
 }
 

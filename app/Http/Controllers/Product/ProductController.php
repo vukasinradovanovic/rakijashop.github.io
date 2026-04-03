@@ -26,7 +26,7 @@ class ProductController
         $categoryId = $request->input('category', '');
         $sort = $request->input('sort', 'newest');
 
-        $query = Product::with('images');
+        $query = Product::with(['images', 'users.userImg']);
 
         if ($search !== '') {
             $query->where(function ($q) use ($search) {
@@ -133,7 +133,7 @@ class ProductController
      */
     public function show($locale, Product $product)
     {
-        $product->load('images');
+        $product->load(['images', 'users.userImg']);
         $categories = CategoryProducts::where('is_active', true)->get();
 
         return view('productPages.showProductPage', compact('product', 'categories'));
