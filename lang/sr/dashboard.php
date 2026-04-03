@@ -79,6 +79,7 @@ return [
         'price' => 'Cena',
         'category' => 'Kategorija',
         'status' => 'Status',
+        'position' => 'Pozicija',
         'change' => 'Promeni',
         'no_data' => 'Nema informacija za prikaz',
         'update_error' => 'Greška prilikom ažuriranja proizvoda',

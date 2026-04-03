@@ -79,6 +79,7 @@ return [
         'price' => 'Price',
         'category' => 'Category',
         'status' => 'Status',
+        'position' => 'Position',
         'change' => 'Change',
         'no_data' => 'No data to display',
         'update_error' => 'Error while updating product',
