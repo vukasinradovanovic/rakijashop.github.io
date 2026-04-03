@@ -4,11 +4,6 @@
 <section class="sectionBlock sectionBlock--light">
     <div class="container userProfilePage">
         <h2 class="userProfilePage_editFormTitle">{{ __('pages.user_profile.form.title') }}</h2>
-        @if (session('status'))
-        <div class="alert alert-success userProfilePage_alert userProfilePage_alert--success" role="status">
-            {{ session('status') }}
-        </div>
-        @endif
 
         @auth
         @if ((int) auth()->id() === (int) $user->id)

@@ -3,17 +3,18 @@
 @section('main')
 <section class="pageSection">
     <div class="container">
-        <h1 class="pageSection_title">{{ __('pages.contact.title') }}</h1>
-        <p class="pageSection_subtitle">{{ __('pages.contact.subtitle') }}</p>
-
-        <form action="{{ route('contact.store')}}" method="POST"
-            class="formGeneral mt-4">
+        {{-- Contact Form --}}
+        <form action="{{ route('contact.store')}}" method="POST" class="formGeneral mt-4">
             @csrf
 
+            <h1 class="pageSection_title">{{ __('pages.contact.title') }}</h1>
+            <p class="pageSection_subtitle">{{ __('pages.contact.subtitle') }}</p>
+            <hr class="border border-gray border-2 mb-4">
+
+            {{-- Name Field --}}
             <div class="mb-3">
                 <label class="form-label" for="contact-name">{{ __('pages.contact.form.name') }}</label>
-                <input id="contact-name" type="text" name="name"
-                    value="{{ old('name', $userInfo['name'] ?? '') }}"
+                <input id="contact-name" type="text" name="name" value="{{ old('name', $userInfo['name'] ?? '') }}"
                     placeholder="{{ __('pages.contact.form.name_placeholder') }}"
                     class="form-control @error('name') ring-red @enderror">
                 @error('name')
@@ -21,10 +22,10 @@
                 @enderror
             </div>
 
+            {{-- Email Field --}}
             <div class="mb-3">
                 <label class="form-label" for="contact-email">{{ __('pages.contact.form.email') }}</label>
-                <input id="contact-email" type="email" name="email"
-                    value="{{ old('email', $userInfo['email'] ?? '') }}"
+                <input id="contact-email" type="email" name="email" value="{{ old('email', $userInfo['email'] ?? '') }}"
                     placeholder="{{ __('pages.contact.form.email_placeholder') }}"
                     class="form-control @error('email') ring-red @enderror">
                 @error('email')
@@ -32,6 +33,7 @@
                 @enderror
             </div>
 
+            {{-- Type Field --}}
             <div class="mb-3">
                 <label class="form-label" for="contact-type">{{ __('pages.contact.form.type') }}</label>
                 <select id="contact-type" name="type_id" class="form-select @error('type_id') ring-red @enderror">
@@ -48,6 +50,7 @@
                 @enderror
             </div>
 
+            {{-- Description Field --}}
             <div class="mb-3">
                 <label class="form-label" for="contact-description">{{ __('pages.contact.form.description') }}</label>
                 <textarea id="contact-description" name="description" rows="5"

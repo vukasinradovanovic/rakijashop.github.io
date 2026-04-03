@@ -77,7 +77,7 @@ class UserController
         return redirect()->route('user.show', [
             'locale' => app()->getLocale(),
             'user' => $this->routeUserKey($user),
-        ])->with('status', __('pages.user_profile.form.saved'));
+        ])->with('success', __('pages.user_profile.form.saved'));
     }
 
     private function routeUserKey(User $user): string
