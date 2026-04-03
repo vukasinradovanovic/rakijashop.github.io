@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 
 use App\Http\Requests\User\UpdateUserRequest;
+use App\Http\Requests\User\UpdateUserPasswordRequest;
 use App\Models\User\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -78,6 +79,24 @@ class UserController
             'locale' => app()->getLocale(),
             'user' => $this->routeUserKey($user),
         ])->with('success', __('pages.user_profile.form.saved'));
+    }
+
+    public function updatePassword(UpdateUserPasswordRequest $request, $locale, $username): RedirectResponse
+    {
+        $user = User::findByUsername($username)->firstOrFail();
+
+        if ((int) Auth::id() !== (int) $user->id) {
+            abort(403);
+        }
+
+        $user->update([
+            'password' => $request->validated('password'),
+        ]);
+
+        return redirect()->route('user.show', [
+            'locale' => app()->getLocale(),
+            'user' => $this->routeUserKey($user),
+        ])->with('success', __('pages.user_profile.password_form.saved'));
     }
 
     private function routeUserKey(User $user): string

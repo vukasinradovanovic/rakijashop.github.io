@@ -80,6 +80,7 @@ Route::prefix('{locale}')
             Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
             Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
             Route::patch('/user/{user}', [UserController::class, 'update']);
+            Route::patch('/user/{user}/password', [UserController::class, 'updatePassword'])->name('user.password.update');
             Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
         });
 
