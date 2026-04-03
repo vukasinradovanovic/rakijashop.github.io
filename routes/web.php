@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\DashboardCategoryProductsController;
+use App\Http\Controllers\Dashboard\DashboardErrorLogsController;
 use App\Http\Controllers\Dashboard\DashboardProductsController;
 use App\Http\Controllers\Dashboard\DashboardQuestionsController;
 use App\Http\Controllers\Dashboard\DashboardUsersController;
@@ -51,6 +52,10 @@ Route::middleware('isAdmin')->group(function () {
     Route::put('/dashboard-category-products/{dashboard_category_product}', [DashboardCategoryProductsController::class, 'update'])->name('dashboard-category-products.update');
     Route::patch('/dashboard-category-products/{dashboard_category_product}', [DashboardCategoryProductsController::class, 'update']);
     Route::delete('/dashboard-category-products/{dashboard_category_product}', [DashboardCategoryProductsController::class, 'destroy'])->name('dashboard-category-products.destroy');
+
+    // Dashboard error logs routes
+    Route::get('/dashboard-errors', [DashboardErrorLogsController::class, 'index'])->name('dashboard-errors.index');
+    Route::get('/dashboard-errors/search', [DashboardErrorLogsController::class, 'search'])->name('dashboard-errors.search');
 
     // Dashboard questions/contact routes
     Route::resource('dashboard-questions', DashboardQuestionsController::class);

@@ -11,6 +11,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->append(App\Http\Middleware\LogRequestErrors::class);
+
         $middleware->alias([
             'isAdmin' => App\Http\Middleware\AdminMiddleware::class,
             'setLocale' => App\Http\Middleware\SetLocaleFromUrl::class,
