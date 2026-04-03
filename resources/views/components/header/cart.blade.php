@@ -1,6 +1,6 @@
 @props(['cartQuantity' => 0])
 
-<a href="{{ route('cart.index') }}"
+<a href="{{ route('cart.index', ['locale' => app()->getLocale()]) }}"
     class="siteNav_cart {{ request()->routeIs('cart.*') ? 'siteNav_cart--active' : '' }}"
     aria-label="{{ __('cart.nav.aria_label', ['count' => $cartQuantity]) }}">
     <i class="fa-solid fa-cart-shopping"></i>

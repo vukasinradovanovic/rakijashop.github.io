@@ -4,7 +4,7 @@
 <section class="productPage productPage--show">
     <div class="container">
         <div class="mb-3">
-            <a href="{{ route('product.index') }}" class="siteHero_ghost">&larr; {{ __('product.show.back_to_list') }}</a>
+            <a href="{{ route('product.index', ['locale' => app()->getLocale()]) }}" class="siteHero_ghost">&larr; {{ __('product.show.back_to_list') }}</a>
         </div>
 
         <div class="row g-4">
@@ -24,7 +24,7 @@
                 @endif
 
                 {{-- Add to Cart Form --}}
-                <form action="{{ route('cart.store', $product) }}" method="POST" class="mb-3">
+                <form action="{{ route('cart.store', ['locale' => app()->getLocale(), 'product' => $product]) }}" method="POST" class="mb-3">
                     @csrf
                     <button type="submit" class="btn btnPrimary productPage_addToCart">
                         <i class="fa-solid fa-cart-plus me-2"></i>{{ __('cart.actions.add') }}
@@ -36,8 +36,8 @@
                 {{-- Buttons for product actions --}}
                 @if(Auth::user() && Auth::user()->hasProduct($product->id) != null)
                 <div class="productCard__actions">
-                    <a href="{{ route('product.edit', $product) }}" class="productCard__btn">{{ __('product.show.edit') }}</a>
-                    <form action="{{ route('product.destroy', $product) }}" method="POST" class="productCard__delete">
+                    <a href="{{ route('product.edit', ['locale' => app()->getLocale(), 'product' => $product]) }}" class="productCard__btn">{{ __('product.show.edit') }}</a>
+                    <form action="{{ route('product.destroy', ['locale' => app()->getLocale(), 'product' => $product]) }}" method="POST" class="productCard__delete">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="productCard__btn productCard__btn--danger">

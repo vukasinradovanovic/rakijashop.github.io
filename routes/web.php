@@ -62,6 +62,13 @@ Route::prefix('{locale}')
     ->whereIn('locale', ['en', 'sr'])
     ->middleware('setLocale')
     ->group(function () {
+        // Cart routes
+        Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+        Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
+        Route::patch('/cart/{product}', [CartController::class, 'update'])->name('cart.update');
+        Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
+
+
         // Middleware for authenticated users domain
         Route::middleware('auth')->group(function () {
             Route::get('/user/{user}', [UserController::class, 'show'])->name('user.show');
@@ -73,10 +80,6 @@ Route::prefix('{locale}')
 
         Route::resource('product', ProductController::class);
 
-        Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-        Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
-        Route::patch('/cart/{product}', [CartController::class, 'update'])->name('cart.update');
-        Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
 
         Route::get('/', [PagesController::class, 'index'])->name('index');
 

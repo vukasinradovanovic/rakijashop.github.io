@@ -63,7 +63,7 @@ class ProductController
         // Allow access to create form only for authenticated users
         if (!Auth::check()) {
             return redirect()
-                ->route('login')
+                ->route('login', ['locale' => app()->getLocale()])
                 ->with('error', __('product.flash.login_required'));
         }
 
@@ -78,7 +78,7 @@ class ProductController
         // Allow storing product only for authenticated users
         if (!Auth::check()) {
             return redirect()
-                ->route('login')
+                ->route('login', ['locale' => app()->getLocale()])
                 ->with('error', __('product.flash.login_required'));
         }
 
@@ -106,7 +106,7 @@ class ProductController
         }
 
         return redirect()
-            ->route('product.index')
+            ->route('product.index', ['locale' => app()->getLocale()])
             ->with('success', __('product.flash.created'));
     }
 
@@ -129,7 +129,7 @@ class ProductController
         // Allow storing product only for authenticated users
         if (!Auth::check()) {
             return redirect()
-                ->route('login')
+                ->route('login', ['locale' => app()->getLocale()])
                 ->with('error', __('product.flash.login_required'));
         }
 
@@ -170,7 +170,7 @@ class ProductController
         }
 
         return redirect()
-            ->route('product.show', $product)
+            ->route('product.show', ['locale' => app()->getLocale(), 'product' => $product])
             ->with('success', __('product.flash.updated'));
     }
 
@@ -195,7 +195,7 @@ class ProductController
         }
 
         return redirect()
-            ->route('product.index')
+            ->route('product.index', ['locale' => app()->getLocale()])
             ->with('success', __('product.flash.deleted'));
     }
 }

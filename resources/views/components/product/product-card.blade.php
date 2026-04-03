@@ -16,7 +16,7 @@
 
         {{-- Add to Cart Button --}}
         @if($showActions)
-            <form action="{{ route('cart.store', $product) }}" method="POST" class="productCard_addToCartAction position-absolute bottom-0 end-0 m-3 z-2">
+            <form action="{{ route('cart.store', ['locale' => app()->getLocale(), 'product' => $product]) }}" method="POST" class="productCard_addToCartAction position-absolute bottom-0 end-0 m-3 z-2">
                 @csrf
                 <button
                     type="submit"
@@ -43,5 +43,5 @@
 
     </div>
 
-    <a href="{{ route('product.show', $product) }}" class="stretched-link" aria-label="{{ __('product.show.show_product', ['name' => $product->name]) }}"></a>
+    <a href="{{ route('product.show', ['locale' => app()->getLocale(), 'product' => $product]) }}" class="stretched-link" aria-label="{{ __('product.show.show_product', ['name' => $product->name]) }}"></a>
 </article>

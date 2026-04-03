@@ -45,12 +45,12 @@
         <x-header.cart :cart-quantity="$cartQuantity" />
 
         @guest
-        <a href="{{ route('login') }}" class="siteNav_ghost">{{ __('auth.login') }}</a>
-        <a href="{{ route('register') }}" class="btn btnPrimary ">{{ __('auth.register') }}</a>
+        <a href="{{ route('login', ['locale' => app()->getLocale()]) }}" class="siteNav_ghost">{{ __('auth.login') }}</a>
+        <a href="{{ route('register', ['locale' => app()->getLocale()]) }}" class="btn btnPrimary ">{{ __('auth.register') }}</a>
         @endguest
 
         @auth
-        <a href="{{ route('product.create') }}" class="btn btnPrimary siteNav_cta d-md-none">{{
+        <a href="{{ route('product.create', ['locale' => app()->getLocale()]) }}" class="btn btnPrimary siteNav_cta d-md-none">{{
           __('product.form.create_title') }}</a>
         <div class="dropdown siteNav_profile">
           <button class="btn dropdown-toggle siteNav_profileBtn" type="button" data-bs-toggle="dropdown"
@@ -86,7 +86,7 @@
               <hr class="dropdown-divider">
             </li>
             <li>
-              <form action="{{ route('logout') }}" method="POST">
+              <form action="{{ route('logout', ['locale' => app()->getLocale()]) }}" method="POST">
                 @csrf
                 <button class="dropdown-item text-danger" type="submit">{{ __('auth.logout') }}</button>
               </form>

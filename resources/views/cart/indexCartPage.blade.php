@@ -25,13 +25,13 @@
 
                             <article class="cartItem card border-0 shadow-sm">
                                 <div class="card-body cartItem_body d-flex flex-column flex-md-row gap-3 align-items-md-center">
-                                    <a href="{{ route('product.show', $product) }}" class="cartItem_media flex-shrink-0">
+                                    <a href="{{ route('product.show', ['locale' => app()->getLocale(), 'product' => $product]) }}" class="cartItem_media flex-shrink-0">
                                         <img src="{{ $product->main_image }}" alt="{{ $product->name }}" class="cartItem_image rounded-3">
                                     </a>
 
                                     <div class="cartItem_content flex-grow-1">
                                         <h2 class="cartItem_title h5 mb-1">
-                                            <a href="{{ route('product.show', $product) }}" class="text-decoration-none text-reset">
+                                            <a href="{{ route('product.show', ['locale' => app()->getLocale(), 'product' => $product]) }}" class="text-decoration-none text-reset">
                                                 {{ $product->name }}
                                             </a>
                                         </h2>
@@ -40,7 +40,7 @@
                                     </div>
 
                                     <div class="cartItem_controls d-flex flex-column flex-sm-row gap-2 align-items-sm-center">
-                                        <form action="{{ route('cart.update', $product) }}" method="POST" class="d-flex align-items-center gap-2">
+                                        <form action="{{ route('cart.update', ['locale' => app()->getLocale(), 'product' => $product]) }}" method="POST" class="d-flex align-items-center gap-2">
                                             @csrf
                                             @method('PATCH')
 
@@ -59,7 +59,7 @@
                                             </button>
                                         </form>
 
-                                        <form action="{{ route('cart.destroy', $product) }}" method="POST">
+                                        <form action="{{ route('cart.destroy', ['locale' => app()->getLocale(), 'product' => $product]) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-outline-danger cartItem_removeBtn">
