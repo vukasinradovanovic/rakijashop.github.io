@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Product;
 
 use App\Models\Product\ImageProduct;
 use App\Models\Product\Product;
+use App\Models\Product\ProductPosition;
 use App\Models\Product\ProductStatus;
+use App\Models\User\User;
 use App\Http\Requests\Product\StoreProductRequest;
 use App\Http\Requests\Product\UpdateProductRequest;
 use App\Models\Product\CategoryProducts;
@@ -56,7 +58,7 @@ class ProductController
      */
     public function create($locale)
     {
-        $productStatuses = ProductStatus::all();
+        $productStatuses = ProductStatus::query()->orderBy('name')->get();
         $categories = CategoryProducts::where('is_active', true)->get();
 
 
@@ -85,13 +87,29 @@ class ProductController
         $data = $request->validated();
         $categoryId = $data['category_id'] ?? null;
         unset($data['category_id']);
+        unset($data['position_id']);
 
         $data['slug'] = Str::slug($data['name']);
 
         if (empty($data['status_id'])) {
-            $defaultStatus = ProductStatus::where('id', 1)->first();
-            $data['status_id'] = $defaultStatus->id;
+            $defaultStatusId = ProductStatus::query()
+                ->where('name', 'aktivan')
+                ->value('id')
+                ?? ProductStatus::query()->orderBy('id')->value('id');
+
+            if (!$defaultStatusId) {
+                return back()
+                    ->withInput()
+                    ->with('error', __('product.flash.status_missing'));
+            }
+
+            $data['status_id'] = $defaultStatusId;
         }
+
+        $data['position_id'] = ProductPosition::query()
+            ->where('slug', ProductPosition::SLUG_REGULAR)
+            ->value('id')
+            ?? ProductPosition::query()->orderBy('id')->value('id');
 
         $product = Product::create($data);
         $product->users()->syncWithoutDetaching([Auth::id()]);
@@ -133,11 +151,13 @@ class ProductController
                 ->with('error', __('product.flash.login_required'));
         }
 
-        $productStatuses = ProductStatus::all();
+        $productStatuses = ProductStatus::query()->orderBy('name')->get();
+        $canManagePosition = $this->canManagePosition();
+        $productPositions = $canManagePosition ? ProductPosition::options() : [];
         $product->load('images');
         $categories = CategoryProducts::where('is_active', true)->get();
 
-        return view('productPages.editProductPage', compact('product', 'productStatuses', 'categories'));
+        return view('productPages.editProductPage', compact('product', 'productStatuses', 'productPositions', 'categories', 'canManagePosition'));
     }
 
     /**
@@ -148,6 +168,10 @@ class ProductController
         $data = $request->validated();
         $categoryId = $data['category_id'] ?? null;
         unset($data['category_id']);
+
+        if (!$this->canManagePosition()) {
+            unset($data['position_id']);
+        }
 
         unset($data['slug']);
 
@@ -197,5 +221,12 @@ class ProductController
         return redirect()
             ->route('product.index', ['locale' => app()->getLocale()])
             ->with('success', __('product.flash.deleted'));
+    }
+
+    private function canManagePosition(): bool
+    {
+        $user = Auth::user();
+
+        return $user instanceof User && $user->hasRole('admin');
     }
 }

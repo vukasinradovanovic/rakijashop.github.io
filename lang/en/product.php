@@ -47,6 +47,9 @@ return [
         'description' => 'Description',
         'image' => 'Product image',
         'status' => 'Status',
+        'choose_status' => '-- Choose status --',
+        'position' => 'Product position',
+        'choose_position' => '-- Choose position --',
         'save' => 'Save',
         'cancel' => 'Cancel',
         'save_changes' => 'Save changes',
@@ -55,6 +58,7 @@ return [
 
     'flash' => [
         'login_required' => 'You must be logged in to add a product.',
+        'status_missing' => 'Unable to create product because no status is defined.',
         'created' => 'Product has been created successfully.',
         'updated' => 'Product has been updated successfully.',
         'deleted' => 'Product has been deleted successfully.',

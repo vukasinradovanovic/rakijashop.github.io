@@ -47,6 +47,9 @@ return [
         'description' => 'Opis',
         'image' => 'Slika proizvoda',
         'status' => 'Status',
+        'choose_status' => '-- Izaberi status --',
+        'position' => 'Pozicija proizvoda',
+        'choose_position' => '-- Izaberi poziciju --',
         'save' => 'Sačuvaj',
         'cancel' => 'Otkaži',
         'save_changes' => 'Sačuvaj izmene',
@@ -55,6 +58,7 @@ return [
 
     'flash' => [
         'login_required' => 'Morate biti ulogovani da biste dodali proizvod.',
+        'status_missing' => 'Nije moguće kreirati proizvod jer nijedan status nije definisan.',
         'created' => 'Proizvod je uspešno kreiran.',
         'updated' => 'Proizvod je uspešno ažuriran.',
         'deleted' => 'Proizvod je uspešno obrisan.',

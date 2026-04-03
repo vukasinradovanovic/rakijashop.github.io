@@ -4,6 +4,7 @@ namespace App\Models\Product;
 
 use App\Models\User\User;
 use App\Models\Product\CartItem;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -21,6 +22,7 @@ class Product extends Model
         'description',
         'price',
         'status_id',
+        'position_id',
     ];
 
     // Generator for slugs
@@ -71,6 +73,29 @@ class Product extends Model
         return $this->status()->exists();
     }
 
+    // Position relationship with ProductPosition model (many-to-one)
+    public function position(): BelongsTo
+    {
+        return $this->belongsTo(ProductPosition::class, 'position_id');
+    }
+
+    public function hasPosition(): bool
+    {
+        return $this->position()->exists();
+    }
+
+    public function isFeatured(): bool
+    {
+        return $this->position?->name === ProductPosition::NAME_FEATURED;
+    }
+
+    public function scopeFeatured(Builder $query): Builder
+    {
+        return $query->whereHas('position', function (Builder $positionQuery) {
+            $positionQuery->where('name', ProductPosition::NAME_FEATURED);
+        });
+    }
+
     // Images relationship (many-to-many)
     public function images(): BelongsToMany
     {
@@ -93,6 +118,11 @@ class Product extends Model
         return ProductStatus::query()
             ->whereKey($statusId)
             ->value('name');
+    }
+
+    public function getPositionNameAttribute(): ?string
+    {
+        return $this->position?->name;
     }
 
     public function cartItems(): HasMany

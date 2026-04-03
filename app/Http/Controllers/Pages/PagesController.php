@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Pages;
 
 use App\Models\Product\Product;
 use App\Models\Question\QuestionType;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController
 {
     public function index()
     {
         $featuredProducts = Product::query()
-            ->where('status_id', 1)
+            ->featured()
+            ->with(['images', 'position'])
             ->latest()
             ->take(6)
             ->get();
@@ -38,8 +40,8 @@ class PagesController
             ->get();
 
         $userInfo = null;
-        if (auth()->check()) {
-            $user = auth()->user();
+        if (Auth::check()) {
+            $user = Auth::user();
             $userInfo = [
                 'name' => $user->name,
                 'email' => $user->email,

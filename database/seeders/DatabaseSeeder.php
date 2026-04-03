@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             CitiesSeeder::class,
             CompanyInfosSeeder::class,
             ProductStatusSeeder::class,
+            ProductPositionSeeder::class,
             CategoryProductsSeeder::class,
             ProductSeeder::class,
             QuestionTypeSeeder::class,
