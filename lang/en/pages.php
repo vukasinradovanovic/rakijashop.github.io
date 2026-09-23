@@ -72,4 +72,15 @@ return [
             'saved' => 'Your password has been updated successfully.',
         ],
     ],
+
+    'reviews' => [
+        'title' => 'Reviews by :name',
+        'count' => ':count reviews',
+        'back' => 'Back',
+        'newest' => 'Newest',
+        'oldest' => 'Oldest',
+        'highest_rating' => 'Highest rating',
+        'lowest_rating' => 'Lowest rating',
+        'empty' => 'This user has no reviews yet.',
+    ],
 ];

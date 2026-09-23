@@ -72,4 +72,15 @@ return [
             'saved' => 'Lozinka je uspešno promenjena.',
         ],
     ],
+
+    'reviews' => [
+        'title' => 'Recenzije korisnika :name',
+        'count' => ':count recenzija',
+        'back' => 'Nazad',
+        'newest' => 'Najnovije',
+        'oldest' => 'Najstarije',
+        'highest_rating' => 'Najbolja ocena',
+        'lowest_rating' => 'Najniža ocena',
+        'empty' => 'Ovaj korisnik još nema recenzija.',
+    ],
 ];

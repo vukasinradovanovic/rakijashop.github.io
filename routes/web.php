@@ -12,6 +12,7 @@ use App\Http\Controllers\Product\CartController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Question\QuestionController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\ReviewsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -82,7 +83,10 @@ Route::prefix('{locale}')
             Route::patch('/user/{user}', [UserController::class, 'update']);
             Route::patch('/user/{user}/password', [UserController::class, 'updatePassword'])->name('user.password.update');
             Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+            Route::post('/reviews', [ReviewsController::class, 'store'])->name('reviews.store');
         });
+
+        Route::get('/user/{username}/reviews', [ReviewsController::class, 'show'])->name('reviews.show');
 
         Route::resource('product', ProductController::class);
 

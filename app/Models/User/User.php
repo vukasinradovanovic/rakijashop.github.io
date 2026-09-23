@@ -117,4 +117,18 @@ class User extends Authenticatable
     {
         return $this->hasOne(Cart::class);
     }
+
+    public function reviewsReceived(): BelongsToMany
+    {
+        return $this->belongsToMany(self::class, 'reviews', 'reviewed_user_id', 'reviewer_id')
+            ->withPivot(['rating', 'comment'])
+            ->withTimestamps();
+    }
+
+    public function reviewsGiven(): BelongsToMany
+    {
+        return $this->belongsToMany(self::class, 'reviews', 'reviewer_id', 'reviewed_user_id')
+            ->withPivot(['rating', 'comment'])
+            ->withTimestamps();
+    }
 }

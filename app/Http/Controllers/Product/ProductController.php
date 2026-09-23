@@ -135,8 +135,10 @@ class ProductController
     {
         $product->load(['images', 'users.userImg']);
         $categories = CategoryProducts::where('is_active', true)->get();
+        $user = $product->users->firstOrFail();
+        $ad = $product;
 
-        return view('productPages.showProductPage', compact('product', 'categories'));
+        return view('productPages.showProductPage', compact('product', 'categories', 'user', 'ad'));
     }
 
     /**
