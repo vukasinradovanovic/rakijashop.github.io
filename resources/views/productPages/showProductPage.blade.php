@@ -8,93 +8,89 @@
                 __('product.show.back_to_list') }}</a>
         </div>
 
-        <div class="row g-4">
-            <div class="col-12 col-md-6">
+        <div class="productPage_hero">
+            <div class="productPage_media">
                 <x-product.product-card :product="$product" :showActions="false" class="productCard--wide" />
             </div>
-            <div class="col-12 col-md-6">
+            <div class="productPage_details">
                 <h1 class="productPage_title">{{ $product->name }}</h1>
                 <p class="productPage_meta">{{ $product->getCategoryNamesAttribute() }}</p>
 
-                {{-- Description --}}
-                @if($product->description)
-                <div class="mt-3">
-                    <h2 class="productPage_subtitle">{{ __('product.show.description') }}</h2>
-                    <p class="productPage_description">{{ $product->description }}</p>
+                {{-- Owner Actions --}}
+                @if(Auth::user() && Auth::user()->hasProduct($product->id))
+                <div class="productPage_ownerActions">
+                        <p class="productPage_ownerLabel"><i class="fa-solid fa-sliders me-2"></i>{{ __('product.show.actions') }}</p>
+                    <div class="productPage_ownerButtons">
+                        <a href="{{ route('product.edit', ['locale' => app()->getLocale(), 'product' => $product]) }}"
+                            class="productCard_btn"><i class="fa-solid fa-pen-to-square me-2"></i>{{ __('product.show.edit') }}</a>
+                        <form action="{{ route('product.destroy', ['locale' => app()->getLocale(), 'product' => $product]) }}"
+                            method="POST" class="productCard_delete">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="productCard_btn productCard_btn--danger">
+                                <i class="fa-solid fa-trash-can me-2"></i>{{ __('product.show.delete') }}
+                            </button>
+                        </form>
+                    </div>
                 </div>
                 @endif
 
-                {{-- Add to Cart Form --}}
-                <form action="{{ route('cart.store', ['locale' => app()->getLocale(), 'product' => $product]) }}"
-                    method="POST" class="mb-3">
+                <div class="productPage_purchase">
+                    <p class="productPage_price">{{ number_format($product->price, 2, ',', '.') }} {{ __('product.currency')
+                        }}</p>
+                    <form action="{{ route('cart.store', ['locale' => app()->getLocale(), 'product' => $product]) }}"
+                        method="POST">
                     @csrf
                     <button type="submit" class="btn btnPrimary productPage_addToCart">
                         <i class="fa-solid fa-cart-plus me-2"></i>{{ __('cart.actions.add') }}
                     </button>
-                </form>
-
-                <p class="productPage_price">{{ number_format($product->price, 2, ',', '.') }} {{ __('product.currency')
-                    }}</p>
-
-                {{-- Buttons for product actions --}}
-                @if(Auth::user() && Auth::user()->hasProduct($product->id) != null)
-                <div class="productCard_actions">
-                    <a href="{{ route('product.edit', ['locale' => app()->getLocale(), 'product' => $product]) }}"
-                        class="productCard_btn">{{ __('product.show.edit') }}</a>
-                    <form
-                        action="{{ route('product.destroy', ['locale' => app()->getLocale(), 'product' => $product]) }}"
-                        method="POST" class="productCard_delete">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="productCard_btn productCard_btn--danger">
-                            {{ __('product.show.delete') }}
-                        </button>
                     </form>
-                </div>
-                @endif
-            </div>
-            {{-- Reviews --}}
-            <div class="col-12 col-lg-6">
-                <h3>{{ __('reviews.section_title') }}<span class="fs-3 ms-1">({{ $user->reviewsReceived->count()
-                        }})</span></h3>
-                <div class="row container p-0 m-0 pb-5">
-                    @if ($user->reviewsReceived->count())
-                    @foreach ($user->reviewsReceived()->latest()->take(4)->get() as $review)
-                    <x-user.user-review-card :review="$review" />
-                    @endforeach
-                    @else
-                    @if (auth()->check() && $ad->hasUser(auth()->id()))
-                    <div class=" p-3 roudend border d-flex justify-content-between align-items-center">
-                        <p class="text-secondary m-0">{{ __('reviews.empty_own') }}</p>
-                        @auth
-                        <button class="btn btnSecondary" data-bs-toggle="modal" data-bs-target="#reviewModal"><i
-                                class="fa fa-plus"></i> {{ __('reviews.write') }}</button>
-                        @endauth
-                    </div>
-                    @else
-                    <div class=" p-2 roudend border d-flex justify-content-between align-items-center">
-                        <p class="text-secondary m-0">{{ __('reviews.empty_user') }}</p>
-                        @auth
-                        <button class="btn btnSecondary" data-bs-toggle="modal" data-bs-target="#reviewModal"><i
-                                class="fa fa-plus"></i> {{ __('reviews.write') }}</button>
-                        @endauth
-                    </div>
-                    @endif
-                    @endif
-                    <div
-                        class="d-flex justify-content-between @if (!$ad->users->first()->reviewsReceived->count()) d-none @endif">
-                        @auth
-                        <button type="button"
-                            class="btn btnPrimary @if ($ad->hasUser(auth()->id())) d-none @endif"
-                            data-bs-toggle="modal" data-bs-target="#reviewModal"><i class="fa fa-plus"></i> {{
-                            __('reviews.write') }}</button>
-                        @endauth
-                        <a href="{{ route('reviews.show', ['locale' => app()->getLocale(), 'username' => $user->getUsername(), 'from' => url()->current()]) }}"
-                            class="btnUnderline">{{ __('reviews.view_all') }}<i class="fa fa-arrow-right ms-1"></i></a>
-                    </div>
                 </div>
             </div>
         </div>
+
+        {{-- Description --}}
+        @if($product->description)
+        <div class="productPage_descriptionBlock">
+            <p class="productPage_sectionEyebrow">{{ __('product.show.description') }}</p>
+            <h2 class="productPage_subtitle">{{ __('product.show.description') }}</h2>
+            <p class="productPage_description">{{ $product->description }}</p>
+        </div>
+        @endif
+
+        <div class="productPage_reviews">
+            <div class="productPage_reviewsHeader">
+                <div>
+                    <p class="productPage_sectionEyebrow">{{ __('reviews.section_title') }}</p>
+                    <h2 class="productPage_subtitle">{{ __('reviews.section_title') }}<span class="productPage_reviewsCount">{{ $user->reviewsReceived->count() }}</span></h2>
+                </div>
+                <div class="productPage_reviewsActions">
+                    @auth
+                    @if (!$product->hasUser(auth()->id()))
+                    <button type="button" class="btn btnPrimary" data-bs-toggle="modal" data-bs-target="#reviewModal">
+                        <i class="fa fa-plus me-2"></i>{{ __('reviews.write') }}
+                    </button>
+                    @endif
+                    @endauth
+                    <a href="{{ route('reviews.show', ['locale' => app()->getLocale(), 'username' => $user->getUsername(), 'from' => url()->current()]) }}" class="btnUnderline">
+                        {{ __('reviews.view_all') }}<i class="fa fa-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            @if ($user->reviewsReceived->count())
+            <div class="productPage_reviewsGrid">
+                @foreach ($user->reviewsReceived()->latest()->take(4)->get() as $review)
+                <x-user.user-review-card :review="$review" />
+                @endforeach
+            </div>
+            @else
+            <div class="productPage_reviewsEmpty">
+                <i class="fa-regular fa-star"></i>
+                <p>{{ auth()->check() && $product->hasUser(auth()->id()) ? __('reviews.empty_own') : __('reviews.empty_user') }}</p>
+            </div>
+            @endif
+                </div>
     </div>
 </section>
 @auth

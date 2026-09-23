@@ -33,6 +33,7 @@ return [
         'description' => 'Opis',
         'edit' => 'Izmeni',
         'delete' => 'Obriši',
+        'actions' => 'Upravljaj svojim proizvodom',
         'show_product' => 'Prikaži proizvod :name',
         'featured' => 'Izdvajamo',
     ],

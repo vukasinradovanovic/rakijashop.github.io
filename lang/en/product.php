@@ -33,6 +33,7 @@ return [
         'description' => 'Description',
         'edit' => 'Edit',
         'delete' => 'Delete',
+        'actions' => 'Manage your product',
         'show_product' => 'Show product :name',
         'featured' => 'Featured',
     ],
