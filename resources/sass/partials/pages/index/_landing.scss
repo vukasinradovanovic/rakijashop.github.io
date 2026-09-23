@@ -17,6 +17,10 @@
         font-weight: 700;
     }
 
+        @include l {
+            max-width: rem(560);
+        }
+
     &_title {
         font-family: 'Playfair Display', serif;
         font-size: rem(26);
@@ -27,6 +31,11 @@
     &_text {
         color: $brand-700;
         margin-bottom: rem(14);
+
+        @include l {
+            grid-template-columns: minmax(0, 0.82fr) minmax(rem(320), 1.18fr);
+            gap: rem(52);
+        }
     }
 
     &_list {

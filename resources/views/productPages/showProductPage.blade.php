@@ -10,7 +10,7 @@
 
         <div class="productPage_hero">
             <div class="productPage_media">
-                <x-product.product-card :product="$product" :showActions="false" class="productCard--wide" />
+                <x-product.product-card :product="$product" :showActions="false" :showPage="true" class="productCard--wide" />
             </div>
             <div class="productPage_details">
                 <h1 class="productPage_title">{{ $product->name }}</h1>
