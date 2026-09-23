@@ -83,4 +83,13 @@ return [
         'lowest_rating' => 'Lowest rating',
         'empty' => 'This user has no reviews yet.',
     ],
+
+    'errors' => [
+        '404' => [
+            'eyebrow' => 'Error 404',
+            'title' => 'Page not found',
+            'message' => 'The page you are looking for does not exist or may have been moved.',
+            'home' => 'Go to homepage',
+        ],
+    ],
 ];
