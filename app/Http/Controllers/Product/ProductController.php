@@ -164,7 +164,7 @@ class ProductController
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(UpdateProductRequest $request, $locale, Product $product)
     {
         $data = $request->validated();
         $categoryId = $data['category_id'] ?? null;
@@ -202,7 +202,7 @@ class ProductController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy($locale, Product $product)
     {
         $images = $product->images()->get();
         $product->categories()->detach();

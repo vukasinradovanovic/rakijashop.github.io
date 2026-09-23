@@ -11,9 +11,11 @@ use App\Http\Controllers\Pages\PagesController;
 use App\Http\Controllers\Product\CartController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Question\QuestionController;
+use App\Models\Product\Product;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\ReviewsController;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function (Request $request) {
@@ -21,6 +23,7 @@ Route::get('/', function (Request $request) {
 
     return redirect()->route('index', ['locale' => $preferred]);
 })->name('home');
+
 
 // Middleware for admin users domain
 Route::middleware('isAdmin')->group(function () {
@@ -66,7 +69,7 @@ Route::middleware('isAdmin')->group(function () {
 // Localized routes group
 Route::prefix('{locale}')
     ->whereIn('locale', ['en', 'sr'])
-    ->middleware('setLocale')
+    ->middleware(['setLocale', SubstituteBindings::class])
     ->group(function () {
         // Cart routes
         Route::get('/cart', [CartController::class, 'index'])->name('cart.index');

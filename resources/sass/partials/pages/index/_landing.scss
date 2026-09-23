@@ -93,7 +93,7 @@
         align-items: start;
 
         @include m {
-            grid-template-columns: minmax(0, 1.08fr) minmax(rem(280), 0.92fr);
+            grid-template-columns: minmax(0, 0.72fr) minmax(rem(320), 2.3fr);
             gap: rem(42);
         }
     }
