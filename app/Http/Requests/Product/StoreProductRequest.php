@@ -25,6 +25,8 @@ class StoreProductRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
             'price' => ['required', 'numeric', 'min:0'],
+            'volume_ml' => ['required', 'integer', 'min:1', 'max:10000'],
+            'alcohol_percentage' => ['required', 'numeric', 'min:0', 'max:100'],
             'status_id' => ['nullable', 'integer', 'exists:product_statuses,id'],
             'position_id' => ['prohibited'],
             'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:4096'],

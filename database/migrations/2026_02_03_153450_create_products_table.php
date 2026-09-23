@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->decimal('price', 8, 2);
+            $table->unsignedSmallInteger('volume_ml');
+            $table->decimal('alcohol_percentage', 5, 2);
             $table->foreignId('status_id')->constrained('product_statuses')->restrictOnDelete();
             $table->foreignId('position_id')->nullable()->constrained('product_positions')->nullOnDelete();
             $table->timestamps();

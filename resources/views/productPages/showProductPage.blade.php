@@ -16,6 +16,21 @@
                 <h1 class="productPage_title">{{ $product->name }}</h1>
                 <p class="productPage_meta">{{ $product->getCategoryNamesAttribute() }}</p>
 
+                <div class="productPage_specs" aria-label="{{ __('product.show.specifications') }}">
+                    <div class="productPage_spec">
+                        <span class="productPage_specLabel">{{ __('product.show.type') }}</span>
+                        <strong>{{ $product->getCategoryNamesAttribute() ?: __('product.show.not_available') }}</strong>
+                    </div>
+                    <div class="productPage_spec">
+                        <span class="productPage_specLabel">{{ __('product.show.volume') }}</span>
+                        <strong>{{ $product->volume_ml }} ml</strong>
+                    </div>
+                    <div class="productPage_spec">
+                        <span class="productPage_specLabel">{{ __('product.show.alcohol') }}</span>
+                        <strong>{{ number_format((float) $product->alcohol_percentage, 2, ',', '.') }}%</strong>
+                    </div>
+                </div>
+
                 {{-- Owner Actions --}}
                 @if(Auth::user() && Auth::user()->hasProduct($product->id))
                 <div class="productPage_ownerActions">

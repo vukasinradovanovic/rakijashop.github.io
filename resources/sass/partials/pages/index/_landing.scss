@@ -128,6 +128,38 @@
         margin: rem(10) 0 0;
     }
 
+    &_specs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: rem(8);
+        margin-top: rem(24);
+    }
+
+    &_spec {
+        min-width: 0;
+        padding: rem(12);
+        background: rgba($brand-200, 0.28);
+        border: 1px solid $brand-200;
+        border-radius: rem(10);
+
+        strong {
+            display: block;
+            color: $brand-900;
+            font-size: rem(14);
+            overflow-wrap: anywhere;
+        }
+    }
+
+    &_specLabel {
+        display: block;
+        margin-bottom: rem(4);
+        color: $brand-700;
+        font-size: rem(11);
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+
     &_purchase {
         display: flex;
         align-items: center;

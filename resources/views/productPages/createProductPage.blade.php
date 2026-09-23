@@ -46,6 +46,26 @@
                 @enderror
             </div>
 
+            {{-- Product volume --}}
+            <div class="col-12 col-md-4">
+                <label for="volume_ml" class="form-label">{{ __('product.form.volume') }}</label>
+                <input type="number" name="volume_ml" id="volume_ml" value="{{ old('volume_ml') }}" min="1" max="10000"
+                    class="form-control @error('volume_ml') ring-red @enderror" required>
+                @error('volume_ml')
+                <p class="error mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            {{-- Alcohol percentage --}}
+            <div class="col-12 col-md-4">
+                <label for="alcohol_percentage" class="form-label">{{ __('product.form.alcohol_percentage') }}</label>
+                <input type="number" name="alcohol_percentage" id="alcohol_percentage" value="{{ old('alcohol_percentage') }}"
+                    step="0.01" min="0" max="100" class="form-control @error('alcohol_percentage') ring-red @enderror" required>
+                @error('alcohol_percentage')
+                <p class="error mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
             {{-- Description of product --}}
             <div class="col-12">
                 <label for="description" class="form-label">{{ __('product.form.description') }}</label>

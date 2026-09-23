@@ -75,13 +75,15 @@ class ProductSeeder extends Seeder
             ->where('name', ProductPosition::NAME_FEATURED)
             ->value('id');
 
-        foreach ($products as $product) {
+        foreach ($products as $index => $product) {
             $model = Product::updateOrCreate(
                 ['slug' => Str::slug($product['name'])],
                 [
                     'name' => $product['name'],
                     'description' => $product['description'],
                     'price' => $product['price'],
+                    'volume_ml' => 500 + (($index % 4) * 200),
+                    'alcohol_percentage' => 38 + (($index % 5) * 2),
                     'status_id' => $statusId,
                     'position_id' => in_array($product['name'], [
                         'Šljivovica Klasik',
