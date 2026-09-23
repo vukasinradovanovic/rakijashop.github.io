@@ -21,9 +21,20 @@ class Product extends Model
         'slug',
         'description',
         'price',
+        'volume_ml',
+        'alcohol_percentage',
         'status_id',
         'position_id',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'price' => 'decimal:2',
+            'volume_ml' => 'integer',
+            'alcohol_percentage' => 'decimal:2',
+        ];
+    }
 
     // Generator for slugs
     public function Sluggable(): array

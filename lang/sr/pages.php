@@ -72,4 +72,24 @@ return [
             'saved' => 'Lozinka je uspešno promenjena.',
         ],
     ],
+
+    'reviews' => [
+        'title' => 'Recenzije korisnika :name',
+        'count' => ':count recenzija',
+        'back' => 'Nazad',
+        'newest' => 'Najnovije',
+        'oldest' => 'Najstarije',
+        'highest_rating' => 'Najbolja ocena',
+        'lowest_rating' => 'Najniža ocena',
+        'empty' => 'Ovaj korisnik još nema recenzija.',
+    ],
+
+    'errors' => [
+        '404' => [
+            'eyebrow' => 'Greška 404',
+            'title' => 'Stranica nije pronađena',
+            'message' => 'Stranica koju tražite ne postoji ili je možda premeštena.',
+            'home' => 'Idi na početnu stranicu',
+        ],
+    ],
 ];

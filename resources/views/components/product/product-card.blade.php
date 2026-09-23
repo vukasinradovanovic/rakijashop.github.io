@@ -1,6 +1,7 @@
 @props([
     'product',
     'showActions' => true,
+    'showPage' => false,
 ])
 
 {{-- Variables --}}
@@ -43,8 +44,8 @@
             </div>
         </div>
 
-        @if($product->description)
-            <p class="productCard_text">{{ $product->description }}</p>
+        @if(!$showPage)
+            <p class="productCard_text @if(!$product->description) productCard_text--empty @endif">{{ $product->description }}</p>
         @endif
 
         <div class="productCard_footer">
@@ -53,5 +54,7 @@
 
     </div>
 
-    <a href="{{ route('product.show', ['locale' => app()->getLocale(), 'product' => $product]) }}" class="stretched-link" aria-label="{{ __('product.show.show_product', ['name' => $product->name]) }}"></a>
+    @if(!$showPage)
+        <a href="{{ route('product.show', ['locale' => app()->getLocale(), 'product' => $product]) }}" class="stretched-link" aria-label="{{ __('product.show.show_product', ['name' => $product->name]) }}"></a>
+    @endif
 </article>

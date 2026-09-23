@@ -133,10 +133,11 @@ class ProductController
      */
     public function show($locale, Product $product)
     {
-        $product->load(['images', 'users.userImg']);
+        $product->load(['images', 'users.userImg', 'categories', 'position']);
         $categories = CategoryProducts::where('is_active', true)->get();
+        $user = $product->users->firstOrFail();
 
-        return view('productPages.showProductPage', compact('product', 'categories'));
+        return view('productPages.showProductPage', compact('product', 'categories', 'user'));
     }
 
     /**

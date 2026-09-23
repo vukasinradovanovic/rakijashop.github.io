@@ -17,6 +17,10 @@
         font-weight: 700;
     }
 
+        @include l {
+            max-width: rem(560);
+        }
+
     &_title {
         font-family: 'Playfair Display', serif;
         font-size: rem(26);
@@ -27,6 +31,11 @@
     &_text {
         color: $brand-700;
         margin-bottom: rem(14);
+
+        @include l {
+            grid-template-columns: minmax(0, 0.82fr) minmax(rem(320), 1.18fr);
+            gap: rem(52);
+        }
     }
 
     &_list {
@@ -78,6 +87,32 @@
 .productPage {
     padding: rem(40) 0;
 
+    &_hero {
+        display: grid;
+        gap: rem(28);
+        align-items: start;
+
+        @include m {
+            grid-template-columns: minmax(0, 1.08fr) minmax(rem(280), 0.92fr);
+            gap: rem(42);
+        }
+    }
+
+    &_media {
+        min-width: 0;
+
+        .productCard {
+            box-shadow: 0 rem(20) rem(42) rgba($brand-900, 0.12);
+        }
+    }
+
+    &_details {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        padding: rem(8) 0;
+    }
+
     &_header {
         display: flex;
         align-items: center;
@@ -93,10 +128,195 @@
         margin: 0;
     }
 
-    &_meta { color: $brand-700; }
-    &_price { font-size: rem(24); font-weight: 800; color: $brand-900; }
-    &_subtitle { font-size: rem(18); color: $brand-800; }
-    &_description { color: $brand-700; }
+    &_meta {
+        color: $plum-700;
+        font-size: rem(14);
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin: rem(10) 0 0;
+    }
+
+    &_specs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: rem(8);
+        margin-top: rem(24);
+    }
+
+    &_spec {
+        min-width: 0;
+        padding: rem(12);
+        background: rgba($brand-200, 0.28);
+        border: 1px solid $brand-200;
+        border-radius: rem(10);
+
+        strong {
+            display: block;
+            color: $brand-900;
+            font-size: rem(14);
+            overflow-wrap: anywhere;
+        }
+    }
+
+    &_specLabel {
+        display: block;
+        margin-bottom: rem(4);
+        color: $brand-700;
+        font-size: rem(11);
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+
+    &_purchase {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: rem(16);
+        margin-top: rem(28);
+        padding: rem(18) 0;
+        border-top: 1px solid $brand-200;
+        border-bottom: 1px solid $brand-200;
+
+        @media (max-width: 420px) {
+            align-items: stretch;
+            flex-direction: column;
+        }
+    }
+
+    &_price {
+        font-size: rem(28);
+        font-weight: 800;
+        color: $brand-900;
+        margin: 0;
+    }
+
+    &_addToCart {
+        white-space: nowrap;
+    }
+
+    &_subtitle {
+        font-family: 'Playfair Display', serif;
+        font-size: rem(24);
+        color: $brand-900;
+        margin: 0;
+    }
+
+    &_description {
+        color: $brand-700;
+        line-height: 1.8;
+        margin: rem(12) 0 0;
+        max-width: 70ch;
+    }
+
+    &_descriptionBlock {
+        margin-top: rem(34);
+        padding: rem(28) clamp(1.25rem, 4vw, 3rem);
+        background: $secondary-bg;
+        border: 1px solid $brand-200;
+        border-left: rem(5) solid $plum-700;
+        border-radius: rem(14);
+        box-shadow: 0 rem(12) rem(28) rgba($brand-900, 0.06);
+    }
+
+    &_sectionEyebrow {
+        color: $plum-700;
+        font-size: rem(12);
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        margin: 0 0 rem(8);
+        text-transform: uppercase;
+    }
+
+    &_ownerActions {
+        margin-top: rem(22);
+        padding: rem(16);
+        background: rgba($brand-200, 0.28);
+        border: 1px solid $brand-200;
+        border-radius: rem(12);
+    }
+
+    &_ownerLabel {
+        color: $brand-800;
+        font-size: rem(13);
+        font-weight: 700;
+        margin: 0 0 rem(10);
+    }
+
+    &_ownerButtons {
+        display: flex;
+        gap: rem(10);
+        flex-wrap: wrap;
+
+        .productCard_delete { margin: 0; }
+    }
+
+    &_reviews {
+        margin-top: rem(42);
+        padding-top: rem(30);
+        border-top: 1px solid $brand-200;
+    }
+
+    &_reviewsHeader {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: rem(18);
+        margin-bottom: rem(20);
+        flex-wrap: wrap;
+    }
+
+    &_reviewsCount {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: rem(34);
+        height: rem(30);
+        margin-left: rem(10);
+        padding: 0 rem(8);
+        color: $plum-700;
+        background: rgba($plum-700, 0.1);
+        border-radius: rem(999);
+        font-family: 'Inter', sans-serif;
+        font-size: rem(14);
+        vertical-align: middle;
+    }
+
+    &_reviewsActions {
+        display: flex;
+        align-items: center;
+        gap: rem(16);
+        flex-wrap: wrap;
+    }
+
+    &_reviewsGrid {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: rem(14);
+
+        @include m {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    &_reviewsEmpty {
+        display: flex;
+        align-items: center;
+        gap: rem(12);
+        padding: rem(20);
+        color: $brand-700;
+        background: rgba($brand-200, 0.2);
+        border: 1px dashed $brand-300;
+        border-radius: rem(12);
+
+        i {
+            color: $plum-700;
+            font-size: rem(22);
+        }
+
+        p { margin: 0; }
+    }
 
     &_grid { margin-top: rem(10); }
 
