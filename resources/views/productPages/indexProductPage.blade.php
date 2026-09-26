@@ -3,7 +3,7 @@
 @section('main')
 <section class="productPage productPage--index">
     <div class="container">
-        {{-- Search bar --}}
+        {{-- Search --}}
         <x-search.search-bar action="product.index" />
 
         <div class="productPage_header">

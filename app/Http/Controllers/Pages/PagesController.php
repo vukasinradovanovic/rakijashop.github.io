@@ -12,7 +12,7 @@ class PagesController
     {
         $featuredProducts = Product::query()
             ->featured()
-            ->with(['images', 'position', 'users.userImg'])
+            ->with(['images', 'position', 'users.userImg', 'users.reviewsReceived'])
             ->latest()
             ->take(6)
             ->get();

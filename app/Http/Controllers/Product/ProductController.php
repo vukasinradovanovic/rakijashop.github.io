@@ -24,9 +24,15 @@ class ProductController
     {
         $search = trim((string) $request->input('search', ''));
         $categoryId = $request->input('category', '');
+        $priceMin = $request->input('price_min');
+        $priceMax = $request->input('price_max');
+        $volumeMin = $request->input('volume_min');
+        $volumeMax = $request->input('volume_max');
+        $alcoholMin = $request->input('alcohol_min');
+        $alcoholMax = $request->input('alcohol_max');
         $sort = $request->input('sort', 'newest');
 
-        $query = Product::with(['images', 'users.userImg']);
+        $query = Product::with(['images', 'users.userImg', 'users.reviewsReceived']);
 
         if ($search !== '') {
             $query->where(function ($q) use ($search) {
@@ -39,6 +45,30 @@ class ProductController
             $query->whereHas('categories', function ($q) use ($categoryId) {
                 $q->where('category_products.id', $categoryId);
             });
+        }
+
+        if (is_numeric($priceMin)) {
+            $query->where('price', '>=', (float) $priceMin);
+        }
+
+        if (is_numeric($priceMax)) {
+            $query->where('price', '<=', (float) $priceMax);
+        }
+
+        if (is_numeric($volumeMin)) {
+            $query->where('volume_ml', '>=', (int) $volumeMin);
+        }
+
+        if (is_numeric($volumeMax)) {
+            $query->where('volume_ml', '<=', (int) $volumeMax);
+        }
+
+        if (is_numeric($alcoholMin)) {
+            $query->where('alcohol_percentage', '>=', (float) $alcoholMin);
+        }
+
+        if (is_numeric($alcoholMax)) {
+            $query->where('alcohol_percentage', '<=', (float) $alcoholMax);
         }
 
         match ($sort) {

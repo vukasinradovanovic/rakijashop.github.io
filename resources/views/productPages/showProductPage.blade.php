@@ -59,7 +59,6 @@
                 @if($product->description)
                 <div class="productPage_descriptionBlock">
                     <p class="productPage_sectionEyebrow">{{ __('product.show.description') }}</p>
-                    <h2 class="productPage_subtitle">{{ __('product.show.description') }}</h2>
                     <p class="productPage_description">{{ $product->description }}</p>
                 </div>
                 @endif
@@ -80,12 +79,12 @@
             </div>
         </div>
 
+        {{-- Reviews --}}
         <div class="productPage_reviews">
             <div class="productPage_reviewsHeader">
                 <div>
-                    <p class="productPage_sectionEyebrow">{{ __('reviews.section_title') }}</p>
-                    <h2 class="productPage_subtitle">{{ __('reviews.section_title') }}<span
-                            class="productPage_reviewsCount">{{ $user->reviewsReceived->count() }}</span></h2>
+                    <p class="productPage_sectionEyebrow">{{ __('reviews.section_title') }}<span
+                            class="productPage_reviewsCount">{{ $user->reviewsReceived->count() }}</span></p>
                 </div>
                 <div class="productPage_reviewsActions">
                     @auth
@@ -102,6 +101,7 @@
                 </div>
             </div>
 
+            {{-- Reviews Grid --}}
             @if ($user->reviewsReceived->count())
             <div class="productPage_reviewsGrid">
                 @foreach ($user->reviewsReceived()->latest()->take(4)->get() as $review)

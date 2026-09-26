@@ -8,7 +8,7 @@
     font-family: 'Inter', 'Mukta', system-ui, -apple-system, sans-serif;
 }
 h1,h2,h3,h4,h5{
-    font-family: 'Playfair Display', 'Poppins', serif;
+    font-family: 'Poppins', 'Inter', sans-serif;
     color: $primary-text;
 }
 .min-height-100{
@@ -129,7 +129,7 @@ button {
     }
 
     &_title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Poppins', 'Inter', sans-serif;
         font-size: clamp(1.9rem, 2.6vw, 2.4rem);
         color: $brand-900;
         margin: 0;
@@ -156,7 +156,7 @@ button {
     padding: rem(50) 0;
 
     &_title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Poppins', 'Inter', sans-serif;
         font-size: rem(28);
         color: $brand-900;
     }
