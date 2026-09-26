@@ -42,7 +42,6 @@
       </ul>
 
       <div class="siteNav_actions d-flex align-items-center gap-3">
-        <x-header.cart :cart-quantity="$cartQuantity" />
 
         @guest
         <a href="{{ route('login', ['locale' => app()->getLocale()]) }}" class="siteNav_ghost">{{ __('auth.login') }}</a>
@@ -50,6 +49,7 @@
         @endguest
 
         @auth
+        <x-header.cart :cart-quantity="$cartQuantity" />
         <a href="{{ route('product.create', ['locale' => app()->getLocale()]) }}" class="btn btnPrimary siteNav_cta d-md-none">{{
           __('product.form.create_title') }}</a>
         <div class="dropdown siteNav_profile">
