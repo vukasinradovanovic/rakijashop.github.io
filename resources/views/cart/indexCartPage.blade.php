@@ -92,6 +92,11 @@
                                 <span>{{ __('cart.page.total') }}</span>
                                 <strong>{{ number_format($totalPrice, 2, ',', '.') }} {{ __('product.currency') }}</strong>
                             </div>
+
+                            <div class="d-flex justify-content-between border-top pt-3 mt-3">
+                                <button class="btn btnPrimary w-100">
+                                    {{ __('cart.page.checkout') }}
+                            </div>
                         </div>
                     </aside>
                 </div>

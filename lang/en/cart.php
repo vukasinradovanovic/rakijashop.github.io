@@ -22,6 +22,7 @@ return [
         'line_total' => 'Item total',
         'items_count' => ':count items',
         'empty' => 'Your cart is currently empty.',
+        'checkout' => 'Proceed to checkout',
     ],
 
     'flash' => [
