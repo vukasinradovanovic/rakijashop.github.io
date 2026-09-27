@@ -37,7 +37,8 @@ class ReviewsController
         if (!$backUrl || parse_url($backUrl, PHP_URL_HOST) !== $request->getHost()) {
             $backUrl = route('user.show', [
                 'locale' => $locale,
-                'user' => $user->getUsername(),
+                'userName' => $user->getUsername(),
+                'user' => $user,
             ]);
         }
 

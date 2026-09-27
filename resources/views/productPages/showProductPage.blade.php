@@ -105,7 +105,7 @@
             @if ($user->reviewsReceived->count())
             <div class="productPage_reviewsGrid">
                 @foreach ($user->reviewsReceived()->latest()->take(4)->get() as $review)
-                <x-user.user-review-card :review="$review" />
+                <x-user.user-review-card :review="$review" :user="$user"/>
                 @endforeach
             </div>
             @else
