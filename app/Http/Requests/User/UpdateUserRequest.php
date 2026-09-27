@@ -36,6 +36,7 @@ class UpdateUserRequest extends FormRequest
                 'max:255',
                 Rule::unique('users', 'email')->ignore($this->user()?->id),
             ],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
         ];
     }
 }

@@ -56,6 +56,7 @@ return [
             'name_placeholder' => 'Enter your new full name',
             'username_placeholder' => 'Enter your new username',
             'email' => 'Email address',
+            'image' => 'Profile image',
             'email_placeholder' => 'Enter your new email address',
             'submit' => 'Save changes',
             'saved' => 'Your profile information has been updated successfully.',

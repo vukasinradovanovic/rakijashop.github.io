@@ -12,16 +12,16 @@
         </div>
 
         <div class="d-flex flex-wrap gap-2 mb-4">
-            <a href="{{ request()->fullUrlWithQuery(['sort' => 1]) }}" class="btn btnSecondary">{{ __('pages.reviews.newest') }}</a>
-            <a href="{{ request()->fullUrlWithQuery(['sort' => 2]) }}" class="btn btnSecondary">{{ __('pages.reviews.oldest') }}</a>
-            <a href="{{ request()->fullUrlWithQuery(['sort' => 3]) }}" class="btn btnSecondary">{{ __('pages.reviews.highest_rating') }}</a>
-            <a href="{{ request()->fullUrlWithQuery(['sort' => 4]) }}" class="btn btnSecondary">{{ __('pages.reviews.lowest_rating') }}</a>
+            <a href="{{ request()->fullUrlWithQuery(['sort' => 1]) }}" class="btn btnPrimary">{{ __('pages.reviews.newest') }}</a>
+            <a href="{{ request()->fullUrlWithQuery(['sort' => 2]) }}" class="btn btnPrimary">{{ __('pages.reviews.oldest') }}</a>
+            <a href="{{ request()->fullUrlWithQuery(['sort' => 3]) }}" class="btn btnPrimary">{{ __('pages.reviews.highest_rating') }}</a>
+            <a href="{{ request()->fullUrlWithQuery(['sort' => 4]) }}" class="btn btnPrimary">{{ __('pages.reviews.lowest_rating') }}</a>
         </div>
 
         <div class="row g-3">
             @forelse ($reviews as $review)
                 <div class="col-12 col-md-6">
-                    <x-user.user-review-card :review="$review" />
+                    <x-user.user-review-card :review="$review" :user="$user"/>
                 </div>
             @empty
                 <p class="text-secondary">{{ __('pages.reviews.empty') }}</p>

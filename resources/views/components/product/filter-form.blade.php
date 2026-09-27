@@ -2,19 +2,6 @@
 
 <form action="{{ route('product.index') }}" method="GET" class="filterForm">
     <div class="row g-3">
-        {{-- Search by name --}}
-        <div class="col-12">
-            <label for="filterSearch" class="form-label">{{ __('product.filter.search') }}</label>
-            <input
-                type="text"
-                name="search"
-                id="filterSearch"
-                value="{{ request('search') }}"
-                class="form-control filterForm_input"
-                placeholder="{{ __('product.filter.search_placeholder') }}"
-            >
-        </div>
-
         {{-- Filter by category --}}
         <div class="col-12">
             <label for="filterCategory" class="form-label">{{ __('product.filter.category') }}</label>
@@ -28,34 +15,40 @@
             </select>
         </div>
 
-        {{-- Filter by minimum price --}}
+        {{-- Filter by price range --}}
         <div class="col-12">
-            <label for="filterPriceMin" class="form-label">{{ __('product.filter.price_min') }}</label>
-            <input
-                type="number"
-                name="price_min"
-                id="filterPriceMin"
-                value="{{ request('price_min') }}"
-                min="0"
-                step="0.01"
-                class="form-control filterForm_input"
-                placeholder="0"
-            >
+            <div class="filterForm_rangeHeader">
+                <label for="filterPriceMin" class="form-label">{{ __('product.filter.price') }}</label>
+                <output class="filterForm_rangeValue" data-range-output="price">{{ request('price_min', 0) }} - {{ request('price_max', 5000) }} RSD</output>
+            </div>
+            <div class="filterForm_rangeGroup">
+                <input type="range" name="price_min" id="filterPriceMin" value="{{ request('price_min', 0) }}" min="0" max="5000" step="50" class="filterForm_range" data-range="price-min">
+                <input type="range" name="price_max" id="filterPriceMax" value="{{ request('price_max', 5000) }}" min="0" max="5000" step="50" class="filterForm_range" data-range="price-max">
+            </div>
         </div>
 
-        {{-- Filter by maximum price --}}
+        {{-- Filter by bottle volume range --}}
         <div class="col-12">
-            <label for="filterPriceMax" class="form-label">{{ __('product.filter.price_max') }}</label>
-            <input
-                type="number"
-                name="price_max"
-                id="filterPriceMax"
-                value="{{ request('price_max') }}"
-                min="0"
-                step="0.01"
-                class="form-control filterForm_input"
-                placeholder="{{ __('product.filter.price_max_placeholder') }}"
-            >
+            <div class="filterForm_rangeHeader">
+                <label for="filterVolumeMin" class="form-label">{{ __('product.filter.volume') }}</label>
+                <output class="filterForm_rangeValue" data-range-output="volume">{{ request('volume_min', 0) }} - {{ request('volume_max', 2000) }} ml</output>
+            </div>
+            <div class="filterForm_rangeGroup">
+                <input type="range" name="volume_min" id="filterVolumeMin" value="{{ request('volume_min', 0) }}" min="0" max="2000" step="50" class="filterForm_range" data-range="volume-min">
+                <input type="range" name="volume_max" id="filterVolumeMax" value="{{ request('volume_max', 2000) }}" min="0" max="2000" step="50" class="filterForm_range" data-range="volume-max">
+            </div>
+        </div>
+
+        {{-- Filter by alcohol percentage range --}}
+        <div class="col-12">
+            <div class="filterForm_rangeHeader">
+                <label for="filterAlcoholMin" class="form-label">{{ __('product.filter.alcohol') }}</label>
+                <output class="filterForm_rangeValue" data-range-output="alcohol">{{ request('alcohol_min', 0) }} - {{ request('alcohol_max', 100) }}%</output>
+            </div>
+            <div class="filterForm_rangeGroup">
+                <input type="range" name="alcohol_min" id="filterAlcoholMin" value="{{ request('alcohol_min', 0) }}" min="0" max="100" step="1" class="filterForm_range" data-range="alcohol-min">
+                <input type="range" name="alcohol_max" id="filterAlcoholMax" value="{{ request('alcohol_max', 100) }}" min="0" max="100" step="1" class="filterForm_range" data-range="alcohol-max">
+            </div>
         </div>
 
         {{-- Submit and reset buttons --}}

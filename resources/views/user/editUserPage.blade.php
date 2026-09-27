@@ -6,7 +6,7 @@
         @auth
         <div class="userProfilePage_section userProfilePage_section--form mb-5">
             <form action="{{ route('user.update', ['locale' => app()->getLocale(), 'user' => $user->username]) }}"
-                method="POST" class="formGeneral userProfilePage_editForm mt-3">
+                method="POST" enctype="multipart/form-data" class="formGeneral userProfilePage_editForm mt-3">
                 @csrf
                 @method('PATCH')
 
@@ -25,8 +25,10 @@
 
                 {{-- Username Field --}}
                 <div class="mb-3">
-                    <label class="form-label" for="profile-username">{{ __('pages.user_profile.form.username') }}</label>
-                    <input id="profile-username" type="text" name="username" value="{{ old('username', $user->username) }}"
+                    <label class="form-label" for="profile-username">{{ __('pages.user_profile.form.username')
+                        }}</label>
+                    <input id="profile-username" type="text" name="username"
+                        value="{{ old('username', $user->username) }}"
                         class="form-control @error('username') ring-red @enderror"
                         placeholder="{{ __('pages.user_profile.form.username_placeholder') }}">
                     @error('username')
@@ -45,12 +47,28 @@
                     @enderror
                 </div>
 
+                {{-- Profile image --}}
+                <div class="mb-3">
+                    <label class="form-label" for="profile-image">{{ __('pages.user_profile.form.image') }}</label>
+                    <div class="mb-2">
+                        <img src="{{ $user->profile_image }}" alt="{{ $user->name }}"
+                            class="profileInformation_profileImg rounded-circle object-fit-cover"
+                            style="width: 100px; height: 100px;">
+                    </div>
+                    <input id="profile-image" type="file" name="image" accept="image/*"
+                        class="form-control @error('image') ring-red @enderror">
+                    @error('image')
+                    <p class="error">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 <button type="submit" class="btn btnPrimary">{{ __('pages.user_profile.form.submit') }}</button>
             </form>
         </div>
 
         <div class="userProfilePage_section userProfilePage_section--form mb-5">
-            <form action="{{ route('user.password.update', ['locale' => app()->getLocale(), 'user' => $user->username]) }}"
+            <form
+                action="{{ route('user.password.update', ['locale' => app()->getLocale(), 'user' => $user->username]) }}"
                 method="POST" class="formGeneral userProfilePage_editForm mt-3">
                 @csrf
                 @method('PATCH')
@@ -58,7 +76,8 @@
                 <h2 class="userProfilePage_editFormTitle">{{ __('pages.user_profile.password_form.title') }}</h2>
 
                 <div class="mb-3">
-                    <label class="form-label" for="profile-current-password">{{ __('pages.user_profile.password_form.current_password') }}</label>
+                    <label class="form-label" for="profile-current-password">{{
+                        __('pages.user_profile.password_form.current_password') }}</label>
                     <input id="profile-current-password" type="password" name="current_password"
                         class="form-control @error('current_password') ring-red @enderror"
                         placeholder="{{ __('pages.user_profile.password_form.current_password_placeholder') }}"
@@ -69,7 +88,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label" for="profile-new-password">{{ __('pages.user_profile.password_form.password') }}</label>
+                    <label class="form-label" for="profile-new-password">{{
+                        __('pages.user_profile.password_form.password') }}</label>
                     <input id="profile-new-password" type="password" name="password"
                         class="form-control @error('password') ring-red @enderror"
                         placeholder="{{ __('pages.user_profile.password_form.password_placeholder') }}"
@@ -80,7 +100,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label" for="profile-new-password-confirmation">{{ __('pages.user_profile.password_form.password_confirmation') }}</label>
+                    <label class="form-label" for="profile-new-password-confirmation">{{
+                        __('pages.user_profile.password_form.password_confirmation') }}</label>
                     <input id="profile-new-password-confirmation" type="password" name="password_confirmation"
                         class="form-control @error('password_confirmation') ring-red @enderror"
                         placeholder="{{ __('pages.user_profile.password_form.password_confirmation_placeholder') }}"
@@ -90,7 +111,8 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btnPrimary">{{ __('pages.user_profile.password_form.submit') }}</button>
+                <button type="submit" class="btn btnPrimary">{{ __('pages.user_profile.password_form.submit')
+                    }}</button>
             </form>
         </div>
         @endauth

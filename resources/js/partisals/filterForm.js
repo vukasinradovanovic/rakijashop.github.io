@@ -11,6 +11,36 @@ export function initFilterForm() {
 
     const animationDur = 250;
 
+    function updateRangeOutput($form, rangeName) {
+        const min = $form.find(`[data-range="${rangeName}-min"]`).val();
+        const max = $form.find(`[data-range="${rangeName}-max"]`).val();
+        const suffix = rangeName === 'price' ? ' RSD' : rangeName === 'volume' ? ' ml' : '%';
+
+        $form.find(`[data-range-output="${rangeName}"]`).text(`${min} - ${max}${suffix}`);
+    }
+
+    $('.filterForm').each(function () {
+        const $form = $(this);
+        ['price', 'volume', 'alcohol'].forEach(rangeName => updateRangeOutput($form, rangeName));
+    });
+
+    $(document).on('input', '.filterForm_range', function () {
+        const $form = $(this).closest('.filterForm');
+        const rangeName = $(this).data('range').replace(/-(min|max)$/, '');
+        const minInput = $form.find(`[data-range="${rangeName}-min"]`);
+        const maxInput = $form.find(`[data-range="${rangeName}-max"]`);
+
+        if (Number(minInput.val()) > Number(maxInput.val())) {
+            if ($(this).data('range').endsWith('-min')) {
+                minInput.val(maxInput.val());
+            } else {
+                maxInput.val(minInput.val());
+            }
+        }
+
+        updateRangeOutput($form, rangeName);
+    });
+
     // Mobile toggle — slide body open / closed
     $(document).on('click', '.filterForm_toggleBtn', function () {
         const $btn  = $(this);

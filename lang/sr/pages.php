@@ -56,6 +56,7 @@ return [
             'name_placeholder' => 'Unesite novo ime i prezime',
             'username_placeholder' => 'Unesite novo korisničko ime',
             'email' => 'E-mail adresa',
+            'image' => 'Profilna slika',
             'email_placeholder' => 'Unesite novu e-mail adresu',
             'submit' => 'Sačuvaj izmene',
             'saved' => 'Podaci su uspešno ažurirani.',

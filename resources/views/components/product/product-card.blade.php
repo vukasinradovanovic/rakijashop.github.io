@@ -8,6 +8,9 @@
 @php
     $productImage = $product->main_image;
     $productOwner = $product->users->first();
+    $ownerRating = !$showPage && $productOwner?->relationLoaded('reviewsReceived')
+        ? $productOwner->reviewsReceived->avg(fn ($review) => $review->pivot->rating)
+        : null;
 @endphp
 
 <article class="productCard {{ $attributes->get('class') }}">
@@ -34,6 +37,7 @@
     <div class="productCard_body">
         <h3 class="productCard_title">{{ $product->name }}</h3>
 
+        {{-- Author Information --}}
         <div class="productCard_author">
             <span
                 class="productCard_authorAvatar"
@@ -41,6 +45,12 @@
                 aria-hidden="true"></span>
             <div class="productCard_authorMeta">
                 <span class="productCard_authorName">{{ $productOwner?->name ?? __('product.card.unknown_user') }}</span>
+                @if($ownerRating !== null)
+                    <span class="productCard_authorRating">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        {{ __('product.card.rating', ['rating' => number_format((float) $ownerRating, 1)]) }}
+                    </span>
+                @endif
             </div>
         </div>
 

@@ -22,7 +22,7 @@
         }
 
     &_title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Poppins', 'Inter', sans-serif;
         font-size: rem(26);
         color: $brand-900;
         margin: rem(8) 0;
@@ -93,7 +93,7 @@
         align-items: start;
 
         @include m {
-            grid-template-columns: minmax(0, 1.08fr) minmax(rem(280), 0.92fr);
+            grid-template-columns: minmax(0, 0.72fr) minmax(rem(320), 2.3fr);
             gap: rem(42);
         }
     }
@@ -123,7 +123,7 @@
     }
 
     &_title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Poppins', 'Inter', sans-serif;
         color: $brand-900;
         margin: 0;
     }
@@ -197,7 +197,7 @@
     }
 
     &_subtitle {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Poppins', 'Inter', sans-serif;
         font-size: rem(24);
         color: $brand-900;
         margin: 0;
@@ -222,7 +222,7 @@
 
     &_sectionEyebrow {
         color: $plum-700;
-        font-size: rem(12);
+        font-size: rem(17);
         font-weight: 800;
         letter-spacing: 0.12em;
         margin: 0 0 rem(8);

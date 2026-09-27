@@ -22,6 +22,7 @@ return [
         'line_total' => 'Ukupno za artikal',
         'items_count' => ':count artikala',
         'empty' => 'Korpa je trenutno prazna.',
+        "checkout" => 'Nastavi na plaćanje',
     ],
 
     'flash' => [

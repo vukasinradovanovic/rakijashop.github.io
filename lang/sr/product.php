@@ -19,6 +19,9 @@ return [
         'categoryAll' => 'Sve kategorije',
         'price_min' => 'Min cena',
         'price_max' => 'Maks cena',
+        'price' => 'Raspon cene',
+        'volume' => 'Zapremina boce',
+        'alcohol' => 'Procenat alkohola',
         'price_max_placeholder' => 'Maks',
         'sort' => 'Sortiraj po',
         'sortNewest' => 'Najnoviji',
@@ -46,6 +49,7 @@ return [
     'card' => [
         'published_by' => 'Objavio',
         'unknown_user' => 'Nepoznat korisnik',
+        'rating' => ':rating/5',
     ],
 
     'form' => [

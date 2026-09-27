@@ -42,15 +42,18 @@
       </ul>
 
       <div class="siteNav_actions d-flex align-items-center gap-3">
-        <x-header.cart :cart-quantity="$cartQuantity" />
 
         @guest
-        <a href="{{ route('login', ['locale' => app()->getLocale()]) }}" class="siteNav_ghost">{{ __('auth.login') }}</a>
-        <a href="{{ route('register', ['locale' => app()->getLocale()]) }}" class="btn btnPrimary ">{{ __('auth.register') }}</a>
+        <a href="{{ route('login', ['locale' => app()->getLocale()]) }}" class="siteNav_ghost">{{ __('auth.login')
+          }}</a>
+        <a href="{{ route('register', ['locale' => app()->getLocale()]) }}" class="btn btnPrimary ">{{
+          __('auth.register') }}</a>
         @endguest
 
         @auth
-        <a href="{{ route('product.create', ['locale' => app()->getLocale()]) }}" class="btn btnPrimary siteNav_cta d-md-none">{{
+        <x-header.cart :cart-quantity="$cartQuantity" />
+        <a href="{{ route('product.create', ['locale' => app()->getLocale()]) }}"
+          class="btn btnPrimary siteNav_cta d-md-none">{{
           __('product.form.create_title') }}</a>
         <div class="dropdown siteNav_profile">
           <button class="btn dropdown-toggle siteNav_profileBtn" type="button" data-bs-toggle="dropdown"
@@ -79,7 +82,7 @@
             <li><a class="dropdown-item" href="{{ $itemHref }}">{!! $item['name'] !!}</a></li>
             @endforeach
             @if (Auth::user()->hasRole('admin'))
-            <li><a class="dropdown-item" href="{{ route('dashboard.index') }}">{!! __('dashboard.dashboard-page')
+            <li><a class="dropdown-item" href="{{ route('dashboard.index') }}"><i class="fa-solid fa-gauge-high"></i> {!! __('dashboard.dashboard-page')
                 !!}</a></li>
             @endif
             <li>
@@ -88,7 +91,7 @@
             <li>
               <form action="{{ route('logout', ['locale' => app()->getLocale()]) }}" method="POST">
                 @csrf
-                <button class="dropdown-item text-danger" type="submit">{{ __('auth.logout') }}</button>
+                <button class="dropdown-item text-danger" type="submit"><i class="fa-solid fa-right-from-bracket"></i> {{ __('auth.logout') }}</button>
               </form>
             </li>
           </ul>

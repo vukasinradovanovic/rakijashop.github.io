@@ -35,6 +35,41 @@
         }
     }
 
+    &_rangeHeader {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: rem(10);
+
+        .form-label { margin-bottom: 0; }
+    }
+
+    &_rangeValue {
+        color: $plum-700;
+        font-size: rem(12);
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    &_rangeGroup {
+        display: grid;
+        gap: rem(6);
+        margin-top: rem(8);
+    }
+
+    &_range {
+        width: 100%;
+        height: rem(6);
+        margin: 0;
+        accent-color: $plum-700;
+        cursor: pointer;
+
+        &:focus-visible {
+            outline: rem(3) solid rgba($plum-700, 0.2);
+            outline-offset: rem(3);
+        }
+    }
+
     &_btn {
         min-height: rem(40);
         border-radius: rem(8);

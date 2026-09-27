@@ -19,6 +19,9 @@ return [
         'categoryAll' => 'All categories',
         'price_min' => 'Min price',
         'price_max' => 'Max price',
+        'price' => 'Price range',
+        'volume' => 'Bottle volume',
+        'alcohol' => 'Alcohol percentage',
         'price_max_placeholder' => 'Max',
         'sort' => 'Sort by',
         'sortNewest' => 'Newest',
@@ -46,6 +49,7 @@ return [
     'card' => [
         'published_by' => 'Published by',
         'unknown_user' => 'Unknown user',
+        'rating' => ':rating/5',
     ],
 
     'form' => [
