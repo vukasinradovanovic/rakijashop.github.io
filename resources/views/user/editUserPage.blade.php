@@ -6,7 +6,7 @@
         @auth
         <div class="userProfilePage_section userProfilePage_section--form mb-5">
             <form action="{{ route('user.update', ['locale' => app()->getLocale(), 'user' => $user->username]) }}"
-                method="POST" class="formGeneral userProfilePage_editForm mt-3">
+                method="POST" enctype="multipart/form-data" class="formGeneral userProfilePage_editForm mt-3">
                 @csrf
                 @method('PATCH')
 
@@ -41,6 +41,19 @@
                         class="form-control @error('email') ring-red @enderror"
                         placeholder="{{ __('pages.user_profile.form.email_placeholder') }}">
                     @error('email')
+                    <p class="error">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                {{-- Profile image --}}
+                <div class="mb-3">
+                    <label class="form-label" for="profile-image">{{ __('pages.user_profile.form.image') }}</label>
+                    <div class="mb-2">
+                        <img src="{{ $user->profile_image }}" alt="{{ $user->name }}" class="profileInformation_profileImg">
+                    </div>
+                    <input id="profile-image" type="file" name="image" accept="image/*"
+                        class="form-control @error('image') ring-red @enderror">
+                    @error('image')
                     <p class="error">{{ $message }}</p>
                     @enderror
                 </div>

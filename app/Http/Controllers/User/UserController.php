@@ -9,6 +9,7 @@ use App\Models\User\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserController
 {
@@ -73,7 +74,20 @@ class UserController
             abort(403);
         }
 
-        $user->update($request->validated());
+        $data = $request->validated();
+        unset($data['image']);
+        $user->update($data);
+
+        if ($request->hasFile('image')) {
+            $userImage = $user->userImg;
+
+            if ($userImage?->img) {
+                Storage::disk('public')->delete($userImage->img);
+            }
+
+            $imagePath = $request->file('image')->store('users', 'public');
+            $user->userImg()->updateOrCreate([], ['img' => $imagePath]);
+        }
 
         return redirect()->route('user.show', [
             'locale' => app()->getLocale(),
